@@ -504,7 +504,10 @@ class Feed extends AbstractModel
      */
     public function removeExpiredItems()
     {
-        if ($this->getLastRemove() + self::REMOVE_FREQUENCY > time()) {
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Fix 6-second interval bug in Olegnax\Core\Model\Feed::removeExpiredItems() that flushes CONFIG cache on every admin request":
+        # https://github.com/smokeday-com/m/issues/15
+        if ($this->getLastRemove() + self::REMOVE_FREQUENCY * 3600 > time()) {
             return $this;
         }
 
