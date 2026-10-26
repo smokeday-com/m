@@ -13,6 +13,10 @@ define([
     return {
         renderWidget: function () {
             const checkoutConfig = window.checkoutConfig;
+            // 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+            // "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+            // https://github.com/smokeday-com/m/issues/23
+            window._routeWidgetHelperActive = true;
 
             const widgetParams = {
                 allowMultipleRenders:true,
@@ -78,22 +82,26 @@ define([
                 shipping_method: shippingMethod
             });
         },
+        // 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        // "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+        // https://github.com/smokeday-com/m/issues/23
         checkRouteWidgetVisibility: function (params){
-            let body = $('body').loader();
-            body.loader('show');
-            $.post(checkoutConfig.controller_widget, params,  (data) => {
+            const key = (params.payment_method || '') + '|' + (params.shipping_method || '');
+            const applyVisibility = (data) => {
                 $(CARBON_LABEL).toggle(routeHelper.isCarbonNeutral());
-                //control the visibility of the widget
                 if ($(".route-div").length) {
                     $(".route-div, #RouteWidgetTitle").toggle(routeHelper.isEnabled() && data.show_widget);
                 }
-
-                if(!data.show_widget){
+                if (!data.show_widget) {
                     this.toggleInsurance({to: data.show_widget}, false);
                 }
-            }).done(()=> {
-                body.loader('hide');
-            });
+            };
+            if (window._lastRouteCheckWidgetKey === key && window._lastRouteCheckWidgetPromise) {
+                window._lastRouteCheckWidgetPromise.done(applyVisibility);
+                return;
+            }
+            window._lastRouteCheckWidgetKey = key;
+            window._lastRouteCheckWidgetPromise = $.post(checkoutConfig.controller_widget, params, applyVisibility);
         },
         toggleInsurance: function (data, changeState = true){
             if(changeState){

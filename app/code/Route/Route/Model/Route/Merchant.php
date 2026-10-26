@@ -31,7 +31,10 @@ class Merchant extends Client
 {
     const API_ENDPOINT = 'merchants';
     const ROUTE_MERCHANT_DATA = 'route_merchant_data';
-    const CACHE_LIFETIME = 300;
+    # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+    # https://github.com/smokeday-com/m/issues/23
+    const CACHE_LIFETIME = 86400;
     const ERROR_CACHE_LIFETIME = 10;
 
     const INVALID = "invalid";

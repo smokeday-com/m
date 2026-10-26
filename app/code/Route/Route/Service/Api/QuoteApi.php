@@ -24,6 +24,10 @@ use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+# https://github.com/smokeday-com/m/issues/23
+use GuzzleHttp\Promise\FulfilledPromise;
 use GuzzleHttp\Promise\Promise;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
@@ -81,8 +85,13 @@ class QuoteApi
     protected $helper;
 
     const ROUTE_QUOTE = 'route_quote';
-    const LIFETIME = 60;
+    # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+    # https://github.com/smokeday-com/m/issues/23
+    const LIFETIME = 3600;
+    const INVALID_LIFETIME = 60;
     const INVALID = 'invalid';
+    private static array $memoryCache = [];
 
 
     /**
@@ -137,7 +146,16 @@ class QuoteApi
             return false;
         }
         $decodedContent = json_decode($unserializedCachedResponse['content']);
-        return $body->getCart()['covered']['currency'] == $decodedContent->premium->currency;
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+        # https://github.com/smokeday-com/m/issues/23
+        if (!is_object($decodedContent) || !isset($decodedContent->payment_responsible->type)) {
+            return false;
+        }
+        if (isset($decodedContent->premium->currency)) {
+            return $body->getCart()['covered']['currency'] == $decodedContent->premium->currency;
+        }
+        return true;
     }
 
     private function isValidCache($body, $cachedResponse): bool
@@ -152,37 +170,69 @@ class QuoteApi
     }
 
 
+    # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+    # https://github.com/smokeday-com/m/issues/23
+    private function buildCacheKey($body): string
+    {
+        if ($body instanceof QuoteInput && is_array($body->getCart())) {
+            $cart = $body->getCart();
+            $currency = (string)($cart['covered']['currency'] ?? 'USD');
+            $amount = number_format((float)($cart['covered']['amount'] ?? 0), 2, '.', '');
+            return self::ROUTE_QUOTE . '_' . md5($currency . '|' . $amount);
+        }
+        return self::ROUTE_QUOTE . '_' . hash('md5', $body . '');
+    }
+
     private function updateCache($body, $response): array
     {
         $statusCode = $response->getStatusCode();
         $responseHeaders = $response->getHeaders();
         $content = $response->getBody()->getContents();
-        $key = hash('md5', $body . '');
+        $cacheKey = $this->buildCacheKey($body);
 
-        $this->cache->save(
-            $this->helper->serialize([
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+        # https://github.com/smokeday-com/m/issues/23
+        if ($statusCode >= 200 && $statusCode <= 299) {
+            $serialized = $this->helper->serialize([
                 'status' => $statusCode,
                 'responseHeader' => $responseHeaders,
                 'content' => $content,
-            ]),
-            self::ROUTE_QUOTE . '_' . $key,
-            [],
-            self::LIFETIME
-        );
+            ]);
+            self::$memoryCache[$cacheKey] = $serialized;
+            $this->cache->save(
+                $serialized,
+                $cacheKey,
+                [],
+                self::LIFETIME
+            );
+        }
 
         return [$statusCode, $responseHeaders, json_decode($content)];
     }
 
     private function loadFromCache($body): mixed
     {
-        $key = hash('md5', $body . '');
-        return $this->cache->load(self::ROUTE_QUOTE . '_' . $key);
+        $cacheKey = $this->buildCacheKey($body);
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+        # https://github.com/smokeday-com/m/issues/23
+        if (isset(self::$memoryCache[$cacheKey])) {
+            return self::$memoryCache[$cacheKey];
+        }
+        $cached = $this->cache->load($cacheKey);
+        if ($cached) {
+            self::$memoryCache[$cacheKey] = $cached;
+        }
+        return $cached;
     }
 
     private function invalidateCache($body):void
     {
-        $key = hash('md5', $body . '');
-        $this->cache->save(self::INVALID, self::ROUTE_QUOTE . '_' . $key, [], self::LIFETIME);
+        $cacheKey = $this->buildCacheKey($body);
+        self::$memoryCache[$cacheKey] = self::INVALID;
+        $this->cache->save(self::INVALID, $cacheKey, [], self::INVALID_LIFETIME);
     }
 
     /**
@@ -335,11 +385,29 @@ class QuoteApi
 
         $cachedResponse = $this->loadFromCache($body);
 
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+        # https://github.com/smokeday-com/m/issues/23
+        if ($cachedResponse === self::INVALID) {
+            return new FulfilledPromise([
+                ObjectSerializer::deserialize(
+                    json_decode(self::EMPTY_QUOTE),
+                    '\Route\Route\Service\Model\QuoteInlineResponse400',
+                    []
+                ),
+                400,
+                []
+            ]);
+        }
+
         if ($this->isValidCache($body, $cachedResponse)) {//check if cache is still valid
 
             list($statusCode, $responseHeaders, $decodedContent) = $this->extractCachedContent($cachedResponse);
 
-            return new Promise([
+            # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+            # "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+            # https://github.com/smokeday-com/m/issues/23
+            return new FulfilledPromise([
                 ObjectSerializer::deserialize($decodedContent, $returnType[$decodedContent->payment_responsible->type], []),
                 $statusCode,
                 $responseHeaders
@@ -350,33 +418,28 @@ class QuoteApi
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
-                function (ResponseInterface $response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+                # "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+                # https://github.com/smokeday-com/m/issues/23
+                function (ResponseInterface $response) use ($returnType, $body) {
+                    list($statusCode, $responseHeaders, $content) = $this->updateCache($body, $response);
 
-                    if ($response->getStatusCode() < 200 || $response->getStatusCode() > 299) {
+                    if ($statusCode < 200 || $statusCode > 299) {
                         return [
                             ObjectSerializer::deserialize(
                                 json_decode(self::EMPTY_QUOTE),
                                 '\Route\Route\Service\Model\QuoteInlineResponse400',
                                 []
                             ),
-                            $response->getStatusCode(),
-                            $response->getHeaders()
+                            $statusCode,
+                            $responseHeaders
                         ];
                     }
 
                     return [
                         ObjectSerializer::deserialize($content, $returnType[$content->payment_responsible->type], []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        $statusCode,
+                        $responseHeaders
                     ];
 
                 },

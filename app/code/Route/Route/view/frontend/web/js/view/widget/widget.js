@@ -119,6 +119,13 @@ define([
                 if (!config.enable)
                     return;
 
+                // 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+                // "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+                // https://github.com/smokeday-com/m/issues/23
+                if (window._routeWidgetHelperActive || (window.checkoutConfig && window.checkoutConfig.quote_function_url)) {
+                    return;
+                }
+
                 controllerUrl = config.controller_url;
                 controllerWidgetUrl = config.controller_widget;
                 enable = config.enable;
@@ -134,16 +141,22 @@ define([
                 else
                     main.render()
             },
+            // 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+            // "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+            // https://github.com/smokeday-com/m/issues/23
             checkRouteWidget: function (params) {
-                let body = $('body').loader();
-                body.loader('show');
-                let self = this;
-                $.post(controllerWidgetUrl, params, function(data){
+                const key = (params.payment_method || '') + '|' + (params.shipping_method || '');
+                const applyWidget = function (data) {
                     if ($(".route-div").length) {
                         $(".route-div, #RouteWidgetTitle").toggle(enable && data.show_widget);
                     }
-                    body.loader('hide');
-                });
+                };
+                if (window._lastRouteCheckWidgetKey === key && window._lastRouteCheckWidgetPromise) {
+                    window._lastRouteCheckWidgetPromise.done(applyWidget);
+                    return;
+                }
+                window._lastRouteCheckWidgetKey = key;
+                window._lastRouteCheckWidgetPromise = $.post(controllerWidgetUrl, params, applyWidget);
             }
         }
 

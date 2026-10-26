@@ -747,7 +747,10 @@ class Setup extends Data
      */
     public function getSetupCheckWidget($config)
     {
-        return $this->getConfigValue($config, true);
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+        # https://github.com/smokeday-com/m/issues/23
+        return $this->getConfigValue($config, false);
     }
 
     /**
@@ -758,7 +761,10 @@ class Setup extends Data
      */
     public function setSetupCheckWidget($config, $value = false)
     {
-        if (!$this->getConfigValue($config, true)) {
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Fix broken Route_Route QuoteApi caching and FulfilledPromise bug, increase Merchant cache TTL to 86400s, use Magento config cache in Setup::getSetupCheckWidget, and eliminate duplicate checkWidget calls and full-screen loader blocking":
+        # https://github.com/smokeday-com/m/issues/23
+        if (!$this->getConfigValue($config, false)) {
             $value = $value ? $value : 1;
             $this->saveConfig($config, $value);
         }
