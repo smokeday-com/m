@@ -153,7 +153,14 @@ class PluginListGenerator implements ConfigWriterInterface, ConfigLoaderInterfac
                 if (false === in_array($scope, $this->scopePriorityScheme, true)) {
                     $this->scopePriorityScheme[] = $scope;
                 }
-                $cacheId = implode('|', $this->scopePriorityScheme) . "|" . $this->cacheId;
+				# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+				# 1) "Adapt the website to Windows-based servers":
+				# https://github.com/smokeday-com/m/issues/1
+				# 2) "How to fix «file_put_contents(generated/metadata/primary|global|plugin-list.php):
+				# failed to open stream: No such file or directory
+				# in lib\internal\Magento\Framework\Interception\PluginListGenerator.php on line 414»
+				# in Magento 2.4-develop in Windows?" https://mage2.pro/t/6178
+				$cacheId = implode('-', $this->scopePriorityScheme) . "-" . $this->cacheId;
                 [
                     $virtualTypes,
                     $this->scopePriorityScheme,
