@@ -13,6 +13,15 @@
         <plugin name="clear_widget" type="Mirasvit\Affiliate\Plugin\Frontend\ClearWidgetBeforeSendResponsePlugin"/>
     </type>
 
+    <!-- 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    "Prevent Mirasvit_Affiliate from starting a PHP session and emitting Set-Cookie: PHPSESSID on every anonymous frontend request":
+    https://github.com/smokeday-com/m/issues/3 -->
+    <type name="Mirasvit\Affiliate\Plugin\Frontend\EnsureAccountRelationsBeforeSendResponsePlugin">
+        <arguments>
+            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+
     <type name="Mirasvit\GdprCookie\Model\Config\RequiredCookieList">
         <arguments>
             <argument name="cookies" xsi:type="array">

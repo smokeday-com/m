@@ -49,9 +49,10 @@ class EnsureAccountRelationsBeforeSendResponsePlugin
     public function beforeSendResponse($response)
     {
         $identifier = $this->cookieManager->getCookie('affiliate_identifier');
-        $customerId = $this->customerSession->getId();
-
-        if ($identifier && $customerId) {
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Prevent Mirasvit_Affiliate from starting a PHP session and emitting Set-Cookie: PHPSESSID on every anonymous frontend request":
+        # https://github.com/smokeday-com/m/issues/3
+        if ($identifier && ($customerId = $this->customerSession->getId())) {
             $this->accountService->ensureCustomerRelation((string)$identifier, (int)$customerId);
         }
     }
