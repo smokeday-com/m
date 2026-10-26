@@ -61,7 +61,14 @@ class AddBodyClass implements ObserverInterface
 				$class[] = 'ox-quickview-sa';
 			}
 		}
-		$class[] = $this->getConfig('athlete2_settings/header/menu_hover_style');
+		$menuHoverStyle = $this->getConfig('athlete2_settings/header/menu_hover_style');
+		$class[] = $menuHoverStyle;
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+        # https://github.com/smokeday-com/m/issues/20
+        if (in_array($menuHoverStyle, ['menu-style-2', 'menu-style-4', 'menu-style-5'], true)) {
+            $class[] = 'ox-mm-resize';
+        }
         $class[] = 'menu--align-' . $this->getConfig('athlete2_settings/header/menu_align');
         if(!empty($this->getConfig('athlete2_settings/header/menu_align_sticky'))) {
             $class[] = 'menu--align-sticky-' . $this->getConfig('athlete2_settings/header/menu_align_sticky');
