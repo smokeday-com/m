@@ -32,6 +32,11 @@ use Exception;
 class Version extends Client
 {
     const API_ENDPOINT = 'https://route-cdn.s3.amazonaws.com/route-magento-extension/magento2-version.json';
+    # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Eliminate 5.18s admin notification overhead in Mirasvit_Core, Route_Route, and Klevu_Search MessageList checks and remove render-blocking Google Fonts on Dashboard":
+    # https://github.com/smokeday-com/m/issues/16
+    private const CACHE_KEY = 'route_route_latest_version_check';
+    private const CACHE_TTL = 86400;
 
     /**
      * Get module's latest version from Route API
@@ -41,6 +46,13 @@ class Version extends Client
      */
     public function getLatestVersion()
     {
+        $cache = \Magento\Framework\App\ObjectManager::getInstance()
+            ->get(\Magento\Framework\App\CacheInterface::class);
+        $cachedVersion = $cache->load(self::CACHE_KEY);
+        if ($cachedVersion !== false && $cachedVersion !== '') {
+            return $cachedVersion;
+        }
+
         $version = $this->helper->getLatestVersionCheckVersion();
 
         if ($this->shouldPerformApiCall()) {
@@ -50,13 +62,18 @@ class Version extends Client
             $this->helper->saveConfig($this->helper::LATEST_VERSION_CHECK_DATE, $currentDate->format('Y-m-d'));
         }
 
+        if ($version) {
+            $cache->save((string)$version, self::CACHE_KEY, [], self::CACHE_TTL);
+        }
+
         return $version;
     }
 
     private function getMostRecentVersion()
     {
         try {
-            $versionJson = file_get_contents(self::API_ENDPOINT);
+            $ctx = stream_context_create(['http' => ['timeout' => 2], 'ssl' => ['handshake_timeout' => 2]]);
+            $versionJson = @file_get_contents(self::API_ENDPOINT, false, $ctx);
             if (!empty($versionJson)) {
                 $decodedVersion = $this->helper->unserialize($versionJson);
                 return $decodedVersion['latest_version'];

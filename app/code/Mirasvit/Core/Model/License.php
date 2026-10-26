@@ -248,6 +248,12 @@ class License
             ->loadSelf();
 
         $flag->delete();
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Eliminate 5.18s admin notification overhead in Mirasvit_Core, Route_Route, and Klevu_Search MessageList checks and remove render-blocking Google Fonts on Dashboard":
+        # https://github.com/smokeday-com/m/issues/16
+        \Magento\Framework\App\ObjectManager::getInstance()
+            ->get(\Magento\Framework\App\CacheInterface::class)
+            ->remove(\Mirasvit\Core\Model\License\Message::CACHE_KEY);
     }
 
     /**

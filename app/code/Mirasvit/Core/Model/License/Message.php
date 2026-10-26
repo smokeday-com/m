@@ -18,12 +18,20 @@
 namespace Mirasvit\Core\Model\License;
 
 use Magento\Backend\Model\UrlInterface;
+use Magento\Framework\App\CacheInterface;
+use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Module\FullModuleList;
 use Magento\Framework\Notification\MessageInterface;
 use Mirasvit\Core\Model\LicenseFactory;
 
 class Message implements MessageInterface
 {
+    # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Eliminate 5.18s admin notification overhead in Mirasvit_Core, Route_Route, and Klevu_Search MessageList checks and remove render-blocking Google Fonts on Dashboard":
+    # https://github.com/smokeday-com/m/issues/16
+    public const CACHE_KEY = 'mirasvit_core_license_issues';
+    private const CACHE_TTL = 86400;
+
     private $fullModuleList;
 
     private $licenseFactory;
@@ -32,14 +40,21 @@ class Message implements MessageInterface
 
     private $issues;
 
+    /**
+     * @var CacheInterface
+     */
+    private $cache;
+
     public function __construct(
         FullModuleList $fullModuleList,
         LicenseFactory $licenseFactory,
-        UrlInterface   $url
+        UrlInterface   $url,
+        ?CacheInterface $cache = null
     ) {
         $this->fullModuleList = $fullModuleList;
         $this->licenseFactory = $licenseFactory;
         $this->url            = $url;
+        $this->cache          = $cache ?: ObjectManager::getInstance()->get(CacheInterface::class);
     }
 
     public function isDisplayed()
@@ -77,6 +92,18 @@ class Message implements MessageInterface
             return $this->issues;
         }
 
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Eliminate 5.18s admin notification overhead in Mirasvit_Core, Route_Route, and Klevu_Search MessageList checks and remove render-blocking Google Fonts on Dashboard":
+        # https://github.com/smokeday-com/m/issues/16
+        $cached = $this->cache->load(self::CACHE_KEY);
+        if ($cached !== false && $cached !== '') {
+            $decoded = json_decode((string)$cached, true);
+            if (is_array($decoded)) {
+                $this->issues = $decoded;
+                return $this->issues;
+            }
+        }
+
         $issues = [];
         foreach ($this->fullModuleList->getAll() as $moduleData) {
             if (substr($moduleData['name'], 0, strlen('Mirasvit_')) !== 'Mirasvit_') {
@@ -89,7 +116,8 @@ class Message implements MessageInterface
             }
         }
 
-        $this->issues = array_unique($issues);
+        $this->issues = array_values(array_unique($issues));
+        $this->cache->save((string)json_encode($this->issues), self::CACHE_KEY, [], self::CACHE_TTL);
 
         return $this->issues;
     }

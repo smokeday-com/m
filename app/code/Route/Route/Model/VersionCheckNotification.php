@@ -51,7 +51,23 @@ class VersionCheckNotification implements MessageInterface
     ) {
         $this->routeVersion = $routeVersion;
         $this->helper = $helper;
-        $this->latestVersion = $this->routeVersion->getLatestVersion();
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Eliminate 5.18s admin notification overhead in Mirasvit_Core, Route_Route, and Klevu_Search MessageList checks and remove render-blocking Google Fonts on Dashboard":
+        # https://github.com/smokeday-com/m/issues/16
+        $this->latestVersion = null;
+    }
+
+    /**
+     * Lazily resolve latest Route module version outside constructor.
+     *
+     * @return string
+     */
+    private function resolveLatestVersion(): string
+    {
+        if ($this->latestVersion === null) {
+            $this->latestVersion = (string)$this->routeVersion->getLatestVersion();
+        }
+        return (string)$this->latestVersion;
     }
 
     public function getIdentity()
@@ -61,7 +77,8 @@ class VersionCheckNotification implements MessageInterface
 
     public function isDisplayed()
     {
-        if (version_compare($this->helper->getVersion(), $this->latestVersion) < 0) {
+        $latestVersion = $this->resolveLatestVersion();
+        if ($latestVersion !== '' && version_compare((string)$this->helper->getVersion(), $latestVersion) < 0) {
             return true;
         }
         return false;
@@ -69,7 +86,7 @@ class VersionCheckNotification implements MessageInterface
 
     public function getText()
     {
-        return '<span>Route Module requires an upgrade. Latest version available: ' . $this->latestVersion .
+        return '<span>Route Module requires an upgrade. Latest version available: ' . $this->resolveLatestVersion() .
             ' . Please see the <a href="' . $this->getChangeLogLink() . '" target="_blank"> release notes </a></span>';
     }
 

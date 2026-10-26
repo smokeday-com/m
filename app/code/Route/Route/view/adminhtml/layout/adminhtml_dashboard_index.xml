@@ -9,8 +9,9 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
         <css src="Route_Route::css/route.css" />
-        <css src="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700"  src_type="url" rel="stylesheet" type="text/css"  />
-        <css src="https://fonts.googleapis.com/css?family=Titillium+Web"  src_type="url" rel="stylesheet" type="text/css"  />
+        <!-- 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        "Eliminate 5.18s admin notification overhead in Mirasvit_Core, Route_Route, and Klevu_Search MessageList checks and remove render-blocking Google Fonts on Dashboard":
+        https://github.com/smokeday-com/m/issues/16 -->
     </head>
     <body>
         <referenceContainer name="content">
