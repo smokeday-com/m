@@ -34,12 +34,25 @@ class InlineCss extends SimpleTemplate
             parent::getCacheKeyInfo(),
             [
                 'OLEGNAX_ATHLETE2_INLINE_CSS',
+                (string)$this->getNameInLayout(),
                 (int)$this->_storeManager->getStore()->getId(),
                 (int)$this->_loadObject(\Olegnax\Core\Helper\Helper::class)->isMobileTheme(),
                 (string)$this->getConfig('athlete2_design/appearance_custom/dynamic_file_arg'),
                 (string)$this->getConfig('athlete2_design/appearance_custom/inline_css'),
             ]
         );
+    }
+
+    protected function _saveCache($data)
+    {
+        if (
+            trim((string)$data) === ''
+            && $this->getTemplate() === 'Olegnax_Athlete2::dynamic_css/inline-css.phtml'
+            && $this->getConfig('athlete2_design/appearance_custom/inline_css')
+        ) {
+            return false;
+        }
+        return parent::_saveCache($data);
     }
     public function escapeCss($css){
         return $this->escapeCss->escapeCss($css);
