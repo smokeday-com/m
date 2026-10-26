@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="affiliate" showInDefault="1" showInWebsite="1" showInStore="1" type="text" translate="label" sortOrder="100">
+            <label>Affiliate</label>
+            <tab>mirasvit</tab>
+            <resource>Mirasvit_Affiliate::affiliate_settings</resource>
+
+            <group id="general" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Is Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="show_referred_customers" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Show Referred Customers</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="account" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                <label>Account</label>
+                <field id="auto_sign_up" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Auto Sign Up after creating account</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="approval_required" translate="label" type="select" sortOrder="20" showInDefault="1">
+                    <label>Approval is required</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+
+                    <depends>
+                        <field id="auto_sign_up">0</field>
+                    </depends>
+                </field>
+
+                <field id="referral_param" translate="label" type="text" sortOrder="30" showInDefault="1">
+                    <label>Links referral param</label>
+                </field>
+
+                <field id="is_show_link" translate="label" type="select" sortOrder="40" showInDefault="1">
+                    <label>Display affiliate link only for registered affiliates</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="is_show_zero_events" translate="label" type="select" sortOrder="50" showInDefault="1">
+                    <label>Display events with zero commission</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="layout_editor" translate="button_label" type="button" sortOrder="90" showInDefault="1">
+                    <button_label>Additional Fields</button_label>
+                    <frontend_model>Mirasvit\Affiliate\Block\Adminhtml\System\Config\AdditionalFieldsButton</frontend_model>
+                </field>
+            </group>
+
+            <group id="promotion_materials" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="30">
+                <label>Promotion Materials</label>
+                <group id="widget" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+                    <label>Widget</label>
+                    <field id="bestsellers_last_days" translate="label" type="text" sortOrder="10" showInDefault="1">
+                        <label>Bestsellers last days</label>
+                    </field>
+                </group>
+            </group>
+
+            <group id="commission" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="40">
+                <label>Commission Workflow</label>
+
+                <field id="include_tax" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Include TAX into commission calculation</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="add_order_status" translate="label" type="select" sortOrder="20" showInDefault="1">
+                    <label>Add commission when order has obtained status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                </field>
+
+                <field id="subtract_order_status" translate="label" type="multiselect" sortOrder="30" showInDefault="1">
+                    <label>Subtract commission when order has obtained status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                </field>
+
+                <field id="subtract_on_creditmemo" translate="label" type="select" sortOrder="40" showInDefault="1">
+                    <label>Subtract commission when credit memo has been created</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="holding_period" translate="label" type="text" sortOrder="50" showInDefault="1">
+                    <label>Commission holding period (days)</label>
+                </field>
+
+                <field id="cookie_lifetime" translate="label" type="text" sortOrder="60" showInDefault="1">
+                    <label>Sales Commission lifetime (days)</label>
+                    <comment>Affiliate will receive commissions from referred customers during this period</comment>
+                </field>
+
+                <field id="commission_limit" translate="label" type="text" sortOrder="70" showInDefault="1">
+                    <label>Commissions limit</label>
+                    <comment>Maximum number of commissions from referred customer</comment>
+                </field>
+
+                <field id="assign_priority" translate="label" type="select" sortOrder="80" showInDefault="1">
+                    <label>Assign Priority</label>
+                    <source_model>Mirasvit\Affiliate\Model\Config\Source\CommissionAssignPrioritySource</source_model>
+                </field>
+            </group>
+
+            <group id="withdraw" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="50">
+                <label>Withdrawal Workflow</label>
+
+                <field id="min_amount" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Minimum withdrawal amount</label>
+                </field>
+
+                <field id="autowithdraw_enabled" translate="label" type="select" sortOrder="20" showInDefault="1">
+                    <label>Automatic creation of a withdrawal request</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="autowithdraw_schedule" translate="label" type="select" sortOrder="30" showInDefault="1">
+                    <label>Schedule</label>
+                    <source_model>Mirasvit\Affiliate\Model\Config\Source\Withdraw\ScheduleSource</source_model>
+                    <depends>
+                        <field id="autowithdraw_enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="autowithdraw_round" translate="label" type="select" sortOrder="40" showInDefault="1">
+                    <label>Round</label>
+                    <source_model>Mirasvit\Affiliate\Model\Config\Source\Withdraw\RoundSource</source_model>
+                    <depends>
+                        <field id="autowithdraw_enabled">1</field>
+                    </depends>
+                </field>
+
+                <field id="payment_methods_custom" translate="label" sortOrder="50" showInDefault="1">
+                    <label>Payment Methods</label>
+                    <frontend_model>Mirasvit\Affiliate\Ui\Config\Form\WithdrawPayment\FieldBlock</frontend_model>
+                    <backend_model>Mirasvit\Affiliate\Ui\Config\Form\WithdrawPayment\BackendModel</backend_model>
+                </field>
+            </group>
+
+            <group id="coupon" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="60">
+                <label>Coupons</label>
+
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Enable coupon</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If enabled, affiliate can get coupon to refer friends</comment>
+                </field>
+
+                <field id="pattern" translate="label" type="text" sortOrder="20" showInDefault="1">
+                    <label>Coupon pattern</label>
+                    <validate>regular-expression</validate>
+                </field>
+            </group>
+            <group id="notification" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="100">
+                <label>Email Notification Settings</label>
+                <group id="customer" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10">
+                    <label>For Affiliates</label>
+
+                    <field id="account_new_template" translate="label" type="select" sortOrder="10"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>New Account</label>
+                        <source_model>Mirasvit\Affiliate\Model\Config\Source\Email\TemplateSource</source_model>
+                    </field>
+
+                    <field id="account_approved_template" translate="label" type="select" sortOrder="20"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Account has been approved</label>
+                        <source_model>Mirasvit\Affiliate\Model\Config\Source\Email\TemplateSource</source_model>
+                    </field>
+
+                    <field id="transaction_new_template" translate="label" type="select" sortOrder="30"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>New Transaction</label>
+                        <source_model>Mirasvit\Affiliate\Model\Config\Source\Email\TemplateSource</source_model>
+                    </field>
+
+                    <field id="update_balance_template" translate="label" type="select" sortOrder="40"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Balance has been updated</label>
+                        <source_model>Mirasvit\Affiliate\Model\Config\Source\Email\TemplateSource</source_model>
+                    </field>
+                </group>
+                <group id="admin" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="20">
+                    <label>For Admin</label>
+
+                    <field id="account_new_template" translate="label" type="select" sortOrder="10"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>New Account</label>
+                        <source_model>Mirasvit\Affiliate\Model\Config\Source\Email\TemplateSource</source_model>
+                    </field>
+
+                    <field id="withdraw_new_template" translate="label" type="select" sortOrder="20"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>New Withdrawal Request</label>
+                        <source_model>Mirasvit\Affiliate\Model\Config\Source\Email\TemplateSource</source_model>
+                    </field>
+                </group>
+
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Vi gennemgår din registrering og giver dig besked."
+"Your request to sign up to the affiliate program has been rejected.","Din anmodning om at tilmelde dig tilknyttet program er blevet afvist."
+"Sign In to Affiliates","Log ind på tilknyttede selskaber"
+"You have successfully signed up for an affiliate account.","Du har tilmeldt dig en tilknyttet konto."
+"Affiliate Dashboard","Affiliate Dashboard"
+"Affiliate Account Settings","Indstillinger for tilknyttet konto"
+"Account information successfully updated.","Kontooplysninger opdateret."
+"Transactions History",Transaktionshistorie
+"Promotion Materials",Markedsføringsmateriale
+Statistics,Statistikker
+"Affiliate Program Overview","Oversigt over tilknyttet program"
+Withdrawals,Tilbagetrækninger
+"Withdrawal request has been submitted.","Tilbagekaldelsesanmodning er indsendt."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","En eller flere <a href=""%1"">tilknyttede konti</a> er i øjeblikket afventende status."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","En eller flere <a href=""%1"">anmodninger om tilbagetrækning</a> er i øjeblikket i afventende status."
+"Pending Approval","Afventer godkendelse"
+Approved,Godkendt
+"Not Approved","Ikke godkendt"
+Image,Billede
+Text,Tekst
+"Assign to first referred affiliate","Tildel til først henvist tilknyttet"
+"Assign to last referred affiliate","Tildel til sidst henvist tilknyttet"
+Available,Ledig
+Inactive,Inaktiv
+Removed,Fjernet
+"- Disable these emails -","- Deaktiver disse e-mails -"
+Click,"Klik på"
+Impression,Indtryk
+Lead,"At føre"
+Sale,Salg
+". ' (default)'",". &#39; (Standard)&#39;"
+"Percent of order amount","Procent af ordrebeløb"
+"Percent of cart amount","Procent af vognens størrelse"
+"Fixed amount","Fast beløb"
+"Pay per Sale","Betal pr. Salg"
+"Pay per Lead","Betal pr. Bly"
+"Pay per Click","Betal pr. Klik"
+"Pay per Impression","Betal pr. Indtryk"
+Complete,Komplet
+"In Hold","I hold"
+Commission,Provision
+Withdraw,"Træk dig tilbage"
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Opbevar kredit"
+Other,Andet
+Pending,Verserende
+Accepted,Accepteret
+Completed,Afsluttet
+Denied,Nægtet
+"Number of Orders from reffered customers","Antal ordrer fra henviste kunder"
+"Sales Amount from reffered customers","Salgsbeløb fra henviste kunder"
+is,er
+"is not","er ikke"
+"greater than","bedre end"
+"less than","Mindre end"
+"equals or greater than","lig med eller større end"
+"equals or less than","lig med eller mindre end"
+"Conditions Combination","Betingelser Kombination"
+"Affiliate conditions","Tilknyttede betingelser"
+General,Generel
+"Customer Group",Kundegruppe
+Store,Butik
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Filtype er ikke tilladt (kun JPG-, JPEG-, PNG- og GIF-filer er tilladt)"
+"Commission for order #%1 (%2)","Kommission for ordre #%1 (%2)"
+"Refund for order #%1","Refusion for ordre #%1"
+Withdrawal,Tilbagetrækning
+"Withdraw cannot exceed current balance.","Udtræk kan ikke overstige den aktuelle saldo."
+"Minimum withdrawal amount is %1.","Minimumsudbetalingsbeløb er %1."
+"You already have a pending withdrawal request.","Du har allerede en ventende tilbagetrækningsanmodning."
+"Affiliate Withdrawal","Tilknytning af tilknyttet"
+Back,Tilbage
+Delete,Slet
+"Are you sure you want to proceed?","Er du sikker på, at du vil fortsætte?"
+"Save and Continue Edit","Gem og fortsæt redigering"
+Save,Gemme
+"Click on row to edit the coupon","Klik på række for at redigere kuponen"
+"Referred Customers","Henviste kunder"
+Actions,Handlinger
+"Add Customers","Tilføj kunder"
+Customers,Kunder
+Cancel,Afbestille
+"Add Selected Customers","Tilføj valgte kunder"
+Remove,Fjerne
+ID,ID
+Name,Navn
+Email,E-mail
+View,Udsigt
+Edit,Redigere
+"Delete item?","Slet element?"
+Conditions,Betingelser
+"Affiliate conditions (affects only automatically updated group)","Tilknyttede betingelser (påvirker kun automatisk opdateret gruppe)"
+"Assigned Affiliates","Tildelte tilknyttede selskaber"
+"Add Affiliate","Tilføj tilknyttet"
+Affiliates,"Tilknyttede virksomheder"
+"Add Selected","Tilføj valgt"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Anvend kun provisionen på kurvgenstande, der matcher følgende betingelser (lad tomt være for alle varer)."
+Accept,Acceptere
+Reject,Afvise
+"Referring Website","Henvisende websted"
+"Subscribe to email notifications","Abonner på e-mail-underretninger"
+"I accept the terms and conditions","Jeg accepterer betingelserne"
+"Sign Up",Tilmelde
+"Referral Website",Henvisningswebsted
+"Payment Method",Betalingsmetode
+"Payment Information",Betalingsinformation
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Angiv personlig betalingsinformation: PayPal-e-mail eller alle betalingsoplysninger om e-tegnebogen."
+From,Fra
+To,Til
+Apply,Ansøge
+Clicks,Klik
+Leads,Leads
+Orders,"Ordre:% s"
+Views,Visninger
+Earned,Optjent
+"My Account","Min konto"
+"Commissions according to your affiliate group","Provisioner i henhold til din tilknyttede gruppe"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> af ordrebeløbet fra første ordre"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> af ordrebeløbet fra anden og flere ordrer"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> af vognbeløbet fra første ordre"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> af vognbeløbet fra anden og flere ordrer"
+"<b>%1</b> per sale from first order","<b>%1</b> pr. Salg fra første ordre"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> pr. Salg fra anden og flere ordrer"
+"<b>%1</b> per unique click","<b>%1</b> pr. Unikt klik"
+"<b>%1</b> per lead","<b>%1</b> pr. Bly"
+"<b>%1</b> per 1000 views","<b>%1</b> pr. 1000 visninger"
+Banners,Bannere
+Type,Type
+Size,Størrelse
+Link,Link
+"Get Code","Få kode"
+"Copy and paste this code into your website: ","Kopier og indsæt denne kode på dit websted:"
+"Referral Coupons",Henvisningskuponer
+Program,Program
+Coupon,Kupon
+Discount,Rabat
+"Personal Referral Link","Personligt henvisningslink"
+"Enter any URL from this store in the form below to generate a new referral link:","Indtast enhver URL fra denne butik i nedenstående form for at generere et nyt henvisningslink:"
+"Your unique referral link is:","Dit unikke henvisningslink er:"
+"Referral Widget",Henvisnings-widget
+"Widget Title:","Widget titel:"
+"Related Products","Relaterede produkter"
+Width:,Bredde:
+Height:,Højde:
+"Number of products:","Antal produkter:"
+"Show Bestsellers","Vis bestsellere"
+"Show New Products","Vis nye produkter"
+Search,Søg
+"Search term",Søgeterm
+"Show Product's names","Vis produktets navne"
+"Show Prices","Vis priser"
+"Place this code wherever you want the widget to appear on your page.","Placer denne kode, hvor som helst du vil have widgeten på din side."
+"Current balance: <b>%1</b>","Nuværende saldo: <b>%1</b>"
+"On hold: %1","På vent: %1"
+"Lifetime: %1","Levetid: %1"
+"Paid: %1","Betalt: %1"
+Date,Dato
+Balance,Balance
+Amount,Beløb
+Details,Detaljer
+"On hold to %1","På vent til %1"
+"There have been no transactions yet.","Der har ikke været nogen transaktioner endnu."
+"Request withdrawal","Anmod om tilbagetrækning"
+"Minimum balance to request withdrawal is %1","Minimumssaldo for at anmode om tilbagetrækning er %1"
+Fee,Betaling
+Status,Status
+"Pending approval","Afventer godkendelse"
+"There have been no withdrawals yet.","Der har ikke været nogen udtræk endnu."
+"Your account is assigned to the <span>%1</span> affiliate group","Din konto er tildelt den tilknyttede gruppe <span>%1</span>"
+Commissions,Provisioner
+"Our Programs","Vores programmer"
+"Our Program","Vores program"
+"%1  - Minimum balance required for payout.","%1 - Minimumssaldo krævet for udbetaling."
+"Affiliate Group","Tilknyttet gruppe"
+Description,Beskrivelse
+"Sign In","Log ind"
+"New Affiliate Account","Ny tilknyttet konto"
+"Account Information",Kontooplysninger
+"%name,","%navn,"
+"Your affiliate account at %store_name has been approved.","Din tilknyttede konto på% store_name er godkendt."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Klik <a href=""%login_url"">her for</a> at logge ind på din konto."
+"Your account balance has been updated at %store_name.","Din kontosaldo er blevet opdateret på% store_name."
+Balance:,Balance:
+"Welcome to %store_name affiliate program!","Velkommen til tilknyttet program% store_name!"
+Email:,E-mail:
+"Referring Website:","Henvisende websted:"
+"A customer referred by you has just placed an order at %store_name.","En kunde, du har henvist til, har netop afgivet en ordre på% store_name."
+"Thus, it was credited to your affiliate account.","Således blev den krediteret din tilknyttede konto."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Når ordren er gennemført, overfører vi provisionen til din kontosaldo i vores system, og så kan du trække pengene, når du vil."
+"Transaction Amount:",Overførselsbeløb:
+"Current Balance:","Nuværende balance:"
+"New Withdrawal Request","Ny anmodning om tilbagetrækning"
+Information,Information
+"Please log in to the admin panel to manage this request.","Log ind på adminpanelet for at administrere denne anmodning."
+"Affiliate: Sign In Button","Tilknyttet: Log ind-knap"
+"Affiliate: List of programs","Affiliate: Liste over programmer"
+"Account Dashboard",Kontoudashboard
+Transactions,Transaktioner
+Settings,Indstillinger
+"Affiliate Program","Tilknyttet program"

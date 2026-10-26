@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="retry_fallback_operations" instance="Route\Route\Observer\RerunOperation" method="retryFallbackOperations" />
+        <job name="resend_orders_operations" instance="Route\Route\Observer\ResendOrders" method="retryOrders" />
+        <job name="clear_fallback_operations" instance="Route\Route\Observer\RerunOperation" method="clearFallbackOperations" />
+        <job name="resend_shipments_operations_custom" instance="Route\Route\Observer\ResendShipments" method="retryShipmentsCustom" />
+        <job name="resend_shipments_operations_hourly" instance="Route\Route\Observer\ResendShipments" method="retryShipmentsHourly" />
+    </group>
+</config>

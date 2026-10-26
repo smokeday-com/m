@@ -1,0 +1,69 @@
+<?php
+if(!$block->getConfig( 'athlete2_settings/header/language_in_header' )){
+	return;
+}
+
+$theme_helper = $this->helper(Olegnax\Athlete2\Helper\Icons::class);
+$tinyDrop = $block->getConfig('athlete2_settings/header/language_tiny_drops' ); 
+$showStores = $block->getConfig('athlete2_settings/header/language_drop_show_stores' );
+$showLanguages = $block->getConfig('athlete2_settings/header/language_drop_show_languages' );
+$showCurrency = $block->getConfig('athlete2_settings/header/language_drop_show_currency' );
+$showCurrencyLabel = $block->getConfig('athlete2_settings/header/language_label_currency' );
+$moveMobile = $block->getConfig('athlete2_settings/header/language_move_mobile' );
+$dropPosition = $block->getConfig('athlete2_settings/header/language_drop_position' );
+
+// switch trigger icon
+$icon = '';
+if($block->getConfig('athlete2_settings/header/language_drop_trigger_icon' ) === 'icon'){
+	$icon_option   =  'athlete2_design/appearance_icons_header/header_icon_';
+	$icon = $theme_helper ->getIconHTML('language', $icon_option); // $name, $icon_option = '', $classes = ''
+}
+
+$labelText = $block->getConfig('athlete2_settings/header/language_label' );
+$text = $block->getConfig( 'athlete2_settings/header/language_text' );
+$langVars = [
+	'a2_show_text' => $labelText,
+	'a2_hide_flag' => (bool)$icon
+];
+$modalVars = [
+	'show_stores' => $showStores,
+	'show_lang' => $showLanguages,
+	'show_currency' => $showCurrency,
+	'drop_position' => $dropPosition
+];
+?>
+<div class="header__item header__item-language <?php if($tinyDrop || $moveMobile){ echo "hide-on-tablet hide-on-mobile"; } ?> <?php if($labelText){ echo "header__item--with-text"; } ?>">
+	<?php if($tinyDrop): ?>
+
+		<?php if($showStores) { echo $this->getChildHtml("header_switch_stores"); } ?>
+		<?php if($showLanguages) { echo $this->getChildHtml("store_language"); } ?>
+		<?php if($showCurrency) { echo $this->getChildHtml("currency"); } ?>
+
+	<?php else: ?>
+
+		<div class="button js-item-language-action">
+
+			<?= $icon; ?>
+			<span class="label <?php if(!$labelText){ echo "hide-text"; } ?>">
+
+				<?php if ($currentLanguage = $block->getChildBlock('header_switch_language_current')): ?>
+					<?= $currentLanguage->addData($langVars)->toHtml() ?>
+				<?php endif; ?>
+
+				<?php if ($showCurrencyLabel && $showCurrency  && $labelText && $labelText !== 'custom' && $currentCurrency = $block->getChildBlock('header_switch_currency_current')): ?>
+					<?= $currentCurrency->toHtml() ?>
+				<?php endif; ?>
+
+				<?php if($labelText === 'custom' && $text): ?>
+					<?= $block->escapeHtml($text) ?>
+				<?php endif; ?>
+			</span>
+		</div>
+
+		<?php /* Drop Down, Modal, Slideout */ ?>
+		<?php if ($modal = $block->getChildBlock('header_switch_modal')): ?>
+			<?= $modal->addData($modalVars)->toHtml() ?>
+		<?php endif; ?>
+
+	<?php endif; ?>
+</div>

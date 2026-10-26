@@ -1,0 +1,76 @@
+# 2026-10-26 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://stackoverflow.com/questions/987142
+# https://stackoverflow.com/questions/9162919
+# https://stackoverflow.com/questions/8024924#comment15884195_8025106
+*
+!*/
+!/.editorconfig
+!/.gitignore
+!/composer.json
+!/readme.md
+!/app/code/**/*
+# 2025-04-02 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://gemini.google.com/u/1/app/6b203ee6c0eac7d7
+!/app/design/frontend/**/*
+/app/design/frontend/Magento/
+!/app/etc/config.php
+# 2023-07-22 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# Today I noticed that `git add . && git commit -a -m refactoring && git push`
+# started to commit subfolders which are git repositories (for an unknown reason).
+# 2025-04-03 https://g.co/gemini/share/8935d11b67a5
+/_my
+/dev
+/update/
+# 2025-04-03 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# https://g.co/gemini/share/8935d11b67a5
+# 2025-05-21 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) https://g.co/gemini/share/e0a1ce59ec79
+# 2) https://chatgpt.com/share/682d5158-5c18-8003-b315-57a4ae068d30
+# 2025-08-31
+# To find out why Git wants to commit the `vendor folder`:
+# 		git add .
+# 		git status
+# 		git restore --staged .
+#/vendor/*
+# 2025-08-31 https://g.co/gemini/share/ece13e39c278
+/vendor/**/tests/
+# 2025-05-23 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+/vendor/mage2pro
+/vendor/magento/framework/Test
+/vendor/magento/magento2-base
+/vendor/tubalmartin
+# 2026-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Adapt the website to Windows-based servers": https://github.com/nationalglasspartitions/m/issues/2
+# 2) "How to adapt `pub/get.php` to Windows in Magento ≥ 2.4.2?" https://mage2.pro/t/6415
+!/pub/get.php
+# 2026-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Adapt the website to Windows-based servers": https://github.com/nationalglasspartitions/m/issues/2
+# 2) "How to fix interceptors generation on `bin/magento setup:di:compile` in Magento ≥ 2.2 in Windows?":
+# https://mage2.pro/t/4702
+!/setup/src/Magento/Setup/Module/Di/Code/Reader/ClassesScanner.php
+# 2026-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Adapt the website to Windows-based servers": https://github.com/nationalglasspartitions/m/issues/2
+# 2) "How to fix catalog images in Magento ≥ 2.3.5 in Windows?" https://mage2.pro/t/6210
+!/vendor/magento/framework/Image/Adapter/Gd2.php
+# 2026-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Adapt the website to Windows-based servers": https://github.com/nationalglasspartitions/m/issues/2
+# 2) "How to fix «file_put_contents(generated/metadata/primary|global|plugin-list.php):
+# failed to open stream: No such file or directory
+# in lib\internal\Magento\Framework\Interception\PluginListGenerator.php on line 414»
+# in Magento 2.4-develop in Windows?" https://mage2.pro/t/6178
+!/vendor/magento/framework/Interception/PluginListGenerator.php
+# 2026-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Adapt the website to Windows-based servers": https://github.com/nationalglasspartitions/m/issues/2
+# 2) "How to fix the «Invalid template file» / «require_js.phtml» failure for Magento ≥ 2.4.5 in Windows?"
+# https://mage2.pro/t/6339
+!/vendor/magento/framework/View/Element/Template/File/Validator.php
+# 2026-05-04 Dmitrii Fediuk https://upwork.com/fl/mage2pro
+# 1) "Adapt the website to Windows-based servers": https://github.com/nationalglasspartitions/m/issues/2
+# 2) "How to fix URLs of catalog images in Windows for Magento ≥ 2.3.0?": https://mage2.pro/t/6413
+# 3.1) "The `Swissup_Pagespeed` module breaks URLs of images in Windows":
+# https://github.com/mydreamday-fi/site/issues/19
+# 3.2) "The `Swissup_Pagespeed` module breaks URLs of products' images in Windows":
+# https://github.com/mydreamday-fi/site/issues/18
+# 3.3) "The `Swissup_Pagespeed` module breaks URLs of categories' images in Windows":
+# https://github.com/mydreamday-fi/site/issues/17
+!/vendor/magento/module-catalog/Model/View/Asset/Image.php

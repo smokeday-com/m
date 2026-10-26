@@ -1,0 +1,25 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<if args="isAllowed()">
+    <if args="isSalable($row())">
+        <button class="action tocart primary"
+                attr="'data-mage-init': getDataMageInit($row()),
+                      'data-post': getDataPost($row()),
+                       title: getLabel()"
+                type="button">
+            <svg version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="a2-icon-cart"><use xlink:href="#a2-cart-icon"></use></svg>
+            <span text="getLabel()"></span>
+        </button>
+    </if>
+
+    <if args="isAvailable($row()) === false">
+        <div class="stock unavailable">
+            <!-- <text args="$t('Availability')"></text> -->
+            <span translate="'Out of stock'"></span>
+        </div>
+    </if>
+</if>

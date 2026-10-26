@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Nous examinerons votre inscription et vous en informerons."
+"Your request to sign up to the affiliate program has been rejected.","Votre demande d&#39;inscription au programme d&#39;affiliation a été rejetée."
+"Sign In to Affiliates","Connectez-vous aux affiliés"
+"You have successfully signed up for an affiliate account.","Vous vous êtes inscrit avec succès pour un compte affilié."
+"Affiliate Dashboard","Tableau de bord des affiliés"
+"Affiliate Account Settings","Paramètres du compte affilié"
+"Account information successfully updated.","Les informations du compte ont bien été mises à jour."
+"Transactions History","Historique des transactions"
+"Promotion Materials","Matériel promotionnel"
+Statistics,Statistiques
+"Affiliate Program Overview","Aperçu du programme d&#39;affiliation"
+Withdrawals,Retraits
+"Withdrawal request has been submitted.","La demande de retrait a été soumise."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Un ou plusieurs <a href=""%1"">comptes affiliés</a> sont actuellement en attente."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Une ou plusieurs <a href=""%1"">demandes de retrait</a> sont actuellement en attente."
+"Pending Approval","En attente de validation"
+Approved,Approuvé
+"Not Approved","Non approuvé"
+Image,Image
+Text,Texte
+"Assign to first referred affiliate","Attribuer au premier affilié parrainé"
+"Assign to last referred affiliate","Attribuer au dernier affilié référé"
+Available,Disponible
+Inactive,Inactif
+Removed,Supprimé
+"- Disable these emails -","- Désactivez ces e-mails -"
+Click,"Cliquez sur"
+Impression,Impression
+Lead,Conduire
+Sale,Vente
+". ' (default)'",". &#39; (défaut)&#39;"
+"Percent of order amount","Pourcentage du montant de la commande"
+"Percent of cart amount","Pourcentage du montant du panier"
+"Fixed amount","Montant fixé"
+"Pay per Sale","Payer par vente"
+"Pay per Lead","Payer par prospect"
+"Pay per Click","Payer avec un clic"
+"Pay per Impression","Payer par impression"
+Complete,Compléter
+"In Hold","En attente"
+Commission,Commission
+Withdraw,Retirer
+PayPal,"Pay Pal"
+Skrill,Skrill
+"Store Credit","Crédit magasin"
+Other,Autre
+Pending,"En attente"
+Accepted,Accepté
+Completed,Complété
+Denied,Refusé
+"Number of Orders from reffered customers","Nombre de commandes des clients référencés"
+"Sales Amount from reffered customers","Montant des ventes des clients référencés"
+is,est
+"is not","n&#39;est pas"
+"greater than","plus grand que"
+"less than","moins que"
+"equals or greater than","égal ou supérieur à"
+"equals or less than","égal ou inférieur à"
+"Conditions Combination","Combinaison de conditions"
+"Affiliate conditions","Conditions d&#39;affiliation"
+General,Général
+"Customer Group","Groupe de clients"
+Store,Magasin
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Type de fichier non autorisé (seuls les fichiers JPG, JPEG, PNG et GIF sont autorisés)"
+"Commission for order #%1 (%2)","Commission pour la commande n °%1 (%2)"
+"Refund for order #%1","Remboursement de la commande n °%1"
+Withdrawal,Retrait
+"Withdraw cannot exceed current balance.","Le retrait ne peut pas dépasser le solde actuel."
+"Minimum withdrawal amount is %1.","Le montant minimum de retrait est de %1."
+"You already have a pending withdrawal request.","Vous avez déjà une demande de retrait en attente."
+"Affiliate Withdrawal","Retrait d&#39;affilié"
+Back,Dos
+Delete,Effacer
+"Are you sure you want to proceed?","Êtes-vous sur de vouloir continuer?"
+"Save and Continue Edit","Enregistrer et continuer la modification"
+Save,Sauvegarder
+"Click on row to edit the coupon","Cliquez sur la ligne pour modifier le coupon"
+"Referred Customers","Clients référés"
+Actions,Actions
+"Add Customers","Ajouter des clients"
+Customers,"Les clients"
+Cancel,Annuler
+"Add Selected Customers","Ajouter des clients sélectionnés"
+Remove,Supprimer
+ID,Identifiant
+Name,Nom
+Email,E-mail
+View,Vue
+Edit,Éditer
+"Delete item?","Effacer l&#39;article?"
+Conditions,Conditions
+"Affiliate conditions (affects only automatically updated group)","Conditions d&#39;affiliation (affecte uniquement le groupe mis à jour automatiquement)"
+"Assigned Affiliates","Affiliés affectés"
+"Add Affiliate","Ajouter un affilié"
+Affiliates,Affiliés
+"Add Selected","Ajouter sélectionnée"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Appliquez la commission uniquement aux articles du panier répondant aux conditions suivantes (laissez vide pour tous les articles)."
+Accept,J&#39;accepte
+Reject,Rejeter
+"Referring Website","Site Web référent"
+"Subscribe to email notifications","Abonnez-vous aux notifications par e-mail"
+"I accept the terms and conditions","J&#39;accepte les termes et conditions"
+"Sign Up",S&#39;inscrire
+"Referral Website","Site Web de référence"
+"Payment Method","Mode de paiement"
+"Payment Information","Informations de paiement"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Veuillez indiquer vos informations de paiement personnelles: e-mail PayPal ou tout autre détail de paiement du portefeuille électronique."
+From,De
+To,À
+Apply,Appliquer
+Clicks,Clics
+Leads,Pistes
+Orders,Ordres
+Views,Vues
+Earned,Gagné
+"My Account","Mon compte"
+"Commissions according to your affiliate group","Commissions selon votre groupe affilié"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> du montant de la commande à partir de la première commande"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> du montant de la commande à partir de la deuxième commande et plus"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> du montant du panier à partir de la première commande"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> du montant du panier à partir de la deuxième commande et plus"
+"<b>%1</b> per sale from first order","<b>%1</b> par vente à partir de la première commande"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> par vente à partir de la deuxième commande et plus"
+"<b>%1</b> per unique click","<b>%1</b> par clic unique"
+"<b>%1</b> per lead","<b>%1</b> par prospect"
+"<b>%1</b> per 1000 views","<b>%1</b> pour 1 000 vues"
+Banners,Bannières
+Type,Taper
+Size,Taille
+Link,Relier
+"Get Code","Obtenir le code"
+"Copy and paste this code into your website: ","Copiez et collez ce code dans votre site Web:"
+"Referral Coupons","Coupons de parrainage"
+Program,Programme
+Coupon,Coupon
+Discount,Rabais
+"Personal Referral Link","Lien de parrainage personnel"
+"Enter any URL from this store in the form below to generate a new referral link:","Entrez n&#39;importe quelle URL de ce magasin dans le formulaire ci-dessous pour générer un nouveau lien de parrainage:"
+"Your unique referral link is:","Votre lien de parrainage unique est:"
+"Referral Widget","Widget de référence"
+"Widget Title:","Titre du Widget:"
+"Related Products","Produits connexes"
+Width:,Largeur:
+Height:,Hauteur:
+"Number of products:","Nombre de produits:"
+"Show Bestsellers","Afficher les meilleures ventes"
+"Show New Products","Afficher les nouveaux produits"
+Search,Rechercher
+"Search term","Terme de recherche"
+"Show Product's names","Afficher les noms des produits"
+"Show Prices","Afficher prix"
+"Place this code wherever you want the widget to appear on your page.","Placez ce code là où vous souhaitez que le widget apparaisse sur votre page."
+"Current balance: <b>%1</b>","Solde actuel: <b>%1</b>"
+"On hold: %1","En attente: %1"
+"Lifetime: %1","Durée de vie: %1"
+"Paid: %1","Payé: %1"
+Date,Date
+Balance,Équilibre
+Amount,Montant
+Details,"Des détails"
+"On hold to %1","En attente à %1"
+"There have been no transactions yet.","Il n&#39;y a pas encore eu de transaction."
+"Request withdrawal","Demander le retrait"
+"Minimum balance to request withdrawal is %1","Le solde minimum pour demander un retrait est de %1"
+Fee,Frais
+Status,Statut
+"Pending approval","En attente de validation"
+"There have been no withdrawals yet.","Il n&#39;y a pas encore eu de retraits."
+"Your account is assigned to the <span>%1</span> affiliate group","Votre compte est attribué au groupe affilié <span>%1</span>"
+Commissions,Commissions
+"Our Programs","Nos programmes"
+"Our Program","Notre programme"
+"%1  - Minimum balance required for payout.","%1 - Solde minimum requis pour le paiement."
+"Affiliate Group","Groupe affilié"
+Description,"La description"
+"Sign In",S&#39;identifier
+"New Affiliate Account","Nouveau compte affilié"
+"Account Information","Information sur le compte"
+"%name,","%Nom,"
+"Your affiliate account at %store_name has been approved.","Votre compte affilié à% store_name a été approuvé."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Cliquez <a href=""%login_url"">ici</a> pour vous connecter à votre compte."
+"Your account balance has been updated at %store_name.","Le solde de votre compte a été mis à jour à% store_name."
+Balance:,Équilibre:
+"Welcome to %store_name affiliate program!","Bienvenue dans le programme d&#39;affiliation% store_name!"
+Email:,E-mail:
+"Referring Website:","Site Web de référence:"
+"A customer referred by you has just placed an order at %store_name.","Un client que vous avez référé vient de passer une commande chez% store_name."
+"Thus, it was credited to your affiliate account.","Ainsi, il a été crédité sur votre compte affilié."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Une fois la commande terminée, nous transférerons la commission sur le solde de votre compte dans notre système et vous pourrez ensuite retirer l&#39;argent quand vous le souhaitez."
+"Transaction Amount:","Montant de la transaction:"
+"Current Balance:","Solde actuel:"
+"New Withdrawal Request","Nouvelle demande de retrait"
+Information,Informations
+"Please log in to the admin panel to manage this request.","Veuillez vous connecter au panneau d&#39;administration pour gérer cette demande."
+"Affiliate: Sign In Button","Affilié: bouton de connexion"
+"Affiliate: List of programs","Affilié: Liste des programmes"
+"Account Dashboard","Tableau de bord de compte"
+Transactions,Transactions
+Settings,Paramètres
+"Affiliate Program","Programme d&#39;affiliation"

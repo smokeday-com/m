@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Vaatame teie registreerimise läbi ja teavitame teid."
+"Your request to sign up to the affiliate program has been rejected.","Teie taotlus liitumisprogrammiga liitumiseks lükati tagasi."
+"Sign In to Affiliates","Logige sisse sidusettevõtetesse"
+"You have successfully signed up for an affiliate account.","Olete edukalt registreerunud siduskontole."
+"Affiliate Dashboard","Sidusettevõtte juhtpaneel"
+"Affiliate Account Settings","Sidusrekonto seaded"
+"Account information successfully updated.",
+"Transactions History","Tehingute ajalugu"
+"Promotion Materials",Reklaamimaterjalid
+Statistics,Statistika
+"Affiliate Program Overview","Sidusprogrammi ülevaade"
+Withdrawals,Tagasivõtmine
+"Withdrawal request has been submitted.","Taganemisavaldus on esitatud."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Üks või mitu <a href=""%1"">siduskontot</a> on praegu ootel."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Üks või mitu <a href=""%1"">tagasivõtmistaotlust</a> on praegu ootel."
+"Pending Approval","Kinnituse ootel"
+Approved,"Heaks kiidetud"
+"Not Approved","Pole heaks kiidetud"
+Image,Pilt
+Text,Tekst
+"Assign to first referred affiliate","Määra esimesena viidatud sidusettevõttele"
+"Assign to last referred affiliate","Määra viimati viidatud sidusettevõttele"
+Available,Saadaval
+Inactive,Mitteaktiivne
+Removed,Eemaldatud
+"- Disable these emails -","- keelake need meilid -"
+Click,"Klõpsake nuppu"
+Impression,Mulje
+Lead,Plii
+Sale,Soodustus
+". ' (default)'",". &quot;(vaikimisi)&quot;"
+"Percent of order amount","Tellimuse summa protsent"
+"Percent of cart amount","Ostukorvi summa protsent"
+"Fixed amount","Fikseeritud summa"
+"Pay per Sale","Maksa müügi kohta"
+"Pay per Lead","Maksma plii eest"
+"Pay per Click","Klõpsu eest maksmine"
+"Pay per Impression","Maksma näitamise eest"
+Complete,Täielik
+"In Hold",Ootel
+Commission,Komisjon
+Withdraw,Taganeda
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit",Poekrediit
+Other,Muu
+Pending,Ootel
+Accepted,"Vastu võetud"
+Completed,Valmis
+Denied,Keeldunud
+"Number of Orders from reffered customers","Pakutavate klientide tellimuste arv"
+"Sales Amount from reffered customers","Müügisumma pakutavatelt klientidelt"
+is,on
+"is not","ei ole"
+"greater than","suurem kui"
+"less than","vähem kui"
+"equals or greater than","on võrdne või suurem kui"
+"equals or less than","on võrdne või väiksem"
+"Conditions Combination","Tingimuste kombinatsioon"
+"Affiliate conditions","Sidusettevõtte tingimused"
+General,Kindral
+"Customer Group",Kliendigrupp
+Store,Pood
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Failitüüp pole lubatud (lubatud on ainult JPG-, JPEG-, PNG- ja GIF-failid)"
+"Commission for order #%1 (%2)","Tellimuse nr 1__ (%2) vahendustasu"
+"Refund for order #%1","Tagasimakse tellimusele #%1"
+Withdrawal,Taganemine
+"Withdraw cannot exceed current balance.","Väljavõetud summa ei saa ületada praegust saldot."
+"Minimum withdrawal amount is %1.","Minimaalne väljamaksesumma on %1."
+"You already have a pending withdrawal request.","Teil on juba ootel tagasivõtmistaotlus."
+"Affiliate Withdrawal","Sidusettevõtte väljaastumine"
+Back,Tagasi
+Delete,Kustuta
+"Are you sure you want to proceed?","Kas soovite kindlasti jätkata?"
+"Save and Continue Edit","Salvesta ja jätka muutmist"
+Save,Salvesta
+"Click on row to edit the coupon","Kupongi muutmiseks klõpsake real"
+"Referred Customers","Suunatud kliendid"
+Actions,Toimingud
+"Add Customers","Lisage kliendid"
+Customers,Kliendid
+Cancel,Tühista
+"Add Selected Customers","Lisage valitud kliendid"
+Remove,Eemalda
+ID,ID
+Name,Nimi
+Email,E-post
+View,Vaade
+Edit,Muuda
+"Delete item?","Kas kustutada üksus?"
+Conditions,Tingimused
+"Affiliate conditions (affects only automatically updated group)","Sidusettevõtte tingimused (mõjutab ainult automaatselt värskendatud rühma)"
+"Assigned Affiliates","Määratud sidusettevõtted"
+"Add Affiliate","Lisage sidusettevõte"
+Affiliates,Sidusettevõtted
+"Add Selected","Lisa valitud"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Rakendage vahendustasu ainult järgmistele tingimustele vastavate ostukorvide jaoks (jätke kõigi kaupade jaoks tühjaks)."
+Accept,Nõus
+Reject,Keeldu
+"Referring Website","Viidav veebisait"
+"Subscribe to email notifications","Telli meilimärguanded"
+"I accept the terms and conditions","Nõustun tingimustega"
+"Sign Up",Registreeri
+"Referral Website","Suunamise veebisait"
+"Payment Method",Makseviis
+"Payment Information",Makseteave
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Palun täpsustage isiklik makseteave: PayPali e-posti aadress või e-rahakoti makse üksikasjad."
+From,Alates
+To,To
+Apply,Rakenda
+Clicks,Klõpsud
+Leads,Viib
+Orders,Tellimused
+Views,Vaated
+Earned,Teenitud
+"My Account","Minu konto"
+"Commissions according to your affiliate group","Vahendustasud vastavalt teie sidusrühmale"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> esimese tellimuse tellimuse summast"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> teise ja enama tellimuse summast"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> esimese tellimuse ostukorvi summast"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> teise ja enama tellimuse ostukorvi summast"
+"<b>%1</b> per sale from first order","<b>%1</b> esimese tellimuse müügi kohta"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> müügi kohta alates teistest ja teistest tellimustest"
+"<b>%1</b> per unique click","<b>%1</b> kordumatu kliki kohta"
+"<b>%1</b> per lead","<b>%1 müügivihje</b> kohta"
+"<b>%1</b> per 1000 views","<b>%1</b> 1000 vaatamise kohta"
+Banners,Ribareklaamid
+Type,Tüüp
+Size,Suurus
+Link,Link
+"Get Code","Hangi kood"
+"Copy and paste this code into your website: ","Kopeerige ja kleepige see kood oma veebisaidile:"
+"Referral Coupons",Suunamiskupongid
+Program,Programm
+Coupon,Kupong
+Discount,Allahindlus
+"Personal Referral Link","Isiklik viite link"
+"Enter any URL from this store in the form below to generate a new referral link:","Uue viite lingi loomiseks sisestage selle poe URL-id allpool olevasse vormi:"
+"Your unique referral link is:","Teie ainulaadne suunamislink on:"
+"Referral Widget","Viitamise vidin"
+"Widget Title:","Vidina pealkiri:"
+"Related Products","Seotud tooted"
+Width:,Laius:
+Height:,Kõrgus:
+"Number of products:","Toodete arv:"
+"Show Bestsellers","Näita enimmüüdud"
+"Show New Products","Kuva uued tooted"
+Search,Otsing
+"Search term",Otsingutermin
+"Show Product's names","Kuva toote nimed"
+"Show Prices","Näita hindu"
+"Place this code wherever you want the widget to appear on your page.","Pange see kood sinna, kuhu soovite vidina oma lehele ilmuda."
+"Current balance: <b>%1</b>","Praegune saldo: <b>%1</b>"
+"On hold: %1","Ootel: %1"
+"Lifetime: %1","Eluaeg: %1"
+"Paid: %1","Tasuline: %1"
+Date,Kuupäev
+Balance,Tasakaal
+Amount,Summa
+Details,Üksikasjad
+"On hold to %1","Ootel %1"
+"There have been no transactions yet.","Tehinguid pole veel olnud."
+"Request withdrawal","Taotlege tagasivõtmist"
+"Minimum balance to request withdrawal is %1","Minimaalne saldo tagasivõtmise taotlemiseks on %1"
+Fee,Tasu
+Status,Staatus
+"Pending approval","Kinnituse ootel"
+"There have been no withdrawals yet.","Väljavõtteid pole veel olnud."
+"Your account is assigned to the <span>%1</span> affiliate group","Teie konto on määratud <span>sidusrühmale %1</span>"
+Commissions,Komisjonitasud
+"Our Programs","Meie programmid"
+"Our Program","Meie programm"
+"%1  - Minimum balance required for payout.","%1 - väljamaksmiseks vajalik minimaalne saldo."
+"Affiliate Group",Sidusgrupp
+Description,Kirjeldus
+"Sign In","Logi sisse"
+"New Affiliate Account","Uus sidusettevõtte konto"
+"Account Information","Konto teave"
+"%name,","% name,"
+"Your affiliate account at %store_name has been approved.","Teie siduskonto aadressil% store_name on kinnitatud."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Kontole sisselogimiseks <a href=""%login_url"">klõpsake siin.</a>"
+"Your account balance has been updated at %store_name.","Teie konto saldot on värskendatud aadressil% store_name."
+Balance:,Saldo:
+"Welcome to %store_name affiliate program!","Tere tulemast sidusprogrammi% store_name!"
+Email:,E-post:
+"Referring Website:","Viidav veebisait:"
+"A customer referred by you has just placed an order at %store_name.","Teie poolt viidatud klient esitas just tellimuse aadressil% store_name."
+"Thus, it was credited to your affiliate account.","Seega krediteeriti see teie siduskontole."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Kui tellimus on lõpule viidud, kanname vahendustasu meie süsteemis teie konto saldole ja siis saate raha igal ajal välja võtta."
+"Transaction Amount:","Tehingu summa:"
+"Current Balance:",Kontojääk:
+"New Withdrawal Request","Uus tagasivõtmistaotlus"
+Information,Teave
+"Please log in to the admin panel to manage this request.","Selle taotluse haldamiseks logige sisse administraatori paneelile."
+"Affiliate: Sign In Button","Sidusettevõte: sisselogimisnupp"
+"Affiliate: List of programs","Sidusettevõte: programmide loend"
+"Account Dashboard","Konto juhtpaneel"
+Transactions,Tehingud
+Settings,Seaded
+"Affiliate Program",Sidusprogramm

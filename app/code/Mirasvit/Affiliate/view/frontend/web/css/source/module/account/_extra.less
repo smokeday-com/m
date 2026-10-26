@@ -1,0 +1,99 @@
+@mst-affiliate-amount__positive__color: #0a0;
+@mst-affiliate-amount__negative__color: #f00;
+@mst-affiliate-widget__background__color: #ffd1bd;
+
+.clearfix {
+    .lib-clearfix();
+}
+
+.affiliate__positive {
+    color: @mst-affiliate-amount__positive__color;
+}
+
+.affiliate__negative {
+    color: @mst-affiliate-amount__negative__color;
+}
+
+.affiliate__balance {
+    .lib-clearfix();
+    margin-bottom: 2rem;
+
+    > div {
+        background: @color-white-smoke;
+        float: left;
+        margin-right: 1rem;
+        padding: 1rem;
+    }
+}
+
+.affiliate__widget-programs {
+    background: @color-white-smoke;
+}
+
+.affiliate__widget_group {
+    background-color: @mst-affiliate-widget__background__color;
+}
+
+.affiliate__widget_program-name {
+    font-size: 2rem;
+
+    span {
+        font-weight: 600;
+    }
+}
+
+.affiliate__widget-current {
+    span {
+        background-color: @mst-affiliate-widget__background__color;
+        border-radius: 3px;
+        padding: 0 5px;
+    }
+}
+
+.affiliate__widget-tabs {
+    .affiliate__widget-programs {
+        tr {
+            border-bottom: 1px solid @color-gray80;
+        }
+
+        td {
+            width: 33%;
+        }
+    }
+}
+
+.affiliate-account__promotion-link {
+    margin-bottom: 0 !important;
+}
+
+.affiliate__promo-programs {
+    width: auto;
+
+    > tbody > tr {
+        border-bottom: 3px solid @color-white;
+    }
+
+    td {
+        padding: 7px 15px !important;
+
+        p {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.affiliate__promo-title {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+    margin-top: 0;
+}
+
+.affiliate__widget-program_name {
+    max-width: 550px;
+}
+
+.affiliate__widget-program_description {
+    margin-left: 1rem;
+}

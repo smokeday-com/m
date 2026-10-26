@@ -1,0 +1,152 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!--DATA-->
+    <preference for="Mirasvit\Affiliate\Api\Data\AccountInterface" type="Mirasvit\Affiliate\Model\Account"/>
+    <preference for="Mirasvit\Affiliate\Api\Data\BannerInterface" type="Mirasvit\Affiliate\Model\Banner"/>
+    <preference for="Mirasvit\Affiliate\Api\Data\ProgramInterface" type="Mirasvit\Affiliate\Model\Program"/>
+    <preference for="Mirasvit\Affiliate\Api\Data\TransactionInterface" type="Mirasvit\Affiliate\Model\Transaction"/>
+    <preference for="Mirasvit\Affiliate\Api\Data\EventInterface" type="Mirasvit\Affiliate\Model\Event"/>
+    <preference for="Mirasvit\Affiliate\Api\Data\WithdrawInterface" type="Mirasvit\Affiliate\Model\Withdraw"/>
+    <preference for="Mirasvit\Affiliate\Api\Data\CouponInterface" type="Mirasvit\Affiliate\Model\Coupon"/>
+    <preference for="Mirasvit\Affiliate\Api\Data\AccountCustomerInterface" type="Mirasvit\Affiliate\Model\AccountCustomer"/>
+    <preference for="Mirasvit\Affiliate\Api\Data\GroupInterface" type="Mirasvit\Affiliate\Model\Group"/>
+    <preference for="Mirasvit\Affiliate\Api\Data\TierInterface" type="Mirasvit\Affiliate\Model\Tier"/>
+
+    <!--PLUGINS-->
+    <type name="Mirasvit\Affiliate\Repository\AccountRepository">
+        <plugin name="emailOnNewAccount" type="Mirasvit\Affiliate\Plugin\EmailOnNewAccountPlugin"/>
+        <plugin name="emailOnApprove" type="Mirasvit\Affiliate\Plugin\EmailOnApproveAccountPlugin"/>
+        <plugin name="emailOnUpdateBalance" type="Mirasvit\Affiliate\Plugin\EmailOnUpdateBalancePlugin"/>
+        <plugin name="ensureCouponsAfterAccountSave" type="Mirasvit\Affiliate\Plugin\EnsureCouponsAfterAccountSavePlugin"/>
+    </type>
+
+    <type name="Mirasvit\Affiliate\Repository\WithdrawRepository">
+        <plugin name="onComplete" type="Mirasvit\Affiliate\Plugin\WithdrawTransactionAfterWithdrawCompletePlugin"/>
+        <plugin name="emailOnNewWithdraw" type="Mirasvit\Affiliate\Plugin\EmailOnNewWithdrawPlugin"/>
+    </type>
+
+    <type name="Mirasvit\Affiliate\Repository\TransactionRepository">
+        <plugin name="updateBalanceOnSave" type="Mirasvit\Affiliate\Plugin\UpdateBalanceOnTransactionSavePlugin"/>
+        <plugin name="setStatusBeforeSave" type="Mirasvit\Affiliate\Plugin\SetStatusBeforeTransactionSavePlugin"/>
+        <plugin name="emailOnSave" type="Mirasvit\Affiliate\Plugin\EmailOnNewTransactionPlugin"/>
+    </type>
+
+    <type name="Mirasvit\Affiliate\Repository\ProgramRepository">
+        <plugin name="finishUnprocessedEvents" type="Mirasvit\Affiliate\Plugin\FinishUnprocessedEventsForInactiveProgramAfterSavePlugin"/>
+        <plugin name="ensureCouponsAfterProgramSave" type="Mirasvit\Affiliate\Plugin\EnsureCouponsAfterProgramSavePlugin"/>
+    </type>
+
+    <type name="Mirasvit\Affiliate\Api\Data\AccountInterface">
+        <plugin name="removeRelations" type="Mirasvit\Affiliate\Plugin\RemoveRelationsBeforeAccountDeletePlugin"/>
+    </type>
+
+    <type name="Mirasvit\Affiliate\Repository\AccountRepository">
+        <plugin name="assignToDefaultGroup" type="Mirasvit\Affiliate\Plugin\SetDefaultGroupPlugin"/>
+    </type>
+
+    <type name="Magento\Email\Model\AbstractTemplate">
+        <plugin name="setMailTemplateLegacyFlag" type="Mirasvit\Affiliate\Plugin\SetMailTemplateLegacyFlagPlugin"/>
+    </type>
+
+    <type name="Magento\Catalog\Ui\Component\Listing\Columns\Price">
+        <plugin name="baseCurrencyAmountFormat" type="Mirasvit\Affiliate\Plugin\BaseCurrencyAmountFormatPlugin"/>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="AffiliateCron" xsi:type="object">Mirasvit\Affiliate\Console\Command\CronCommand</item>
+                <item name="GroupsRefresh" xsi:type="object">Mirasvit\Affiliate\Console\Command\RefreshGroupsCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+        <type name="Mirasvit\Affiliate\Program\CalculationFactory">
+        <arguments>
+            <argument name="types" xsi:type="array">
+                <item name="click" xsi:type="object">Mirasvit\Affiliate\Program\ClickFactory</item>
+                <item name="impression" xsi:type="object">Mirasvit\Affiliate\Program\ImpressionFactory</item>
+                <item name="lead" xsi:type="object">Mirasvit\Affiliate\Program\LeadFactory</item>
+                <item name="sale" xsi:type="object">Mirasvit\Affiliate\Program\SaleFactory</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!--Entity Manager-->
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Mirasvit\Affiliate\Api\Data\AccountInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Mirasvit\Affiliate\Api\Data\AccountInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Mirasvit\Affiliate\Api\Data\AccountInterface::ID</item>
+                </item>
+                <item name="Mirasvit\Affiliate\Api\Data\BannerInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Mirasvit\Affiliate\Api\Data\BannerInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Mirasvit\Affiliate\Api\Data\BannerInterface::ID</item>
+                </item>
+                <item name="Mirasvit\Affiliate\Api\Data\CouponInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Mirasvit\Affiliate\Api\Data\CouponInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Mirasvit\Affiliate\Api\Data\CouponInterface::ID</item>
+                </item>
+                <item name="Mirasvit\Affiliate\Api\Data\EventInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Mirasvit\Affiliate\Api\Data\EventInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Mirasvit\Affiliate\Api\Data\EventInterface::ID</item>
+                </item>
+                <item name="Mirasvit\Affiliate\Api\Data\ProgramInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Mirasvit\Affiliate\Api\Data\ProgramInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Mirasvit\Affiliate\Api\Data\ProgramInterface::ID</item>
+                </item>
+                <item name="Mirasvit\Affiliate\Api\Data\TransactionInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Mirasvit\Affiliate\Api\Data\TransactionInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Mirasvit\Affiliate\Api\Data\TransactionInterface::ID</item>
+                </item>
+                <item name="Mirasvit\Affiliate\Api\Data\WithdrawInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Mirasvit\Affiliate\Api\Data\WithdrawInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Mirasvit\Affiliate\Api\Data\WithdrawInterface::ID</item>
+                </item>
+                <item name="Mirasvit\Affiliate\Api\Data\AccountCustomerInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Mirasvit\Affiliate\Api\Data\AccountCustomerInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Mirasvit\Affiliate\Api\Data\AccountCustomerInterface::ID</item>
+                </item>
+                <item name="Mirasvit\Affiliate\Api\Data\GroupInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="const">Mirasvit\Affiliate\Api\Data\GroupInterface::TABLE_NAME</item>
+                    <item name="identifierField" xsi:type="const">Mirasvit\Affiliate\Api\Data\GroupInterface::ID</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\EntityManager\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="Mirasvit\Affiliate\Api\Data\AccountInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Mirasvit\Affiliate\Api\Data\BannerInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Mirasvit\Affiliate\Api\Data\CouponInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Mirasvit\Affiliate\Api\Data\EventInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Mirasvit\Affiliate\Api\Data\ProgramInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Mirasvit\Affiliate\Api\Data\TransactionInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Mirasvit\Affiliate\Api\Data\WithdrawInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Mirasvit\Affiliate\Api\Data\AccountCustomerInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Mirasvit\Affiliate\Api\Data\GroupInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!--UI-->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="affiliate_program_listing_data_source" xsi:type="string">Mirasvit\Affiliate\Model\ResourceModel\Program\Grid</item>
+                <item name="affiliate_transaction_listing_data_source" xsi:type="string">Mirasvit\Affiliate\Model\ResourceModel\Transaction\Grid</item>
+                <item name="affiliate_coupon_listing_data_source" xsi:type="string">Mirasvit\Affiliate\Model\ResourceModel\Coupon\Grid</item>
+                <item name="affiliate_account_listing_data_source" xsi:type="string">Mirasvit\Affiliate\Model\ResourceModel\Account\Grid</item>
+                <item name="affiliate_banner_listing_data_source" xsi:type="string">Mirasvit\Affiliate\Model\ResourceModel\Banner\Grid</item>
+                <item name="affiliate_withdraw_listing_data_source" xsi:type="string">Mirasvit\Affiliate\Model\ResourceModel\Withdraw\Grid</item>
+                <item name="affiliate_event_listing_data_source" xsi:type="string">Mirasvit\Affiliate\Model\ResourceModel\Event\Grid</item>
+                <item name="affiliate_account_customer_listing_data_source" xsi:type="string">Mirasvit\Affiliate\Model\ResourceModel\AccountCustomer\Grid</item>
+                <item name="affiliate_group_listing_data_source" xsi:type="string">Mirasvit\Affiliate\Model\ResourceModel\Group\Grid</item>
+                <item name="affiliate_referred_customers_listing_data_source" xsi:type="string">Mirasvit\Affiliate\Model\ResourceModel\AccountCustomer\ReferredCustomersGrid</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

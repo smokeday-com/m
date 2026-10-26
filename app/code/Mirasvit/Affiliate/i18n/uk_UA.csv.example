@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Ми розглянемо вашу реєстрацію та повідомимо вас."
+"Your request to sign up to the affiliate program has been rejected.","Ваш запит на реєстрацію в партнерській програмі відхилено."
+"Sign In to Affiliates","Увійдіть до філій"
+"You have successfully signed up for an affiliate account.","Ви успішно зареєструвались на партнерський рахунок."
+"Affiliate Dashboard","Панель інформаційних панелей"
+"Affiliate Account Settings","Налаштування афілійованого облікового запису"
+"Account information successfully updated.","Інформацію про обліковий запис успішно оновлено."
+"Transactions History","Історія транзакцій"
+"Promotion Materials","Рекламні матеріали"
+Statistics,Статистика
+"Affiliate Program Overview","Огляд партнерської програми"
+Withdrawals,"Виведення коштів"
+"Withdrawal request has been submitted.","Подання запиту на вилучення."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Наразі один або кілька <a href=""%1"">афілійованих облікових записів</a> перебувають у стані очікування."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Наразі один або кілька <a href=""%1"">запитів на виведення коштів</a> перебувають у стані очікування."
+"Pending Approval","Очікує підтвердження"
+Approved,Затверджено
+"Not Approved","Не схвалений"
+Image,Зображення
+Text,Текст
+"Assign to first referred affiliate","Призначити першому призначеному філіалу"
+"Assign to last referred affiliate","Призначити останньому призначеному філіалу"
+Available,Доступні
+Inactive,Неактивний
+Removed,Вилучено
+"- Disable these emails -","- Вимкнути ці електронні листи -"
+Click,Клацніть
+Impression,Враження
+Lead,Вести
+Sale,Продаж
+". ' (default)'",". &#39;(за замовчуванням)&#39;"
+"Percent of order amount","Відсоток суми замовлення"
+"Percent of cart amount","Відсоток від суми кошика"
+"Fixed amount","Фіксована сума"
+"Pay per Sale","Оплата за продаж"
+"Pay per Lead","Оплата за потенційного клієнта"
+"Pay per Click","Оплата за клік"
+"Pay per Impression","Оплата за враження"
+Complete,Повна
+"In Hold",Утримуйте
+Commission,Комісія
+Withdraw,Зняти
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Кредит магазину"
+Other,Інший
+Pending,"В очікуванні"
+Accepted,Прийнято
+Completed,Завершено
+Denied,Заперечується
+"Number of Orders from reffered customers","Кількість замовлень від наданих клієнтів"
+"Sales Amount from reffered customers","Сума продажів від замовника"
+is,є
+"is not",не
+"greater than","більше ніж"
+"less than","менше ніж"
+"equals or greater than","дорівнює або перевищує"
+"equals or less than","дорівнює або менше"
+"Conditions Combination","Умови Поєднання"
+"Affiliate conditions","Партнерські умови"
+General,Загальні
+"Customer Group","Група клієнтів"
+Store,Зберігати
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Тип файлу не дозволяється (дозволяються лише файли JPG, JPEG, PNG та GIF)"
+"Commission for order #%1 (%2)","Комісія за замовлення №%1 (%2)"
+"Refund for order #%1","Повернення коштів за замовлення №%1"
+Withdrawal,Вилучення
+"Withdraw cannot exceed current balance.","Зняття не може перевищувати поточний баланс."
+"Minimum withdrawal amount is %1.","Мінімальна сума виведення - %1."
+"You already have a pending withdrawal request.","Ви вже маєте запит на зняття коштів."
+"Affiliate Withdrawal","Вихід із філії"
+Back,Назад
+Delete,Видалити
+"Are you sure you want to proceed?","Ви впевнені, що хочете продовжити?"
+"Save and Continue Edit","Зберегти та продовжити Редагувати"
+Save,Зберегти
+"Click on row to edit the coupon","Клацніть на рядок, щоб відредагувати купон"
+"Referred Customers","Запрошені клієнти"
+Actions,Дії
+"Add Customers","Додати клієнтів"
+Customers,Клієнти
+Cancel,Скасувати
+"Add Selected Customers","Додати вибраних клієнтів"
+Remove,Видалити
+ID,"Посвідчення особи"
+Name,Ім&#39;я
+Email,"Електронна пошта"
+View,Переглянути
+Edit,Редагувати
+"Delete item?","Видалити елемент?"
+Conditions,Умови
+"Affiliate conditions (affects only automatically updated group)","Партнерські умови (стосується лише групи, що автоматично оновлюється)"
+"Assigned Affiliates","Призначені філії"
+"Add Affiliate","Додати партнера"
+Affiliates,Філії
+"Add Selected","Додати вибране"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Застосовуйте комісію лише до предметів кошика, які відповідають наступним умовам (залиште порожнім для всіх предметів)."
+Accept,Прийняти
+Reject,Відхилити
+"Referring Website","Посилаючий веб-сайт"
+"Subscribe to email notifications","Підпишіться на сповіщення електронною поштою"
+"I accept the terms and conditions","Я приймаю умови використання"
+"Sign Up",Зареєструйтесь
+"Referral Website","Реферальний веб-сайт"
+"Payment Method","Спосіб оплати"
+"Payment Information","Інформація про оплату"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Будь ласка, вкажіть особисту платіжну інформацію: електронну пошту PayPal або будь-які платіжні дані електронного гаманця."
+From,Від
+To,До
+Apply,"Подати заявку"
+Clicks,Клацання
+Leads,Веде
+Orders,Замовлення
+Views,Перегляди
+Earned,Зароблений
+"My Account","Мій рахунок"
+"Commissions according to your affiliate group","Комісії відповідно до вашої афілійованої групи"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> від суми замовлення від першого замовлення"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> від суми замовлення від другого та більше замовлень"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> від суми кошика від першого замовлення"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> від суми кошика від другого та більше замовлень"
+"<b>%1</b> per sale from first order","<b>%1</b> за продаж від першого замовлення"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> за продаж від другого та більше замовлень"
+"<b>%1</b> per unique click","<b>%1</b> за унікальний клік"
+"<b>%1</b> per lead","<b>%1</b> за провід"
+"<b>%1</b> per 1000 views","<b>%1</b> на 1000 переглядів"
+Banners,Банери
+Type,Тип
+Size,Розмір
+Link,Посилання
+"Get Code","Отримати код"
+"Copy and paste this code into your website: ","Скопіюйте та вставте цей код на свій веб-сайт:"
+"Referral Coupons","Реферальні купони"
+Program,Програма
+Coupon,Купон
+Discount,Знижка
+"Personal Referral Link","Посилання на особисте направлення"
+"Enter any URL from this store in the form below to generate a new referral link:","Введіть будь-яку URL-адресу цього магазину у форму нижче, щоб сформувати нове посилання:"
+"Your unique referral link is:","Ваше унікальне реферальне посилання:"
+"Referral Widget","Віджет переходу"
+"Widget Title:","Назва віджету:"
+"Related Products","Супутні товари"
+Width:,Ширина:
+Height:,Висота:
+"Number of products:","Кількість товарів:"
+"Show Bestsellers","Показати бестселери"
+"Show New Products","Показати нові продукти"
+Search,Пошук
+"Search term","Пошуковий термін"
+"Show Product's names","Показати назви товару"
+"Show Prices","Показати ціни"
+"Place this code wherever you want the widget to appear on your page.","Розміщуйте цей код там, де ви хочете, щоб віджет відображався на вашій сторінці."
+"Current balance: <b>%1</b>","Поточний баланс: <b>%1</b>"
+"On hold: %1","На утриманні: %1"
+"Lifetime: %1","Термін служби: %1"
+"Paid: %1","Оплачено: %1"
+Date,Дата
+Balance,Баланс
+Amount,Сума
+Details,Деталі
+"On hold to %1","На утриманні до %1"
+"There have been no transactions yet.","Угод ще не було."
+"Request withdrawal","Подати запит на вилучення"
+"Minimum balance to request withdrawal is %1","Мінімальний залишок для запиту на зняття - %1"
+Fee,Комісія
+Status,Статус
+"Pending approval","Очікує підтвердження"
+"There have been no withdrawals yet.","Вилучень коштів ще не було."
+"Your account is assigned to the <span>%1</span> affiliate group","Ваш обліковий запис присвоєно <span>%1</span> афілійованій групі"
+Commissions,Комісії
+"Our Programs","Наші програми"
+"Our Program","Наша програма"
+"%1  - Minimum balance required for payout.","%1 - Мінімальний залишок, необхідний для виплати."
+"Affiliate Group","Партнерська група"
+Description,Опис
+"Sign In",Увійти
+"New Affiliate Account","Новий партнерський рахунок"
+"Account Information","Інформація про реєстрацію"
+"%name,","% ім&#39;я,"
+"Your affiliate account at %store_name has been approved.","Ваш партнерський рахунок на% store_name затверджено."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Клацніть <a href=""%login_url"">тут,</a> щоб увійти у свій обліковий запис."
+"Your account balance has been updated at %store_name.","Баланс вашого рахунку оновлено на% store_name."
+Balance:,Баланс:
+"Welcome to %store_name affiliate program!","Ласкаво просимо до партнерської програми% store_name!"
+Email:,"Електронна адреса:"
+"Referring Website:","Посилаючий веб-сайт:"
+"A customer referred by you has just placed an order at %store_name.","Клієнт, якого ви вказали, щойно зробив замовлення за адресою% store_name."
+"Thus, it was credited to your affiliate account.","Таким чином, він був зарахований на ваш афілійований рахунок."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Коли замовлення буде завершено, ми переведемо комісію на баланс вашого рахунку в нашій системі, а потім ви зможете зняти гроші, коли захочете."
+"Transaction Amount:","Сума транзакції:"
+"Current Balance:","Поточний баланс:"
+"New Withdrawal Request","Новий запит на вилучення"
+Information,Інформація
+"Please log in to the admin panel to manage this request.","Будь ласка, увійдіть до адміністративної панелі, щоб керувати цим запитом."
+"Affiliate: Sign In Button","Партнер: кнопка входу"
+"Affiliate: List of programs","Партнер: Список програм"
+"Account Dashboard","Інформаційна панель облікового запису"
+Transactions,Операції
+Settings,Налаштування
+"Affiliate Program","Партнерська Програма"

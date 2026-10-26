@@ -1,0 +1,173 @@
+{
+    "mst_affiliate_account": {
+        "column": {
+            "account_id": true,
+            "customer_id": true,
+            "identifier": true,
+            "website": true,
+            "is_subscribed": true,
+            "status": true,
+            "payment_method": true,
+            "payment_email": true,
+            "balance": true,
+            "total_commissions": true,
+            "total_withdrawals": true,
+            "created_at": true,
+            "updated_at": true,
+            "program_ids": true,
+            "parent_id": true,
+            "group_id": true,
+            "additional_data_serialized": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "MST_AFFILIATE_ACCOUNT_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID": true
+        }
+    },
+    "mst_affiliate_program": {
+        "column": {
+            "program_id": true,
+            "name": true,
+            "description": true,
+            "type": true,
+            "is_active": true,
+            "active_from": true,
+            "active_to": true,
+            "is_visible": true,
+            "commission_amount_type": true,
+            "commission_amount": true,
+            "created_at": true,
+            "updated_at": true,
+            "tiers_serialized": true,
+            "conditions_serialized": true,
+            "priority": true,
+            "store_ids": true,
+            "coupon_is_active": true,
+            "cart_rule_id": true,
+            "is_stop_processing": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mst_affiliate_event": {
+        "column": {
+            "event_id": true,
+            "account_id": true,
+            "type": true,
+            "visitor_identifier": true,
+            "entity_id": true,
+            "arg_serialized": true,
+            "is_processed": true,
+            "amount": true,
+            "referer": true,
+            "commission": true,
+            "created_at": true,
+            "updated_at": true,
+            "customer_id": true,
+            "store_id": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mst_affiliate_transaction": {
+        "column": {
+            "transaction_id": true,
+            "account_id": true,
+            "entity_id": true,
+            "event_id": true,
+            "amount": true,
+            "balance": true,
+            "type": true,
+            "message": true,
+            "status": true,
+            "hold_to": true,
+            "created_at": true,
+            "updated_at": true,
+            "customer_id": true,
+            "store_id": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mst_affiliate_banner": {
+        "column": {
+            "banner_id": true,
+            "title": true,
+            "type": true,
+            "source": true,
+            "width": true,
+            "height": true,
+            "link": true,
+            "is_active": true,
+            "created_at": true,
+            "updated_at": true,
+            "store_ids": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mst_affiliate_withdraw": {
+        "column": {
+            "withdraw_id": true,
+            "account_id": true,
+            "amount": true,
+            "fee": true,
+            "message": true,
+            "status": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mst_affiliate_coupon": {
+        "column": {
+            "coupon_id": true,
+            "account_id": true,
+            "program_id": true,
+            "code": true
+        },
+        "index": {
+            "MST_AFFILIATE_COUPON_ACCOUNT_ID": true,
+            "MST_AFFILIATE_COUPON_CODE": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mst_affiliate_account_customer": {
+        "column": {
+            "id": true,
+            "account_id": true,
+            "customer_id": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "MST_AFFILIATE_ACCOUNT_CUSTOMER_CUSTOMER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "mst_affiliate_group": {
+        "column": {
+            "group_id": true,
+            "name": true,
+            "is_default": true,
+            "is_auto_update": true,
+            "priority": true,
+            "conditions_serialized": true,
+            "description": true,
+            "is_visible": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

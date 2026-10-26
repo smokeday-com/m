@@ -1,0 +1,39 @@
+<!--@subject {{var store.getFrontendName()}}: New affiliate account @-->
+<!--@vars {
+"var store.getFrontendName()": "Store Name",
+"var account.id": "Affiliate ID",
+"var account.name": "Affiliate Name",
+"var account.email": "Affiliate Email",
+"var account.website": "Affiliate Website",
+"var isPending": "Is Status Pending",
+"var status": "Status"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<h1>{{trans "New Affiliate Account"}}</h1>
+
+<strong>{{trans "Account Information"}}</strong>
+
+<ul>
+    <li>
+        <b>{{trans "Name"}}:</b> {{var account.name}}
+    </li>
+    <li>
+        <b>{{trans "Email"}}:</b> {{var account.email}}
+    </li>
+    <li>
+        <b>{{trans "Referring Website"}}:</b> {{var account.website}}
+    </li>
+    <li>
+        <b>{{trans "Status"}}:</b> {{var status}}
+    </li>
+</ul>
+
+{{if isPending}}
+<p>
+    {{trans "Please login to admin panel to approve this account."}}
+</p>
+{{/if}}
+
+{{template config_path="design/email/footer_template"}}

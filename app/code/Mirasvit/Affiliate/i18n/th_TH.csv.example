@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.",เราจะตรวจสอบการลงทะเบียนของคุณและแจ้งให้คุณทราบ
+"Your request to sign up to the affiliate program has been rejected.",คำขอของคุณในการสมัครเข้าร่วมโปรแกรมพันธมิตรถูกปฏิเสธ
+"Sign In to Affiliates","ลงชื่อเข้าใช้ บริษัท ในเครือ"
+"You have successfully signed up for an affiliate account.",คุณได้ลงทะเบียนสำหรับบัญชีพันธมิตรเรียบร้อยแล้ว
+"Affiliate Dashboard","Affiliate Dashboard"
+"Affiliate Account Settings",การตั้งค่าบัญชีพันธมิตร
+"Account information successfully updated.",อัปเดตข้อมูลบัญชีเรียบร้อยแล้ว
+"Transactions History",ประวัติการทำธุรกรรม
+"Promotion Materials",วัสดุส่งเสริมการขาย
+Statistics,สถิติ
+"Affiliate Program Overview",ภาพรวมโปรแกรมพันธมิตร
+Withdrawals,การถอน
+"Withdrawal request has been submitted.",ส่งคำขอถอนแล้ว
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","<a href=""%1"">ขณะนี้บัญชีพันธมิตร</a> อย่างน้อยหนึ่งบัญชีอยู่ในสถานะรอดำเนินการ"
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","<a href=""%1"">คำขอถอน</a> อย่างน้อยหนึ่งรายการอยู่ในสถานะรอดำเนินการ"
+"Pending Approval",รอการพิสูจน์
+Approved,ได้รับการอนุมัติ
+"Not Approved",ไม่ได้รับการอนุมัติ
+Image,ภาพ
+Text,ข้อความ
+"Assign to first referred affiliate","กำหนดให้กับ บริษัท ในเครือที่อ้างถึงเป็นครั้งแรก"
+"Assign to last referred affiliate",กำหนดให้กับพันธมิตรที่อ้างอิงล่าสุด
+Available,มีจำหน่าย
+Inactive,ไม่ได้ใช้งาน
+Removed,นำออกแล้ว
+"- Disable these emails -","- ปิดการใช้งานอีเมลเหล่านี้ -"
+Click,คลิก
+Impression,ความประทับใจ
+Lead,ตะกั่ว
+Sale,ขาย
+". ' (default)'",". &#39; (ค่าเริ่มต้น)&#39;"
+"Percent of order amount",เปอร์เซ็นต์ของยอดสั่งซื้อ
+"Percent of cart amount",เปอร์เซ็นต์ของจำนวนรถเข็น
+"Fixed amount",จำนวนคงที่
+"Pay per Sale",จ่ายต่อการขาย
+"Pay per Lead",จ่ายต่อโอกาสในการขาย
+"Pay per Click",จ่ายต่อคลิก
+"Pay per Impression",จ่ายต่อการแสดงผล
+Complete,เสร็จสมบูรณ์
+"In Hold",ในการถือ
+Commission,ค่าคอมมิชชั่น
+Withdraw,ถอน
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit",เครดิตร้านค้า
+Other,"อื่น ๆ"
+Pending,รอดำเนินการ
+Accepted,ได้รับการยอมรับ
+Completed,เสร็จเรียบร้อย
+Denied,ถูกปฏิเสธ
+"Number of Orders from reffered customers",จำนวนคำสั่งซื้อจากลูกค้าที่เสนอ
+"Sales Amount from reffered customers",ยอดขายจากลูกค้าที่เสนอขาย
+is,คือ
+"is not",ไม่ใช่
+"greater than",มากกว่า
+"less than",น้อยกว่า
+"equals or greater than",เท่ากับหรือมากกว่า
+"equals or less than",เท่ากับหรือน้อยกว่า
+"Conditions Combination",การรวมเงื่อนไข
+"Affiliate conditions",เงื่อนไขพันธมิตร
+General,ทั่วไป
+"Customer Group",กลุ่มลูกค้า
+Store,เก็บ
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","ไม่อนุญาตประเภทไฟล์ (อนุญาตเฉพาะไฟล์ JPG, JPEG, PNG และ GIF)"
+"Commission for order #%1 (%2)","คอมมิชชั่นสำหรับการสั่งซื้อ #%1 (%2)"
+"Refund for order #%1","การคืนเงินสำหรับคำสั่งซื้อ #%1"
+Withdrawal,การถอน
+"Withdraw cannot exceed current balance.",ถอนได้ไม่เกินยอดเงินปัจจุบัน
+"Minimum withdrawal amount is %1.","จำนวนถอนขั้นต่ำคือ %1"
+"You already have a pending withdrawal request.",คุณมีคำขอถอนเงินที่รอดำเนินการอยู่แล้ว
+"Affiliate Withdrawal",การถอนพันธมิตร
+Back,กลับ
+Delete,ลบ
+"Are you sure you want to proceed?",แน่ใจไหมว่าต้องการดำเนินการต่อ
+"Save and Continue Edit",บันทึกและดำเนินการแก้ไขต่อ
+Save,บันทึก
+"Click on row to edit the coupon",คลิกที่แถวเพื่อแก้ไขคูปอง
+"Referred Customers",ลูกค้าที่แนะนำ
+Actions,การดำเนินการ
+"Add Customers",เพิ่มลูกค้า
+Customers,ลูกค้า
+Cancel,ยกเลิก
+"Add Selected Customers",เพิ่มลูกค้าที่เลือก
+Remove,ลบ
+ID,ID
+Name,ชื่อ
+Email,อีเมล์
+View,ดู
+Edit,แก้ไข
+"Delete item?",ลบรายการไหม
+Conditions,เงื่อนไข
+"Affiliate conditions (affects only automatically updated group)","เงื่อนไขพันธมิตร (มีผลเฉพาะกลุ่มที่อัปเดตอัตโนมัติ)"
+"Assigned Affiliates","บริษัท ในเครือที่ได้รับมอบหมาย"
+"Add Affiliate",เพิ่มพันธมิตร
+Affiliates,"บริษัท ในเครือ"
+"Add Selected",เพิ่มรายการที่เลือก
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","ใช้ค่าคอมมิชชั่นกับสินค้าในรถเข็นที่ตรงกับเงื่อนไขต่อไปนี้เท่านั้น (เว้นว่างไว้สำหรับสินค้าทั้งหมด)"
+Accept,ยอมรับ
+Reject,ปฏิเสธ
+"Referring Website",อ้างอิงเว็บไซต์
+"Subscribe to email notifications",สมัครรับการแจ้งเตือนทางอีเมล
+"I accept the terms and conditions",ฉันยอมรับข้อกำหนดและเงื่อนไขต่างๆ
+"Sign Up",ลงชื่อ
+"Referral Website",เว็บไซต์อ้างอิง
+"Payment Method",วิธีการชำระเงิน
+"Payment Information",ข้อมูลการชำระเงิน
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","โปรดระบุข้อมูลการชำระเงินส่วนบุคคล: อีเมล PayPal หรือรายละเอียดการชำระเงิน e-wallet"
+From,จาก
+To,ถึง
+Apply,สมัคร
+Clicks,คลิก
+Leads,โอกาสในการขาย
+Orders,คำสั่งซื้อ
+Views,มุมมอง
+Earned,ได้รับ
+"My Account",บัญชีของฉัน
+"Commissions according to your affiliate group",คอมมิชชั่นตามกลุ่มพันธมิตรของคุณ
+"<b>%1%</b> of order amount from first order","<b>%1%</b> ของยอดสั่งซื้อจากการสั่งซื้อครั้งแรก"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> ของยอดสั่งซื้อจากคำสั่งซื้อที่สองขึ้นไป"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> ของจำนวนเงินในตะกร้าจากการสั่งซื้อครั้งแรก"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> ของจำนวนรถเข็นจากการสั่งซื้อครั้งที่สองขึ้นไป"
+"<b>%1</b> per sale from first order","<b>%1</b> ต่อการขายจากการสั่งซื้อครั้งแรก"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> ต่อการขายจากคำสั่งซื้อที่สองขึ้นไป"
+"<b>%1</b> per unique click","<b>%1</b> ต่อคลิกที่ไม่ซ้ำกัน"
+"<b>%1</b> per lead","%1 ต่อ <b>ลูกค้าเป้าหมาย</b>"
+"<b>%1</b> per 1000 views","<b>%1</b> ต่อการดู 1,000 ครั้ง"
+Banners,แบนเนอร์
+Type,ประเภท
+Size,ขนาด
+Link,ลิงค์
+"Get Code",รับรหัส
+"Copy and paste this code into your website: ",คัดลอกและวางรหัสนี้ลงในเว็บไซต์ของคุณ:
+"Referral Coupons",คูปองอ้างอิง
+Program,โปรแกรม
+Coupon,คูปอง
+Discount,ส่วนลด
+"Personal Referral Link",ลิงค์อ้างอิงส่วนบุคคล
+"Enter any URL from this store in the form below to generate a new referral link:","ป้อน URL จากร้านค้านี้ในแบบฟอร์มด้านล่างเพื่อสร้างลิงค์อ้างอิงใหม่:"
+"Your unique referral link is:",ลิงค์อ้างอิงเฉพาะของคุณคือ:
+"Referral Widget",วิดเจ็ตการอ้างอิง
+"Widget Title:",ชื่อวิดเจ็ต:
+"Related Products",สินค้าที่เกี่ยวข้อง
+Width:,ความกว้าง:
+Height:,ความสูง:
+"Number of products:",จำนวนสินค้า:
+"Show Bestsellers",แสดงสินค้าขายดี
+"Show New Products",แสดงผลิตภัณฑ์ใหม่
+Search,ค้นหา
+"Search term",คำที่ต้องการค้นหา
+"Show Product's names",แสดงชื่อผลิตภัณฑ์
+"Show Prices",แสดงราคา
+"Place this code wherever you want the widget to appear on your page.",วางโค้ดนี้ทุกที่ที่คุณต้องการให้วิดเจ็ตปรากฏบนเพจของคุณ
+"Current balance: <b>%1</b>","ยอดเงินปัจจุบัน: <b>%1</b>"
+"On hold: %1","ระงับ: %1"
+"Lifetime: %1","อายุการใช้งาน: %1"
+"Paid: %1","จ่าย: %1"
+Date,วันที่
+Balance,สมดุล
+Amount,จำนวน
+Details,รายละเอียด
+"On hold to %1","ระงับ %1"
+"There have been no transactions yet.","ยังไม่มีการทำธุรกรรมใด ๆ"
+"Request withdrawal",ขอถอน
+"Minimum balance to request withdrawal is %1","ยอดเงินขั้นต่ำที่จะขอถอนคือ %1"
+Fee,ค่าธรรมเนียม
+Status,สถานะ
+"Pending approval",รอการพิสูจน์
+"There have been no withdrawals yet.","ยังไม่มีการถอนใด ๆ"
+"Your account is assigned to the <span>%1</span> affiliate group","บัญชีของคุณถูกกำหนดให้กับกลุ่มพันธมิตร <span>%1</span>"
+Commissions,คอมมิชชั่น
+"Our Programs",โปรแกรมของเรา
+"Our Program",โปรแกรมของเรา
+"%1  - Minimum balance required for payout.","%1 - ยอดเงินขั้นต่ำที่จำเป็นสำหรับการจ่ายเงิน"
+"Affiliate Group",กลุ่มพันธมิตร
+Description,คำอธิบาย
+"Sign In",เข้าสู่ระบบ
+"New Affiliate Account",บัญชีพันธมิตรใหม่
+"Account Information",ข้อมูลเกี่ยวกับบัญชี
+"%name,","%ชื่อ,"
+"Your affiliate account at %store_name has been approved.","บัญชีพันธมิตรของคุณที่% store_name ได้รับการอนุมัติแล้ว"
+"Click <a href=""%login_url"">here</a> to sign in to your account.","คลิก <a href=""%login_url"">ที่นี่</a> เพื่อลงชื่อเข้าใช้บัญชีของคุณ"
+"Your account balance has been updated at %store_name.","ยอดเงินในบัญชีของคุณได้รับการอัปเดตที่% store_name"
+Balance:,สมดุล:
+"Welcome to %store_name affiliate program!","ยินดีต้อนรับสู่โปรแกรมพันธมิตร% store_name!"
+Email:,อีเมล์:
+"Referring Website:",อ้างอิงเว็บไซต์:
+"A customer referred by you has just placed an order at %store_name.","ลูกค้าที่คุณอ้างถึงเพิ่งสั่งซื้อที่% store_name"
+"Thus, it was credited to your affiliate account.",ดังนั้นจึงเข้าบัญชีพันธมิตรของคุณ
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.",เมื่อคำสั่งซื้อเสร็จสมบูรณ์เราจะโอนค่าคอมมิชชั่นไปยังยอดเงินในบัญชีของคุณในระบบของเราจากนั้นคุณสามารถถอนเงินได้ทุกเมื่อที่คุณต้องการ
+"Transaction Amount:",จำนวนธุรกรรม:
+"Current Balance:",ยอดเงินปัจจุบัน:
+"New Withdrawal Request",คำขอถอนใหม่
+Information,ข้อมูล
+"Please log in to the admin panel to manage this request.",โปรดเข้าสู่แผงผู้ดูแลระบบเพื่อจัดการคำขอนี้
+"Affiliate: Sign In Button","พันธมิตร: ปุ่มลงชื่อเข้าใช้"
+"Affiliate: List of programs","พันธมิตร: รายชื่อโปรแกรม"
+"Account Dashboard",แดชบอร์ดบัญชี
+Transactions,ธุรกรรม
+Settings,การตั้งค่า
+"Affiliate Program",โปรแกรมพันธมิตร

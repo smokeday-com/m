@@ -1,0 +1,44 @@
+@mst-affiliate__iframe-container__border__color: #c2c2c2;
+@mst-affiliate__iframe__border__color: #cfcfcf;
+
+.affiliate-account__promotion-widget {
+    .lib-clearfix();
+
+    .fieldset.general {
+        box-sizing: border-box;
+        float: left;
+        padding-right: 1rem;
+        width: 50%;
+    }
+
+    .fieldset.information {
+        box-sizing: border-box;
+        float: left;
+        padding-left: 1rem;
+        width: 50%;
+
+        .field.radios,
+        .field.checkboxes {
+            label {
+                font-weight: normal;
+                margin-right: 2rem;
+            }
+        }
+    }
+
+    .iframe-container {
+        border: 1px solid @mst-affiliate__iframe-container__border__color;
+        border-radius: 1px;
+        margin-bottom: 1rem;
+        padding: 2rem;
+        text-align: center;
+
+        iframe {
+            border: 1px dashed @mst-affiliate__iframe__border__color !important;
+        }
+    }
+
+    .action.primary {
+        float: right;
+    }
+}

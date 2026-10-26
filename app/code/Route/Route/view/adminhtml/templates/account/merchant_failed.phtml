@@ -1,0 +1,19 @@
+<section class="dashboard-advanced-reports" data-index="dashboard-advanced-reports">
+    <div class="dashboard-advanced-reports-description">
+        <header class="dashboard-advanced-reports-title">
+            <?= $block->escapeHtml(__('Important')) ?>
+        </header>
+        <div class="dashboard-advanced-reports-content">
+            <?= $block->escapeHtml(__('Route merchant creation has failed.')) ?>
+        </div>
+    </div>
+    <div class="dashboard-advanced-reports-actions">
+        <a href="<?= $block->escapeUrl($block->tryRecreateMerchant()) ?>"
+           target="_blank"
+           class="action action-advanced-reports"
+           data-index="analytics-service-link"
+           title="<?= $block->escapeHtml(__('Retry')) ?>">
+            <span><?= $block->escapeHtml(__('Retry')) ?></span>
+        </a>
+    </div>
+</section>

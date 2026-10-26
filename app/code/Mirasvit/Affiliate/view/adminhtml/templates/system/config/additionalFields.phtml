@@ -1,0 +1,19 @@
+<?php
+declare(strict_types=1);
+
+use Mirasvit\Affiliate\Block\Adminhtml\System\Config\AdditionalFieldsButton;
+
+/** @var AdditionalFieldsButton $block */
+?>
+
+<button class="scalable primary" type="button" id="<?= /* @noEscape */
+$block->getHtmlId() ?>" onclick="openLayoutEditor()">
+    <span id="<?= /* @noEscape */
+    $block->getHtmlId() ?>_result"><?= $block->escapeHtml($block->getButtonLabel()) ?></span>
+</button>
+
+<script>
+    function openLayoutEditor() {
+        window.location.href = '<?= /* @noEscape */$block->getCallbackUrl() ?>';
+    }
+</script>

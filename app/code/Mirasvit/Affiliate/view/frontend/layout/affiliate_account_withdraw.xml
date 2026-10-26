@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="affiliate_account"/>
+
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Withdrawals</argument>
+            </action>
+        </referenceBlock>
+
+        <referenceContainer name="content">
+            <block class="Mirasvit\Affiliate\Block\Account\Withdraw\Request" name="affiliate_withdraw_request"
+                   template="account/withdraw/request.phtml"/>
+
+            <block class="Mirasvit\Affiliate\Block\Account\Withdraws" name="affiliate_withdraws"
+                   template="account/withdraws.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="athlete2_topline_left">
+            <block class="Olegnax\Athlete2\Block\Template" name="topbar_switch" template="html/topbar_switch.phtml"/>
+        </referenceBlock>
+        <referenceBlock name="currency" remove="true"/> 
+        <referenceBlock name="store_language" remove="true"/> 
+        <move element="header_switch_language_current" destination="topbar_switch"/>
+        <move element="header_switch_currency_current" destination="topbar_switch"/>
+        <move element="header_switch_modal" destination="topbar_switch"/>
+    </body>
+</page>

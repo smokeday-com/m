@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">affiliate_config_form.affiliate_config_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">General Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+
+    <settings>
+        <dataScope>data</dataScope>
+        <namespace>affiliate_config_form</namespace>
+        <deps>
+            <dep>affiliate_config_form.affiliate_config_form_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="save">
+                <class>save primary</class>
+                <label translate="true">Save</label>
+            </button>
+        </buttons>
+    </settings>
+    <dataSource name="affiliate_config_form_data_source" component="Magento_Ui/js/form/provider">
+        <settings>
+            <submitUrl path="*/*/save"/>
+        </settings>
+        <dataProvider class="Mirasvit\Affiliate\Ui\Config\Form\DataProvider" name="affiliate_config_form_data_source">
+            <settings>
+                <requestFieldName>set</requestFieldName>
+                <primaryFieldName>set</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" />
+                <item name="collapsible" xsi:type="boolean">false</item>
+            </item>
+        </argument>
+
+        <dynamicRows name="account_fields" component="Mirasvit_Affiliate/js/dynamic-rows/dynamic-rows">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="componentType" xsi:type="string">dynamicRows</item>
+                    <item name="addButtonLabel" xsi:type="string">Add Field</item>
+                    <item name="label" xsi:type="string" translate="true"/>
+                    <item name="columnsHeader" xsi:type="boolean">true</item>
+                </item>
+            </argument>
+            <settings>
+                <additionalClasses>
+                    <class name="wide-dynamic-rows">true</class>
+                </additionalClasses>
+            </settings>
+            <container name="record" component="Magento_Ui/js/dynamic-rows/record">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="isTemplate" xsi:type="boolean">true</item>
+                        <item name="is_collection" xsi:type="boolean">true</item>
+                        <item name="componentType" xsi:type="string">container</item>
+                    </item>
+                </argument>
+                <field name="key" formElement="input" sortOrder="10">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="source" xsi:type="string">account_fields</item>
+                            <item name="dataScope" xsi:type="string">key</item>
+                        </item>
+                    </argument>
+                    <settings>
+                        <dataType>text</dataType>
+                        <label translate="true">Key</label>
+                        <notice translate="true">Use letters, numbers or underscore</notice>
+                        <validation>
+                            <rule name="required-entry" xsi:type="boolean">true</rule>
+                            <rule name="validate-data" xsi:type="boolean">true</rule>
+                        </validation>
+                    </settings>
+                </field>
+                <field name="label" formElement="input" sortOrder="20">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="source" xsi:type="string">account_fields</item>
+                            <item name="dataScope" xsi:type="string">label</item>
+                        </item>
+                    </argument>
+                    <settings>
+                        <dataType>text</dataType>
+                        <label translate="true">Label</label>
+                        <validation>
+                            <rule name="required-entry" xsi:type="boolean">true</rule>
+                        </validation>
+                    </settings>
+                </field>
+                <field name="type" formElement="select" sortOrder="30">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="source" xsi:type="string">account_fields</item>
+                            <item name="dataScope" xsi:type="string">type</item>
+                        </item>
+                        <item name="options" xsi:type="object">
+                            Mirasvit\Affiliate\Model\Config\Source\Config\FieldTypeSource
+                        </item>
+                    </argument>
+                    <settings>
+                        <label translate="true">Field Type</label>
+                        <switcherConfig>
+                            <rules>
+                                <rule name="0">
+                                    <value>text</value>
+                                    <actions>
+                                        <action name="0">
+                                            <target>${ $.parentName }.placeholder</target>
+                                            <callback>show</callback>
+                                        </action>
+                                        <action name="1">
+                                            <target>${ $.parentName }.placeholder</target>
+                                            <callback>enable</callback>
+                                        </action>
+                                        <action name="2">
+                                            <target>${ $.parentName }.options</target>
+                                            <callback>visible</callback>
+                                            <params>
+                                                <param xsi:type="boolean" name="0">0</param>
+                                            </params>
+                                        </action>
+                                    </actions>
+                                </rule>
+                                <rule name="1">
+                                    <value>textarea</value>
+                                    <actions>
+                                        <action name="0">
+                                            <target>${ $.parentName }.placeholder</target>
+                                            <callback>show</callback>
+                                        </action>
+                                        <action name="1">
+                                            <target>${ $.parentName }.placeholder</target>
+                                            <callback>enable</callback>
+                                        </action>
+                                        <action name="2">
+                                            <target>${ $.parentName }.options</target>
+                                            <callback>visible</callback>
+                                            <params>
+                                                <param xsi:type="boolean" name="0">0</param>
+                                            </params>
+                                        </action>
+                                    </actions>
+                                </rule>
+                                <rule name="2">
+                                    <value>checkbox</value>
+                                    <actions>
+                                        <action name="0">
+                                            <target>${ $.parentName }.placeholder</target>
+                                            <callback>show</callback>
+                                        </action>
+                                        <action name="1">
+                                            <target>${ $.parentName }.placeholder</target>
+                                            <callback>disable</callback>
+                                        </action>
+                                        <action name="2">
+                                            <target>${ $.parentName }.options</target>
+                                            <callback>visible</callback>
+                                            <params>
+                                                <param xsi:type="boolean" name="0">0</param>
+                                            </params>
+                                        </action>
+                                    </actions>
+                                </rule>
+                                <rule name="3">
+                                    <value>checkboxes</value>
+                                    <actions>
+                                        <action name="0">
+                                            <target>${ $.parentName }.placeholder</target>
+                                            <callback>hide</callback>
+                                        </action>
+                                        <action name="1">
+                                            <target>${ $.parentName }.placeholder</target>
+                                            <callback>disable</callback>
+                                        </action>
+                                        <action name="2">
+                                            <target>${ $.parentName }.options</target>
+                                            <callback>visible</callback>
+                                            <params>
+                                                <param xsi:type="boolean" name="0">1</param>
+                                            </params>
+                                        </action>
+                                    </actions>
+                                </rule>
+                                <rule name="4">
+                                    <value>radios</value>
+                                    <actions>
+                                        <action name="0">
+                                            <target>${ $.parentName }.placeholder</target>
+                                            <callback>hide</callback>
+                                        </action>
+                                        <action name="1">
+                                            <target>${ $.parentName }.placeholder</target>
+                                            <callback>disable</callback>
+                                        </action>
+                                        <action name="2">
+                                            <target>${ $.parentName }.options</target>
+                                            <callback>visible</callback>
+                                            <params>
+                                                <param xsi:type="boolean" name="0">1</param>
+                                            </params>
+                                        </action>
+                                    </actions>
+                                </rule>
+                                <rule name="5">
+                                    <value>select</value>
+                                    <actions>
+                                        <action name="0">
+                                            <target>${ $.parentName }.placeholder</target>
+                                            <callback>hide</callback>
+                                        </action>
+                                        <action name="1">
+                                            <target>${ $.parentName }.placeholder</target>
+                                            <callback>disable</callback>
+                                        </action>
+                                        <action name="2">
+                                            <target>${ $.parentName }.options</target>
+                                            <callback>visible</callback>
+                                            <params>
+                                                <param xsi:type="boolean" name="0">1</param>
+                                            </params>
+                                        </action>
+                                    </actions>
+                                </rule>
+                            </rules>
+                            <enabled>true</enabled>
+                        </switcherConfig>
+                    </settings>
+                </field>
+                <field name="is_active" formElement="checkbox" sortOrder="40">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="source" xsi:type="string">account_fields</item>
+                            <item name="dataScope" xsi:type="string">is_active</item>
+                            <item name="default" xsi:type="number">0</item>
+                        </item>
+                    </argument>
+                    <settings>
+                        <dataType>boolean</dataType>
+                        <label translate="true">Enabled</label>
+                    </settings>
+                    <formElements>
+                        <checkbox>
+                            <settings>
+                                <valueMap>
+                                    <map name="false" xsi:type="number">0</map>
+                                    <map name="true" xsi:type="number">1</map>
+                                </valueMap>
+                                <prefer>toggle</prefer>
+                            </settings>
+                        </checkbox>
+                    </formElements>
+                </field>
+                <field name="is_required" formElement="checkbox" sortOrder="50">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="source" xsi:type="string">account_fields</item>
+                            <item name="dataScope" xsi:type="string">is_required</item>
+                            <item name="default" xsi:type="number">0</item>
+                        </item>
+                    </argument>
+                    <settings>
+                        <dataType>boolean</dataType>
+                        <label translate="true">Required</label>
+                    </settings>
+                    <formElements>
+                        <checkbox>
+                            <settings>
+                                <valueMap>
+                                    <map name="false" xsi:type="number">0</map>
+                                    <map name="true" xsi:type="number">1</map>
+                                </valueMap>
+                                <prefer>toggle</prefer>
+                            </settings>
+                        </checkbox>
+                    </formElements>
+                </field>
+                <field name="placeholder" formElement="input" sortOrder="60">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="source" xsi:type="string">account_fields</item>
+                            <item name="dataScope" xsi:type="string">placeholder</item>
+                        </item>
+                    </argument>
+                    <settings>
+                        <label/>
+                        <dataType>text</dataType>
+                        <notice translate="true">Field placeholder</notice>
+                    </settings>
+                </field>
+
+                <dynamicRows name="options" component="Mirasvit_Affiliate/js/dynamic-rows/dynamic-rows">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="componentType" xsi:type="string">dynamicRows</item>
+                            <item name="addButtonLabel" xsi:type="string">Add Option</item>
+                            <item name="label" xsi:type="string" translate="true"/>
+                            <item name="columnsHeader" xsi:type="boolean">true</item>
+                            <item name="dndConfig" xsi:type="array">
+                                <item name="enabled" xsi:type="boolean">false</item>
+                            </item>
+                        </item>
+                    </argument>
+                    <container name="record" component="Magento_Ui/js/dynamic-rows/record">
+                        <argument name="data" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="isTemplate" xsi:type="boolean">true</item>
+                                <item name="is_collection" xsi:type="boolean">true</item>
+                                <item name="componentType" xsi:type="string">container</item>
+                            </item>
+                        </argument>
+                        <field name="option_key" formElement="input" sortOrder="10">
+                            <argument name="data" xsi:type="array">
+                                <item name="config" xsi:type="array">
+                                    <item name="source" xsi:type="string">options</item>
+                                    <item name="dataScope" xsi:type="string">option_key</item>
+                                </item>
+                            </argument>
+                            <settings>
+                                <dataType>text</dataType>
+                                <label translate="true">Option Key</label>
+                                <validation>
+                                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                                    <rule name="validate-data" xsi:type="boolean">true</rule>
+                                </validation>
+                            </settings>
+                        </field>
+                        <field name="option_label" formElement="input" sortOrder="20">
+                            <argument name="data" xsi:type="array">
+                                <item name="config" xsi:type="array">
+                                    <item name="source" xsi:type="string">options</item>
+                                    <item name="dataScope" xsi:type="string">option_label</item>
+                                </item>
+                            </argument>
+                            <settings>
+                                <dataType>text</dataType>
+                                <label translate="true">Option Label</label>
+                                <validation>
+                                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                                </validation>
+                            </settings>
+                        </field>
+                        <actionDelete name="actionDelete" sortOrder="90">
+                            <argument name="data" xsi:type="array">
+                                <item name="config" xsi:type="array">
+                                    <item name="actionDelete" xsi:type="string">data-grid-actions-cell</item>
+                                    <item name="dataType" xsi:type="string">text</item>
+                                </item>
+                            </argument>
+                        </actionDelete>
+                    </container>
+                </dynamicRows>
+
+                <actionDelete name="actionDelete" sortOrder="90">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="actionDelete" xsi:type="string">data-grid-actions-cell</item>
+                            <item name="dataType" xsi:type="string">text</item>
+                        </item>
+                    </argument>
+                </actionDelete>
+            </container>
+        </dynamicRows>
+    </fieldset>
+</form>
+

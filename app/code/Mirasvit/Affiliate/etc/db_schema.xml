@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="mst_affiliate_account" resource="default" engine="innodb" comment="mst_affiliate_account">
+        <column xsi:type="int" name="account_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Account ID"/>
+        <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Customer ID"/>
+        <column xsi:type="varchar" name="identifier" nullable="false" length="255" comment="Identifier"/>
+        <column xsi:type="varchar" name="website" nullable="true" length="255" comment="website"/>
+        <column xsi:type="int" name="is_subscribed" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="website"/>
+        <column xsi:type="int" name="status" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Status"/>
+        <column xsi:type="varchar" name="payment_method" nullable="true" length="255" comment="Payment Method"/>
+        <column xsi:type="varchar" name="payment_email" nullable="true" length="255" comment="Payment Email"/>
+        <column xsi:type="decimal" name="balance" scale="4" precision="12" unsigned="false" nullable="false" default="0" comment="Balance"/>
+        <column xsi:type="decimal" name="total_commissions" scale="4" precision="12" unsigned="false" nullable="false" default="0" comment="Total Commissions"/>
+        <column xsi:type="decimal" name="total_withdrawals" scale="4" precision="12" unsigned="false" nullable="false" default="0" comment="Total Withdrawals"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <column xsi:type="varchar" name="program_ids" nullable="true" length="255" default="" comment="Program Ids"/>
+        <column xsi:type="int" name="parent_id" padding="11" unsigned="false" nullable="true" identity="false" comment="Parent account"/>
+        <column xsi:type="int" name="group_id" padding="10" unsigned="true" nullable="true" identity="false" comment="group_id"/>
+        <column xsi:type="mediumtext" name="additional_data_serialized" nullable="true" comment="Additional data"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="account_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="MST_AFFILIATE_ACCOUNT_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID" table="mst_affiliate_account" column="customer_id" referenceTable="customer_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+    <table name="mst_affiliate_program" resource="default" engine="innodb" comment="mst_affiliate_program">
+        <column xsi:type="int" name="program_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Program ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Name"/>
+        <column xsi:type="text" name="description" nullable="true" comment="Description"/>
+        <column xsi:type="varchar" name="type" nullable="false" length="255" comment="Type"/>
+        <column xsi:type="int" name="is_active" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Is Active"/>
+        <column xsi:type="datetime" name="active_from" on_update="false" nullable="true" comment="Active From"/>
+        <column xsi:type="datetime" name="active_to" on_update="false" nullable="true" comment="Active To"/>
+        <column xsi:type="int" name="is_visible" padding="10" unsigned="true" nullable="false" identity="false" default="1" comment="Is Visible"/>
+        <column xsi:type="varchar" name="commission_amount_type" nullable="true" length="255" comment="Commission Amount Type"/>
+        <column xsi:type="decimal" name="commission_amount" scale="4" precision="12" unsigned="false" nullable="false" default="0" comment="Commission Amount"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <column xsi:type="text" name="tiers_serialized" nullable="true" comment="Tiers"/>
+        <column xsi:type="text" name="conditions_serialized" nullable="true" comment="conditions_serialized"/>
+        <column xsi:type="int" name="priority" padding="11" unsigned="false" nullable="true" identity="false" default="0" comment="priority"/>
+        <column xsi:type="varchar" name="store_ids" nullable="false" length="255" default="0" comment="store_ids"/>
+        <column xsi:type="int" name="coupon_is_active" padding="10" unsigned="true" nullable="true" identity="false" comment="store_id"/>
+        <column xsi:type="int" name="cart_rule_id" padding="10" unsigned="true" nullable="true" identity="false" comment="store_id"/>
+        <column xsi:type="int" name="is_stop_processing" padding="10" unsigned="true" nullable="false" identity="false" default="1" comment="Discard subsequent programs "/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="program_id"/>
+        </constraint>
+    </table>
+    <table name="mst_affiliate_event" resource="default" engine="innodb" comment="mst_affiliate_event">
+        <column xsi:type="int" name="event_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Event ID"/>
+        <column xsi:type="int" name="account_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Account ID"/>
+        <column xsi:type="text" name="type" nullable="false" comment="Event type"/>
+        <column xsi:type="text" name="visitor_identifier" nullable="false" comment="Visitor"/>
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Entity ID"/>
+        <column xsi:type="text" name="arg_serialized" nullable="true" comment="Arguments"/>
+        <column xsi:type="int" name="is_processed" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Is Processed"/>
+        <column xsi:type="decimal" name="amount" scale="4" precision="12" unsigned="true" nullable="true" default="0" comment="Amount"/>
+        <column xsi:type="varchar" name="referer" nullable="true" length="255" comment="Referer"/>
+        <column xsi:type="decimal" name="commission" scale="4" precision="12" unsigned="true" nullable="true" default="0" comment="Commission"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <column xsi:type="int" name="customer_id" padding="11" unsigned="false" nullable="true" identity="false" comment="customer_id"/>
+        <column xsi:type="int" name="store_id" padding="11" unsigned="false" nullable="false" identity="false" default="0" comment="store_id"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="event_id"/>
+        </constraint>
+    </table>
+    <table name="mst_affiliate_transaction" resource="default" engine="innodb" comment="mst_affiliate_transaction">
+        <column xsi:type="int" name="transaction_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Transaction ID"/>
+        <column xsi:type="int" name="account_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Account ID"/>
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Entity ID"/>
+        <column xsi:type="int" name="event_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Event ID"/>
+        <column xsi:type="decimal" name="amount" scale="4" precision="12" unsigned="false" nullable="false" comment="Transaction amount"/>
+        <column xsi:type="decimal" name="balance" scale="4" precision="12" unsigned="false" nullable="false" comment="Balance"/>
+        <column xsi:type="varchar" name="type" nullable="false" length="255" comment="Transaction type"/>
+        <column xsi:type="text" name="message" nullable="true" comment="Message"/>
+        <column xsi:type="varchar" name="status" nullable="false" length="255" comment="Status"/>
+        <column xsi:type="timestamp" name="hold_to" on_update="false" nullable="true" default="CURRENT_TIMESTAMP" comment="Hold to" onCreate="migrateDataFrom(hold_to)"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <column xsi:type="int" name="customer_id" padding="11" unsigned="false" nullable="true" identity="false" comment="customer_id"/>
+        <column xsi:type="int" name="store_id" padding="11" unsigned="false" nullable="false" identity="false" default="0" comment="store_id"/>
+        <column xsi:type="text" name="explain" nullable="true" comment="Explain"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="transaction_id"/>
+        </constraint>
+    </table>
+    <table name="mst_affiliate_banner" resource="default" engine="innodb" comment="mst_affiliate_banner">
+        <column xsi:type="int" name="banner_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Banner ID"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Title"/>
+        <column xsi:type="varchar" name="type" nullable="false" length="255" comment="Banner Type"/>
+        <column xsi:type="text" name="source" nullable="true" comment="Source"/>
+        <column xsi:type="int" name="width" padding="10" unsigned="true" nullable="true" identity="false" comment="Image Width"/>
+        <column xsi:type="int" name="height" padding="10" unsigned="true" nullable="true" identity="false" comment="Image Height"/>
+        <column xsi:type="text" name="link" nullable="true" comment="Link"/>
+        <column xsi:type="int" name="is_active" padding="11" unsigned="false" nullable="false" identity="false" default="0" comment="Is Active"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <column xsi:type="varchar" name="store_ids" nullable="false" length="255" default="0" comment="store_ids"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="banner_id"/>
+        </constraint>
+    </table>
+    <table name="mst_affiliate_withdraw" resource="default" engine="innodb" comment="mst_affiliate_withdraw">
+        <column xsi:type="int" name="withdraw_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Withdraw ID"/>
+        <column xsi:type="int" name="account_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Account ID"/>
+        <column xsi:type="decimal" name="amount" scale="4" precision="12" unsigned="true" nullable="false" comment="Amount"/>
+        <column xsi:type="decimal" name="fee" scale="4" precision="12" unsigned="true" nullable="false" comment="Fee"/>
+        <column xsi:type="text" name="message" nullable="true" comment="Message"/>
+        <column xsi:type="varchar" name="status" nullable="false" length="255" comment="Status"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="withdraw_id"/>
+        </constraint>
+    </table>
+    <table name="mst_affiliate_coupon" resource="default" engine="innodb" comment="Coupon Code">
+        <column xsi:type="int" name="coupon_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Coupon Id"/>
+        <column xsi:type="int" name="account_id" padding="11" unsigned="false" nullable="false" identity="false" comment="Account"/>
+        <column xsi:type="int" name="program_id" padding="11" unsigned="false" nullable="true" identity="false" comment="Program"/>
+        <column xsi:type="varchar" name="code" nullable="false" length="255" comment="Coupon Code"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="coupon_id"/>
+        </constraint>
+        <index referenceId="MST_AFFILIATE_COUPON_ACCOUNT_ID" indexType="btree">
+            <column name="account_id"/>
+        </index>
+        <index referenceId="MST_AFFILIATE_COUPON_CODE" indexType="btree">
+            <column name="code"/>
+        </index>
+    </table>
+    <table name="mst_affiliate_account_customer" resource="default" engine="innodb" comment="Account 2 Customer Relations">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="Id"/>
+        <column xsi:type="int" name="account_id" padding="11" unsigned="false" nullable="false" identity="false" comment="Account"/>
+        <column xsi:type="int" name="customer_id" padding="11" unsigned="false" nullable="false" identity="false" comment="Customer"/>
+        <column xsi:type="decimal" name="sum_commission" scale="4" precision="12" unsigned="true" nullable="false" default="0" comment="Sum Commission"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="MST_AFFILIATE_ACCOUNT_CUSTOMER_CUSTOMER_ID" indexType="btree">
+            <column name="customer_id"/>
+        </index>
+    </table>
+    <table name="mst_affiliate_group" resource="default" engine="innodb" comment="Affiliate Groups">
+        <column xsi:type="int" name="group_id" padding="10" unsigned="true" nullable="false" identity="true" comment="group_id"/>
+        <column xsi:type="text" name="name" nullable="false" comment="name"/>
+        <column xsi:type="int" name="is_default" padding="11" unsigned="false" nullable="false" identity="false" default="0" comment="is_default"/>
+        <column xsi:type="int" name="is_auto_update" padding="11" unsigned="false" nullable="false" identity="false" default="0" comment="is_auto_update"/>
+        <column xsi:type="int" name="priority" padding="11" unsigned="false" nullable="true" identity="false" default="0" comment="priority"/>
+        <column xsi:type="text" name="conditions_serialized" nullable="true" comment="conditions_serialized"/>
+        <column xsi:type="text" name="description" nullable="true" comment="description"/>
+        <column xsi:type="int" name="is_visible" padding="11" unsigned="false" nullable="false" identity="false" default="0" comment="is_visible"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="group_id"/>
+        </constraint>
+    </table>
+</schema>

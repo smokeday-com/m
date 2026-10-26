@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="ox_video" class="Olegnax\Athlete2\Block\Video" is_email_compatible="false"
+    placeholder_image="Magento_Cms::images/widget_image.png">
+        <label translate="true">Olegnax - Video</label>
+        <description translate="true">Show Self-hosted Video</description>
+        <parameters>
+            <parameter name="video_url" xsi:type="text" required="false" visible="true">
+                <label translate="true">Video Url</label>
+            </parameter>
+            <parameter name="poster_url" xsi:type="text" required="false" visible="true">
+                <label translate="true">Poster image Url</label>
+            </parameter>
+            <parameter name="width" xsi:type="text" required="false" visible="true">
+                <label translate="true">Video Width</label>
+            </parameter>
+            <parameter name="height" xsi:type="text" required="false" visible="true">
+                <label translate="true">Video Height</label>
+            </parameter>
+            <parameter name="stretch" xsi:type="select" visible="true"
+            source_model="Olegnax\Core\Model\Config\Source\Noyes">
+                <label translate="true">Stretch Video to fit container size</label>
+            </parameter>
+            <parameter name="lazy_video" xsi:type="select" visible="true"
+            source_model="Olegnax\Core\Model\Config\Source\Yesno">
+                <label translate="true">Lazy Load Video</label>
+            </parameter>
+            <parameter name="autoplay_video" xsi:type="select" visible="true"
+            source_model="Olegnax\Core\Model\Config\Source\Yesno">
+                <label translate="true">Autoplay</label>
+            </parameter>
+            <parameter name="show_controls" xsi:type="select" visible="true"
+            source_model="Olegnax\Core\Model\Config\Source\Noyes">
+                <label translate="true">Show Default Video Controls</label>
+            </parameter>
+            <parameter name="show_play_button" xsi:type="select" visible="true"
+            source_model="Olegnax\Core\Model\Config\Source\Noyes">
+                <label translate="true">Show custom Play/Pause Button</label>
+                <depends>
+                    <parameter name="show_controls" value="0"/>
+                </depends>
+            </parameter>
+            <parameter name="button_position_vertical" xsi:type="select" required="false" visible="true">
+                <label translate="true">Play/Pause Button Vertical Pposition</label>
+                <depends>
+                    <parameter name="show_play_button" value="1"/>
+                </depends>
+                <options>
+                    <option name="top" value="top" selected="true">
+                        <label translate="true">Top</label>
+                    </option>
+                     <option name="bottom" value="bottom">
+                        <label translate="true">Bottom</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="button_color" xsi:type="text" required="false" visible="true">
+                <label translate="true">Play/Pause Button Icon Color</label>
+                <depends>
+                    <parameter name="show_play_button" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="button_bg" xsi:type="text" required="false" visible="true">
+                <label translate="true">Play/Pause Button Background</label>
+                <depends>
+                    <parameter name="show_play_button" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="button_color_hover" xsi:type="text" required="false" visible="true">
+                <label translate="true">Play/Pause Button Icon Color on Hover</label>
+                <depends>
+                    <parameter name="show_play_button" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="button_bg_hover" xsi:type="text" required="false" visible="true">
+                <label translate="true">Play/Pause Button Background on Hover</label>
+                <depends>
+                    <parameter name="show_play_button" value="1"/>
+                </depends>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="ox_vertical_slide" class="Olegnax\Athlete2\Block\VSlide" is_email_compatible="false"
+placeholder_image="Magento_Cms::images/widget_image.png">
+    <label translate="true">Olegnax - Vertical Text Autorotate</label>
+    <description translate="true">Animate Text vertically</description>
+    <parameters>
+        <parameter name="content" xsi:type="block" required="false" visible="true">
+            <label translate="true">Content</label>
+            <block class="Olegnax\Athlete2\Block\Adminhtml\Widget\Type\Textarea" />
+        </parameter>
+        <parameter name="slide_time" xsi:type="text" required="false" visible="true">
+            <label translate="true">Animation Speed</label>
+            <description translate="true">Set number only. Value will be set in ms. E.g.: 1000 is 1 second. Default value is 10000.</description>
+            <value>10000</value>
+        </parameter>
+        <parameter name="bg_color" xsi:type="text" required="false" visible="true">
+            <label translate="true">Slider Background color</label>
+        </parameter>
+        <parameter name="text_color" xsi:type="text" required="false" visible="true">
+            <label translate="true">Text color</label>
+        </parameter>
+        <parameter name="text_font_size" xsi:type="text" required="false" visible="true">
+            <label translate="true">Text font size</label>
+            <value>52</value>
+        </parameter>
+        <parameter name="text_font_size_mobile" xsi:type="text" required="false" visible="true">
+            <label translate="true">Text font size</label>
+            <value>25</value>
+        </parameter>
+        <parameter name="text_font_weight" xsi:type="text" required="false" visible="true">
+            <label translate="true">Text font weight</label>
+            <description translate="true">Numeric value. 400, 500, 600, etc.</description>
+        </parameter>
+        <parameter name="padding" xsi:type="text" required="false" visible="true">
+            <label translate="true">Padding</label>
+        </parameter>
+        <parameter name="height" xsi:type="text" required="false" visible="true">
+            <label translate="true">Item height</label>
+            <description translate="true">Optional. By default it will be calculated based on the font size.</description>
+        </parameter>
+        <parameter name="bottom_line" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Yesno">
+            <label translate="true">Show Bottom Line</label>
+        </parameter>
+        <parameter name="bottom_line_color" xsi:type="text" required="false" visible="true">
+            <label translate="true">Bottom Line Color</label>
+            <depends>
+                <parameter name="bottom_line" value="1"/>
+            </depends>
+        </parameter>
+        <parameter name="bottom_line_height" xsi:type="text" required="false" visible="true">
+            <label translate="true">Bottom Line Height</label>
+            <depends>
+                <parameter name="bottom_line" value="1"/>
+            </depends>
+        </parameter>
+        <parameter name="custom_class" xsi:type="text" required="false" visible="true">
+            <label translate="true">Custom Class</label>
+        </parameter>
+    </parameters>
+</widget>
+    <widget id="ox_islide" class="Olegnax\Athlete2\Block\ISlide" is_email_compatible="false"
+    placeholder_image="Magento_Cms::images/widget_image.png">
+        <label translate="true">Olegnax - Infinite Content Slide</label>
+        <description translate="true">Infinite slider for content from a specific CMS block.</description>
+        <parameters>
+            <parameter name="block_id" xsi:type="text" required="false" visible="true">
+                <label translate="true">CMS Block ID</label>
+            </parameter>
+            <parameter name="custom_content" xsi:type="block" required="false" visible="true">
+                <label translate="true">Content</label>
+                <block class="Olegnax\Athlete2\Block\Adminhtml\Widget\Type\Textarea" />
+            </parameter>
+            <parameter name="slide_time" xsi:type="text" required="false" visible="true">
+                <label translate="true">Animation Time</label>
+                <description translate="true">Set number only. Value will be set in ms. E.g.: 1000 is 1 second. Default value is 5000.</description>
+            </parameter>
+            <parameter name="items_width" xsi:type="select" required="false" visible="true">
+                <label translate="true">Slide item(Content) Width</label>
+                <options>
+                    <option name="auto" value="auto" selected="true">
+                        <label translate="true">Auto (width of the item content)</label>
+                    </option>
+                     <option name="fullwidth" value="fullwidth">
+                        <label translate="true">Full Width (Maximum width of the parent container)</label>
+                    </option>
+                </options>
+            </parameter>
+			<parameter name="clone" xsi:type="select" visible="true"
+					   source_model="Olegnax\Core\Model\Config\Source\Yesno">
+				<label translate="true">Clone Content</label>
+                <description translate="true">If enabled content of a cms block will be output multiple times to make sure that it fills the entire width of the screen. You can disabled it if you already have a very long content.</description>
+			</parameter>
+            <parameter name="clones_amount" xsi:type="text" required="false" visible="true">
+                <label translate="true">Amount of Content Clones</label>
+                <depends>
+                    <parameter name="clone" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="pause_on_hover" xsi:type="select" visible="true"
+            source_model="Olegnax\Core\Model\Config\Source\Yesno">
+                <label translate="true">Pause on hover</label>
+            </parameter>
+            <parameter name="gap" xsi:type="text" required="false" visible="true">
+                <label translate="true">Space Between Cloned Items</label>
+                <depends>
+                    <parameter name="clone" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="no_overflow" xsi:type="select" visible="true"
+            source_model="Olegnax\Core\Model\Config\Source\Noyes">
+                <label translate="true">Allow overflow</label>
+                <description translate="true">Allow content to go outside of the slider width.</description>
+            </parameter>
+            <parameter name="rotation" xsi:type="text" required="false" visible="true">
+                <label translate="true">Rotation degree</label>
+                <description translate="true">You can rotate entire slider. Set value only, e.g.: 45 to rotate slider 45 degrees.</description>
+            </parameter>
+            <parameter name="absolute" xsi:type="select" visible="true"
+                    source_model="Olegnax\Core\Model\Config\Source\Yesno">
+                <label translate="true">Absolute Positioning</label>
+                <description translate="true">Place it above the other content.</description>
+            </parameter>
+            <parameter name="left" xsi:type="text" required="false" visible="true">
+                <label translate="true">Left Position</label>
+                <description translate="true">Number and unit. E.g. 10% or 20px. You can also use negative values.</description>
+                <depends>
+                    <parameter name="absolute" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="top" xsi:type="text" required="false" visible="true">
+                <label translate="true">Top Position</label>
+                <description translate="true">Number and unit. E.g. 10% or 20px. You can also use negative values.</description>
+                <depends>
+                    <parameter name="absolute" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="left_mobile" xsi:type="text" required="false" visible="true">
+                <label translate="true">Left Position on Mobile</label>
+                <description translate="true">Number and unit. E.g. 10% or 20px. You can also use negative values.</description>
+                <depends>
+                    <parameter name="absolute" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="top_mobile" xsi:type="text" required="false" visible="true">
+                <label translate="true">Top Position on Mobile</label>
+                <description translate="true">Number and unit. E.g. 10% or 20px. You can also use negative values.</description>
+                <depends>
+                    <parameter name="absolute" value="1"/>
+                </depends>
+            </parameter>
+            <parameter name="bg_color" xsi:type="text" required="false" visible="true">
+                <label translate="true">Slider Background color</label>
+            </parameter>
+            <parameter name="text_color" xsi:type="text" required="false" visible="true">
+                <label translate="true">Text color</label>
+            </parameter>
+            <parameter name="text_font_size" xsi:type="text" required="false" visible="true">
+                <label translate="true">Text font size</label>
+            </parameter>
+            <parameter name="text_font_weight" xsi:type="text" required="false" visible="true">
+                <label translate="true">Text font weight</label>
+            </parameter>
+            <parameter name="padding" xsi:type="text" required="false" visible="true">
+                <label translate="true">Padding</label>
+            </parameter>
+            <parameter name="custom_class" xsi:type="text" required="false" visible="true">
+                <label translate="true">Custom Class</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="social_icons_list" class="Olegnax\Athlete2\Block\SocialIcons" is_email_compatible="true" placeholder_image="Olegnax_Athlete2::images/socials.png" ttl="86400">
+        <label translate="true">Olegnax - Social Icons</label>
+        <description translate="true">List of Social Icons</description>
+        <parameters>
+            <parameter name="link_target" xsi:type="select" required="false" visible="true">
+                <label translate="true">Open link in</label>
+                <options>
+                    <option name="self" value="self" selected="true">
+                        <label translate="true">Same Window</label>
+                    </option>
+                     <option name="blank" value="blank">
+                        <label translate="true">New Window</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="link_noopener" xsi:type="select" visible="true" source_model="Olegnax\Core\Model\Config\Source\Noyes">
+                <label translate="true">Add noopener attribute to link</label>
+            </parameter>
+              <parameter name="link_noreferrer" xsi:type="select" visible="true" source_model="Olegnax\Core\Model\Config\Source\Noyes">
+                <label translate="true">Add noreferrer attribute to link</label>
+            </parameter>
+               <parameter name="link_nofollow" xsi:type="select" visible="true" source_model="Olegnax\Core\Model\Config\Source\Noyes">
+                <label translate="true">Add nofollow attribute to link</label>
+            </parameter>
+            <parameter name="link_style" xsi:type="select" required="false" visible="true">
+                <label translate="true">Style</label>
+                <options>
+                    <option name="animated" value="animated" selected="true">
+                        <label translate="true">Animated</label>
+                    </option>
+                     <option name="simple" value="simple">
+                        <label translate="true">Simple</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="link_size" xsi:type="select" required="false" visible="true">
+                <label translate="true">Size</label>
+                <options>
+                    <option name="normal" value="normal" selected="true">
+                        <label translate="true">Normal</label>
+                    </option>
+                     <option name="tiny" value="tiny">
+                        <label translate="true">Tiny</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="text_color" xsi:type="text" required="false" visible="true">
+                <label translate="true">Icons color</label>
+            </parameter>
+            <parameter name="text_hover_color" xsi:type="text" required="false" visible="true">
+                <label translate="true">Icons hover color</label>
+            </parameter>
+            <parameter name="background" xsi:type="text" required="false" visible="true">
+                <label translate="true">Icons background color</label>
+            </parameter>
+            <parameter name="background_hover" xsi:type="text" required="false" visible="true">
+                <label translate="true">Icons background hover color</label>
+            </parameter>
+            <parameter name="facebook_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Facebook Link</label>
+            </parameter>
+            <parameter name="facebook_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>1</value>
+            </parameter>
+            <parameter name="facebook_messenger_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Facebook Messenger Link</label>
+            </parameter>
+            <parameter name="facebook_messenger_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>2</value>
+            </parameter>
+            <parameter name="instagram_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Instagram Link</label>
+            </parameter>
+            <parameter name="instagram_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>3</value>
+            </parameter>
+            <parameter name="twitter_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Twitter Link</label>
+            </parameter>
+            <parameter name="twitter_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>4</value>
+            </parameter>
+            <parameter name="pinterest_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Pinterest Link</label>
+            </parameter>
+            <parameter name="pinterest_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>4</value>
+            </parameter>
+            <parameter name="skype_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Skype Link</label>
+            </parameter>
+            <parameter name="skype_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>5</value>
+            </parameter>                        
+            <parameter name="tumblr_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Tumblr Link</label>
+            </parameter>
+            <parameter name="tumblr_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>6</value>
+            </parameter>
+            <parameter name="youtube_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Youtube Link</label>
+            </parameter>
+            <parameter name="youtube_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>7</value>
+            </parameter>
+            <parameter name="amazon_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Amazon Link</label>
+            </parameter>
+            <parameter name="amazon_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>8</value>
+            </parameter>
+            <parameter name="amazon_pay_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Amazon Pay Link</label>
+            </parameter>
+            <parameter name="amazon_pay_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>8</value>
+            </parameter>
+            <parameter name="kickstarter_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Kickstarter Link</label>
+            </parameter>
+            <parameter name="kickstarter_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>9</value>
+            </parameter>
+            <parameter name="stripe_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Stripe Link</label>
+            </parameter>
+            <parameter name="stripe_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>10</value>
+            </parameter>
+            <parameter name="paypal_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Paypal Link</label>
+            </parameter>
+            <parameter name="paypal_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>11</value>
+            </parameter>
+            <parameter name="vimeo_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Vimeo Link</label>
+            </parameter>
+            <parameter name="vimeo_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>12</value>
+            </parameter>
+            <parameter name="vk_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Vk Link</label>
+            </parameter>
+            <parameter name="vk_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>13</value>
+            </parameter>
+            <parameter name="foursquare_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Foursquare Link</label>
+            </parameter>
+            <parameter name="foursquare_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>14</value>
+            </parameter>
+            <parameter name="flickr_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Flickr Link</label>
+            </parameter>
+            <parameter name="flickr_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>15</value>
+            </parameter>
+            <parameter name="linkedin_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Linkedin Link</label>
+            </parameter>
+            <parameter name="linkedin_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>16</value>
+            </parameter>
+            <parameter name="whatsapp_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Whatsapp Link</label>
+            </parameter>
+            <parameter name="whatsapp_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>17</value>
+            </parameter>
+            <parameter name="telegram_plane_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Telegram Link</label>
+            </parameter>
+            <parameter name="telegram_plane_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>18</value>
+            </parameter>
+            <parameter name="snapchat_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Snapchat Link</label>
+            </parameter>
+            <parameter name="snapchat_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>19</value>
+            </parameter>
+            <parameter name="reddit_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Reddit Link</label>
+            </parameter>
+            <parameter name="reddit_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>20</value>
+            </parameter>
+            <parameter name="discord_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Discord Link</label>
+            </parameter>
+            <parameter name="discord_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>21</value>
+            </parameter>
+            <parameter name="slack_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Slack Link</label>
+            </parameter>
+            <parameter name="slack_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>22</value>
+            </parameter>
+            <parameter name="tripadvisor_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Tripadvisor Link</label>
+            </parameter>
+            <parameter name="tripadvisor_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>23</value>
+            </parameter>
+            <parameter name="tiktok_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Tik Tok Link</label>
+            </parameter>
+            <parameter name="tiktok_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>24</value>
+            </parameter>
+            <parameter name="business_link" xsi:type="text" required="false" visible="true">
+                <label translate="true">Google Business Link</label>
+            </parameter>
+            <parameter name="business_sort" xsi:type="text" required="false" visible="true">
+                <label translate="true">Sort Order</label>
+                <value>25</value>
+            </parameter>
+            <parameter name="cache_lifetime" xsi:type="text" visible="true">
+                <label translate="true">Cache Lifetime (Seconds)</label>
+                <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+            </parameter>
+            <parameter name="template" xsi:type="select" required="true" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="Olegnax_Athlete2::widgets/social_icons.phtml" selected="true">
+                        <label translate="true">Socials</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget> 
+    <widget id="ox_subcategories_grid" class="Olegnax\Athlete2\Block\Subcategories" is_email_compatible="true"
+    placeholder_image="Magento_Cms::images/widget_image.png" ttl="86400">
+    <label translate="true">Olegnax - Subcategories, Grid</label>
+    <description translate="true"></description>
+    <parameters>
+        <parameter name="parent_category" xsi:type="text" visible="true">
+            <label translate="true">Parent Category ID</label>
+            <description translate="true"><![CDATA[Optional. You can set specific category insterad of using current category.]]></description>
+        </parameter>
+        <parameter name="categories" xsi:type="text" visible="true">
+            <label translate="true">List of Categories by ID</label>
+            <description translate="true"><![CDATA[Optional. You can set specific categories. Add category IDs separated by commas.]]></description>
+        </parameter>
+        <!-- <parameter name="sortby" xsi:type="select" visible="true"
+            source_model="Olegnax\Athlete2\Model\Config\SortBy">
+            <label translate="true">Sort Categories by</label>
+        </parameter> -->
+        <parameter name="template" xsi:type="select" required="true" visible="true">
+            <label translate="true">Template</label>
+            <options>
+                <option name="grid" value="Olegnax_Athlete2::widgets/subcategories_grid.phtml"  selected="true">
+                    <label translate="true">Grid</label>
+                </option>
+            </options>
+        </parameter>
+        <parameter name="show_category_image" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Yesno">
+            <label translate="true">Show Category Image</label>
+        </parameter>
+        <parameter name="thumb" xsi:type="select" visible="true"
+            source_model="Olegnax\Athlete2\Model\Config\Settings\Catalog\SubcategoryImage">
+            <label translate="true">Subcategories Image</label>
+            <depends>
+                <parameter name="show_category_image" value="1"/>
+            </depends>
+        </parameter>
+        <parameter name="thumb_width" xsi:type="text" visible="true">
+            <label translate="true">Image Width</label>
+            <depends>
+                <parameter name="show_category_image" value="1"/>
+            </depends>
+            <value>100</value>
+        </parameter>
+        <parameter name="thumb_height" xsi:type="text" visible="true">
+            <label translate="true">Image Height</label>
+            <depends>
+                <parameter name="show_category_image" value="1"/>
+            </depends>
+            <value>100</value>
+        </parameter>
+        <parameter name="show_product_count" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Yesno">
+            <label translate="true">Show Products Count</label>
+        </parameter>
+        <parameter name="show_category_name" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Yesno">
+            <label translate="true">Show Category Name</label>
+        </parameter>
+        <parameter name="category_name_tag" xsi:type="select" visible="true"
+        source_model="Olegnax\Athlete2\Model\Config\Settings\Catalog\SubcategoryNameTag">
+            <label translate="true">Category Name Tag</label>
+            <depends>
+                <parameter name="show_category_name" value="1"/>
+            </depends>
+        </parameter>
+        <parameter name="style" xsi:type="select" visible="true"
+        source_model="Olegnax\Athlete2\Model\Config\Settings\Catalog\SubcategoryStyle">
+            <label translate="true">Style</label>
+        </parameter>
+        <parameter name="hover_effect" xsi:type="select" visible="true"
+        source_model="Olegnax\Athlete2\Model\Config\Settings\Catalog\SubcategoryHover">
+            <label translate="true">Hover Effect</label>
+        </parameter>
+        <parameter name="vertical" xsi:type="select" visible="true"
+                source_model="Olegnax\Core\Model\Config\Source\Noyes">
+            <label translate="true">Column Direction Vertical</label>
+        </parameter>
+        <parameter name="custom_width" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Noyes">
+                <label translate="true">Custom Column Width</label>
+            <description translate="true">If enabled, column will stretch to fill the available content width. "Column Width" option below will be considered as a minimum width of a column.</description>
+            <depends>
+                <parameter name="vertical" value="0"/>
+            </depends>
+        </parameter>
+        <parameter name="column_width" xsi:type="text" required="false" visible="true">
+                <label translate="true">Column Width</label>
+                <description translate="true">Either use this Column width option to set fixed width or Grid Columns below.</description>
+                <depends>
+                    <parameter name="custom_width" value="1"/>
+                    <parameter name="vertical" value="0"/>
+                </depends>
+        </parameter>
+        <parameter name="column_width_fit" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Noyes">
+                <label translate="true">Auto Fit Width</label>
+            <description translate="true">Requires "Column Width" option to be set. If enabled, columns will stretch to fill the available content width. "Column Width" option below will be considered as a minimum width of a column.</description>
+            <depends>
+                <parameter name="vertical" value="0"/>
+            </depends>
+        </parameter>
+        <parameter name="columns_desktop" xsi:type="text" required="false" visible="true">
+                <label translate="true">Grid Columns Desktop</label>
+                <description translate="true">Columns are optional.</description>
+                <depends>
+                    <parameter name="vertical" value="0"/>
+                    <parameter name="custom_width" value="0"/>
+                </depends>
+        </parameter>
+        <parameter name="columns_desktop_small" xsi:type="text" required="false" visible="true">
+                <label translate="true">Grid Desktop Small</label>
+                <description translate="true">Columns are optional. </description>
+                <depends>
+                    <parameter name="vertical" value="0"/>
+                    <parameter name="custom_width" value="0"/>
+                </depends>
+        </parameter>
+        <parameter name="columns_tablet" xsi:type="text" required="false" visible="true">
+                <label translate="true">Grid Tablet</label>
+                <description translate="true">Columns are optional.</description>
+                <depends>
+                    <parameter name="vertical" value="0"/>
+                    <parameter name="custom_width" value="0"/>
+                </depends>
+        </parameter>
+        <parameter name="columns_mobile" xsi:type="text" required="false" visible="true">
+                <label translate="true">Grid Mobile</label>
+                <description translate="true">Columns are optional.</description>
+                <depends>
+                    <parameter name="vertical" value="0"/>
+                    <parameter name="custom_width" value="0"/>
+                </depends>
+        </parameter>
+        <parameter name="columns_align_center" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Yesno">
+            <label translate="true">Align Columns Center</label>
+            <depends>
+                <parameter name="vertical" value="0"/>
+             </depends>
+        </parameter>
+        
+        <parameter name="padding" xsi:type="text" visible="true">
+            <label translate="true">Blocks padding</label>
+            <description translate="true">Add numbers and units. E.g.: 6px 8px 8px 6px</description>
+        </parameter>
+        <parameter name="gap" xsi:type="text" visible="true">
+            <label translate="true">Gap between blocks</label>
+            <description translate="true">Add number and unit. E.g.: 20px</description>
+        </parameter>
+        <parameter name="border_radius" xsi:type="text" visible="true">
+            <label translate="true">Block Border Radius</label>
+        </parameter>
+        <parameter name="bg_color" xsi:type="text" visible="true">
+            <label translate="true">Background Color</label>
+        </parameter>
+        <parameter name="text_color" xsi:type="text" visible="true">
+            <label translate="true">Text Color</label>
+        </parameter>
+        <parameter name="text_font_size" xsi:type="text" visible="true">
+            <label translate="true">Text Font Size</label>
+            <description translate="true">Add number and unit. E.g.: 20px</description>
+        </parameter>
+        <parameter name="text_font_weight" xsi:type="text" visible="true">
+            <label translate="true">Text Font Weight</label>
+        </parameter>
+        <parameter name="num_font_size" xsi:type="text" visible="true">
+            <label translate="true">Count Font Size</label>
+            <description translate="true">Add number and unit. E.g.: 20px</description>
+        </parameter>
+        <parameter name="num_font_weight" xsi:type="text" visible="true">
+            <label translate="true">Count Font Weight</label>
+        </parameter>
+        <parameter name="num_bg_color" xsi:type="text" visible="true">
+            <label translate="true">Count Background Color</label>
+        </parameter>
+        <parameter name="num_text_color" xsi:type="text" visible="true">
+            <label translate="true">Count Text Color</label>
+        </parameter>
+        <parameter name="num_bg_hover_color" xsi:type="text" visible="true">
+            <label translate="true">Count Background Hover Color</label>
+        </parameter>
+        <parameter name="num_text_hover_color" xsi:type="text" visible="true">
+            <label translate="true">Count Text Hover Color</label>
+        </parameter>
+
+        <parameter name="padding_mobile" xsi:type="text" visible="true">
+            <label translate="true">Blocks padding on Mobile</label>
+            <description translate="true">Add numbers and units. E.g.: 6px 8px 8px 6px</description>
+        </parameter>
+        <parameter name="gap_mobile" xsi:type="text" visible="true">
+            <label translate="true">Gap between blocks on Mobile</label>
+            <description translate="true">Add number and unit. E.g.: 20px</description>
+        </parameter>
+        <parameter name="text_font_size_mobile" xsi:type="text" visible="true">
+            <label translate="true">Text Font Size on Mobile</label>
+            <description translate="true">Add number and unit. E.g.: 20px</description>
+        </parameter>
+
+        <parameter name="cache_lifetime" xsi:type="text" visible="true">
+            <label translate="true">Cache Lifetime (Seconds)</label>
+            <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+        </parameter>
+    </parameters>
+    </widget>
+    <widget id="ox_subcategories_slider" class="Olegnax\Athlete2\Block\SubcategoriesSlider" is_email_compatible="true"
+    placeholder_image="Magento_Cms::images/widget_image.png" ttl="86400">
+    <label translate="true">Olegnax - Subcategories Slider</label>
+    <description translate="true"></description>
+    <parameters>
+        <parameter name="parent_category" xsi:type="text" visible="true">
+            <label translate="true">Parent Category ID</label>
+            <description translate="true"><![CDATA[Optional. You can set specific category insterad of using current category.]]></description>
+        </parameter>
+        <!-- <parameter name="sortby" xsi:type="select" visible="true"
+            source_model="Olegnax\Athlete2\Model\Config\SortBy">
+            <label translate="true">Sort Categories by</label>
+        </parameter> -->
+        <parameter name="template" xsi:type="select" required="true" visible="true">
+            <label translate="true">Template</label>
+            <options>
+                <option name="slider" value="Olegnax_Athlete2::widgets/subcategories_slider.phtml"  selected="true">
+                    <label translate="true">Css Based Slider</label>
+                </option>
+            </options>
+        </parameter>
+
+        <parameter name="show_category_image" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Yesno">
+            <label translate="true">Show Category Image</label>
+        </parameter>
+        <parameter name="thumb" xsi:type="select" visible="true"
+            source_model="Olegnax\Athlete2\Model\Config\Settings\Catalog\SubcategoryImage">
+            <label translate="true">Subcategories Image</label>
+            <depends>
+                <parameter name="show_category_image" value="1"/>
+            </depends>
+        </parameter>
+        <parameter name="thumb_width" xsi:type="text" visible="true">
+            <label translate="true">Image Width</label>
+            <depends>
+                <parameter name="show_category_image" value="1"/>
+            </depends>
+            <value>100</value>
+        </parameter>
+        <parameter name="thumb_height" xsi:type="text" visible="true">
+            <label translate="true">Image Height</label>
+            <depends>
+                <parameter name="show_category_image" value="1"/>
+            </depends>
+            <value>100</value>
+        </parameter>
+        <parameter name="show_product_count" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Yesno">
+            <label translate="true">Show Products Count</label>
+        </parameter>
+        <parameter name="show_category_name" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Yesno">
+            <label translate="true">Show Category Name</label>
+        </parameter>
+        <parameter name="category_name_tag" xsi:type="select" visible="true"
+        source_model="Olegnax\Athlete2\Model\Config\Settings\Catalog\SubcategoryNameTag">
+            <label translate="true">Category Name Tag</label>
+            <depends>
+                <parameter name="show_category_name" value="1"/>
+            </depends>
+        </parameter>
+        <parameter name="style" xsi:type="select" visible="true"
+        source_model="Olegnax\Athlete2\Model\Config\Settings\Catalog\SubcategoryStyle">
+            <label translate="true">Style</label>
+        </parameter>
+        <parameter name="hover_effect" xsi:type="select" visible="true"
+        source_model="Olegnax\Athlete2\Model\Config\Settings\Catalog\SubcategoryHover">
+            <label translate="true">Hover Effect</label>
+        </parameter>
+
+        <parameter name="column_width" xsi:type="text" required="false" visible="true">
+                <label translate="true">Column Width</label>
+                <description translate="true">Set fixed width for items. If set, column options below will be ignored.</description>
+        </parameter>
+        <parameter name="columns_desktop" xsi:type="text" required="false" visible="true">
+                <label translate="true">Grid Columns Desktop</label>
+                <description translate="true">Columns are optional.</description>
+        </parameter>
+        <parameter name="columns_desktop_small" xsi:type="text" required="false" visible="true">
+                <label translate="true">Grid Desktop Small</label>
+                <description translate="true">Columns are optional.</description>
+        </parameter>
+        <parameter name="columns_tablet" xsi:type="text" required="false" visible="true">
+                <label translate="true">Grid Tablet</label>
+                <description translate="true">Columns are optional.</description>
+        </parameter>
+        <parameter name="columns_mobile" xsi:type="text" required="false" visible="true">
+                <label translate="true">Grid Mobile</label>
+                <description translate="true">Columns are optional.</description>
+        </parameter>
+        <parameter name="columns_align_center" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Yesno">
+            <label translate="true">Align Columns Center</label>
+            <depends>
+                <parameter name="vertical" value="0"/>
+             </depends>
+        </parameter>
+        <parameter name="nav" xsi:type="select" visible="true"
+                source_model="Olegnax\Core\Model\Config\Source\Noyes">
+            <label translate="true">Navigation Arrows</label>
+        </parameter>
+        <parameter name="nav_style" xsi:type="select" visible="true">
+            <label translate="true">Navigation Arrows Style</label>
+            <depends>
+                <parameter name="nav" value="1"/>
+            </depends>
+            <options>
+                <option name="theme" value="theme" selected="true">
+                    <label translate="true">Theme Default</label>
+                </option>
+                <option name="fade" value="s-fadeover">
+                    <label translate="true">Full Height Fading</label>
+                </option>
+            </options>
+        </parameter>
+        <parameter name="nav_always" xsi:type="select" visible="true"
+                source_model="Olegnax\Core\Model\Config\Source\Noyes">
+            <label translate="true">Always Show Arrows</label>
+            <depends>
+                <parameter name="nav" value="1"/>
+            </depends>
+        </parameter>
+        <parameter name="scrollbar" xsi:type="select" visible="true"
+                source_model="Olegnax\Core\Model\Config\Source\Yesno">
+            <label translate="true">Scrollbar</label>
+        </parameter>
+        <parameter name="drag" xsi:type="select" visible="true"
+                source_model="Olegnax\Core\Model\Config\Source\Yesno">
+            <label translate="true">Drag</label>
+        </parameter>
+
+        <parameter name="padding" xsi:type="text" visible="true">
+            <label translate="true">Blocks padding</label>
+            <description translate="true">Add numbers and units. E.g.: 6px 8px 8px 6px</description>
+        </parameter>
+        <parameter name="gap" xsi:type="text" visible="true">
+            <label translate="true">Gap between blocks</label>
+            <description translate="true">Add number and unit. E.g.: 20px</description>
+        </parameter>
+        <parameter name="border_radius" xsi:type="text" visible="true">
+            <label translate="true">Block Border Radius</label>
+        </parameter>
+        <parameter name="bg_color" xsi:type="text" visible="true">
+            <label translate="true">Background Color</label>
+        </parameter>
+        <parameter name="text_color" xsi:type="text" visible="true">
+            <label translate="true">Text Color</label>
+        </parameter>
+        <parameter name="text_font_size" xsi:type="text" visible="true">
+            <label translate="true">Text Font Size</label>
+            <description translate="true">Add number and unit. E.g.: 20px</description>
+        </parameter>
+        <parameter name="text_font_weight" xsi:type="text" visible="true">
+            <label translate="true">Text Font Weight</label>
+        </parameter>
+        <parameter name="num_font_size" xsi:type="text" visible="true">
+            <label translate="true">Count Font Size</label>
+            <description translate="true">Add number and unit. E.g.: 20px</description>
+        </parameter>
+        <parameter name="num_font_weight" xsi:type="text" visible="true">
+            <label translate="true">Count Font Weight</label>
+        </parameter>
+        <parameter name="num_bg_color" xsi:type="text" visible="true">
+            <label translate="true">Count Background Color</label>
+        </parameter>
+        <parameter name="num_text_color" xsi:type="text" visible="true">
+            <label translate="true">Count Text Color</label>
+        </parameter>
+        <parameter name="num_bg_hover_color" xsi:type="text" visible="true">
+            <label translate="true">Count Background Hover Color</label>
+        </parameter>
+        <parameter name="num_text_hover_color" xsi:type="text" visible="true">
+            <label translate="true">Count Text Hover Color</label>
+        </parameter>   
+        <parameter name="scrollbar_color" xsi:type="text" visible="true">
+            <label translate="true">Scrollbar Color</label>
+        </parameter>
+        <parameter name="scrollbar_bg_color" xsi:type="text" visible="true">
+            <label translate="true">Scrollbar bg color</label>
+        </parameter>
+        <parameter name="cache_lifetime" xsi:type="text" visible="true">
+            <label translate="true">Cache Lifetime (Seconds)</label>
+            <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+        </parameter>
+    </parameters>
+    </widget>
+    <widget id="ox_subcategories_carousel" class="Olegnax\Athlete2\Block\SubcategoriesOwl" is_email_compatible="true"
+    placeholder_image="Magento_Cms::images/widget_image.png" ttl="86400">
+    <label translate="true">Olegnax - Subcategories, Owl Carousel</label>
+    <description translate="true"></description>
+    <parameters>
+        <parameter name="parent_category" xsi:type="text" visible="true">
+            <label translate="true">Parent Category ID</label>
+            <description translate="true"><![CDATA[Optional. You can set specific category insterad of using current category.]]></description>
+        </parameter>
+        <!-- <parameter name="sortby" xsi:type="select" visible="true"
+            source_model="Olegnax\Athlete2\Model\Config\SortBy">
+            <label translate="true">Sort Categories by</label>
+        </parameter> -->
+        <parameter name="template" xsi:type="select" required="true" visible="true">
+            <label translate="true">Template</label>
+            <options>
+                <option name="owl_carousel" value="Olegnax_Athlete2::widgets/subcategories_owlcarousel.phtml"  selected="true">
+                    <label translate="true">Owl Carousel</label>
+                </option>
+            </options>
+        </parameter>
+
+        <parameter name="show_category_image" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Yesno">
+            <label translate="true">Show Category Image</label>
+        </parameter>
+        <parameter name="thumb" xsi:type="select" visible="true"
+            source_model="Olegnax\Athlete2\Model\Config\Settings\Catalog\SubcategoryImage">
+            <label translate="true">Subcategories Image</label>
+            <depends>
+                <parameter name="show_category_image" value="1"/>
+            </depends>
+        </parameter>
+        <parameter name="thumb_width" xsi:type="text" visible="true">
+            <label translate="true">Image Width</label>
+            <depends>
+                <parameter name="show_category_image" value="1"/>
+            </depends>
+            <value>100</value>
+        </parameter>
+        <parameter name="thumb_height" xsi:type="text" visible="true">
+            <label translate="true">Image Height</label>
+            <depends>
+                <parameter name="show_category_image" value="1"/>
+            </depends>
+            <value>100</value>
+        </parameter>
+        <parameter name="show_product_count" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Yesno">
+            <label translate="true">Show Products Count</label>
+        </parameter>
+        <parameter name="show_category_name" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Yesno">
+            <label translate="true">Show Category Name</label>
+        </parameter>
+        <parameter name="category_name_tag" xsi:type="select" visible="true"
+        source_model="Olegnax\Athlete2\Model\Config\Settings\Catalog\SubcategoryNameTag">
+            <label translate="true">Category Name Tag</label>
+            <depends>
+                <parameter name="show_category_name" value="1"/>
+            </depends>
+        </parameter>
+        <parameter name="style" xsi:type="select" visible="true"
+        source_model="Olegnax\Athlete2\Model\Config\Settings\Catalog\SubcategoryStyle">
+            <label translate="true">Style</label>
+        </parameter>
+        <parameter name="hover_effect" xsi:type="select" visible="true"
+        source_model="Olegnax\Athlete2\Model\Config\Settings\Catalog\SubcategoryHover">
+            <label translate="true">Hover Effect</label>
+        </parameter>
+        <parameter name="columns_desktop" xsi:type="text" required="false" visible="true">
+                <label translate="true">Grid Columns Desktop</label>
+                <description translate="true">Columns are optional.</description>
+        </parameter>
+        <parameter name="columns_desktop_small" xsi:type="text" required="false" visible="true">
+                <label translate="true">Grid Desktop Small</label>
+                <description translate="true">Columns are optional.</description>
+        </parameter>
+        <parameter name="columns_tablet" xsi:type="text" required="false" visible="true">
+                <label translate="true">Grid Tablet</label>
+                <description translate="true">Columns are optional.</description>
+        </parameter>
+        <parameter name="columns_mobile" xsi:type="text" required="false" visible="true">
+                <label translate="true">Grid Mobile</label>
+                <description translate="true">Columns are optional.</description>
+        </parameter>
+        <parameter name="scroll_items" xsi:type="select" visible="true">
+            <label translate="true">Items to scroll</label>
+            <options>
+                <option name="item" value="1" selected="true">
+                    <label translate="true">Scroll per item</label>
+                </option>
+                <option name="page" value="page">
+                    <label translate="true">Scroll per page</label>
+                </option>
+            </options>
+        </parameter>
+        <parameter name="loop" xsi:type="select" visible="true"
+                source_model="Olegnax\Core\Model\Config\Source\Noyes">
+            <label translate="true">Loop Carousel</label>
+        </parameter>
+        <parameter name="rewind" xsi:type="select" visible="true"
+                source_model="Olegnax\Core\Model\Config\Source\Noyes">
+            <label translate="true">Rewind Carousel</label>
+            <description translate="true">Slide to first item when the last one has reached.</description>
+            <depends>
+                <parameter name="loop" value="0"/>
+            </depends>
+        </parameter>
+        <parameter name="nav" xsi:type="select" visible="true"
+                source_model="Olegnax\Core\Model\Config\Source\Noyes">
+            <label translate="true">Navigation Arrows</label>
+        </parameter>
+        <!-- <parameter name="nav_style" xsi:type="select" visible="true">
+            <label translate="true">Navigation Arrows Style</label>
+            <depends>
+                <parameter name="nav" value="1"/>
+            </depends>
+            <options>
+                <option name="theme" value="theme" selected="true">
+                    <label translate="true">Theme Default</label>
+                </option>
+                <option name="fade" value="s-fadeover">
+                    <label translate="true">Full Height Fading</label>
+                </option>
+            </options>
+        </parameter> -->
+        <parameter name="nav_always" xsi:type="select" visible="true"
+                source_model="Olegnax\Core\Model\Config\Source\Noyes">
+            <label translate="true">Always Show Arrows</label>
+            <depends>
+                <parameter name="nav" value="1"/>
+            </depends>
+        </parameter>
+        <parameter name="dots" xsi:type="select" visible="true"
+                source_model="Olegnax\Core\Model\Config\Source\Noyes">
+            <label translate="true">Navigation Dots</label>
+        </parameter>
+        <parameter name="dots_align" xsi:type="select" visible="true">
+            <label translate="true">Navigation Dots Horizontal Align</label>
+            <depends>
+                <parameter name="dots" value="1"/>
+            </depends>
+            <options>
+                <option name="left" value="left" selected="true">
+                    <label translate="true">Left</label>
+                </option>
+                <option name="center" value="center">
+                    <label translate="true">Center</label>
+                </option>
+            </options>
+        </parameter>
+
+        <parameter name="padding" xsi:type="text" visible="true">
+            <label translate="true">Blocks padding</label>
+            <description translate="true">Add numbers and units. E.g.: 6px 8px 8px 6px</description>
+        </parameter>
+        <parameter name="gap" xsi:type="text" visible="true">
+            <label translate="true">Gap between blocks</label>
+            <description translate="true">Add number and unit. E.g.: 20px</description>
+        </parameter>
+        <parameter name="border_radius" xsi:type="text" visible="true">
+            <label translate="true">Block Border Radius</label>
+        </parameter>
+        <parameter name="bg_color" xsi:type="text" visible="true">
+            <label translate="true">Background Color</label>
+        </parameter>
+        <parameter name="text_color" xsi:type="text" visible="true">
+            <label translate="true">Text Color</label>
+        </parameter>
+        <parameter name="text_font_size" xsi:type="text" visible="true">
+            <label translate="true">Text Font Size</label>
+            <description translate="true">Add number and unit. E.g.: 20px</description>
+        </parameter>
+        <parameter name="text_font_weight" xsi:type="text" visible="true">
+            <label translate="true">Text Font Weight</label>
+        </parameter>
+        <parameter name="num_font_size" xsi:type="text" visible="true">
+            <label translate="true">Count Font Size</label>
+            <description translate="true">Add number and unit. E.g.: 20px</description>
+        </parameter>
+        <parameter name="num_font_weight" xsi:type="text" visible="true">
+            <label translate="true">Count Font Weight</label>
+        </parameter>
+        <parameter name="num_bg_color" xsi:type="text" visible="true">
+            <label translate="true">Count Background Color</label>
+        </parameter>
+        <parameter name="num_text_color" xsi:type="text" visible="true">
+            <label translate="true">Count Text Color</label>
+        </parameter>
+        <parameter name="num_bg_hover_color" xsi:type="text" visible="true">
+            <label translate="true">Count Background Hover Color</label>
+        </parameter>
+        <parameter name="num_text_hover_color" xsi:type="text" visible="true">
+            <label translate="true">Count Text Hover Color</label>
+        </parameter>
+        <parameter name="scrollbar_color" xsi:type="text" visible="true">
+            <label translate="true">Scrollbar Color</label>
+        </parameter>
+        <parameter name="scrollbar_bg_color" xsi:type="text" visible="true">
+            <label translate="true">Scrollbar bg color</label>
+        </parameter>
+        <parameter name="cache_lifetime" xsi:type="text" visible="true">
+            <label translate="true">Cache Lifetime (Seconds)</label>
+            <description translate="true">86400 by default, if not set. To refresh instantly, clear the Blocks HTML Output cache.</description>
+        </parameter>
+    </parameters>
+    </widget>
+    <widget id="ox_countdown" class="Olegnax\Athlete2\Block\Countdown" is_email_compatible="false"
+placeholder_image="Magento_Cms::images/widget_image.png">
+    <label translate="true">Olegnax - Countdown</label>
+    <description translate="true">Countdown</description>
+    <parameters>
+        <parameter name="loop" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Noyes">
+            <label translate="true">Endless Timer</label>
+            <description translate="true">After the time is up, the countdown will start over</description>
+        </parameter>
+        <parameter name="end_date" xsi:type="block" visible="true">
+            <label translate="true">Target (End) Date and Time</label>
+            <block class="Olegnax\Athlete2\Block\Adminhtml\Widget\Type\DatePicker" />
+        </parameter>
+        <parameter name="end_days" xsi:type="text" visible="true">
+            <label translate="true">Days Left</label>
+            <description translate="true">You can either set end data/time in the datepicker above or amount of days and hours left using the next fields.</description>
+        </parameter>
+        <parameter name="end_hours" xsi:type="text" visible="true">
+            <label translate="true">Hours Left</label>
+        </parameter>
+        <parameter name="time_zone_offset" xsi:type="text" visible="true">
+            <label translate="true">Time Zone Offset</label>
+            <description translate="true">Number only E.g.: add 2 for GMT +2 or -10 for GMT -10.</description>
+            <depends>
+                <parameter name="loop" value="0"/>
+            </depends>
+        </parameter>
+        <parameter name="day_to_hours" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Noyes">
+            <label translate="true">Days To Hours</label>
+            <description translate="true">If enabled days block will be removed and converted to hours. E.g.: 3 days will be 72 hours.</description>
+        </parameter>
+        <!-- <parameter name="hide_zero" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Noyes">
+            <label translate="true">Hide Zero values</label>
+            <description translate="true">If enabled block with 0 value will not be show. E.g. "0 days 3 hours..." will show only 3 hours.</description>
+        </parameter> -->
+        <parameter name="hide_text" xsi:type="select" visible="true"
+        source_model="Olegnax\Core\Model\Config\Source\Noyes">
+            <label translate="true">Hide text below numbers</label>
+        </parameter>
+        <parameter name="days_text" xsi:type="text" visible="true">
+            <label translate="true">Days Text</label>
+            <depends>
+                <parameter name="hide_text" value="0"/>
+            </depends>
+        </parameter>
+        <parameter name="hours_text" xsi:type="text" visible="true">
+            <label translate="true">Hours Text</label>
+            <depends>
+                <parameter name="hide_text" value="0"/>
+            </depends>
+        </parameter>
+        <parameter name="min_text" xsi:type="text" visible="true">
+            <label translate="true">Minutes Text</label>
+            <depends>
+                <parameter name="hide_text" value="0"/>
+            </depends>
+        </parameter>
+        <parameter name="sec_text" xsi:type="text" visible="true">
+            <label translate="true">Seconds Text</label>
+            <depends>
+                <parameter name="hide_text" value="0"/>
+            </depends>
+        </parameter>
+        <parameter name="hide_element" xsi:type="text" visible="true">
+            <label translate="true">Hide element on expire</label>
+            <description translate="true">Optional. Add css selector to hide some block/element when counter will expire. You can hide a banner for example by adding a banner class. make sure to add a unique class to this banner.</description>
+        </parameter>
+        <parameter name="hide_class" xsi:type="text" visible="true">
+            <label translate="true">Element class on expire</label>
+            <description translate="true">Add a custom class to an element on expire. Default is "expired". If you want to keep it then also add it here, e.g.: "expired myclass"</description>
+        </parameter>
+        <parameter name="body_class" xsi:type="text" visible="true">
+            <label translate="true">Body Class on expire</label>
+            <description translate="true">Add a custom css class to body after timer is expired.</description>
+        </parameter>
+        <parameter name="expire_content" xsi:type="text" visible="true">
+            <label translate="true">Expire Text</label>
+            <description translate="true">Show text instead of a timer when expired.</description>
+        </parameter>
+        <parameter name="show_separator" xsi:type="select" visible="true"
+                source_model="Olegnax\Core\Model\Config\Source\Noyes">
+            <label translate="true">Show Separator</label>
+        </parameter>
+        <parameter name="sep_font_size" xsi:type="text" visible="true">
+            <label translate="true">Separator Font Size</label>
+            <depends>
+                <parameter name="show_separator" value="1"/>
+            </depends>
+        </parameter>
+        <parameter name="text_color" xsi:type="text" visible="true">
+            <label translate="true">Text Color</label>
+        </parameter>
+        <parameter name="bg_color" xsi:type="text" visible="true">
+            <label translate="true">Background Color</label>
+        </parameter>
+        <parameter name="num_font_size" xsi:type="text" visible="true">
+            <label translate="true">Numbers Font Size</label>
+        </parameter>
+        <parameter name="num_font_size_mobile" xsi:type="text" visible="true">
+            <label translate="true">Numbers Font Size, Mobile</label>
+        </parameter>
+        <parameter name="num_font_weight" xsi:type="text" visible="true">
+            <label translate="true">Numbers Font Weight</label>
+        </parameter>
+        <parameter name="num_width" xsi:type="text" visible="true">
+            <label translate="true">Number Block Min Width</label>
+            <description translate="true">Number only</description>
+        </parameter>
+        <parameter name="text_font_size" xsi:type="text" visible="true">
+            <label translate="true">Text Font Size</label>
+
+        </parameter>
+        <parameter name="text_font_size_mobile" xsi:type="text" visible="true">
+            <label translate="true">Text Font Size, Mobile</label>
+        </parameter>
+        <parameter name="text_font_weight" xsi:type="text" visible="true">
+            <label translate="true">Text Font Weight</label>
+        </parameter>
+        <parameter name="gap" xsi:type="text" visible="true">
+            <label translate="true">Gap between blocks</label>
+        </parameter>
+        <parameter name="padding" xsi:type="text" visible="true">
+            <label translate="true">Blocks padding</label>
+            <description translate="true">Add numbers and units. E.g.: 6px 8px 8px 6px</description>
+        </parameter>
+
+        <parameter name="css_class" xsi:type="text" visible="true">
+            <label translate="true">Custom Css Class</label>
+        </parameter>
+    </parameters>
+    </widget>   
+</widgets>

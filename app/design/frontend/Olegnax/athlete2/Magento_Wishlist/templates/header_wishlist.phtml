@@ -1,0 +1,123 @@
+<?php
+$theme_helper = $this->helper(Olegnax\Athlete2\Helper\Icons::class);
+$minicart_type = $theme_helper->getConfig( 'athlete2_settings/header/minicart_type' );
+
+$header_settings = $theme_helper->getConfig('athlete2_settings/header');
+$text = $header_settings['wishlist_text'] ?: __('Wishlist');
+$hideText   = $header_settings['wishlist_hide_text'];
+$hideMobile = $theme_helper->getConfig('athlete2_settings/mobile_header/wishlist_mobile_position')  === 'none';
+// wishlist icon
+$icon_option   =  'athlete2_design/appearance_icons_header/header_icon_';
+$icon = $theme_helper->getIconHTML('wishlist', $icon_option); // $name, $icon_option = '', $classes = ''
+?>
+
+<div class=" header__item header__item-wishlist  <?php if($hideMobile){ echo 'hide-on-tablet hide-on-mobile'; } ?> <?php if(!$hideText){ echo "header__item--with-text"; } ?>">
+    <a class="button js-item-wishlist-action" data-bind="scope: 'wishlist'" aria-label="Wishlist">
+		<?php echo $icon ?>
+		<span class="label <?php if($hideText){ echo "visually-hidden"; } ?>">
+			<?= $block->escapeHtml($text) ?>
+		</span>
+		<!-- ko if: wishlist().counter -->
+        <span class="header__item-badge" data-bind="text: wishlist().counter.replace(/[^0-9]*/igm, '')"></span>
+		<!-- /ko -->
+    </a>
+	<div class="header__item-dropdown-content"
+			 data-role="OXmodal"
+             data-mage-init='{"OXmodalWishlist":{
+                "triggerTarget":".js-item-wishlist-action",
+				"overlayClass":"ox-slideout-shadow",
+                "timeout": "500",
+                "closeOnEscape": true,
+				"closeButtonTrigger":"#btn-wishllist-close",
+                "closeOnMouseLeave": <?php echo 'dropdown-hover' == $minicart_type ? 'true' : 'false'; ?>,
+				"hoverOpen": <?php echo 'dropdown-hover' == $minicart_type ? 'true' : 'false'; ?>,
+				"type": "<?php echo 'slideout' == $minicart_type ? 'slideout' : ''; ?>",
+				"positionSlideout": "right",
+				"htmlClass":"ox-fixed"
+			}}'>
+		<div class="block block-wishlist" data-bind="scope: 'wishlist'">
+			<div class="block-content">
+				<!-- ko if: wishlist().counter -->
+				<div class="items-total">
+					<span data-bind="text: wishlist().counter" class="amount"></span>
+					<span class="label">
+						<?= $block->escapeHtml(__('in Wish list')) ?>
+					</span>
+					<button type="button" id="btn-wishllist-close" class="ox-overlay-close-btn" aria-label="Close Modal" data-action="close"><span></span></button>
+				</div>
+				<ol class="product-items no-display" id="wishlist-sidebar" data-bind="foreach: wishlist().items, css: {'no-display': null}">
+					<li class="product-item">
+						<div class="product-item-info">
+							<a class="product-item-photo" data-bind="attr: { href: product_url, title: product_name }">
+								<!-- ko template: {name: $data.image.template, data: $data.image} --><!-- /ko -->
+							</a>
+							<div class="product-item-details">
+								<strong class="product-item-name">
+									<a data-bind="attr: { href: product_url }" class="product-item-link">
+										<span data-bind="text: product_name"></span>
+									</a>
+								</strong>
+								<div data-bind="html: product_price"></div>
+								<div class="product actions">
+                                    <!-- ko if: product_is_saleable_and_visible -->
+                                    <div class="actions-primary">
+                                        <!-- ko if: product_has_required_options -->
+                                        <a href="#" data-bind="attr: {'data-post': add_to_cart_params}" class="action tocart primary"><span><?= $block->escapeHtml(__('Add to Cart')) ?></span></a>
+                                        <!-- /ko -->
+                                        <!-- ko ifnot: product_has_required_options -->
+                                            <button type="button" class="action tocart primary" data-bind="attr: {'data-post': add_to_cart_params}"><span><?= $block->escapeHtml(__('Add to Cart')) ?></span></button>
+                                        <!-- /ko -->
+                                    </div>
+                                    <!-- /ko -->
+									<div class="secondary">
+										<a href="#"  data-bind="attr: {'data-post': delete_item_params}"
+										   title="<?= $block->escapeHtmlAttr(__('Remove This Item')) ?>"
+										   class="btn-remove action delete">
+											<span><?= $block->escapeHtml(__('Remove This Item')) ?></span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ol>
+				<div class="dropdown-bottom-wrapper">
+					<div class="subtotal">
+						<span class="label">
+							<?= $block->escapeHtml(__('Total Products')) ?>
+						</span>
+						<div class="amount" data-bind="text: wishlist().counter.replace(/[^0-9]*/igm, '')"></div>
+					</div>
+					<div class="dropdown-bottom-actions">
+						<a class="action secondary details"
+						   href="<?= $block->escapeUrl($this->helper('Magento\Wishlist\Helper\Data')->getListUrl()) ?>"
+						   title="<?= $block->escapeHtmlAttr(__('View my Wishlist')) ?>"><span><?= $block->escapeHtml(__('View my Wishlist')) ?></span></a>
+					</div>
+				</div>
+				<!-- /ko -->
+				<!-- ko ifnot: wishlist().counter -->
+				<div class="empty-wishlist-wrapper">
+					<div class="athlete2-icon-heart empty-wishlist-icon"></div>
+					<div class="subtitle empty"><?= $block->escapeHtml(__('You have no items in your wish list.')) ?></div>
+					<button type="button" id="btn-wishllist-close" class="button continue primary" data-action="close"><span><?= $block->escapeHtml(__('Continue Shopping')) ?></span></button>
+				</div>
+				<!-- /ko -->
+			</div>
+		</div>
+		<script type="text/x-magento-init">
+			{
+				"*": {
+					"Magento_Ui/js/core/app": {
+						"components": {
+							"wishlist": {
+								"component": "Magento_Wishlist/js/view/wishlist"
+							}
+						}
+					}
+				}
+			}
+		</script>
+
+	</div>
+</div>
+

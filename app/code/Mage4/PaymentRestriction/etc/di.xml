@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Payment\Model\MethodList">
+        <plugin name="hide_payment_methods" type="Mage4\PaymentRestriction\Plugin\Payment\Model\MethodList" sortOrder="1"/>
+    </type>
+    <type name="Magento\Shipping\Model\Shipping">
+        <plugin name="Mage4_Shipping_restriction" type="Mage4\PaymentRestriction\Plugin\Model\ShippingPlugin"/>
+    </type>
+    <type name="Magento\Customer\Controller\Account\CreatePost">
+        <plugin name="convertGuestToCustomer" type="Mage4\PaymentRestriction\Plugin\ConvertGuestToCustomer" sortOrder="100" />
+    </type>
+</config>
+

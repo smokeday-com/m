@@ -1,0 +1,86 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block Sidebar */
+/** @var SecureHtmlRenderer $secureRenderer */
+
+use Magento\Checkout\Block\Cart\Sidebar;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+
+//cart icon
+$icon_option   =  'athlete2_design/appearance_icons_header/header_icon_';
+$cartIcon = $this->helper(Olegnax\Athlete2\Helper\Icons::class)->getIconHTML('cart', $icon_option); // $name, $icon_option = '', $classes = ''
+
+$athlete       = $this->helper(Olegnax\Athlete2\Helper\Helper::class);
+$cartBtnText   = $athlete->getConfig( 'athlete2_settings/header/minicart_btn_text' );
+
+$hideText = false;
+if($athlete->getConfig( 'athlete2_settings/header/minicart_btn_minimal' )){
+    $hideText = !$athlete->getConfig( 'athlete2_settings/header/minicart_show_text' );
+}
+
+$moveSticky    = '';
+
+if( $athlete->getConfig( 'athlete2_settings/header/header_layout' ) === 'header_1'){
+	$moveSticky ='ox-move-sticky ox-move-sticky-header.main.right ox-move-item ox-move-item-header.main.right';
+}
+?>
+
+<div data-block="minicart" class="minicart-wrapper <?= $block->escapeHtmlAttr($moveSticky) ?>  <?php if(!$hideText){ echo "header__item--with-text"; } ?>">
+    <a class="action showcart" href="<?= $block->escapeUrl($block->getShoppingCartUrl()) ?>"
+       data-bind="scope: 'minicart_content'">
+		<?= $cartIcon ?>
+        <span class="text <?php if($hideText){ echo "visually-hidden"; } ?>"><?= $block->escapeHtml($cartBtnText) ?></span>
+        <span class="counter qty">
+            <span class="counter-number">
+                <!-- ko text: getCartParam('summary_count').toLocaleString(window.LOCALE) -->0<!-- /ko -->
+            </span>
+        </span>
+    </a>
+    <?php if ($block->getIsNeedToDisplaySideBar()):
+		$minicart_type = $athlete->getConfig( 'athlete2_settings/header/minicart_type' );
+		?>
+        <div class="block block-minicart empty"
+			 data-role="OXmodalMinicart"
+             data-mage-init='{"OXmodalMinicart":{
+                "triggerTarget":".showcart",
+				"overlayClass":"ox-slideout-shadow",
+                "timeout": "500",
+				"closeButtonTrigger":"#btn-minicart-close",
+                "closeOnEscape": true,
+                "closeOnMouseLeave": <?php echo 'dropdown-hover' == $block->escapeHtmlAttr($minicart_type) ? 'true' : 'false'; ?>,
+				"hoverOpen": <?php echo 'dropdown-hover' == $block->escapeHtmlAttr($minicart_type) ? 'true' : 'false'; ?>,
+				"type": "<?php echo 'slideout' == $block->escapeHtmlAttr($minicart_type) ? 'slideout' : ''; ?>",
+				"positionSlideout": "right",
+				"htmlClass":"ox-fixed"
+			}}'>
+            <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
+                <?= $block->getChildHtml('minicart.content.top') ?>
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            </div>
+            <?= $block->getChildHtml('minicart.addons') ?>
+        </div>
+    <?php else :?>
+        <?php $scriptString = <<<script
+            require(['jquery'], function ($) {
+                $('a.action.showcart').on('click', function() {
+                    $(document.body).trigger('processStart');
+                });
+            });
+script;
+        ?>
+        <?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false); ?>
+    <?php endif ?>
+    <?= /* @noEscape */ $secureRenderer->renderTag('script', [], 'window.checkout = ' .
+        /* @noEscape */ $block->getSerializedConfig(), false); ?>
+    <script type="text/x-magento-init">
+    {
+        "[data-block='minicart']": {
+            "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+        }
+    }
+    </script>
+</div>

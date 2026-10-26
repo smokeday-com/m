@@ -1,0 +1,22 @@
+<?php
+/** @var $block \Magento\Checkout\Block\Cart\Sidebar */
+$helper = $this->helper(Olegnax\Athlete2\Helper\Icons::class);
+$icon_option   =  'athlete2_settings/mobile_bottom_nav/bottom_nav_icon_';
+$icon = $helper->getIconHTML('cart', $icon_option); // $name, $icon_option = '', $classes = ''
+$hideText   =  $helper->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_hide_text' );
+$text   =  $helper->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_text_cart' ) ?: $helper->getConfig( 'athlete2_settings/header/minicart_btn_text' );
+?>
+<div class="ox-bnav__item ox-bnav__cart">
+    <a class="action showcart" href="<?= $block->escapeUrl($block->getShoppingCartUrl()) ?>"
+       data-bind="scope: 'minicart_content'">
+	   <span class="icon">
+            <?= $icon ?>
+            <span class="counter qty header__item-badge">
+                <span class="counter-number">
+                    <!-- ko text: getCartParam('summary_count').toLocaleString(window.LOCALE) -->0<!-- /ko -->
+                </span> 
+            </span> 
+        </span>
+        <span class="label <?php if($hideText){ echo "visually-hidden"; } ?>"><?php echo $block->escapeHtml($text) ?></span>
+    </a>
+</div>

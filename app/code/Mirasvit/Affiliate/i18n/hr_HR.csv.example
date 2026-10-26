@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Pregledat ćemo vašu registraciju i obavijestiti vas."
+"Your request to sign up to the affiliate program has been rejected.","Vaš je zahtjev za prijavu u pridruženi program odbijen."
+"Sign In to Affiliates","Prijavite se podružnicama"
+"You have successfully signed up for an affiliate account.","Uspješno ste se prijavili za pridruženi račun."
+"Affiliate Dashboard","Nadzorna ploča partnera"
+"Affiliate Account Settings","Postavke računa pridruženog partnera"
+"Account information successfully updated.","Podaci o računu uspješno su ažurirani."
+"Transactions History","Povijest transakcija"
+"Promotion Materials","Promotivni materijali"
+Statistics,Statistika
+"Affiliate Program Overview","Pregled partnerskog programa"
+Withdrawals,Povlačenja
+"Withdrawal request has been submitted.","Podnijet je zahtjev za povlačenje."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Jedan ili više <a href=""%1"">pridruženih računa</a> trenutno su u statusu na čekanju."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Jedan ili više <a href=""%1"">zahtjeva za povlačenje</a> trenutno su na čekanju."
+"Pending Approval","Čeka se odobrenje"
+Approved,Odobreno
+"Not Approved","Nije odobreno"
+Image,Slika
+Text,Tekst
+"Assign to first referred affiliate","Dodijelite prvom upućenom podružnici"
+"Assign to last referred affiliate","Dodijeli zadnjem upućenom pridruženom tvrtki"
+Available,Dostupno
+Inactive,Neaktivan
+Removed,Uklonjeno
+"- Disable these emails -","- Onemogući ove e-adrese -"
+Click,Klik
+Impression,Dojam
+Lead,Voditi
+Sale,Prodaja
+". ' (default)'",". &#39; (zadano)&#39;"
+"Percent of order amount","Postotak iznosa narudžbe"
+"Percent of cart amount","Postotak količine košarice"
+"Fixed amount","Fiksni iznos"
+"Pay per Sale","Platite po prodaji"
+"Pay per Lead","Platite po potencijalnom kupcu"
+"Pay per Click","Platite po kliku"
+"Pay per Impression","Platite po impresiji"
+Complete,Kompletna
+"In Hold","U čekanju"
+Commission,Provizija
+Withdraw,Povući
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Kredit za trgovinu"
+Other,Ostalo
+Pending,"U tijeku"
+Accepted,Prihvaćeno
+Completed,Dovršeno
+Denied,Odbijen
+"Number of Orders from reffered customers","Broj narudžbi od preporučenih kupaca"
+"Sales Amount from reffered customers","Iznos prodaje od preporučenih kupaca"
+is,je
+"is not",nije
+"greater than","veći od"
+"less than","manje od"
+"equals or greater than","jednako ili veće od"
+"equals or less than","jednako ili manje od"
+"Conditions Combination","Uvjeti Kombinacija"
+"Affiliate conditions","Pridruženi uvjeti"
+General,Općenito
+"Customer Group","Grupa kupaca"
+Store,Spremi
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Vrsta datoteke nije dopuštena (dopuštene su samo JPG, JPEG, PNG i GIF datoteke)"
+"Commission for order #%1 (%2)","Provizija za nalog #%1 (%2)"
+"Refund for order #%1","Povrat za narudžbu br .%1"
+Withdrawal,Povlačenje
+"Withdraw cannot exceed current balance.","Povlačenje ne može premašiti trenutno stanje."
+"Minimum withdrawal amount is %1.","Minimalni iznos za podizanje je %1."
+"You already have a pending withdrawal request.","Već imate zahtjev za povlačenje na čekanju."
+"Affiliate Withdrawal","Povlačenje podružnice"
+Back,Leđa
+Delete,Izbrisati
+"Are you sure you want to proceed?","Jeste li sigurni da želite nastaviti?"
+"Save and Continue Edit","Spremi i nastavi Uredi"
+Save,Uštedjeti
+"Click on row to edit the coupon","Kliknite redak za uređivanje kupona"
+"Referred Customers","Preporučeni kupci"
+Actions,Akcije
+"Add Customers","Dodajte kupce"
+Customers,Kupci
+Cancel,Otkazati
+"Add Selected Customers","Dodajte odabrane kupce"
+Remove,Ukloniti
+ID,Iskaznica
+Name,Ime
+Email,E-mail
+View,Pogled
+Edit,Uredi
+"Delete item?","Izbrisati stavku?"
+Conditions,Uvjeti
+"Affiliate conditions (affects only automatically updated group)","Uvjeti pridruženih partnera (utječe samo na automatski ažuriranu grupu)"
+"Assigned Affiliates","Dodijeljene podružnice"
+"Add Affiliate","Dodaj podružnicu"
+Affiliates,Podružnice
+"Add Selected","Dodaj odabrano"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Primijenite proviziju samo na stavke u košarici koje odgovaraju sljedećim uvjetima (za sve stavke ostavite prazno)."
+Accept,Prihvatiti
+Reject,Odbiti
+"Referring Website","Preporučena web stranica"
+"Subscribe to email notifications","Pretplatite se na obavijesti e-poštom"
+"I accept the terms and conditions","Prihvaćam uvjete i odredbe"
+"Sign Up","Prijavite se"
+"Referral Website","Web lokacija preporuke"
+"Payment Method","Način plaćanja"
+"Payment Information","Informacije o plaćanju"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Navedite osobne podatke o plaćanju: PayPal e-poštu ili bilo koje detalje o plaćanju putem e-novčanika."
+From,Iz
+To,Do
+Apply,"Prijavite se"
+Clicks,Klikovi
+Leads,Vodi
+Orders,Narudžbe
+Views,Pogledi
+Earned,Zaradio
+"My Account","Moj račun"
+"Commissions according to your affiliate group","Provizije prema vašoj pridruženoj grupi"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> iznosa narudžbe iz prve narudžbe"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> iznosa narudžbe iz druge i više narudžbi"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> od količine košarice od prve narudžbe"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> iznosa košarice od druge i više narudžbi"
+"<b>%1</b> per sale from first order","<b>%1</b> po prodaji od prve narudžbe"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> po prodaji od druge i više narudžbi"
+"<b>%1</b> per unique click","<b>%1</b> po jedinstvenom kliku"
+"<b>%1</b> per lead","<b>%1</b> po potencijalnom kupcu"
+"<b>%1</b> per 1000 views","<b>%1</b> na 1000 pregleda"
+Banners,Natpisi
+Type,Tip
+Size,Veličina
+Link,Veza
+"Get Code","Nabavite kod"
+"Copy and paste this code into your website: ","Kopirajte i zalijepite ovaj kod na svoje web mjesto:"
+"Referral Coupons","Preporučeni kuponi"
+Program,Program
+Coupon,Kupon
+Discount,Popust
+"Personal Referral Link","Osobna referalna veza"
+"Enter any URL from this store in the form below to generate a new referral link:","Unesite bilo koji URL ove trgovine u obrazac ispod kako biste generirali novu vezu preporuke:"
+"Your unique referral link is:","Vaša jedinstvena referalna veza je:"
+"Referral Widget","Widget za preporuku"
+"Widget Title:","Naslov widgeta:"
+"Related Products","Povezani proizvodi"
+Width:,Širina:
+Height:,Visina:
+"Number of products:","Broj proizvoda:"
+"Show Bestsellers","Prikaži bestselere"
+"Show New Products","Prikaži nove proizvode"
+Search,Traži
+"Search term","Pojam za pretraživanje"
+"Show Product's names","Prikaži imena proizvoda"
+"Show Prices","Prikaži cijene"
+"Place this code wherever you want the widget to appear on your page.","Postavite ovaj kod kamo god želite da se widget pojavi na vašoj stranici."
+"Current balance: <b>%1</b>","Trenutno stanje: <b>%1</b>"
+"On hold: %1","Na čekanju: %1"
+"Lifetime: %1","Životni vijek: %1"
+"Paid: %1","Plaćeno: %1"
+Date,Datum
+Balance,Ravnoteža
+Amount,Iznos
+Details,Pojedinosti
+"On hold to %1","Na čekanju do %1"
+"There have been no transactions yet.","Još nije bilo transakcija."
+"Request withdrawal","Zahtjev za povlačenje"
+"Minimum balance to request withdrawal is %1","Minimalni saldo za zahtijevanje povlačenja je %1"
+Fee,Pristojba
+Status,Status
+"Pending approval","Čeka se odobrenje"
+"There have been no withdrawals yet.","Povlačenja još nije bilo."
+"Your account is assigned to the <span>%1</span> affiliate group","Vaš je račun dodijeljen <span>%1</span> pridruženoj grupi"
+Commissions,Provizije
+"Our Programs","Naši programi"
+"Our Program","Naš program"
+"%1  - Minimum balance required for payout.","%1 - Minimalni saldo potreban za isplatu."
+"Affiliate Group","Pridružena grupa"
+Description,Opis
+"Sign In","Prijaviti se"
+"New Affiliate Account","Novi račun podružnice"
+"Account Information","Informacije o računu"
+"%name,","%Ime,"
+"Your affiliate account at %store_name has been approved.","Odobren je vaš pridruženi račun na% store_name."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Kliknite <a href=""%login_url"">ovdje</a> za prijavu na svoj račun."
+"Your account balance has been updated at %store_name.","Stanje na vašem računu ažurirano je na% store_name."
+Balance:,Stanje:
+"Welcome to %store_name affiliate program!","Dobrodošli u pridruženi program% store_name!"
+Email:,E-mail:
+"Referring Website:","Preporučena web stranica:"
+"A customer referred by you has just placed an order at %store_name.","Kupac kojeg ste uputili upravo je izvršio narudžbu na% store_name."
+"Thus, it was credited to your affiliate account.","Dakle, dodijeljen je vašem pridruženom računu."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Kada je narudžba dovršena, prenijet ćemo proviziju na stanje vašeg računa u našem sustavu, a zatim novac možete podići kad god želite."
+"Transaction Amount:","Iznos transakcije:"
+"Current Balance:","Trenutno stanje:"
+"New Withdrawal Request","Novi zahtjev za povlačenjem"
+Information,Informacija
+"Please log in to the admin panel to manage this request.","Prijavite se na administratorsku ploču da biste upravljali ovim zahtjevom."
+"Affiliate: Sign In Button","Podružnica: gumb za prijavu"
+"Affiliate: List of programs","Podružnica: Popis programa"
+"Account Dashboard","Nadzorna ploča računa"
+Transactions,Transakcije
+Settings,Postavke
+"Affiliate Program","Partnerski program"

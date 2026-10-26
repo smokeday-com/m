@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+/**
+ * Currency switcher
+ *
+ * @var Currency $block
+ */
+
+use Magento\Directory\Block\Currency;
+$showWrapper = $block->getData('a2_show_wrapper');
+
+?>
+<?php $currentCurrencyCode = $block->getCurrentCurrencyCode(); ?>
+<?php if($currentCurrencyCode): ?>
+   <?php if($showWrapper): ?>
+      <div class="switcher currency tiny-arrow"><div class="action toggle">
+   <?php endif; ?>
+         <span class="currency-current currency-<?= $block->escapeHtml($block->getCurrentCurrencyCode()) ?>">
+            <?= $block->escapeHtml($currentCurrencyCode) ?>
+         </span>
+   <?php if($showWrapper): ?>
+      </div></div>
+   <?php endif; ?>
+
+<?php endif;
+

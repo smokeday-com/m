@@ -1,0 +1,57 @@
+<?php $styles = '	
+.ox_bnav{
+	position: sticky;
+	left:0;
+	bottom:0;
+    width: 100%;
+	z-index: 800;
+	display:flex;	
+	overflow: auto;
+}
+.ox-bnav__item{
+    display: flex;
+    max-width: 100%;
+    flex: 1;
+	position: relative;
+}
+.ox-bnav__item .action{
+	/* text wrap */
+	display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;	
+
+    padding: 10px 5px;
+    line-height: 0;
+    gap: 4px;
+    width: 100%;
+	min-height: 46px;
+	min-width:46px;
+	cursor: pointer;
+	color:var(--a2-bnav-color);
+	background-color: var(--a2-bnav-bg);
+	transition: none;
+}
+.ox-bnav__item .label{
+	font-size:  var(--a2-bnav-fs,  12px);
+	line-height: 1;
+	font-family: var(--a2-bnav-ff);
+	font-weight: var(--a2-bnav-fw, var(--a2-btn-fw, 700));
+    text-transform: var(--a2-bnav-tt, var(--a2-btn-tt));
+    letter-spacing: var(--a2-bnav-ls, var(--a2-btn-ls));
+}
+.ox-bnav__item .icon{
+	margin: auto;
+}
+.ox-bnav__item .icon svg{
+	margin:auto;
+	fill:currentColor;
+}
+.nolink.action > *{
+	opacity: 0.6;
+}
+.minicart-btn__icon--hide .ox-bnav__item .action.showcart .a2-icon-cart{
+	display: inline-block;
+}';
+?>
+<?php echo  $block->renderStyles($styles);

@@ -1,0 +1,292 @@
+%1%,%1%
+%1,%1
+Affiliate,Affiliate
+"%1 was joined to affiliate program","%1 was joined to affiliate program"
+"%1 referred new order %2 (%3) with commission %4","%1 referred new order %2 (%3) with commission %4"
+"%1 referred new order %2 (%3)","%1 referred new order %2 (%3)"
+"%1 submitted withdrawal request (%2)","%1 submitted withdrawal request (%2)"
+Dashboard,Dashboard
+Accounts,Accounts
+Programs,Programs
+Transactions,Transactions
+Banners,Banners
+Withdrawals,Withdrawals
+Settings,Settings
+"We'll review your registration and notify you.","We'll review your registration and notify you."
+"Your request to sign up to the affiliate program has been rejected.","Your request to sign up to the affiliate program has been rejected."
+"Sign In to Affiliates","Sign In to Affiliates"
+"You have successfully signed up for an affiliate account.","You have successfully signed up for an affiliate account."
+"Affiliate Dashboard","Affiliate Dashboard"
+"Affiliate Account Settings","Affiliate Account Settings"
+"Account information successfully updated.","Account information successfully updated."
+"Transactions History","Transactions History"
+"Promotion Materials","Promotion Materials"
+Statistics,Statistics
+"Affiliate Program Overview","Affiliate Program Overview"
+"Withdrawal request has been submitted.","Withdrawal request has been submitted."
+Affiliates,Affiliates
+"The account has been deleted.","The account has been deleted."
+"This account no longer exists.","This account no longer exists."
+"New Account","New Account"
+"Please correct the data sent.","Please correct the data sent."
+"Account was saved.","Account was saved."
+"The banner has been deleted.","The banner has been deleted."
+"This banner no longer exists.","This banner no longer exists."
+"New Banner","New Banner"
+"Banner has been saved.","Banner has been saved."
+"This program no longer exists.","This program no longer exists."
+"Program has been removed.","Program has been removed."
+"Cart Price Rule and Store View must belong to the same website","Cart Price Rule and Store View must belong to the same website"
+"Cart Price Rule must use autogeneration and Specific Coupon","Cart Price Rule must use autogeneration and Specific Coupon"
+"New Program","New Program"
+"You have saved the program.","You have saved the program."
+"This transaction no longer exists.","This transaction no longer exists."
+"View Transaction","View Transaction"
+"Add Transaction","Add Transaction"
+"You have saved the transaction.","You have saved the transaction."
+"This withdrawal no longer exists.","This withdrawal no longer exists."
+"View Withdrawal","View Withdrawal"
+"You have saved the withdrawal.","You have saved the withdrawal."
+"Withdrawal was denied.","Withdrawal was denied."
+"Withdrawal was accepted.","Withdrawal was accepted."
+"Withdrawal was completed.","Withdrawal was completed."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","One or more <a href=""%1"">affiliate accounts</a> are currently in pending status."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","One or more <a href=""%1"">withdrawal requests</a> are currently in pending status."
+"Pending Approval","Pending Approval"
+Approved,Approved
+"Not Approved","Not Approved"
+Image,Image
+Text,Text
+"Assign to first referred affiliate","Assign to first referred affiliate"
+"Assign to last referred affiliate","Assign to last referred affiliate"
+"- Disable these emails -","- Disable these emails -"
+Complete,Complete
+"In Hold","In Hold"
+Commission,Commission
+Withdraw,Withdraw
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Store Credit"
+Other,Other
+Pending,Pending
+Accepted,Accepted
+Completed,Completed
+Denied,Denied
+"Conditions Combination","Conditions Combination"
+General,General
+"Customer Group","Customer Group"
+Store,Store
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)"
+Click,Click
+Impression,Impression
+Lead,Lead
+"Commission for order #%1 (%2)","Commission for order #%1 (%2)"
+"Refund for order #%1","Refund for order #%1"
+Withdrawal,Withdrawal
+"Withdraw cannot exceed current balance.","Withdraw cannot exceed current balance."
+"Minimum withdrawal amount is %1.","Minimum withdrawal amount is %1."
+"You already have a pending withdrawal request.","You already have a pending withdrawal request."
+"Affiliate Withdrawal","Affiliate Withdrawal"
+Back,Back
+Delete,Delete
+"Are you sure you want to proceed?","Are you sure you want to proceed?"
+"Save and Continue Edit","Save and Continue Edit"
+Save,Save
+"Referred Customers","Referred Customers"
+Actions,Actions
+"Add Customers","Add Customers"
+Customers,Customers
+Cancel,Cancel
+"Add Selected Customers","Add Selected Customers"
+Remove,Remove
+ID,ID
+Name,Name
+Email,Email
+View,View
+"Not approved","Not approved"
+Edit,Edit
+"Delete item?","Delete item?"
+Available,Available
+Inactive,Inactive
+Removed,Removed
+Sale,Sale
+Conditions,Conditions
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Apply the commission only to cart items matching the following conditions (leave blank for all items)."
+"Percent of order amount","Percent of order amount"
+"Percent of cart amount","Percent of cart amount"
+"Fixed amount","Fixed amount"
+"Pay per Sale","Pay per Sale"
+"Pay per Lead","Pay per Lead"
+"Pay per Click","Pay per Click"
+"Pay per Impression","Pay per Impression"
+Accept,Accept
+Reject,Reject
+"General Information","General Information"
+"Current Balance:","Current Balance:"
+"On hold:","On hold:"
+"Unique code:","Unique code:"
+"Customer is not registered as affiliate yet.","Customer is not registered as affiliate yet."
+"Register as Affiliate","Register as Affiliate"
+"Latest Activity","Latest Activity"
+Website,Website
+Review,Review
+"Active Affiliates (7 days)","Active Affiliates (7 days)"
+"Total Affiliates","Total Affiliates"
+"Visits (7 days)","Visits (7 days)"
+"Revenue (7 days)","Revenue (7 days)"
+"Commissions (7 days)","Commissions (7 days)"
+"On hold (All time)","On hold (All time)"
+"Most Valuable Affiliates","Most Valuable Affiliates"
+"Total Earning","Total Earning"
+"On hold","On hold"
+Clicks,Clicks
+"Affiliate Information","Affiliate Information"
+"Referring Website","Referring Website"
+"Subscribe to email notifications","Subscribe to email notifications"
+"I accept the terms and conditions","I accept the terms and conditions"
+"Sign Up","Sign Up"
+"Referral Website","Referral Website"
+"Payment Method","Payment Method"
+"Payment Information","Payment Information"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Please specify personal payment info: PayPal email or any e-wallet payment details."
+From,From
+To,To
+Apply,Apply
+Leads,Leads
+Orders,Orders
+Views,Views
+Earned,Earned
+"My Account","My Account"
+Type,Type
+Size,Size
+Link,Link
+"Get Code","Get Code"
+"Copy and paste this code into your website: ","Copy and paste this code into your website: "
+"Referral Coupons","Referral Coupons"
+Program,Program
+Coupon,Coupon
+Discount,Discount
+"Personal Referral Link","Personal Referral Link"
+"Enter any URL from this store in the form below to generate a new referral link:","Enter any URL from this store in the form below to generate a new referral link:"
+"Your unique referral link is:","Your unique referral link is:"
+"Referral Widget","Referral Widget"
+"Widget Title:","Widget Title:"
+"Related Products","Related Products"
+Width:,Width:
+Height:,Height:
+"Number of products:","Number of products:"
+"Show Bestsellers","Show Bestsellers"
+"Show New Products","Show New Products"
+Search,Search
+"Search term","Search term"
+"Show Product's names","Show Product's names"
+"Show Prices","Show Prices"
+"Place this code wherever you want the widget to appear on your page.","Place this code wherever you want the widget to appear on your page."
+"Current balance: <b>%1</b>","Current balance: <b>%1</b>"
+"On hold: %1","On hold: %1"
+"Lifetime: %1","Lifetime: %1"
+"Paid: %1","Paid: %1"
+Date,Date
+Balance,Balance
+Amount,Amount
+Details,Details
+"On hold to %1","On hold to %1"
+"There have been no transactions yet.","There have been no transactions yet."
+"Request withdrawal","Request withdrawal"
+"Minimum balance to request withdrawal is %1","Minimum balance to request withdrawal is %1"
+Fee,Fee
+Status,Status
+"Pending approval","Pending approval"
+"There have been no withdrawals yet.","There have been no withdrawals yet."
+"Our Programs","Our Programs"
+"Our Program","Our Program"
+"Tier %1","Tier %1"
+"<b>%1%</b> of order amount","<b>%1%</b> of order amount"
+"<b>%1%</b> of cart amount","<b>%1%</b> of cart amount"
+"<b>%1</b> per sale","<b>%1</b> per sale"
+"<b>%1</b> per unique click","<b>%1</b> per unique click"
+"<b>%1</b> per lead","<b>%1</b> per lead"
+"<b>%1</b> per 1000 views","<b>%1</b> per 1000 views"
+"%1  - Minimum balance required for payout.","%1  - Minimum balance required for payout."
+"Sign In","Sign In"
+"New Affiliate Account","New Affiliate Account"
+"Account Information","Account Information"
+"%name,","%name,"
+"Your affiliate account at %store_name has been approved.","Your affiliate account at %store_name has been approved."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Click <a href=""%login_url"">here</a> to sign in to your account."
+"Your account balance has been updated at %store_name.","Your account balance has been updated at %store_name."
+Balance:,Balance:
+"Welcome to %store_name affiliate program!","Welcome to %store_name affiliate program!"
+Email:,Email:
+"Referring Website:","Referring Website:"
+"A customer referred by you has just placed an order at %store_name.","A customer referred by you has just placed an order at %store_name."
+"Thus, it was credited to your affiliate account.","Thus, it was credited to your affiliate account."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want."
+"Transaction Amount:","Transaction Amount:"
+"New Withdrawal Request","New Withdrawal Request"
+Information,Information
+"Please log in to the admin panel to manage this request.","Please log in to the admin panel to manage this request."
+"Is Enabled","Is Enabled"
+"Auto Sign Up after creating account","Auto Sign Up after creating account"
+"Approval is required","Approval is required"
+"Links referral param","Links referral param"
+"Display affiliate link only for registered affiliates","Display affiliate link only for registered affiliates"
+"Add commission when order has obtained status","Add commission when order has obtained status"
+"Subtract commission when order has obtained status","Subtract commission when order has obtained status"
+"Subtract commission when credit memo has been created","Subtract commission when credit memo has been created"
+"Commission holding period (days)","Commission holding period (days)"
+"Sales Commission lifetime (days)","Sales Commission lifetime (days)"
+"Commissions limit","Commissions limit"
+"Assign Priority","Assign Priority"
+"Minimum withdrawal amount","Minimum withdrawal amount"
+"Payment Methods","Payment Methods"
+"Enable coupon","Enable coupon"
+"Coupon pattern","Coupon pattern"
+"Account has been approved","Account has been approved"
+"New Transaction","New Transaction"
+"Balance has been updated","Balance has been updated"
+"Affiliate: Sign In Button","Affiliate: Sign In Button"
+"Affiliate: List of programs","Affiliate: List of programs"
+Group,Group
+"Customer Since","Customer Since"
+Customer,Customer
+"Unique Identifier","Unique Identifier"
+"Is Subscribed","Is Subscribed"
+"All visible programs are assigned by default","All visible programs are assigned by default"
+Statistic,Statistic
+Identifier,Identifier
+Commissions,Commissions
+"Affiliate Since","Affiliate Since"
+"Store Views","Store Views"
+"Is Active","Is Active"
+"Allowed file types: jpeg, gif, png.","Allowed file types: jpeg, gif, png."
+Width,Width
+Height,Height
+"Add New","Add New"
+Preview,Preview
+Title,Title
+"Program Name","Program Name"
+"Visitor Identifier","Visitor Identifier"
+Referrer,Referrer
+"Store View","Store View"
+"Create Date","Create Date"
+"Is Processed","Is Processed"
+Description,Description
+"Active From","Active From"
+"Active To","Active To"
+"Is Visible","Is Visible"
+Priority,Priority
+"Commission Amount","Commission Amount"
+"Coupons Is Active","Coupons Is Active"
+"Apply Cart Price Rule","Apply Cart Price Rule"
+"Discount will be applied only for items specified in the rule products. Please note, you should use “Auto Generation” for your coupon rule.","Discount will be applied only for items specified in the rule products. Please note, you should use “Auto Generation” for your coupon rule."
+"Commission Type","Commission Type"
+Message,Message
+"Hold To","Hold To"
+"Created At","Created At"
+"Updated At","Updated At"
+"Request Date","Request Date"
+"Account Dashboard","Account Dashboard"
+"Affiliate Program","Affiliate Program"

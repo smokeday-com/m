@@ -1,0 +1,146 @@
+/**
+ * Olegnax
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Olegnax.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.olegnax.com/license
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Olegnax
+ * @package     Olegnax_MegaMenu
+ * @copyright   Copyright (c) 2010-2024 Olegnax (http://www.olegnax.com/)
+ * @license     https://www.olegnax.com/license
+ */
+
+@ox-mega-menu__column-padding: 15px;
+@ox-mega-menu__transition: ~"all 600ms ease-in-out";
+@ox-mega-menu__transition-hover: ~"all 10ms ease-in-out";
+@ox-mega-menu__animation-speed: 0.5s;
+
+//
+//  Navigation
+//  _____________________________________________
+
+/* Toggle Plus Icon */
+@ox-mega-menu-toggle-icon__show: true;
+@ox-mega-menu-toggle-icon__width:var(--oxmm-arrow-w);
+@ox-mega-menu-toggle-icon__height:var(--oxmm-arrow-h);
+@ox-mega-menu-toggle-icon__color: var(--oxmm-toggle-color, currentColor);
+@ox-mega-menu-toggle-icon__color-active:var(--oxmm-toggle-color-a, var(--oxmm-toggle-color));
+@ox-mega-menu-arrow-icon__color: var(--oxmm-arrow-color, currentColor);
+@ox-mega-menu-arrow-icon__color-a: var(--oxmm-arrow-color-a,var(--oxmm-arrow-color));
+
+//@font-family__sans-serif: Arial, sans-serif;
+@ox-mega-menu__font-name: var(--oxmm-ff);
+@ox-mega-menu__background: transparent;
+
+//Label 
+@ox-mega-menu-label__color: white;
+@ox-mega-menu-label_background: red;
+@ox-mega-menu-label__font-size: 11px;
+@ox-mega-menu-label__padding: 3px 5px 4px 5px;
+@ox-mega-menu-label__border-radius: 0;
+@ox-mega-menu-label__top: -7px;
+@ox-mega-menu-label__right: 0;
+
+// Level0
+@ox-mega-menu-level0-item__font-size: var(--oxmm-l0-fs);
+@ox-mega-menu-level0-item__font-weight: var(--oxmm-l0-fw);
+@ox-mega-menu-level0-item__font-weight-active: var(--oxmm-l0-fw-a, @ox-mega-menu-level0-item__font-weight);
+@ox-mega-menu-level0-item__height: var(--oxmm-l0-height);
+@ox-mega-menu-level0-item__margin: 0;
+@ox-mega-menu-level0-item__padding: var(--oxmm-l0-padding);
+@ox-mega-menu-level0-item__text-transform: var(--oxmm-l0-tt);
+@ox-mega-menu-level0-item__letter-spacing: var(--oxmm-l0-ls);
+
+@ox-mega-menu-level0-item__background:var(--oxmm-l0-bg);
+@ox-mega-menu-level0-item__color: var(--oxmm-l0-color);
+@ox-mega-menu-level0-item__active__background:var(--oxmm-l0-bg-a);
+@ox-mega-menu-level0-item__active__color: var(--oxmm-l0-color-a);
+@ox-mega-menu-level0-item__hover__background:var(--oxmm-l0-bg-h);
+@ox-mega-menu-level0-item__hover__color: var(--oxmm-l0-color-h);
+
+
+// Submenu Items
+@ox-mega-menu-submenu-item__background: var(--oxmm-item-bg);
+@ox-mega-menu-submenu-item__border: var(--oxmm-item-border);
+@ox-mega-menu-submenu-item__padding: var(--oxmm-item-padding);
+@ox-mega-menu-submenu-item__margin: 0;
+@ox-mega-menu-submenu-item__font-size: var(--oxmm-item-fs); 
+@ox-mega-menu-submenu-item__font-weight: var(--oxmm-item-fw);
+@ox-mega-menu-submenu-item__color: var(--oxmm-item-color);
+@ox-mega-menu-submenu-item__height: 44px;
+
+@ox-mega-menu-submenu-item__active__background:var(--oxmm-item-bg-a);
+@ox-mega-menu-submenu-item__active__color: var(--oxmm-item-color-a);
+@ox-mega-menu-submenu-item__hover__background:var(--oxmm-item-bg-h);
+@ox-mega-menu-submenu-item__hover__color:var(--oxmm-item-color-h);
+@ox-mega-menu-submenu-item__text-transform:var(--oxmm-item-tt);
+@ox-mega-menu-submenu-item__letter-spacing: var(--oxmm-item-ls);
+
+@ox-mega-menu-submenu__padding: 0;
+
+//
+//  Desktop Navigation
+//  ---------------------------------------------
+
+@ox-mega-menu-navigation__min-height: 55px;
+@ox-mega-menu-navigation__padding: 0;
+
+@ox-mega-menu-arrow-icon__show: true;
+
+// Drop Down
+@ox-mega-menu-submenu__background: #ffffff;
+@ox-mega-menu-desktop-submenu__padding: var(--oxmm-dd-padding);
+@ox-mega-menu-desktop-submenu-mega__padding: var(--oxmm-padding);
+@ox-mega-menu-submenu__width: var(--oxmm-width);
+@ox-mega-menu-submenu__shadow: var(--oxmm-shadow);
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    :root{
+        --oxmm-arrow-w:8px;
+        --oxmm-arrow-h:2px;
+        --oxmm-ff: 'Open Sans', @font-family__sans-serif;
+        --oxmm-l0-fs:14px;
+        --oxmm-l0-fw:@font-weight__bold;
+        --oxmm-l0-height: 44px;
+        --oxmm-l0-padding:0 14px;
+        --oxmm-l0-tt: uppercase;
+        --oxmm-l0-ls: 0;
+        --oxmm-l0-bg:transparent;
+        --oxmm-l0-color:#333333;
+        --oxmm-l0-bg-a:#333333;
+        --oxmm-l0-color-a:#ffffff;
+        --oxmm-l0-bg-h:#f7f7f7;
+        --oxmm-l0-color-h:#333333;
+
+        --oxmm-width:290px;
+        --oxmm-dd-padding:30px;
+        --oxmm-padding:35px;
+        --oxmm-shadow: 0px 4px 22px 0px rgba(0, 0, 0, 0.08);
+        --oxmm-allcats-c-w:var(--oxmm-width);
+
+        --oxmm-item-bg: transparent;
+        --oxmm-item-border: 1px solid #f1f1f1;
+        --oxmm-item-padding: 10px 15px;
+        --oxmm-item-fs:14px;
+        --oxmm-item-fw:@font-weight__heavier;
+        --oxmm-item-color:#333333;
+        --oxmm-item-bg-a:#333333;
+        --oxmm-item-color-a: #ffffff;
+        --oxmm-item-bg-h:#f7f7f7;
+        --oxmm-item-color-h:#000000;
+        --oxmm-item-tt:none;
+        --oxmm-item-ls:0;
+    }
+}

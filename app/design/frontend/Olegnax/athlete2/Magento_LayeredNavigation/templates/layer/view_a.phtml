@@ -1,0 +1,91 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+use Magento\LayeredNavigation\Block\Navigation;
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block Navigation
+ */
+?>
+<?php
+// $multiple = $this->helper( 'Olegnax\Athlete2\Helper\Helper' )->getConfig( 'athlete2_settings/products_listing/filters_multicollapsible_off' ) ? 'false' : 'true';
+?>
+<?php if ($block->canShowBlock()) : ?>
+    <div class="block filter" id="layered-filter-block" data-mage-init='
+    {
+        "collapsible":
+        {
+            "openedState": "active",
+            "collapsible": true,
+            "active": false,
+            "animate": "300",
+            "collateral":
+            {
+                "openedState": "filter-active",
+                "element": "body"
+            }
+        }
+    }'>
+        <?php $filtered = count($block->getLayer()->getState()->getFilters()) ?>
+        <div class="block-title filter-title" data-count="<?= /* @noEscape */ $filtered ?>">
+            <strong data-role="title"><?= $block->escapeHtml(__('Shop By')); ?></strong>
+        </div>
+        <div class="block-content filter-content">
+            <?= $block->getChildHtml('state') ?>
+
+            <?php if ($block->getLayer()->getState()->getFilters()) : ?>
+                <div class="block-actions filter-actions">
+                    <a href="<?= $block->escapeUrl($block->getClearUrl()) ?>" class="action clear button filter-clear">
+                        <span><?= $block->escapeHtml(__('Clear All')) ?></span>
+                    </a>
+                </div>
+            <?php endif; ?>
+            <?php $wrapOptions = false; ?>
+            <?php foreach ($block->getFilters() as $filter) : ?>
+                <?php if ($filter->getItemsCount()) : ?>
+                    <?php if (!$wrapOptions) : ?>
+                        <strong role="heading" aria-level="2" class="block-subtitle filter-subtitle"><?= $block->escapeHtml(__('Shopping Options')) ?></strong>
+                        <div id="narrow-by-list" data-role="content" data-mage-init='
+                        {
+                            "accordion":
+                            {
+                                "openedState": "active",
+                                "collapsible": true,
+                                "active": false,
+                                "animate": "300",
+                                "multipleCollapsible": false
+                            }
+                        }'>
+                        <?php $wrapOptions = true;
+                        endif; ?>
+                    <div data-role="collapsible" class="filter-options">
+                        <div data-role="title" class="filter-options-title"><strong><?= $block->escapeHtml(__($filter->getName())) ?></strong><div class="toggle-minus"><span></span></div></div>
+                        <div data-role="content" class="filter-options-content"><?= /* @escapeNotVerified */ $block->getChildBlock('renderer')->render($filter) ?></div>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <?php if ($wrapOptions) : ?>
+                </div>
+            <?php else : ?>
+<?php $scriptString = <<<script
+require([
+    'jquery'
+], function ($) {
+    $('#layered-filter-block').addClass('filter-no-options');
+});
+script;
+                if (isset($secureRenderer)){
+                    echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+                } else{
+                    echo /* @noEscape */ '<script>' .  $scriptString . '</script>';
+                } ?>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endif; ?>

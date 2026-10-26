@@ -1,0 +1,14 @@
+<div id="ox_quickview_wrapper" style="display:none"><div class="ox_quickview-preloader" data-role="loader"></div><div class="ox-overlay-close-btn"><span></span></div></div>
+<?php $scriptString = <<<script
+require(['jquery','OxQuickviewInit'],function($){
+    $(function(){
+        $('.ox-quickview-button').OxQuickviewInit({})
+    })
+});
+script;
+
+if (isset($secureRenderer)){
+    echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+} else{
+    echo /* @noEscape */ '<script>' .  $scriptString . '</script>';
+}

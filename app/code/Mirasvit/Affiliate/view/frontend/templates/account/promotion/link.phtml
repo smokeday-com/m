@@ -1,0 +1,54 @@
+<?php
+declare(strict_types=1);
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Affiliate\Block\Account\Promotion\Link $block */
+
+$baseUrl = $block->getBaseUrl();
+?>
+
+<div class="block affiliate-account__promotion-link">
+    <div class="block-title"><strong><?= __('Personal Referral Link') ?></strong></div>
+    <div class="block-content">
+        <fieldset class="fieldset">
+            <div class="field">
+                <label class="label" for="referral_url">
+                    <span><?= __('Enter any URL from this store in the form below to generate a new referral link:') ?></span>
+                </label>
+
+                <div class="control">
+                    <input type="text" id="referral_url" value="<?= $baseUrl ?>"/>
+                </div>
+            </div>
+
+            <div class="field link">
+                <?= __('Your unique referral link is:') ?> <strong id="referral_link"></strong>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        var param = '<?=$block->getReferralParam() . '=' . $block->getAccountIdentifier() ?>';
+
+        $('#referral_url').on('keyup focus blur', function () {
+            updateLink();
+        });
+
+        function updateLink() {
+            var link;
+            var url = $('#referral_url').val();
+
+            if (url.indexOf('?') >= 0) {
+                link = url + "&" + param;
+            } else {
+                link = url + "?" + param;
+            }
+            $('#referral_link').text(link);
+        }
+
+        updateLink();
+    });
+</script>

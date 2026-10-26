@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" label="Affiliate Account (All Pages)" design_abstraction="custom">
+    <body>
+        <attribute name="class" value="account"/>
+        <attribute name="class" value="mst-affiliate"/>
+
+        <move element="page.main.title" destination="content" before="-"/>
+
+        <referenceContainer name="content">
+            <block class="Mirasvit\Affiliate\Block\Account\Welcome" name="account.welcome" template="account/welcome.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

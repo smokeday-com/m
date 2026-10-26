@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">affiliate_account_form.affiliate_account_form_data_source</item>
+            <item name="deps" xsi:type="string">affiliate_account_form.affiliate_account_form_data_source</item>
+            <item name="namespace" xsi:type="string">affiliate_account_form</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">General Information</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">affiliate_account_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Mirasvit\Affiliate\Ui\Account\Form\Control\BackButton</item>
+            <item name="delete" xsi:type="string">Mirasvit\Affiliate\Ui\Account\Form\Control\DeleteButton</item>
+            <item name="save" xsi:type="string">Mirasvit\Affiliate\Ui\Account\Form\Control\SaveButton</item>
+            <item name="save_and_continue" xsi:type="string">Mirasvit\Affiliate\Ui\Account\Form\Control\SaveAndContinueButton</item>
+        </item>
+    </argument>
+    <dataSource name="affiliate_account_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Mirasvit\Affiliate\Ui\Account\Form\DataProvider</argument>
+            <argument name="name" xsi:type="string">affiliate_account_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">account_id</argument>
+            <argument name="requestFieldName" xsi:type="string">account_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="*/*/save"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">General Information</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+
+        <field name="account_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="dataScope" xsi:type="string">account_id</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="customer">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Customer</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="elementTmpl" xsi:type="string">Mirasvit_Affiliate/ui/form/email-link</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="group_id">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Mirasvit\Affiliate\Model\Config\Source\Group\NameSource</item>
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Affiliate Group</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                    <item name="filterOptions" xsi:type="boolean">false</item>
+                    <item name="showCheckbox" xsi:type="boolean">false</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">false</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="identifier">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Unique Identifier</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-no-html-tags" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="status">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Mirasvit\Affiliate\Model\Config\Source\Account\StatusSource</item>
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Status</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                    <item name="filterOptions" xsi:type="boolean">false</item>
+                    <item name="showCheckbox" xsi:type="boolean">false</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">false</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <fieldset name="additional_data" class="Mirasvit\Affiliate\Ui\Account\Form\Fieldset\AdditionalData">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true"/>
+                </item>
+            </argument>
+        </fieldset>
+
+        <field name="is_subscribed">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Is Subscribed</item>
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">1</item>
+                        <item name="false" xsi:type="number">0</item>
+                    </item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="payment_method">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Mirasvit\Affiliate\Model\Config\Source\Withdraw\MethodSource</item>
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Payment Method</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                    <item name="filterOptions" xsi:type="boolean">false</item>
+                    <item name="showCheckbox" xsi:type="boolean">false</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">false</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-no-html-tags" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="payment_email">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Payment Information</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="program_ids">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Mirasvit\Affiliate\Model\Config\Source\Program\NameSource</item>
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Programs</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                    <item name="filterOptions" xsi:type="boolean">false</item>
+                    <item name="showCheckbox" xsi:type="boolean">true</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">true</item>
+                    <item name="notice" xsi:type="string" translate="true">All visible programs are assigned by default</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="stat">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Statistic</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="elementTmpl" xsi:type="string">Mirasvit_Affiliate/account/form/stat</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+
+    <fieldset name="coupon">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">Coupons</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">false</item>
+            </item>
+        </argument>
+
+        <container name="coupon_cont">
+        <htmlContent name="html_content">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="componentType" xsi:type="string">fieldset</item>
+                </item>
+            </argument>
+            <argument name="block" xsi:type="object">Mirasvit\Affiliate\Ui\Account\Form\Coupon\Block</argument>
+        </htmlContent>
+        </container>
+
+        <insertListing>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/insert-listing</item>
+                    <item name="cssclass" xsi:type="string">none</item>
+                    <item name="autoRender" xsi:type="boolean">true</item>
+                    <item name="dataScope" xsi:type="string">affiliate_coupon_listing</item>
+                    <item name="externalProvider" xsi:type="string">affiliate_coupon_listing.affiliate_coupon_listing_data_source</item>
+                    <item name="ns" xsi:type="string">affiliate_coupon_listing</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="render_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="realTimeLink" xsi:type="boolean">false</item>
+                    <item name="externalFilterMode" xsi:type="boolean">true</item>
+                    <item name="imports" xsi:type="array">
+                        <item name="account_id" xsi:type="string">${ $.provider }:data.account_id</item>
+                    </item>
+
+                    <item name="exports" xsi:type="array">
+                        <item name="account_id" xsi:type="string">${ $.externalProvider }:params.account_id</item>
+                    </item>
+                </item>
+            </argument>
+        </insertListing>
+    </fieldset>
+
+    <fieldset name="transaction">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">Transactions</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">false</item>
+            </item>
+        </argument>
+        <insertListing>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/insert-listing</item>
+                    <item name="cssclass" xsi:type="string">none</item>
+                    <item name="autoRender" xsi:type="boolean">true</item>
+                    <item name="dataScope" xsi:type="string">affiliate_transaction_listing</item>
+                    <item name="externalProvider" xsi:type="string">affiliate_transaction_listing.affiliate_transaction_listing_data_source</item>
+                    <item name="ns" xsi:type="string">affiliate_transaction_listing</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="render_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="realTimeLink" xsi:type="boolean">false</item>
+                    <item name="externalFilterMode" xsi:type="boolean">true</item>
+                    <item name="imports" xsi:type="array">
+                        <item name="account_id" xsi:type="string">${ $.provider }:data.account_id</item>
+                    </item>
+
+                    <item name="exports" xsi:type="array">
+                        <item name="account_id" xsi:type="string">${ $.externalProvider }:params.account_id</item>
+                    </item>
+                </item>
+            </argument>
+        </insertListing>
+    </fieldset>
+
+    <fieldset name="withdraw">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">Withdrawals</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">false</item>
+            </item>
+        </argument>
+        <insertListing>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/insert-listing</item>
+                    <item name="cssclass" xsi:type="string">none</item>
+                    <item name="autoRender" xsi:type="boolean">true</item>
+                    <item name="dataScope" xsi:type="string">affiliate_withdraw_listing</item>
+                    <item name="externalProvider" xsi:type="string">affiliate_withdraw_listing.affiliate_withdraw_listing_data_source</item>
+                    <item name="ns" xsi:type="string">affiliate_withdraw_listing</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="render_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="realTimeLink" xsi:type="boolean">false</item>
+                    <item name="externalFilterMode" xsi:type="boolean">true</item>
+                    <item name="imports" xsi:type="array">
+                        <item name="account_id" xsi:type="string">${ $.provider }:data.account_id</item>
+                    </item>
+
+                    <item name="exports" xsi:type="array">
+                        <item name="account_id" xsi:type="string">${ $.externalProvider }:params.account_id</item>
+                    </item>
+                </item>
+            </argument>
+        </insertListing>
+    </fieldset>
+
+    <fieldset name="events">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">Events</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">false</item>
+            </item>
+        </argument>
+        <insertListing>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/insert-listing</item>
+                    <item name="cssclass" xsi:type="string">none</item>
+                    <item name="autoRender" xsi:type="boolean">true</item>
+                    <item name="dataScope" xsi:type="string">affiliate_event_listing</item>
+                    <item name="externalProvider" xsi:type="string">affiliate_event_listing.affiliate_event_listing_data_source</item>
+                    <item name="ns" xsi:type="string">affiliate_event_listing</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="render_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="realTimeLink" xsi:type="boolean">false</item>
+                    <item name="externalFilterMode" xsi:type="boolean">true</item>
+                    <item name="imports" xsi:type="array">
+                        <item name="account_id" xsi:type="string">${ $.provider }:data.account_id</item>
+                    </item>
+
+                    <item name="exports" xsi:type="array">
+                        <item name="account_id" xsi:type="string">${ $.externalProvider }:params.account_id</item>
+                    </item>
+                </item>
+            </argument>
+        </insertListing>
+    </fieldset>
+</form>

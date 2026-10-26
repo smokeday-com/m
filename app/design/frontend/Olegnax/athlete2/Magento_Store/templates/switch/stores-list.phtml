@@ -1,0 +1,36 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Store\Block\Switcher $block */
+$icon = false;
+if($block->getData('icon')){
+    $icon = $block->getData('icon');
+}
+?>
+<?php if (count($block->getGroups())>1) : ?>
+<div class="switcher store switcher-store">
+    <h3 class="label switcher-label"><span><?= $block->escapeHtml(__('Select Store')) ?></span></h3>
+    <div class="actions options switcher-options">
+        <ul class="switcher-list">
+            <?php foreach ($block->getGroups() as $_group) : ?>
+                <?php if (!($_group->getId() == $block->getCurrentGroupId())) : ?>
+                    <li class="switcher-option">
+                        <a href="#" data-post='<?= /* @noEscape */ $block->getTargetStorePostData($_group->getDefaultStore()) ?>'>
+                            <?php if(!$icon):
+                                 $url = $block->getViewFileUrl('images/flags/' . $_group->getCode() . '.png');  ?>
+                            <img class="flag-image" src="<?= $block->escapeUrl($url) ?>">
+                            <?php else: ?>
+                                <?= $icon ?>
+                            <?php endif; ?>
+                            <span class="text name"><?= $block->escapeHtml($_group->getName()) ?></span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
+<?php endif; ?>

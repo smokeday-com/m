@@ -1,0 +1,20 @@
+<?php $scriptString = <<<script
+requirejs( [ 'jquery' ],
+    function ( $ ) {
+        "use strict";
+        var substyle = $( 'body' ).find( 'style' );
+        if ( substyle.length ) {
+            var newheadstyle = $( '<style>' ).appendTo( 'head' );
+            substyle.each( function () {
+                var _this = $( this );
+                newheadstyle.html( newheadstyle.html() + _this.html() );
+                _this.remove();
+            } );
+        }
+    } );
+script;
+if (isset($secureRenderer)){
+    echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+} else{
+    echo /* @noEscape */ '<script>' .  $scriptString . '</script>';
+}

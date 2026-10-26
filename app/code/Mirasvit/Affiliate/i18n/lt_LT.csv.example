@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Peržiūrėsime jūsų registraciją ir pranešime jums."
+"Your request to sign up to the affiliate program has been rejected.","Jūsų prašymas prisijungti prie partnerių programos buvo atmestas."
+"Sign In to Affiliates","Prisijunkite prie filialų"
+"You have successfully signed up for an affiliate account.","Jūs sėkmingai užsiregistravote filialo paskyroje."
+"Affiliate Dashboard","Filialų informacijos suvestinė"
+"Affiliate Account Settings","Filialo paskyros nustatymai"
+"Account information successfully updated.","Paskyros informacija sėkmingai atnaujinta."
+"Transactions History","Sandorių istorija"
+"Promotion Materials","Reklaminė medžiaga"
+Statistics,Statistika
+"Affiliate Program Overview","Partnerių programos apžvalga"
+Withdrawals,Atsiėmimai
+"Withdrawal request has been submitted.","Pateikta paraiška atsiimti."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Šiuo metu laukiama vienos ar daugiau <a href=""%1"">filialų paskyrų būsenos.</a>"
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Šiuo metu laukiama vienos ar daugiau <a href=""%1"">prašymų atsiimti.</a>"
+"Pending Approval","Laukiama patvirtinimo"
+Approved,Patvirtinta
+"Not Approved",Nepatvirtintas
+Image,Vaizdas
+Text,Tekstas
+"Assign to first referred affiliate","Priskirkite pirmajam filialui"
+"Assign to last referred affiliate","Paskirkite paskutinį kartą nurodytą filialą"
+Available,Yra
+Inactive,Neaktyvus
+Removed,Pašalinta
+"- Disable these emails -","- Išjungti šiuos el. Laiškus -"
+Click,Spustelėkite
+Impression,Įspūdis
+Lead,Vadovauti
+Sale,Išpardavimas
+". ' (default)'",". &#39; (numatytas)&#39;"
+"Percent of order amount","Užsakymo sumos procentas"
+"Percent of cart amount","Krepšelio sumos procentas"
+"Fixed amount","Nustatyta suma"
+"Pay per Sale","Mokėkite už pardavimą"
+"Pay per Lead","Mokėkite už šviną"
+"Pay per Click","Mokėti už paspaudimą"
+"Pay per Impression","Mokėkite už parodymą"
+Complete,Baigta
+"In Hold",„Hold“
+Commission,Komisija
+Withdraw,Pasitrauk
+PayPal,„PayPal“
+Skrill,Skrill
+"Store Credit","Parduotuves kreditas"
+Other,Kita
+Pending,Kol
+Accepted,Priimta
+Completed,Baigta
+Denied,Paneigta
+"Number of Orders from reffered customers","Užsakymų iš klientų, kuriems suteikta galimybė, skaičius"
+"Sales Amount from reffered customers","Pardavimų suma iš klientų, kuriems suteikta sutartis"
+is,yra
+"is not",nėra
+"greater than","geresnis negu"
+"less than","mažiau nei"
+"equals or greater than","lygi arba didesnė nei"
+"equals or less than","lygi arba mažesnė nei"
+"Conditions Combination","Sąlygų derinys"
+"Affiliate conditions","Partnerių sąlygos"
+General,Generolas
+"Customer Group","Klientų grupė"
+Store,Parduotuvė
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Failo tipas neleidžiamas (leidžiami tik JPG, JPEG, PNG ir GIF failai)"
+"Commission for order #%1 (%2)","Komisija už užsakymą Nr. 1__ (%2)"
+"Refund for order #%1","Grąžinti užsakymą Nr. 1__"
+Withdrawal,Pasitraukimas
+"Withdraw cannot exceed current balance.","Išėmimas negali viršyti dabartinio balanso."
+"Minimum withdrawal amount is %1.","Minimali pinigų suma yra %1."
+"You already have a pending withdrawal request.","Jau turite laukiantį prašymą atsiimti."
+"Affiliate Withdrawal","Partnerių pasitraukimas"
+Back,Atgal
+Delete,Ištrinti
+"Are you sure you want to proceed?","Ar tikrai norite tęsti?"
+"Save and Continue Edit","Išsaugoti ir tęsti redagavimą"
+Save,Sutaupyti
+"Click on row to edit the coupon","Norėdami redaguoti kuponą, spustelėkite eilutę"
+"Referred Customers","Nurodyti klientai"
+Actions,Veiksmai
+"Add Customers","Pridėti klientų"
+Customers,Klientai
+Cancel,Atšaukti
+"Add Selected Customers","Pridėti pasirinktus klientus"
+Remove,Pašalinti
+ID,ID
+Name,Vardas
+Email,El
+View,Vaizdas
+Edit,Redaguoti
+"Delete item?","Ištrinti elementą?"
+Conditions,Sąlygos
+"Affiliate conditions (affects only automatically updated group)","Filialo sąlygos (veikia tik automatiškai atnaujinamą grupę)"
+"Assigned Affiliates","Paskirti filialai"
+"Add Affiliate","Pridėti filialą"
+Affiliates,Filialai
+"Add Selected","Pridėti pasirinktą"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Taikykite komisinius tik krepšelio prekėms, atitinkančioms šias sąlygas (palikite tuščią visoms prekėms)."
+Accept,Priimti
+Reject,Atmesti
+"Referring Website","Nurodanti svetainė"
+"Subscribe to email notifications","Prenumeruokite el. Pašto pranešimus"
+"I accept the terms and conditions","Aš sutinku su sąlygomis"
+"Sign Up",Registruotis
+"Referral Website","Persiuntimo svetainė"
+"Payment Method","Mokėjimo būdas"
+"Payment Information","Mokėjimo informacija"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Nurodykite asmeninę mokėjimo informaciją: „PayPal“ el. Pašto adresą arba bet kokią el. Piniginės mokėjimo informaciją."
+From,Nuo
+To,Į
+Apply,Taikyti
+Clicks,Paspaudimai
+Leads,Veda
+Orders,Užsakymai
+Views,Peržiūrų
+Earned,Uždirbtas
+"My Account","Mano sąskaita"
+"Commissions according to your affiliate group","Komisiniai pagal jūsų dukterinę grupę"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> užsakymo sumos iš pirmo užsakymo"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> užsakymo sumos iš antrų ir daugiau užsakymų"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> krepšelio sumos iš pirmo užsakymo"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> krepšelio sumos iš antrų ir daugiau užsakymų"
+"<b>%1</b> per sale from first order","<b>%1</b> už pardavimą nuo pirmo užsakymo"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> už pardavimą pagal antrus ir daugiau užsakymų"
+"<b>%1</b> per unique click","<b>%1</b> už unikalų paspaudimą"
+"<b>%1</b> per lead","<b>%1</b> už potencialų klientą"
+"<b>%1</b> per 1000 views","<b>%1</b> per 1000 peržiūrų"
+Banners,Antraštės
+Type,Tipas
+Size,Dydis
+Link,Nuoroda
+"Get Code","Gauti kodą"
+"Copy and paste this code into your website: ","Nukopijuokite ir įklijuokite šį kodą į savo svetainę:"
+"Referral Coupons","Persiuntimo kuponai"
+Program,Programa
+Coupon,Kuponas
+Discount,Nuolaida
+"Personal Referral Link","Asmeninė persiuntimo nuoroda"
+"Enter any URL from this store in the form below to generate a new referral link:","Įveskite bet kurį šios parduotuvės URL žemiau esančioje formoje, kad sugeneruotumėte naują persiuntimo nuorodą:"
+"Your unique referral link is:","Jūsų unikali persiuntimo nuoroda yra:"
+"Referral Widget","Persiuntimo valdiklis"
+"Widget Title:","Valdiklio pavadinimas:"
+"Related Products","Susiję produktai"
+Width:,Plotis:
+Height:,Aukštis:
+"Number of products:","Produktų skaičius:"
+"Show Bestsellers","Rodyti bestselerius"
+"Show New Products","Rodyti naujus produktus"
+Search,Paieška
+"Search term","Paieškos terminas"
+"Show Product's names","Rodyti produkto pavadinimus"
+"Show Prices","Rodyti kainas"
+"Place this code wherever you want the widget to appear on your page.","Įdėkite šį kodą visur, kur norite, kad valdiklis būtų rodomas jūsų puslapyje."
+"Current balance: <b>%1</b>","Dabartinis likutis: <b>%1</b>"
+"On hold: %1","Sulaikytas: %1"
+"Lifetime: %1","Visą gyvenimą: %1"
+"Paid: %1","Mokama: %1"
+Date,Data
+Balance,Balansas
+Amount,Suma
+Details,"Išsami informacija"
+"On hold to %1","Sulaikytas %1"
+"There have been no transactions yet.","Dar nebuvo jokių sandorių."
+"Request withdrawal","Prašyti atsiimti"
+"Minimum balance to request withdrawal is %1","Mažiausias balansas, norint pateikti prašymą atsiimti, yra %1"
+Fee,Rinkliava
+Status,Būsena
+"Pending approval","Laukiama patvirtinimo"
+"There have been no withdrawals yet.","Dar nebuvo atsiimtų pinigų."
+"Your account is assigned to the <span>%1</span> affiliate group","Jūsų paskyra priskirta <span>%1</span> filialų grupei"
+Commissions,Komisiniai
+"Our Programs","Mūsų programos"
+"Our Program","Mūsų programa"
+"%1  - Minimum balance required for payout.","%1 - minimalus likutis, reikalingas išmokėjimui."
+"Affiliate Group","Partnerių grupė"
+Description,Apibūdinimas
+"Sign In",Prisijungti
+"New Affiliate Account","Nauja filialo sąskaita"
+"Account Information","Paskyros informacija"
+"%name,","%vardas,"
+"Your affiliate account at %store_name has been approved.","Jūsų filialo sąskaita% store_name buvo patvirtinta."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Spustelėkite <a href=""%login_url"">čia,</a> kad prisijungtumėte prie savo paskyros."
+"Your account balance has been updated at %store_name.","Jūsų sąskaitos balansas atnaujintas% store_name."
+Balance:,Likutis:
+"Welcome to %store_name affiliate program!","Sveiki atvykę į „% store_name“ filialų programą!"
+Email:,"El. Paštas:"
+"Referring Website:","Nurodanti svetainė:"
+"A customer referred by you has just placed an order at %store_name.","Jūsų nurodytas klientas ką tik pateikė užsakymą% store_name."
+"Thus, it was credited to your affiliate account.","Taigi, jis buvo įskaitytas į jūsų dukterinę sąskaitą."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Kai užsakymas bus baigtas, mes pervesime komisinį mokestį į jūsų sąskaitos likutį mūsų sistemoje, tada galėsite atsiimti pinigus, kai tik norite."
+"Transaction Amount:","Operacijos suma:"
+"Current Balance:","Dabartinis likutis:"
+"New Withdrawal Request","Naujas atsiėmimo prašymas"
+Information,Informacija
+"Please log in to the admin panel to manage this request.","Norėdami tvarkyti šią užklausą, prisijunkite prie administratoriaus skydelio."
+"Affiliate: Sign In Button","Filialas: prisijungimo mygtukas"
+"Affiliate: List of programs","Filialas: Programų sąrašas"
+"Account Dashboard","Paskyros informacijos suvestinė"
+Transactions,Sandoriai
+Settings,Nustatymai
+"Affiliate Program","Partnerių programa"

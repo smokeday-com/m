@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","אנו נבדוק את ההרשמה שלך ונודיע לך על כך."
+"Your request to sign up to the affiliate program has been rejected.","בקשתך להירשם לתוכנית השותפים נדחתה."
+"Sign In to Affiliates","היכנס לשותפים"
+"You have successfully signed up for an affiliate account.","נרשמת בהצלחה לחשבון שותף."
+"Affiliate Dashboard","לוח מחוונים של שותפים"
+"Affiliate Account Settings","הגדרות חשבון של שותפים"
+"Account information successfully updated.","פרטי החשבון עודכנו בהצלחה."
+"Transactions History","היסטוריית עסקאות"
+"Promotion Materials","חומרי קידום"
+Statistics,סטָטִיסטִיקָה
+"Affiliate Program Overview","סקירה כללית על תוכנית השותפים"
+Withdrawals,משיכות
+"Withdrawal request has been submitted.","בקשת המשיכה הוגשה."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","חשבון אחד או יותר של <a href=""%1"">שותפים</a> נמצאים כרגע במצב ממתינים."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","<a href=""%1"">בקשת משיכה</a> אחת או יותר נמצאות כעת במצב ממתינים."
+"Pending Approval","ממתין לאישור"
+Approved,אושר
+"Not Approved","לא מאושר"
+Image,תמונה
+Text,טֶקסט
+"Assign to first referred affiliate","הקצה לסניף שהופנה לראשונה"
+"Assign to last referred affiliate","הקצה לשותף האחרון שהופנה"
+Available,זמין
+Inactive,"לֹא פָּעִיל"
+Removed,הוסר
+"- Disable these emails -","- השבת הודעות דוא&quot;ל אלה -"
+Click,נְקִישָׁה
+Impression,רוֹשֶׁם
+Lead,עוֹפֶרֶת
+Sale,מְכִירָה
+". ' (default)'",". &#39;(ברירת מחדל)&#39;"
+"Percent of order amount","אחוז מסכום ההזמנה"
+"Percent of cart amount","אחוז מסכום העגלה"
+"Fixed amount","סכום קבוע"
+"Pay per Sale","תשלום לפי מכירה"
+"Pay per Lead","שלם למוביל"
+"Pay per Click","לשלם עבור כל קליק"
+"Pay per Impression","שלם לפי הופעה"
+Complete,לְהַשְׁלִים
+"In Hold",בהמתנה
+Commission,עמלה
+Withdraw,לָסֶגֶת
+PayPal,פייפאל
+Skrill,סקריל
+"Store Credit","זיכוי בחנות"
+Other,אַחֵר
+Pending,"ממתין ל"
+Accepted,מְקוּבָּל
+Completed,הושלם
+Denied,נדחה
+"Number of Orders from reffered customers","מספר ההזמנות מלקוחות שהופנו"
+"Sales Amount from reffered customers","סכום מכירות מלקוחות שהופנו"
+is,הוא
+"is not",לא
+"greater than",
+"less than","פחות מ"
+"equals or greater than","שווה או גדול מ"
+"equals or less than","שווה או פחות מ"
+"Conditions Combination","שילוב תנאים"
+"Affiliate conditions","תנאי שותפים"
+General,כללי
+"Customer Group","קבוצת לקוחות"
+Store,חנות
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","לא ניתן להשתמש בסוג הקובץ (רק קבצי JPG, JPEG, PNG ו- GIF מותרים)"
+"Commission for order #%1 (%2)","עמלה לצו מס &#39;1__ (%2)"
+"Refund for order #%1","החזר כספי להזמנה #%1"
+Withdrawal,נְסִיגָה
+"Withdraw cannot exceed current balance.","משיכה אינה יכולה לחרוג מהיתרה הנוכחית."
+"Minimum withdrawal amount is %1.","סכום המשיכה המינימלי הוא %1."
+"You already have a pending withdrawal request.","כבר יש לך בקשת משיכה ממתינה."
+"Affiliate Withdrawal","משיכת שותפים"
+Back,חזור
+Delete,לִמְחוֹק
+"Are you sure you want to proceed?","האם אתה בטוח שברצונך להמשיך?"
+"Save and Continue Edit","שמור והמשך עריכה"
+Save,להציל
+"Click on row to edit the coupon","לחץ על שורה כדי לערוך את הקופון"
+"Referred Customers","לקוחות שהופנו"
+Actions,פעולות
+"Add Customers","הוסף לקוחות"
+Customers,לקוחות
+Cancel,לְבַטֵל
+"Add Selected Customers","הוסף לקוחות נבחרים"
+Remove,לְהַסִיר
+ID,"תְעוּדַת זֶהוּת"
+Name,שֵׁם
+Email,אימייל
+View,נוף
+Edit,לַעֲרוֹך
+"Delete item?","למחוק פריט?"
+Conditions,תנאים
+"Affiliate conditions (affects only automatically updated group)","תנאי שותפים (משפיעים רק על קבוצה המעודכנת אוטומטית)"
+"Assigned Affiliates","שותפים מוקצים"
+"Add Affiliate","הוסף שותף"
+Affiliates,שותפים
+"Add Selected","הוסף נבחרים"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","החל את העמלה רק על פריטי עגלה התואמים לתנאים הבאים (השאר ריק לכל הפריטים)."
+Accept,לְקַבֵּל
+Reject,לִדחוֹת
+"Referring Website","אתר מפנה"
+"Subscribe to email notifications","הירשם להתראות בדוא&quot;ל"
+"I accept the terms and conditions","אני מקבל את התנאים"
+"Sign Up",הירשם
+"Referral Website","אתר הפניות"
+"Payment Method","אמצעי תשלום"
+"Payment Information","פרטי תשלום"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","אנא ציין פרטי תשלום אישיים: דוא&quot;ל PayPal או כל פרטי תשלום בארנק אלקטרוני."
+From,מ
+To,ל
+Apply,"להגיש מועמדות"
+Clicks,קליקים
+Leads,מוביל
+Orders,הזמנות
+Views,צפיות
+Earned,הרוויחו
+"My Account","החשבון שלי"
+"Commissions according to your affiliate group","עמלות לפי קבוצת השותפים שלך"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> מסכום ההזמנה מההזמנה הראשונה"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> מסכום ההזמנה מההזמנה השנייה ומעלה"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> מסכום העגלה מההזמנה הראשונה"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> מסכום העגלה מההזמנה השנייה ויותר"
+"<b>%1</b> per sale from first order","<b>%1</b> לכל מכירה מההזמנה הראשונה"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> לכל מכירה מהזמנה שנייה ומעלה"
+"<b>%1</b> per unique click","<b>%1</b> לכל קליק ייחודי"
+"<b>%1</b> per lead","<b>%1</b> להוביל"
+"<b>%1</b> per 1000 views","<b>%1</b> לכל 1000 צפיות"
+Banners,כרזות
+Type,סוּג
+Size,גודל
+Link,קישור
+"Get Code","קבל קוד"
+"Copy and paste this code into your website: ","העתק והדבק קוד זה באתר שלך:"
+"Referral Coupons","קופונים להפניה"
+Program,תכנית
+Coupon,קוּפּוֹן
+Discount,הנחה
+"Personal Referral Link","קישור הפניה אישי"
+"Enter any URL from this store in the form below to generate a new referral link:","הזן כתובת אתר כלשהי מחנות זו בטופס למטה כדי ליצור קישור הפניה חדש:"
+"Your unique referral link is:","קישור ההפניה הייחודי שלך הוא:"
+"Referral Widget","יישומון הפניה"
+"Widget Title:","כותרת יישומון:"
+"Related Products","מוצרים קשורים"
+Width:,רוֹחַב:
+Height:,גוֹבַה:
+"Number of products:","מספר מוצרים:"
+"Show Bestsellers","הראה רבי מכר"
+"Show New Products","הצג מוצרים חדשים"
+Search,לחפש
+"Search term","מונח חיפוש"
+"Show Product's names","הצג את שמות המוצר"
+"Show Prices","הצגת מחירים"
+"Place this code wherever you want the widget to appear on your page.","מקם את הקוד הזה איפה שאתה רוצה שהווידג&#39;ט יופיע בדף שלך."
+"Current balance: <b>%1</b>","יתרה נוכחית: <b>%1</b>"
+"On hold: %1","בהמתנה: %1"
+"Lifetime: %1","חיים: %1"
+"Paid: %1","בתשלום: %1"
+Date,תַאֲרִיך
+Balance,איזון
+Amount,כמות
+Details,פרטים
+"On hold to %1","בהמתנה ל- %1"
+"There have been no transactions yet.","עדיין לא היו עסקאות."
+"Request withdrawal","בקש משיכה"
+"Minimum balance to request withdrawal is %1","יתרה מינימלית לבקשת משיכה היא %1"
+Fee,תַשְׁלוּם
+Status,סטָטוּס
+"Pending approval","ממתין לאישור"
+"There have been no withdrawals yet.","עדיין לא היו משיכות."
+"Your account is assigned to the <span>%1</span> affiliate group","חשבונך מוקצה לקבוצת השותפים <span>%1</span>"
+Commissions,עמלות
+"Our Programs","התוכניות שלנו"
+"Our Program","התוכנית שלנו"
+"%1  - Minimum balance required for payout.","%1 - יתרה מינימלית הנדרשת לתשלום."
+"Affiliate Group","קבוצת שותפים"
+Description,תיאור
+"Sign In",להתחבר
+"New Affiliate Account","חשבון שותף חדש"
+"Account Information","פרטי חשבון"
+"%name,","%שֵׁם,"
+"Your affiliate account at %store_name has been approved.","חשבון השותף שלך ב-% store_name אושר."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","לחץ <a href=""%login_url"">כאן</a> בכניסה לחשבונך."
+"Your account balance has been updated at %store_name.","יתרת חשבונך עודכנה ב-% store_name."
+Balance:,איזון:
+"Welcome to %store_name affiliate program!","ברוך הבא לתוכנית השותפים% store_name!"
+Email:,אימייל:
+"Referring Website:","אתר מפנה:"
+"A customer referred by you has just placed an order at %store_name.","לקוח שהופנה על ידיך ביצע זה עתה את ההזמנה ב-% store_name."
+"Thus, it was credited to your affiliate account.","לפיכך, הוא זוכה לחשבון השותף שלך."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","לאחר השלמת ההזמנה, נעביר את העמלה ליתרת חשבונך במערכת שלנו ואז תוכל למשוך את הכסף מתי שתרצה."
+"Transaction Amount:","סכום העסקה:"
+"Current Balance:","יתרה נוכחית:"
+"New Withdrawal Request","בקשת משיכה חדשה"
+Information,מֵידָע
+"Please log in to the admin panel to manage this request.","אנא היכנס לפאנל הניהול כדי לנהל בקשה זו."
+"Affiliate: Sign In Button","שותף: כפתור כניסה"
+"Affiliate: List of programs","שותף: רשימת התוכניות"
+"Account Dashboard","מרכז השליטה של החשבון"
+Transactions,עסקאות
+Settings,הגדרות
+"Affiliate Program","תכנית שותפים"

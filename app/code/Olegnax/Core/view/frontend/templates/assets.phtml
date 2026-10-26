@@ -1,0 +1,4 @@
+<?php if ($this->getConfig('olegnax_core_settings/general/owlcarousel')) : ?>
+	<?php $defer = (bool)$this->getConfig('olegnax_core_settings/general/defer_assets'); ?>
+	<link href="<?= $block->getViewFileUrl('Olegnax_Core::owl.carousel/assets/owl.carousel.css'); ?>" <?php echo ($defer ? 'data-onloadcss' : ''); ?> rel="stylesheet" type="text/css" media="<?php echo ($defer ? 'print' : 'all'); ?>" >
+<?php endif; ?>

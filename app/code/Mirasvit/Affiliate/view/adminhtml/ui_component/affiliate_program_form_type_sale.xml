@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="config" xsi:type="array">
+            <item name="componentType" xsi:type="string">container</item>
+        </item>
+    </argument>
+
+    <fieldset name="coupon">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">Coupon</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">true</item>
+                <item name="component" xsi:type="string">Mirasvit_Affiliate/js/component/fieldset</item>
+                <item name="componentType" xsi:type="string">fieldset</item>
+                <item name="toggle" xsi:type="array">
+                    <item name="selector" xsi:type="string">${$.provider}:data.type</item>
+                    <item name="value" xsi:type="string">sale</item>
+                </item>
+            </item>
+        </argument>
+
+        <field name="coupon_is_active">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Coupons Is Active</item>
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">1</item>
+                        <item name="false" xsi:type="number">0</item>
+                    </item>
+                    <item name="default" xsi:type="number">1</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="cart_rule_id">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Mirasvit\Affiliate\Ui\CartRule\Source\CartRuleSource</item>
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Apply Cart Price Rule</item>
+                    <item name="componentType" xsi:type="string">field</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                    <item name="filterOptions" xsi:type="boolean">false</item>
+                    <item name="showCheckbox" xsi:type="boolean">false</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">false</item>
+                    <item name="notice" xsi:type="string" translate="true">Discount will be applied only for items specified in the rule products. Please note, you should use “Auto Generation” for your coupon rule.</item>
+                    <item name="missingValuePlaceholder" xsi:type="string">Select...</item>
+<!--                    <item name="validation" xsi:type="array">-->
+<!--                        <item name="required-entry" xsi:type="boolean">true</item>-->
+<!--                    </item>-->
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+
+    <fieldset name="sale">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string">Pay per Sale Commission</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">true</item>
+                <item name="component" xsi:type="string">Mirasvit_Affiliate/js/component/fieldset</item>
+                <item name="componentType" xsi:type="string">fieldset</item>
+                <item name="toggle" xsi:type="array">
+                    <item name="selector" xsi:type="string">${$.provider}:data.type</item>
+                    <item name="value" xsi:type="string">sale</item>
+                </item>
+            </item>
+        </argument>
+
+        <container name="tiers" class="Mirasvit\Affiliate\Ui\Program\Form\Component\Tier">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Mirasvit_Affiliate/js/component/tier/container</item>
+                    <item name="componentType" xsi:type="string">container</item>
+                    <item name="recordTemplate" xsi:type="string">record</item>
+                    <item name="program" xsi:type="string">sale</item>
+                </item>
+            </argument>
+            <container name="record">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="isTemplate" xsi:type="boolean">true</item>
+                        <item name="component" xsi:type="string">Mirasvit_Affiliate/js/component/tier/record</item>
+                        <item name="componentType" xsi:type="string">container</item>
+                    </item>
+                </argument>
+
+                <field name="group_id">
+                    <argument name="data" xsi:type="array">
+                        <item name="options" xsi:type="object">Mirasvit\Affiliate\Model\Config\Source\Group\NameSource</item>
+                        <item name="config" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Affiliate Group</item>
+                            <item name="componentType" xsi:type="string">select</item>
+                            <item name="formElement" xsi:type="string">select</item>
+                            <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                            <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                            <item name="filterOptions" xsi:type="boolean">false</item>
+                            <item name="showCheckbox" xsi:type="boolean">false</item>
+                            <item name="disableLabel" xsi:type="boolean">true</item>
+                            <item name="multiple" xsi:type="boolean">false</item>
+                            <item name="labelVisible" xsi:type="boolean">false</item>
+                            <item name="prefixName" xsi:type="string">tiers</item>
+                            <item name="suffixName" xsi:type="string">type</item>
+                            <item name="validation" xsi:type="array">
+                                <item name="required-entry" xsi:type="boolean">true</item>
+                            </item>
+                        </item>
+                    </argument>
+                </field>
+
+                <field name="type">
+                    <argument name="data" xsi:type="array">
+                        <item name="options" xsi:type="object">Mirasvit\Affiliate\Model\Config\Source\Program\CommissionTypeSource</item>
+                        <item name="config" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Commission Type</item>
+                            <item name="componentType" xsi:type="string">select</item>
+                            <item name="formElement" xsi:type="string">select</item>
+                            <item name="elementTmpl" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                            <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                            <item name="filterOptions" xsi:type="boolean">false</item>
+                            <item name="showCheckbox" xsi:type="boolean">false</item>
+                            <item name="disableLabel" xsi:type="boolean">true</item>
+                            <item name="multiple" xsi:type="boolean">false</item>
+                            <item name="labelVisible" xsi:type="boolean">false</item>
+                            <item name="prefixName" xsi:type="string">tiers</item>
+                            <item name="suffixName" xsi:type="string">type</item>
+                            <item name="validation" xsi:type="array">
+                                <item name="required-entry" xsi:type="boolean">true</item>
+                            </item>
+                        </item>
+                    </argument>
+                </field>
+
+                <field name="amount_1">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Commission From First Order</item>
+                            <item name="componentType" xsi:type="string">field</item>
+                            <item name="labelVisible" xsi:type="boolean">false</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="prefixName" xsi:type="string">tiers</item>
+                            <item name="suffixName" xsi:type="string">amount</item>
+                            <item name="validation" xsi:type="array">
+                                <item name="validate-number" xsi:type="boolean">true</item>
+                                <item name="required-entry" xsi:type="boolean">true</item>
+                            </item>
+                        </item>
+                    </argument>
+                </field>
+
+                <field name="amount_n">
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="label" xsi:type="string" translate="true">Commission From Second and More Orders</item>
+                            <item name="componentType" xsi:type="string">field</item>
+                            <item name="labelVisible" xsi:type="boolean">false</item>
+                            <item name="formElement" xsi:type="string">input</item>
+                            <item name="prefixName" xsi:type="string">tiers</item>
+                            <item name="suffixName" xsi:type="string">amount</item>
+                            <item name="validation" xsi:type="array">
+                                <item name="validate-number" xsi:type="boolean">true</item>
+                                <item name="required-entry" xsi:type="boolean">true</item>
+                            </item>
+                        </item>
+                    </argument>
+                </field>
+            </container>
+        </container>
+    </fieldset>
+</form>

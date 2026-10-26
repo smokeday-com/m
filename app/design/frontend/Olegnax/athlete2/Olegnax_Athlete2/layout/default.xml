@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<!-- Dynamic css -->
+		<referenceContainer name="head.additional">
+			<block name="athlete2_inline_css" class="Olegnax\Athlete2\Block\InlineCss" template="Olegnax_Athlete2::dynamic_css/inline-css.phtml">
+				<block name="athlete2_dynamic_css" class="Olegnax\Athlete2\Block\Template" template="Olegnax_Athlete2::dynamic_css/settings.phtml"/>
+			</block>
+			<block name="athlete2_head.additional" class="Olegnax\Athlete2\Block\Template" template="html/head.additional.phtml" before="-"/>
+		</referenceContainer>
+
+		<!-- Header Rework -->
+		<referenceContainer name="page.wrapper">
+			<!-- Before Header Banner -->
+			<container name="athlete2_before_header" before="athlete2_header">
+				<block class="Olegnax\Athlete2\Block\ClosableBanner" name="header_banner_before" template="html/header_banner_above.phtml"/>
+			</container>
+			<block name="athlete2_header" class="Olegnax\Athlete2\Block\Template" template="html/header.phtml" before="main.content">
+				<!-- To easily disable sticky in mobile theme  -->
+				<arguments>
+					<argument name="sticky_allowed" xsi:type="string">yes</argument>
+				</arguments>
+				<!-- Choose Header layout -->
+				<action method="setTemplate">
+					<argument name="template" xsi:type="helper" helper="Olegnax\Athlete2\Helper\UpdaterTemplate::setHeaderLayout"/>
+				</action>
+				<block class="Olegnax\Athlete2\Block\Template" name="mobile_menu_toggle" template="html/mobile-menu-toggle.phtml"/>
+				<block class="Magento\Wishlist\Block\Customer\Sidebar" name="header_wishlist" template="Magento_Wishlist::header_wishlist.phtml"/>
+				<block name="top.menu" class="Magento\Theme\Block\Html\Topmenu" template="Magento_Theme::html/topmenu.phtml"/>
+				<block class="Olegnax\Athlete2\Block\TopLinks" name="athlete2_topline" template="html/topline.phtml">
+					<container name="athlete2_topline_left"></container>
+					<container name="athlete2_topline_center"></container>
+					<container name="athlete2_topline_right"></container>
+					<block class="Olegnax\Athlete2\Block\TopLinks" name="top_links" template="html/top_line/top_links.phtml"/>
+				</block>
+				<block class="Olegnax\Athlete2\Block\Template" name="header_account" template="html/header_account.phtml">
+					<block class="Olegnax\Athlete2\Block\Template" name="header_account_drop" template="html/header_account_drop.phtml">
+						<block class="Olegnax\Athlete2\Block\TopLinks" name="account-drop-links" template="html/header_account_links.phtml"/>
+					</block>
+				</block>
+				<container name="header_top_container">
+					<block class="Olegnax\Athlete2\Block\ClosableBanner" name="header_banner_top" template="html/header_banner_above.phtml">
+						<arguments>
+							<argument name="oxname" xsi:type="string">top</argument>
+						</arguments>
+					</block>
+				</container>
+				<container name="header_right_container">
+					<block ifconfig="athlete2_settings/header/custom_item_enable" class="Olegnax\Athlete2\Block\Template" name="header_custom_item" template="html/header_item.phtml">
+						<!-- <arguments>
+							<argument name="a2_name" xsi:type="string">help</argument>
+							<argument name="a2_text" xsi:type="string">Help</argument>
+							<argument name="a2_drop_type" xsi:type="string">dropdown-hover</argument>
+							<argument name="a2_hide_text" xsi:type="string">0</argument>
+							<argument name="a2_hide_mobile" xsi:type="string">0</argument>
+						</arguments> -->
+						<block class="Olegnax\Athlete2\Block\Template" name="headet_item_custom.content" as="a2_header_custom_item_content" template="Olegnax_Athlete2::custom_content.phtml" >
+							<arguments>
+								<argument name="oxname" xsi:type="string">custom</argument>
+								<argument name="oxpath" xsi:type="string">athlete2_settings/header</argument>
+								<!-- <argument name="oxblock_id" xsi:type="string">YOUR_CUSTOM_BLOCK_ID</argument> -->
+							</arguments>
+						</block>
+						<container name="header_item_additional_container"></container>
+					</block>
+					<block class="Olegnax\Athlete2\Block\Template" name="header_switch" template="html/header_switch.phtml">
+
+						<block class="Magento\Store\Block\Switcher" name="header_switch_language_current" template="switch/languages-current.phtml"/>
+						<block class="Magento\Directory\Block\Currency" name="header_switch_currency_current" template="Magento_Directory::currency-current.phtml"/>
+
+						<!-- <block class="Magento\Store\Block\Switcher" name="header_switch_language" template="switch/languages.phtml"/>
+						<block class="Magento\Directory\Block\Currency" name="header_switch_currency" template="Magento_Directory::currency.phtml"/> -->
+
+						<block class="Olegnax\Athlete2\Block\Template" name="header_switch_modal" template="html/header_switch_modal.phtml">
+							<block class="Magento\Store\Block\Switcher" name="header_switch_language_list" template="switch/languages-list.phtml"/>
+							<block class="Magento\Directory\Block\Currency" name="header_switch_currency_list" template="Magento_Directory::currency-list.phtml"/>
+							<container name="header_switch_additional_container"></container>
+						</block>
+
+					</block>
+				</container>
+				<block class="Olegnax\Athlete2\Block\Template" name="header_compare" template="Magento_Catalog::product/compare/header_compare.phtml">
+					<arguments>
+						<argument name="jsLayout" xsi:type="array">
+							<item name="components" xsi:type="array">
+								<item name="compareProducts" xsi:type="array">
+									<item name="component" xsi:type="string">Magento_Catalog/js/view/compare-products
+									</item>
+								</item>
+							</item>
+						</argument>
+					</arguments>
+				</block>
+			</block>
+
+			<!-- Mobile Menu -->
+			<block name="athlete2_navigation" class="Olegnax\Athlete2\Block\Template" template="html/sections.phtml" after="athlete2_header">
+				<arguments>
+					<argument name="group_css" xsi:type="string">ox-nav-sections</argument>
+				</arguments>
+				<block name="store.menu" class="Magento\Framework\View\Element\Template" template="Olegnax_Athlete2::html/container.phtml">
+					<arguments>
+						<argument name="title" translate="true" xsi:type="string">Menu</argument>
+					</arguments>
+				</block>
+				<block name="store.links" class="Magento\Framework\View\Element\Template" template="Olegnax_Athlete2::html/container.phtml">
+					<arguments>
+						<argument name="title" translate="true" xsi:type="string">Account</argument>
+					</arguments>
+				</block>
+				<block name="store.settings" class="Magento\Framework\View\Element\Template" template="Olegnax_Athlete2::html/container.phtml">
+					<arguments>
+						<argument name="title" translate="true" xsi:type="string">Settings</argument>
+					</arguments>
+				</block>
+			</block>
+
+			<!-- Below Header Banner -->
+			<container name="athlete2_after_header" after="athlete2_header">
+				<block class="Olegnax\Athlete2\Block\Template" name="header_banner" template="html/header_banner.phtml"/>
+			</container>
+			<!-- Above Footer Content -->
+			<container name="above_footer" htmlTag="div" htmlClass="above_footer_block" before="footer-container">
+				<block class="Olegnax\Athlete2\Block\Template" name="above_footer_block2" template="html/above_footer_block2.phtml"/>
+				<block class="Olegnax\Athlete2\Block\Template" name="above_footer_block" template="html/above_footer_block.phtml"/>
+				<block class="Olegnax\Athlete2\Block\Template" name="above_footer_banner" template="html/above_footer_banner.phtml" after="-"/>
+			</container>
+
+			<block class="Olegnax\Athlete2\Block\SimpleTemplate" name="totop" template="html/totop.phtml"/>
+		</referenceContainer>
+
+		<referenceContainer name="footer">
+			<block name="athlete2_footer" class="Olegnax\Athlete2\Block\Template" template="html/footer.phtml" before="-">
+			</block>
+		</referenceContainer>
+
+		<referenceContainer name="before.body.end">
+			<!-- Theme optional js/css -->
+			<block ifconfig="athlete2_settings/general/videojs" class="Magento\Framework\View\Element\Template" name="ox_videojs_init" template="Olegnax_Athlete2::html/videojs.phtml"/>
+			<block ifconfig="athlete2_settings/general/waypoints" class="Magento\Framework\View\Element\Template" name="ox_waypoints_init" template="Olegnax_Athlete2::html/waypoints.phtml"/>
+			<block ifconfig="athlete2_settings/general/bannersjs" class="Magento\Framework\View\Element\Template" name="ox_anim_banners" template="Olegnax_Athlete2::html/bannersjs.phtml"/>
+			<block class="Olegnax\Athlete2\Block\SimpleTemplate" name="ox_move_style" template="Olegnax_Athlete2::move_style.phtml"/>
+			<block class="Olegnax\Athlete2\Block\SimpleTemplate" name="ox_athlete2_expand" template="Olegnax_Athlete2::expand.phtml" />
+			<!-- Svg Icons -->
+			<block name="athlete2_icons" class="Olegnax\Athlete2\Block\Template" template="icons.phtml" before="-"/>
+			<block ifconfig="athlete2_design/appearance_icons/enable_sample_icons" name="athlete2_sample_icons" class="Magento\Framework\View\Element\Template" template="Olegnax_Athlete2::sample_icons.phtml"/>
+		</referenceContainer>
+
+		<!-- Mobile Bottom Navigation -->
+		<container name="athlete2_bottom_nav_container" htmlTag="div" htmlClass="ox_bnav" htmlId="ox_bnav">
+			<block ifconfig="athlete2_settings/mobile_bottom_nav/bottom_nav_enable" class="Olegnax\Athlete2\Block\Template" name="ox_bottom_nav" template="Olegnax_Athlete2::html/bottom_nav/bottom_nav.phtml">
+				<block ifconfig="athlete2_settings/mobile_bottom_nav/bottom_nav_enable" class="Olegnax\Athlete2\Block\InlineCss" name="ox_bottom_nav_css" template="Olegnax_Athlete2::html/bottom_nav/css.phtml"></block>
+				<block ifconfig="athlete2_settings/mobile_bottom_nav/bottom_nav_enable" class="Olegnax\Athlete2\Block\Template" name="ox_bottom_nav_js" template="Olegnax_Athlete2::html/bottom_nav/js.phtml"></block>
+				<block ifconfig="athlete2_settings/mobile_bottom_nav/bottom_nav_enable_home" class="Olegnax\Athlete2\Block\Template" name="ox_bottom_nav_home" template="Olegnax_Athlete2::html/bottom_nav/home.phtml"></block>
+				<block ifconfig="athlete2_settings/mobile_bottom_nav/bottom_nav_enable_menu" class="Olegnax\Athlete2\Block\Template" name="ox_bottom_nav_menu" template="Olegnax_Athlete2::html/bottom_nav/menu.phtml"></block>
+				<block ifconfig="athlete2_settings/mobile_bottom_nav/bottom_nav_enable_custom" class="Olegnax\Athlete2\Block\Template" name="ox_bottom_nav_custom" template="Olegnax_Athlete2::html/bottom_nav/custom_item.phtml"></block>
+				<block ifconfig="athlete2_settings/mobile_bottom_nav/bottom_nav_enable_search" class="Olegnax\Athlete2\Block\Template" name="ox_bottom_nav_search" template="Olegnax_Athlete2::html/bottom_nav/search.phtml"></block>
+				<block ifconfig="athlete2_settings/mobile_bottom_nav/bottom_nav_enable_shop" class="Olegnax\Athlete2\Block\Template" name="ox_bottom_nav_catalog" template="Olegnax_Athlete2::html/bottom_nav/catalog.phtml"></block>
+				<block ifconfig="athlete2_settings/mobile_bottom_nav/bottom_nav_enable_account" class="Olegnax\Athlete2\Block\Template" name="ox_bottom_nav_account" template="Olegnax_Athlete2::html/bottom_nav/account.phtml"></block>
+				<block ifconfig="athlete2_settings/mobile_bottom_nav/bottom_nav_enable_compare" class="Olegnax\Athlete2\Block\Template" name="ox_bottom_nav_compare" template="Olegnax_Athlete2::html/bottom_nav/compare.phtml">
+					<arguments>
+						<argument name="jsLayout" xsi:type="array">
+							<item name="components" xsi:type="array">
+								<item name="compareProducts" xsi:type="array">
+									<item name="component" xsi:type="string">Magento_Catalog/js/view/compare-products
+									</item>
+								</item>
+							</item>
+						</argument>
+					</arguments>
+				</block>
+				<block ifconfig="athlete2_settings/mobile_bottom_nav/bottom_nav_enable_wishlist" class="Magento\Wishlist\Block\Customer\Sidebar" name="ox_bottom_nav_wishlist" template="Olegnax_Athlete2::html/bottom_nav/wishlist.phtml"></block>
+				<block ifconfig="athlete2_settings/mobile_bottom_nav/bottom_nav_enable_cart" class="Magento\Checkout\Block\Cart\Sidebar" name="ox_bottom_nav_minicart" template="Olegnax_Athlete2::html/bottom_nav/cart.phtml"></block>
+			</block>
+		</container>
+
+		<container name="ox_before_body_end" after="-">
+			<block class="Olegnax\Athlete2\Block\Template" name="ox_modals_holder" template="html/modals_holder.phtml" />
+		</container>
+
+		<!-- Move default elements in a new header/footer -->
+		<move element="breadcrumbs" destination="athlete2_after_header" after="-"/>
+		<move element="store.menu" destination="athlete2_navigation" before="-"/>
+		<move element="store.links" destination="athlete2_navigation" after="store.menu"/>
+		<move element="store.settings" destination="athlete2_navigation" after="store.links"/>
+		<move element="currency" destination="athlete2_topline_left"/>
+		<move element="store_language" destination="athlete2_topline_left"/>
+		<move element="logo" destination="athlete2_header"/>
+		<move element="minicart" destination="athlete2_header"/>
+		<move element="top.search" destination="athlete2_header"/>
+		<move element="top.search.panel" destination="athlete2_header"/>
+		<move element="top.search.panel.mobile" destination="athlete2_header"/>
+		<move element="form.subscribe" as="subscribe" destination="athlete2_footer" before="-"/>
+		<referenceBlock name="footer_links" remove="true"/>
+		<move element="store_switcher" destination="athlete2_footer"/>
+		<move element="copyright" destination="footer-container" after="-"/>
+
+		<referenceContainer name="header.container" remove="1"/>
+		<referenceBlock name="navigation.sections" remove="1"/>
+		<referenceBlock name="report.bugs" remove="1"/>
+		<referenceBlock name="store.settings.language" remove="1"/>
+		<referenceBlock name="store.settings.currency" remove="1"/>
+		<referenceBlock name="catalog.topnav" remove="1"/>
+        <referenceBlock name="totop" remove="1"/>
+	</body>
+</page>

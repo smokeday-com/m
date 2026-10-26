@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <route>
+            <route>
+                <enabled>1</enabled>
+                <is_taxable>0</is_taxable>
+                <order_status_canceled>closed,canceled</order_status_canceled>
+                <resend_shipments_operations_custom>P7D</resend_shipments_operations_custom>
+            </route>
+        </route>
+        <crontab>
+            <default>
+                <jobs>
+                    <retry_fallback_operations>
+                        <schedule>
+                            <cron_expr>0 * * * *</cron_expr>
+                        </schedule>
+                    </retry_fallback_operations>
+                    <resend_orders_operations>
+                        <schedule>
+                            <cron_expr>0 * * * *</cron_expr>
+                        </schedule>
+                    </resend_orders_operations>
+                    <clear_fallback_operations>
+                        <schedule>
+                            <cron_expr>0 0 * * *</cron_expr>
+                        </schedule>
+                    </clear_fallback_operations>
+                    <resend_shipments_operations_custom>
+                        <schedule>
+                            <cron_expr>0 0 * * *</cron_expr>
+                        </schedule>
+                    </resend_shipments_operations_custom>
+                    <resend_shipments_operations_hourly>
+                        <schedule>
+                            <cron_expr>*/15 * * * *</cron_expr>
+                        </schedule>
+                    </resend_shipments_operations_hourly>
+                </jobs>
+            </default>
+        </crontab>
+        <csp>
+            <mode>
+                <storefront>
+                    <report_only>1</report_only>
+                </storefront>
+                <admin>
+                    <report_only>1</report_only>
+                </admin>
+            </mode>
+        </csp>
+    </default>
+</config>

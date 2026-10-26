@@ -1,0 +1,102 @@
+<?php
+declare(strict_types=1);
+
+use Mirasvit\Affiliate\Api\Data\EventInterface;
+use Mirasvit\Core\Service\SerializeService;
+
+/**
+ * @var \Mirasvit\Affiliate\Block\Account\Statistics $block
+ */
+
+$isCurrentSite   = $block->isCurrentSite();
+$eventCollection = $block->getEventCollection() ?? [];
+$chartConfig     = $block->getChartConfig() ?? [];
+?>
+
+<form method="get" class="affiliate__statistics-toolbar"
+      data-mage-init='{"Mirasvit_Affiliate/js/account/statistics/toolbar":{}}' id="mst-affiliate-statistics-toolbar"
+>
+    <div>
+        <label><?= $block->escapeHtml(__('From')) ?></label><?= $block->getCalendarDateHtml('from') ?>
+    </div>
+
+    <div>
+        <label><?= $block->escapeHtml(__('To')) ?></label><?= $block->getCalendarDateHtml('to') ?>
+    </div>
+
+    <div class="current-site">
+        <label>
+            <input name="current-site" class="checkbox" type="checkbox" <?= $isCurrentSite ? 'checked' : '' ?>>
+            <span><?= $block->escapeHtml(__('Current Site')) ?></span>
+        </label>
+    </div>
+
+    <button type="button" class="action primary affiliate__statistics-toolbar-apply"><?= $block->escapeHtml(__('Apply')) ?></button>
+</form>
+
+<div class="table-wrapper">
+    <table class="data table">
+        <tr>
+            <th><?= $block->escapeHtml(__('Clicks')) ?></th>
+            <td><?= $block->escapeHtml($block->getNumberByType(EventInterface::TYPE_CLICK, true) . ' (' . $block->getNumberByType(EventInterface::TYPE_CLICK) . ')') ?></td>
+
+            <th><?= $block->escapeHtml(__('Leads')) ?></th>
+            <td><?= $block->escapeHtml($block->getNumberByType(EventInterface::TYPE_LEAD)) ?></td>
+        </tr>
+        <tr>
+            <th><?= $block->escapeHtml(__('Orders')) ?></th>
+            <td><?= $block->escapeHtml($block->getNumberByType(EventInterface::TYPE_SALE)) ?></td>
+
+            <th><?= $block->escapeHtml(__('Views')) ?></th>
+            <td><?= $block->escapeHtml($block->getNumberByType(EventInterface::TYPE_IMPRESSION)) ?></td>
+        </tr>
+        <tr>
+            <th><?= $block->escapeHtml(__('Earned')) ?></th>
+            <td colspan="3"><?= $block->escapeHtml($block->getCurrencyFormatted($block->getCommissionAmount())) ?></td>
+        </tr>
+    </table>
+</div>
+
+<div data-mage-init='{"Mirasvit_Affiliate/js/account/statistics/chart":{"chartConfig": <?= $block->escapeHtml(SerializeService::encode($chartConfig)) ?>}}' style="padding: 2rem 0;">
+    <canvas id="popChart"></canvas>
+</div>
+
+<h2><?= $block->escapeHtml(__('Events')) ?></h2>
+<?php if (count($eventCollection)): ?>
+    <div class="table-wrapper">
+        <table class="data table">
+            <thead>
+            <tr>
+                <th><?= $block->escapeHtml(__('Date')) ?></th>
+                <th><?= $block->escapeHtml(__('Type')) ?></th>
+                <th><?= $block->escapeHtml(__('Referrer')) ?></th>
+                <th><?= $block->escapeHtml(__('Commission')) ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($eventCollection as $event): ?>
+                <tr>
+                    <td data-th="<?= $block->escapeHtmlAttr(__('Date')) ?>">
+                        <?= $block->escapeHtml($block->formatDate($event->getCreatedAt(), \IntlDateFormatter::MEDIUM, true)) ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtmlAttr(__('Type')) ?>">
+                        <?= $block->escapeHtml($block->escapeHtml(ucfirst($event->getType()))) ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtmlAttr(__('Referrer')) ?>">
+                        <?= $block->escapeHtml($block->escapeHtml($event->getReferer())) ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtmlAttr(__('Commission')) ?>">
+                        <?= $block->escapeHtml($block->getCurrencyFormatted($event->getCommission())) ?>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?= $block->getPagerHtml() ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info"><span><?= $block->escapeHtml(__('There have been no events yet.')) ?></span></div>
+<?php endif ?>
+

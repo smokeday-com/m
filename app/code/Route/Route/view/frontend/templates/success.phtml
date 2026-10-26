@@ -1,0 +1,30 @@
+<?php
+if ($block->isIncludesOrderThankYouPageWidget()):
+    $response = $block->getThankYouPageWidget();
+    if ($response &&
+        isset($response['asset_settings']['asset_content']['raw_html']) &&
+        isset($response['asset_settings']['asset_content']['css_url'])):
+
+        $raw_html = $response['asset_settings']['asset_content']['raw_html'];
+        $css = $response['asset_settings']['asset_content']['css_url'];
+        $js = isset($response['asset_settings']['asset_content']['js_url']) ? $response['asset_settings']['asset_content']['js_url'] : '';
+        if (!empty($js)):
+            ?>
+            <script type="text/javascript" src="<?php echo $js; ?>"></script>
+        <?php endif; ?>
+        <script src="https://cdn.routeapp.io/route-analytics/route-analytics.js"></script>
+        <link rel="stylesheet" href="<?php echo $css; ?>" type="text/css"></link>
+
+        <div>
+            <?php if (isset($response['orderId'])): ?>
+                <span class="os-order-number" style="display:none;">
+                    <?php echo $response['orderId']; ?>
+                </span>
+            <?php endif; ?>
+            <?php echo $raw_html; ?>
+        </div>
+        <?php
+    endif;
+endif;
+?>
+

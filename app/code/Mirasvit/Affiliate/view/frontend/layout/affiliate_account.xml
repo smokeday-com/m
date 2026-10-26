@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"
+      label="Affiliate Account (All Pages)" design_abstraction="custom">
+    <body>
+        <attribute name="class" value="account"/>
+        <attribute name="class" value="mst-affiliate"/>
+
+        <move element="page.main.title" destination="content.top" before="-"/>
+
+        <referenceContainer name="sidebar.main">
+            <block class="Magento\Framework\View\Element\Template" name="affiliate_account_navigation_block"
+                   template="Magento_Theme::html/collapsible.phtml" before="-" cacheable="false">
+
+                <arguments>
+                    <argument name="block_title" translate="true" xsi:type="string">Account Dashboard</argument>
+                    <argument name="block_css" xsi:type="string">block-collapsible-nav</argument>
+                </arguments>
+
+                <block class="Magento\Framework\View\Element\Html\Links" name="affiliate_account_navigation" before="-">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">nav items</argument>
+                    </arguments>
+                    <block class="Magento\Framework\View\Element\Html\Link\Current">
+                        <arguments>
+                            <argument name="label" xsi:type="string" translate="true">Account Dashboard</argument>
+                            <argument name="path" xsi:type="string">affiliate/account/dashboard</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Html\Link\Current">
+                        <arguments>
+                            <argument name="label" xsi:type="string" translate="true">Promotion Materials</argument>
+                            <argument name="path" xsi:type="string">affiliate/account/promotion</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Html\Link\Current">
+                        <arguments>
+                            <argument name="label" xsi:type="string" translate="true">Transactions</argument>
+                            <argument name="path" xsi:type="string">affiliate/account/history</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Html\Link\Current">
+                        <arguments>
+                            <argument name="label" xsi:type="string" translate="true">Withdrawals</argument>
+                            <argument name="path" xsi:type="string">affiliate/account/withdraw</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Html\Link\Current">
+                        <arguments>
+                            <argument name="label" xsi:type="string" translate="true">Statistics</argument>
+                            <argument name="path" xsi:type="string">affiliate/account/statistics</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Html\Link\Current">
+                        <arguments>
+                            <argument name="label" xsi:type="string" translate="true">Settings</argument>
+                            <argument name="path" xsi:type="string">affiliate/account/edit</argument>
+                        </arguments>
+                    </block>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

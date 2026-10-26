@@ -1,0 +1,55 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var Switcher $block */
+
+use Magento\Store\Block\Switcher;
+$icon = $text = '';
+if($block->getData('a2_icon')){
+    $icon = $block->getData('a2_icon');
+} 
+if($block->getData('a2_text')){
+    $text = $block->getData('a2_text');
+} 
+$hideFlag = $block->getData('a2_hide_flag');
+$showText = $block->getData('a2_show_text');
+$showWrapper = $block->getData('a2_show_wrapper');
+
+if ( count($block->getStores()) > 1):
+	$_current = null;
+	foreach ($block->getStores() as $_lang) {
+		if ($_lang->getId() == $block->getCurrentStoreId()) {
+			$_current = $_lang;
+			break;
+		}
+	}
+?>
+	<?php if($showWrapper): ?>
+		<div class="switcher language tiny-arrow"><div class="action toggle">
+	<?php endif; ?>
+
+	<?php if(!$hideFlag): ?>
+		<span class="flag-image" ><img src="<?= $block->escapeUrl($block->getViewFileUrl('images/flags/' . $_current->getCode() . '.png')) ?>"></span>
+	<?php else: ?>
+		<?= $icon; ?>
+	<?php endif; ?>
+
+	<?php if($showText === 'custom' && $text): ?>
+		<span class="label language-current view-<?= $block->escapeHtml($block->getCurrentStoreCode()) ?>">
+			<?= $block->escapeHtml($text) ?>
+		</span>
+	<?php elseif($showText === 'code'): ?>
+		<span class="language-current code view-<?= $block->escapeHtml($block->getCurrentStoreCode()) ?>"><?= $block->escapeHtml($_current->getCode()) ?></span>
+	<?php elseif($showText === 'name'): ?>
+		<span class="language-current name view-<?= $block->escapeHtml($block->getCurrentStoreCode()) ?>"><?= $block->escapeHtml($_current->getName()) ?></span>
+	<?php endif; ?>
+
+	<?php if($showWrapper): ?>
+		</div></div>
+	<?php endif; ?>
+<?php endif; ?>

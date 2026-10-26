@@ -1,0 +1,11 @@
+<div class="step-title"
+     data-role="title"
+     data-bind="i18n: 'Package Protection',
+             attr: {id: config.renderWidgetTitleId()},
+            visible:config.isEnabled()">Package Protection</div>
+<div data-bind="
+            css: config.renderWidgetClassName(),
+            attr: {id: config.renderWidgetId()},
+            visible: config.isEnabled(),
+            html: initWidget()
+            "></div>

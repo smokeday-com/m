@@ -1,0 +1,115 @@
+<?php
+$content = $block->getContent();
+if(!$content || !(is_array($content) && $count = count($content))){
+	return;
+}
+$itemClasses = 'a2-vslide__item';
+$customClass = $block->getCustomClass() ?: '';
+$block_id = $block->getBlockId();
+$classes = '';
+$animName = $block->escapeHtmlAttr($block_id);
+$itemHeight = '43px';
+$wrapCss = $wrapCssMobile = $mobileStyles = $styles = $wrapOuterCss = '';
+$time = !empty($block->getSlideTime()) ? (int)$block->getSlideTime() : 8000 ;
+if(!empty($block->getBgColor())){
+	$wrapOuterCss .= ' background-color:' . $block->getBgColor() . ';';
+}
+if(!empty($block->getTextColor())){
+	$wrapCss .= ' color:' . $block->getTextColor() . ';';
+}
+if(!empty($block->getTextFontSize())){
+	$wrapCss .= ' font-size:' . $block->getTextFontSize() . 'px;';
+}
+$fontSize = $block->getTextFontSize();
+if($fontSize){
+	$fontSizeMobile = $block->getTextFontSizeMobile();
+	$wrapCss .= '--a2-vslide-fs:' . (int)$fontSize . 'px;';
+	if($fontSizeMobile){
+	  $vw = (int)$fontSize / 16; // 1600 px viewport width used as base value. 1600/100% to get 1% (1 vw)
+	  $wrapCss .= '--a2-vslide-fs-xs:' . (int)$fontSizeMobile . 'px;';
+	  $wrapCss .= '--a2-vslide-fs-vw:' . $vw . 'vw;';
+	  $fontSize = 'clamp(var(--a2-vslide-fs-xs),var(--a2-vslide-fs-vw), var(--a2-vslide-fs))';
+	  $itemHeight = 'clamp(calc(var(--a2-vslide-fs-xs) * 1.1),calc(var(--a2-vslide-fs-vw) * 1.1), calc(var(--a2-vslide-fs) * 1.1))';
+	  $wrapCssMobile .= 'font-size:' . (int)$fontSizeMobile . 'px;'; 
+	} else{
+		$fontSize = 'var(--a2-vslide-fs)';
+		$itemHeight = 'calc(var(--a2-vslide-fs) * 1.1)';
+	}
+	$wrapCss .= 'font-size:' . $fontSize . ';';
+}
+
+if($block->getTextFontWeight() && !empty($block->getTextFontWeight())){
+	$wrapCss .= ' font-weight:' . (int)$block->getTextFontWeight() . ';';
+}
+if('' != $block->getPadding()){
+	$wrapOuterCss .= 'padding:' . $block->getPadding(). ';';
+} else {
+	$wrapOuterCss .= 'padding-right: 30px;';
+}
+if($block->getData('bottom_line')){
+	$bottomHeight = ('' != $block->getData('bottom_line_height')) ? (int)$block->getData('bottom_line_height') : '3';
+	$bottomColor = ('' != $block->getData('bottom_line_color')) ? (int)$block->getData('bottom_line_color') : 'currentColor';
+	$styles .=  '#' . $block_id . ':before {
+		content: \'\';
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: ' . $bottomHeight . 'px;
+		left: 0;
+		top: auto;
+		bottom: 0;
+		background-color: ' . $bottomColor . ';
+	}';
+	$wrapOuterCss .= 'position:relative;';
+}
+if($block->getData('height')){
+	$itemHeight = (int)$block->getData('height');
+}
+?>
+
+<div id="<?php echo $block->escapeHtmlAttr($block_id) ?>" class="<?php echo  $block->escapeHtmlAttr($customClass) ?>">
+	<div class="a2-vslide-wrap">
+		<div class="a2-vslide <?= $block->escapeHtmlAttr($classes); ?>">
+		<?php
+		$first = '';
+		if(is_array($content)){
+			foreach ($content as $item):
+				if(!$first){
+					$first = '<div class="' . $itemClasses . '">' . $item . '</div>';
+				}
+				echo '<div class="' . $itemClasses . '">' . $item . '</div>';
+			endforeach;
+			echo $first;
+		} else {
+			echo '<div class="' . $itemClasses . '">' . $content . '</div>';
+		}
+		?>
+		</div>
+	</div>
+</div>
+
+<?php
+$keyframes = $block->generateKeyframes($count);
+if($keyframes){
+	$wrapCss .= 'position: relative;overflow: hidden;text-overflow: ellipsis; height: ' . $itemHeight . ';';
+	$styles .= '@keyframes ' . $animName . '{ ' . $keyframes . ' }';
+	$styles .= '#' . $block_id . ' .a2-vslide {animation:' . $animName . ' ' . $time . 'ms infinite;}';
+	$styles .= '#' . $block_id . ' .' . $itemClasses . '{line-height: 1; height: ' . $itemHeight . ';}';
+}
+if($wrapOuterCss){
+	$styles .= '#' . $block_id . '{' . $wrapOuterCss . '}';
+}
+if($wrapCss){
+	$styles .= '#' . $block_id . ' .a2-vslide-wrap{' . $wrapCss . '}';
+}
+
+if($wrapCssMobile){
+	$mobileStyles .= '#' . $block_id . '{' . $wrapCssMobile . '}';
+}
+if($mobileStyles){
+	$styles .= '@media (max-width: 639px){' . $mobileStyles . '}';
+}
+?>
+<?php if(!empty($styles)){ ?>
+	<?php echo $block->renderStyles($styles) ?>
+<?php } ?>

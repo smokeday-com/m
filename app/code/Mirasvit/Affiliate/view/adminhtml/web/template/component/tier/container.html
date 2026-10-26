@@ -1,0 +1,38 @@
+<div class="affiliate__component-tier-container">
+    <table class="admin__control-table">
+        <thead>
+        <tr>
+            <!-- ko foreach: { data: labels, as: 'label'}  -->
+            <th class="col-default affiliate__program-th" data-bind="html: label"></th>
+            <!-- /ko -->
+
+            <th class="col-delete">&nbsp;</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr class="data-row" repeat="foreach: elems, item: '$record'">
+            <!-- ko foreach: { data: $record().elems(), as: 'elem'}  -->
+            <td class="col-default" template="elem.template"></td>
+            <!-- /ko -->
+
+            <td class="col-delete">
+                <button type="button" class="scalable" data-bind="click: function(){ handleDelete($record().index); }">
+                    <span><i class="fa fa-fw fa-trash-o"></i> Delete</span>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+
+        <tfoot>
+        <tr>
+            <th class="col-actions-add" data-bind="attr: {colspan: labels().length + 2}">
+                <button type="button" class="scalable" data-bind="click: handleAdd">
+                    <span><i class="fa fa-fw fa-plus"></i> Add Group</span>
+                </button>
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+

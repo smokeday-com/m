@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="magefan_blog_post">
+            <block class="Magefan\Blog\Block\Post\PostList\Item" name="blog.posts.list.item" template="Magefan_Blog::post/list/item.phtml">
+                <block class="Magefan\Blog\Block\Post\Info" name="blog.post.ox_author" template="Magefan_Blog::post/author.phtml" />
+                <block class="Magefan\Blog\Block\Post\Info" name="blog.post.ox_comments_link" template="Magefan_Blog::post/comments_link.phtml" />
+                <block class="Magefan\Blog\Block\Post\PostList\Item" name="blog.post.ox_share" template="Magefan_Blog::post/share.phtml" />
+                <block class="Magefan\Blog\Block\Post\Info" name="blog.post.ox_categories" template="Magefan_Blog::post/categories.phtml" />
+                <block class="Magefan\Blog\Block\Post\Info" name="blog.post.ox_title_link" template="Magefan_Blog::post/title_link.phtml" />
+                <block class="Magefan\Blog\Block\Post\Info" name="blog.post.ox_views_count" template="Magefan_Blog::post/ox_views_count.phtml" />
+            </block>
+        </referenceContainer>
+    </body>
+</page>

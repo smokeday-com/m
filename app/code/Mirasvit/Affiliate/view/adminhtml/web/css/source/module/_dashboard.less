@@ -1,0 +1,123 @@
+@mst-affiliate-dashboard-activity__background__color: #f5f5f5;
+@mst-affiliate-dashboard-activity__icon__color: #d6d6d6;
+@mst-affiliate-dashboard-top__border__color: #e3e3e3;
+@mst-affiliate-dashboard-top__metric__color: #eb5202;
+.affiliate__dashboard {
+    .lib-clearfix();
+
+    .col-main {
+        float: left;
+        width: 70%;
+    }
+
+    .col-sidebar {
+        box-sizing: border-box;
+        float: left;
+        padding-left: 3rem;
+        width: 30%;
+    }
+}
+
+.affiliate__dashboard-activity {
+    div {
+        background: @mst-affiliate-dashboard-activity__background__color;
+        margin-bottom: 3rem;
+        margin-left: 2.5rem;
+        padding: 1rem 1rem 1rem 1rem;
+        position: relative;
+
+        a {
+            font-weight: 600;
+        }
+
+        &::before {
+            color: @mst-affiliate-dashboard-activity__icon__color;
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            left: -2.5rem;
+            position: absolute;
+            text-align: center;
+            top: 1.2rem;
+            width: 2rem;
+        }
+
+        &.transaction {
+            &::before {
+                content: '\f155';
+            }
+        }
+
+        &.account {
+            &::before {
+                content: '\f234';
+            }
+        }
+
+        &.withdraw {
+            &::before {
+                content: '\f1f0';
+            }
+        }
+
+        small {
+            bottom: -1.7rem;
+            position: absolute;
+            right: 0;
+
+            &::before {
+                color: @mst-affiliate-dashboard-activity__icon__color;
+                content: '\f017';
+                font: normal normal normal 14px/1 FontAwesome;
+                left: -2rem;
+                position: absolute;
+                top: 3px;
+            }
+        }
+    }
+}
+
+.affiliate__dashboard-pending,
+.affiliate__dashboard-top {
+    margin-bottom: 2rem;
+}
+
+.affiliate__dashboard-quick-stat {
+    .lib-clearfix();
+    border-bottom: 1px solid @mst-affiliate-dashboard-top__border__color;
+    margin-bottom: 5rem;
+    padding-bottom: 2rem;
+
+    h3 {
+        text-align: left;
+    }
+
+    .metrics {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .metric {
+            border-right: 1px solid @mst-affiliate-dashboard-top__border__color;
+            display: table-cell;
+            padding: 0 1rem 0 0;
+            text-align: center;
+            width: 25%;
+
+            &:last-child {
+                border-right: none;
+            }
+
+            h4 {
+                display: block;
+                font-size: 1.3rem;
+                font-weight: 700;
+            }
+
+            strong {
+                color: @mst-affiliate-dashboard-top__metric__color;
+                font-size: 2.4rem;
+                font-weight: 600;
+            }
+        }
+    }
+}

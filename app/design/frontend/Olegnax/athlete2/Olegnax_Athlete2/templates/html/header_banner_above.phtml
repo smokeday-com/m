@@ -1,0 +1,67 @@
+<?php
+$name = $block->getData('oxname') ?: 'above';
+if(!$name){
+    return;
+}
+$at_settings	 = $block->getConfig( 'athlete2_settings/header_banner_' . $name );
+$block->setSettings($at_settings);
+$classes = '';
+
+$content = $block->getContentOutput();
+if (!$content ){
+    return;
+}
+
+/* hide if banner is disabled */
+if (!$at_settings[ 'show_banner' ] || !$block->isCurrentPage( $at_settings[ 'header_banner_location' ]) ){
+    return;
+}
+
+/* hide if closed */
+$cookieValue = (int)$block->escapeHtmlAttr($at_settings[ 'cookie_num' ] ) ?: 1;
+if($at_settings[ 'closable' ] && $block->isBannerClosed($cookieValue)){
+    return;
+}
+
+/* hide if expired */
+if($at_settings[ 'banner_hide_date' ] && $at_settings[ 'banner_hide_date' ] < $block->getCurrentTime()){
+    return;
+}
+
+if($at_settings[ 'banner_hide_on_mobile' ]){
+    $classes .= ' hide-on-mobile hide-on-tablet';
+}
+if ($at_settings[ 'header_banner_align_center' ]) { 
+    $classes .= ' header-banner-flex'; 
+}
+
+?>
+<div class="header-banner header-banner-<?php echo  $block->escapeHtmlAttr($name) ?> <?php echo $block->escapeHtmlAttr($classes) ?>">
+    <div class="container banner-wrap">
+        <?php echo $content; ?>
+    </div>
+    <?php if( $at_settings[ 'closable' ] ): ?>
+    <button type="button" id="btn-banner-close-<?php echo $block->escapeHtmlAttr($name) ?>" class="ox-overlay-close-btn" aria-label="><?= $block->escapeHtml(__('Close Banner')) ?>" data-action="close"><span></span></button>
+    <?php endif; ?>
+</div>	
+
+<?php if($at_settings[ 'closable' ]): ?>
+    <?php $scriptString = 'require(["jquery", "mage/cookies"], function ($) {
+            $(function () {
+                $("#btn-banner-close-' . $block->escapeHtmlAttr($name) . '").on("click", function(){
+                    let cookieName = "ox-banner-' .  $block->escapeHtmlAttr($name) . '",
+                    cookieExpires = new Date(new Date().getTime() + 36 * 1000);
+                    $.mage.cookies.set(cookieName, ' . $cookieValue . ', {expires: cookieExpires});
+                    $(".header-banner-' .  $block->escapeHtmlAttr($name) . '").hide();
+                    $( ".page-header" ).trigger( "ox.header.refresh" );
+                });
+            });
+        });';
+        if (isset($secureRenderer)){
+            echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+        } else{
+            echo /* @noEscape */ '<script>' .  $scriptString . '</script>';
+        }
+    ?>
+    
+<?php endif; ?>

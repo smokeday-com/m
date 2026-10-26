@@ -1,0 +1,39 @@
+<?php
+/**
+ * Olegnax MegaMenu
+ *
+ * This file is part of Olegnax/Core.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Olegnax.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.olegnax.com/license
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Olegnax
+ * @package     Olegnax_MegaMenu
+ * @copyright   Copyright (c) 2021 Olegnax (http://www.olegnax.com/)
+ * @license     https://www.olegnax.com/license
+ */
+/** @var Megamenu $block */
+
+$classes = '';
+$classes .= ' ' . $block->getSystemValue('athlete2_design/appearance_header/menu_arrow_style');
+
+$columnsLimit = $block->getColumnsLimit() ?: 0;
+$_menu = $block->getHtml('level-top', 'submenu', $columnsLimit);
+
+use Olegnax\MegaMenu\Block\Html\Megamenu; ?>
+<nav class="ox-megamenu ox-move-item ox-move-item-store.menu <?= $classes ?>" data-action="navigation"
+	data-mage-init='{"OxMegaMenu":{
+	 "header":"<?= $block->getValueOption('header_container') ?>"
+	 }}'>
+	<ul class="ox-megamenu-navigation">
+		<?= $_menu ?>
+	</ul>
+</nav>

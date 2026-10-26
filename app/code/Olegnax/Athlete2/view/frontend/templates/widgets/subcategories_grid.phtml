@@ -1,0 +1,71 @@
+<?php
+$subcategories = $block->getSubcategories();
+if(is_object($subcategories) && count($subcategories)):
+    $widget_id    = $block->getWidgetId();
+    $showCount = (bool)$block->getShowProductCount();
+    $showName = (bool)$block->getShowCategoryName();
+    $nameTag = $block->getCategoryNameTag() ?: 'h3';
+    $showImage = (bool)$block->getShowCategoryImage();
+    $classes = 'ox-cats';
+    $classes_item = '';
+    /* Grid */
+    if($block->getColumnsAlignCenter()){
+        $classes .= ' justify-content-center';
+    }
+    if((bool)$block->getVertical()){
+        $classes .= ' ox-cats--v';
+    } else{
+        if((bool)$block->getColumnWidthFit() ){
+            $classes .= ' ox-cats-grid-auto';
+        } else{
+            $classes .= ' row';
+            $classes .= ' ox-cats-grid';
+        }
+        // if(!((bool)$block->getColumnWidth() && (bool)$block->getColumnWidthFit()) ){
+        //     $classes .= ' ox-cats-grid';
+        // }
+        $classes_item .= ' col';
+    }
+
+    /* Items Styles */
+    if($block->getStyle() == '3' || $block->getStyle() == '4'){
+        $classes_item .= ' ox-cat--rounded';
+    }
+    if($block->getStyle() == '5'){
+        $classes_item .= ' ox-cat--h ox-cat--h-left';
+    }
+    if($block->getStyle() == '6'){
+        $classes_item .= ' ox-cat--h ox-cat--h-right';
+    }
+?>
+<div id="<?php echo $escaper->escapeHtmlAttr($widget_id) ?>" class="block widget ox-cats-widget <?php echo $escaper->escapeHtmlAttr($widget_id) ?>">
+    <div class="<?php echo $escaper->escapeHtmlAttr($classes); ?>">
+        <?php foreach ($subcategories as $subcategory) : ?>
+            <?php $name = $subcategory->getName(); ?>
+            <div class="ox-cat <?php echo $escaper->escapeHtmlAttr($classes_item) ?>">
+                <div class="ox-cat__inner">
+                    <?php if($showImage && $imageUrl = $block->getImage($subcategory)): ?>
+                    <div class="ox-cat__img-holder">
+                        <img src="<?php echo $block->escapeUrl($imageUrl) ?>" alt="<?php echo $block->escapeHtmlAttr($name) ?>" <?php echo $block->getImageSize(); ?> class="ox-cat__img"/>
+                    </div>
+                    <?php endif; ?>
+                    <?php if($showName || $showCount): ?>
+                    <div class="ox-cat__name-wrap">
+                        <?php if($showName): ?>
+                        <<?php echo $nameTag ?> class="ox-cat__name"><?php echo $block->escapeHtml($name) ?></<?php echo $nameTag ?>>
+                        <?php endif; ?>
+                        <?php if($showCount): ?>
+                        <span class="ox-cat__count"><?php echo (int)$subcategory->getProductCount(); ?></span>
+                        <?php endif; ?>
+                    </div>
+                    <?php endif; ?>
+                    <a href="<?php echo $block->escapeUrl($subcategory->getUrl()) ?>" class="ox-cat__link overlay-link" title="<?php echo $block->escapeHtmlAttr($name) ?>"></a>
+                </div>
+            </div>
+        <?php endforeach;  ?>
+    </div>
+</div>
+<?php 
+echo $block->renderStyles('#' . $widget_id);
+?>
+<?php endif; ?>

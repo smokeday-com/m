@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+
+    <widget id="affiliate_sign_in_button" class="Mirasvit\Affiliate\Block\Widget\SignInButton">
+        <label translate="true">Affiliate: Sign In Button</label>
+        <description/>
+    </widget>
+
+    <widget id="affiliate_programs" class="Mirasvit\Affiliate\Block\Widget\Programs">
+        <label translate="true">Affiliate: List of programs</label>
+        <description/>
+    </widget>
+</widgets>

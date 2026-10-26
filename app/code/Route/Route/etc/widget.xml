@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="route_magento_widget" class="Route\Route\Block\Widget\Widget">
+        <label>Route Widget</label>
+        <description>Allow you to add insurance to cart</description>
+    </widget>
+</widgets>

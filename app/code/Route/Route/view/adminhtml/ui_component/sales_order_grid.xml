@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!--
+        /**
+         * Copyright © Magento, Inc. All rights reserved.
+         * See COPYING.txt for license details.
+         */
+        -->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<columns name="sales_order_columns">
+    <column name="route_fee" class="Magento\Sales\Ui\Component\Listing\Column\Price">
+        <settings>
+            <filter>textRange</filter>
+            <label translate="true">Route Charge</label>
+            <visible>true</visible>
+        </settings>
+    </column>
+    <column name="route_is_insured" class="\Route\Route\Ui\Component\Listing\Column\Insured">
+        <settings>
+            <options class="Route\Route\Model\Route\Attribute\Source\Insured"/>
+            <filter>select</filter>
+            <dataType>select</dataType>
+            <label translate="true">Route Insurance</label>
+            <visible>true</visible>
+        </settings>
+    </column>
+</columns>
+</listing>

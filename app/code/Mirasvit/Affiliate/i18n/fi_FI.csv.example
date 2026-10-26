@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Tarkistamme rekisteröintisi ja ilmoitamme sinulle."
+"Your request to sign up to the affiliate program has been rejected.","Pyyntösi liittyä kumppaniohjelmaan on hylätty."
+"Sign In to Affiliates","Kirjaudu sisään tytäryhtiöihin"
+"You have successfully signed up for an affiliate account.","Olet rekisteröitynyt tytäryhtiötilille."
+"Affiliate Dashboard","Kumppanien hallintapaneeli"
+"Affiliate Account Settings","Kumppanitilin asetukset"
+"Account information successfully updated.","Tilitietojen päivitys onnistui."
+"Transactions History",Tapahtumahistoria
+"Promotion Materials",Mainosmateriaalit
+Statistics,Tilastot
+"Affiliate Program Overview","Kumppaniohjelman yleiskatsaus"
+Withdrawals,Nostot
+"Withdrawal request has been submitted.","Peruutuspyyntö on lähetetty."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Yksi tai useampi <a href=""%1"">tytäryhtiötili</a> on tällä hetkellä odotustilassa."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Yksi tai useampi <a href=""%1"">nostopyyntö</a> on vireillä."
+"Pending Approval","Odottaa hyväksyntää"
+Approved,Hyväksytty
+"Not Approved",Hylätty
+Image,Kuva
+Text,Teksti
+"Assign to first referred affiliate","Määritä ensin viitatulle tytäryhtiölle"
+"Assign to last referred affiliate","Määritä viimeksi viitatulle tytäryhtiölle"
+Available,Saatavilla
+Inactive,Epäaktiivinen
+Removed,Poistettu
+"- Disable these emails -","- Poista nämä sähköpostit käytöstä -"
+Click,Klikkaus
+Impression,Vaikutelma
+Lead,Johtaa
+Sale,Myynti
+". ' (default)'",". &#39;(oletus)&#39;"
+"Percent of order amount","Prosenttiosuus tilauksen summasta"
+"Percent of cart amount","Ostoskorin määrän prosenttiosuus"
+"Fixed amount","Kiinteä summa"
+"Pay per Sale","Maksa myynnistä"
+"Pay per Lead","Maksa lyijyä kohti"
+"Pay per Click","Maksa napsautuksesta"
+"Pay per Impression","Maksa näyttökertaa kohti"
+Complete,"Saattaa loppuun"
+"In Hold",Pidossa
+Commission,Komissio
+Withdraw,Peruuttaa
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Myymälä pisteet"
+Other,Muu
+Pending,Odottaa
+Accepted,Hyväksytty
+Completed,Valmistunut
+Denied,Kielletty
+"Number of Orders from reffered customers","Uusien asiakkaiden tilausten määrä"
+"Sales Amount from reffered customers","Myynnin määrä tarjottuilta asiakkailta"
+is,On
+"is not","ei ole"
+"greater than","suurempi kuin"
+"less than","vähemmän kuin"
+"equals or greater than","on yhtä suuri tai suurempi kuin"
+"equals or less than","on yhtä suuri tai pienempi kuin"
+"Conditions Combination","Olosuhteiden yhdistelmä"
+"Affiliate conditions",Kumppaniehdot
+General,Kenraali
+"Customer Group",Asiakasryhmä
+Store,Kauppa
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Tiedostotyyppi ei ole sallittu (vain JPG-, JPEG-, PNG- ja GIF-tiedostot ovat sallittuja)"
+"Commission for order #%1 (%2)","Komissio tilauksesta #%1 (%2)"
+"Refund for order #%1","Hyvitys tilaukselle #%1"
+Withdrawal,Peruuttaminen
+"Withdraw cannot exceed current balance.","Nosto ei voi ylittää nykyistä saldoa."
+"Minimum withdrawal amount is %1.","Pienin nostosumma on %1."
+"You already have a pending withdrawal request.","Sinulla on jo vireillä oleva nostopyyntö."
+"Affiliate Withdrawal","Tytäryhtiön vetäytyminen"
+Back,Takaisin
+Delete,Poistaa
+"Are you sure you want to proceed?","Haluatko varmasti jatkaa?"
+"Save and Continue Edit","Tallenna ja jatka muokkausta"
+Save,Tallentaa
+"Click on row to edit the coupon","Voit muokata kuponkia napsauttamalla riviä"
+"Referred Customers","Lähetetyt asiakkaat"
+Actions,Toiminnot
+"Add Customers","Lisää asiakkaita"
+Customers,Asiakkaat
+Cancel,Peruuttaa
+"Add Selected Customers","Lisää valitut asiakkaat"
+Remove,Poista
+ID,Henkilötunnus
+Name,Nimi
+Email,Sähköposti
+View,Näytä
+Edit,Muokata
+"Delete item?","Poistetaanko kohde?"
+Conditions,Ehdot
+"Affiliate conditions (affects only automatically updated group)","Kumppaniehdot (vaikuttaa vain automaattisesti päivitettävään ryhmään)"
+"Assigned Affiliates","Nimetty tytäryhtiö"
+"Add Affiliate","Lisää tytäryhtiö"
+Affiliates,Tytäryhtiöt
+"Add Selected","Lisää valittu"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Käytä välityspalkkiota vain seuraavia ehtoja vastaaviin ostoskoriisi (jätä tyhjä kaikille tuotteille)."
+Accept,Hyväksyä
+Reject,Hylätä
+"Referring Website","Viittaava verkkosivusto"
+"Subscribe to email notifications","Tilaa sähköposti-ilmoitukset"
+"I accept the terms and conditions","Hyväksyn käyttöehdot"
+"Sign Up",Kirjaudu
+"Referral Website",Viittaussivusto
+"Payment Method",Maksutapa
+"Payment Information",Maksutiedot
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Määritä henkilökohtaiset maksutiedot: PayPal-sähköposti tai mahdolliset e-lompakon maksutiedot."
+From,Alkaen
+To,Vastaanottaja
+Apply,Käytä
+Clicks,Napsautukset
+Leads,Johtaa
+Orders,Tilaukset
+Views,Näkymät
+Earned,Ansaittu
+"My Account",Tilini
+"Commissions according to your affiliate group","Palkkiot sidosryhmäsi mukaan"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> ensimmäisen tilauksen määrästä"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> toisen ja useamman tilauksen määrästä"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> ensimmäisen tilauksen ostoskorista"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> toisen ja useamman tilauksen ostoskorista"
+"<b>%1</b> per sale from first order","<b>%1</b> / myynti ensimmäisestä tilauksesta"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> per myynti toisesta ja useammasta tilauksesta"
+"<b>%1</b> per unique click","<b>%1</b> / yksittäinen napsautus"
+"<b>%1</b> per lead","<b>%1</b> lyijyä kohti"
+"<b>%1</b> per 1000 views","<b>%1</b> / 1000 katselukertaa"
+Banners,Bannerit
+Type,Tyyppi
+Size,Koko
+Link,Linkki
+"Get Code","Hanki koodi"
+"Copy and paste this code into your website: ","Kopioi ja liitä tämä koodi verkkosivustollesi:"
+"Referral Coupons",Lähetyskupongit
+Program,Ohjelmoida
+Coupon,Kuponki
+Discount,Alennus
+"Personal Referral Link","Henkilökohtainen viittauslinkki"
+"Enter any URL from this store in the form below to generate a new referral link:","Anna mikä tahansa tämän kaupan URL-osoite alla olevaan lomakkeeseen uuden viitelinkin luomiseksi:"
+"Your unique referral link is:","Ainutlaatuinen viittauslinkkisi on:"
+"Referral Widget","Viittauksen widget"
+"Widget Title:","Widgetin nimi:"
+"Related Products","Liittyvät tuotteet"
+Width:,Leveys:
+Height:,Korkeus:
+"Number of products:","Tuotteiden lukumäärä:"
+"Show Bestsellers","Näytä myydyimmät"
+"Show New Products","Näytä uudet tuotteet"
+Search,Hae
+"Search term",Hakusana
+"Show Product's names","Näytä tuotteen nimet"
+"Show Prices","Näytä hinnat"
+"Place this code wherever you want the widget to appear on your page.","Sijoita tämä koodi minne haluat widgetin näkyvän sivullasi."
+"Current balance: <b>%1</b>","Nykyinen saldo: <b>%1</b>"
+"On hold: %1","Pidossa: %1"
+"Lifetime: %1","Elinikä: %1"
+"Paid: %1","Maksettu: %1"
+Date,Päivämäärä
+Balance,Saldo
+Amount,Määrä
+Details,Yksityiskohdat
+"On hold to %1","Odotustilassa %1"
+"There have been no transactions yet.","Tapahtumia ei ole vielä tehty."
+"Request withdrawal","Pyydä peruuttamista"
+"Minimum balance to request withdrawal is %1","Vähimmäissaldo saldon pyytämiseen on %1"
+Fee,Maksu
+Status,Tila
+"Pending approval","Odottaa hyväksyntää"
+"There have been no withdrawals yet.","Nostoja ei ole vielä tehty."
+"Your account is assigned to the <span>%1</span> affiliate group","Tilisi on määritetty <span>%1 -tyyliryhmään</span>"
+Commissions,Palkkiot
+"Our Programs",Ohjelmamme
+"Our Program",Ohjelmamme
+"%1  - Minimum balance required for payout.","%1 - Maksua varten vaadittava vähimmäissaldo."
+"Affiliate Group",Kumppaniryhmä
+Description,Kuvaus
+"Sign In","Kirjaudu sisään"
+"New Affiliate Account","Uusi kumppanitili"
+"Account Information",Tilitiedot
+"%name,","%nimi,"
+"Your affiliate account at %store_name has been approved.","Kumppanitilisi osoitteessa% store_name on hyväksytty."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Kirjaudu sisään tilillesi napsauttamalla <a href=""%login_url"">tätä.</a>"
+"Your account balance has been updated at %store_name.","Tilisi saldo on päivitetty osoitteessa% store_name."
+Balance:,Saldo:
+"Welcome to %store_name affiliate program!","Tervetuloa kumppanuusohjelmaan% store_name!"
+Email:,Sähköposti:
+"Referring Website:","Viittaava verkkosivusto:"
+"A customer referred by you has just placed an order at %store_name.","Sinun viemäsi asiakas on juuri tehnyt tilauksen osoitteessa% store_name."
+"Thus, it was credited to your affiliate account.","Siksi se hyvitettiin tytäryhtiötilillesi."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Kun tilaus on valmis, siirrämme palkkiot tilisi saldoon järjestelmässämme ja voit sitten nostaa rahat milloin haluat."
+"Transaction Amount:",Siirtosumma:
+"Current Balance:","Nykyinen tasapaino:"
+"New Withdrawal Request","Uusi peruutuspyyntö"
+Information,Tiedot
+"Please log in to the admin panel to manage this request.","Kirjaudu sisään hallintapaneeliin hallitaksesi tätä pyyntöä."
+"Affiliate: Sign In Button","Kumppani: Kirjaudu sisään -painike"
+"Affiliate: List of programs","Kumppani: Luettelo ohjelmista"
+"Account Dashboard","Tilin hallintapaneeli"
+Transactions,Tapahtumat
+Settings,Asetukset
+"Affiliate Program",Kumppanuusohjelma

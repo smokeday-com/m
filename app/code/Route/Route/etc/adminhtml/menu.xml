@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Route_Route::orders" title="Route" translate="title" module="Route_Route" parent="Magento_Backend::stores" sortOrder="50" dependsOnModule="Route_Route" resource="Route_Route::orders"/>
+        <add id="Route_Route::orders_sync" title="Orders Sync" translate="title" module="Route_Route" parent="Route_Route::orders" sortOrder="10" dependsOnModule="Route_Route" action="route/orders" resource="Route_Route::orders"/>
+    </menu>
+</config>

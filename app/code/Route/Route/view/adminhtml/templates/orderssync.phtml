@@ -1,0 +1,137 @@
+<form action="" method="post" id="order_sync_form" enctype="multipart/form-data" novalidate="novalidate">
+    <div class="accordion">
+        <div class="entry-edit form-inline">
+            <div class="section-config active">
+                <div class="entry-edit-head admin__collapsible-block">
+                    <span id="route_route-link" class="entry-edit-head-link"></span>
+                    <a id="route_route-head" href="#route_route-link" class="open">Orders Sync</a>
+                    <script type="text/javascript">
+                        function eventListenerToggle () {
+                            event.preventDefault();
+                            Fieldset.toggleCollapse('route_route');
+                            return false;
+                        }
+                        var listenedElement = document.querySelector("a#route_route-head");
+                        if (listenedElement) {
+                            listenedElement.onclick = function (event) {
+                                var targetElement = listenedElement;
+                                if (event && event.target) {
+                                    targetElement = event.target;
+                                }
+                                eventListenerToggle.apply(targetElement);
+                            }
+                        }
+                        require([ "jquery", "mage/calendar" ],
+                            function($){
+                                $('body').on('focus',"#route_from", function(){
+                                    $("#route_from").calendar({
+                                        changeYear:true,
+                                        changeMonth:true,
+                                        yearRange: "2019:2050",
+                                        buttonText:"Select Date",
+                                        dateFormat:"Y-mm-dd"
+                                    });
+                                });
+                                $('body').on('focus',"#route_to", function(){
+                                    $("#route_to").calendar({
+                                        changeYear:true,
+                                        changeMonth:true,
+                                        yearRange: "2019:2050",
+                                        buttonText:"Select Date",
+                                        dateFormat:"Y-mm-dd"
+                                    });
+                                });
+                                $('body').on('click',"#submit", function(){
+                                    var ajaxRequest;
+                                    var saveUrl = '<?php echo $block->getUrl('route/orders/sync'); ?>' + '?isAjax=true';
+
+                                    ajaxRequest = $.ajax({
+                                        showLoader: true,
+                                        url: saveUrl,
+                                        data: {from: $('#route_from').val(), to: $('#route_to').val(), maxLimit: $('#route_maxLimit').val(), form_key: window.FORM_KEY},
+                                        type: 'POST',
+                                        dataType: 'json'
+                                    });
+                                    ajaxRequest.done(function (response, textStatus, jqXHR) {
+                                        $("#ajaxResponse").html(response);
+                                    });
+                                    ajaxRequest.fail(function () {
+                                        //show error
+                                        $("#ajaxResponse").html('Oops, An error occured, please try again later!');
+                                    });
+                                });
+                            });
+                            require(['prototype'], function(){Fieldset.applyCollapse('route_route');});
+                    </script>
+                </div>
+                <input id="route_route-state" name="config_state[route_route]" type="hidden" value="1">
+                <fieldset class="config admin__collapsible-block" id="route_route">
+                    <legend>General Options</legend>
+                    <table cellspacing="0" class="form-list">
+                        <colgroup class="label"></colgroup>
+                        <colgroup class="value"></colgroup>
+                        <colgroup class="scope-label"></colgroup>
+                        <colgroup class=""></colgroup>
+                        <tbody>
+
+                        <tr id="row_route_route_from">
+                            <td class="label">
+                                <label for="route_from">
+                                    <span data-config-scope="[DATE]">From</span>
+                                </label>
+                            </td>
+                            <td class="value">
+                                <input id="route_from" name="route_from" data-ui-id="text-groups-route_from-value" class=" input-text admin__control-text" type="text">
+                                <p class="note">
+                                    <span>Select starting date for triggering the order reconcile.</span>
+                                </p>
+                            </td>
+                            <td class=""></td>
+                        </tr>
+                        <tr id="row_route_route_to">
+                            <td class="label">
+                                <label for="route_to">
+                                    <span data-config-scope="[DATE]">To</span>
+                                </label>
+                            </td>
+                            <td class="value">
+                                <input id="route_to" name="route_to" data-ui-id="text-groups-route_to-value" class=" input-text admin__control-text" type="text">
+                                <p class="note">
+                                    <span>Select ending date for triggering the order reconcile.</span>
+                                </p>
+                            </td>
+                            <td class=""></td>
+                        </tr>
+                        <tr id="row_route_route_maxLimit">
+                            <td class="label">
+                                <label for="route_maxLimit">
+                                    <span data-config-scope="[int]">Limit</span>
+                                </label>
+                            </td>
+                            <td class="value">
+                                <input id="route_maxLimit" name="route_maxLimit" data-ui-id="text-groups-route_maxLimit-value" value="100" class=" input-text admin__control-text" type="number">
+                                <p class="note">
+                                    <span>Maximum amount of orders that will be processed.</span>
+                                </p>
+                            </td>
+                            <td class=""></td>
+                        </tr>
+                        <tr id="row_route_submit">
+                            <td class="label"></td>
+                            <td class="value">
+                                <button id="submit" form="config-edit-form" title="Submit" type="button" class="action-default scalable save primary ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" data-ui-id="page-actions-toolbar-save-button" role="button" aria-disabled="false">
+                                    <span class="ui-button-text">
+                                        <span>Submit</span>
+                                    </span>
+                                </button>
+                            </td>
+                            <td class=""></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+                <div id="ajaxResponse"></div>
+            </div>
+        </div>
+    </div>
+</form>

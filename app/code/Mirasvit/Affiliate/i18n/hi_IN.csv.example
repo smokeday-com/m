@@ -1,0 +1,203 @@
+%1%,_1__%
+%1,%1
+"We'll review your registration and notify you.","हम आपके पंजीकरण की समीक्षा करेंगे और आपको सूचित करेंगे।"
+"Your request to sign up to the affiliate program has been rejected.","संबद्ध कार्यक्रम में साइन अप करने का आपका अनुरोध अस्वीकार कर दिया गया है।"
+"Sign In to Affiliates","सहबद्धों में साइन इन करें"
+"You have successfully signed up for an affiliate account.","आपने एक संबद्ध खाते के लिए सफलतापूर्वक साइन अप कर लिया है।"
+"Affiliate Dashboard","संबद्ध डैशबोर्ड"
+"Affiliate Account Settings","संबद्ध खाता सेटिंग्स"
+"Account information successfully updated.","खाता जानकारी सफलतापूर्वक अपडेट की गई।"
+"Transactions History","लेन-देन इतिहास"
+"Promotion Materials","प्रचार सामग्री"
+Statistics,आंकड़े
+"Affiliate Program Overview","संबद्ध कार्यक्रम अवलोकन"
+Withdrawals,निकासी
+"Withdrawal request has been submitted.","निकासी अनुरोध प्रस्तुत किया गया है।"
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","एक या अधिक <a href=""%1"">संबद्ध खाते</a> वर्तमान में लंबित स्थिति में हैं।"
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","एक या अधिक <a href=""%1"">निकासी अनुरोध</a> वर्तमान में लंबित स्थिति में हैं।"
+"Pending Approval","लंबित अनुमोदन"
+Approved,"मंजूर की"
+"Not Approved",अननुमोदित
+Image,छवि
+Text,टेक्स्ट
+"Assign to first referred affiliate","पहले संदर्भित सहयोगी को असाइन करें"
+"Assign to last referred affiliate","अंतिम संदर्भित सहयोगी को असाइन करें"
+Available,उपलब्ध
+Inactive,निष्क्रिय
+Removed,"हटा दिया"
+"- Disable these emails -","- इन ईमेल को अक्षम करें -"
+Click,क्लिक
+Impression,प्रभाव
+Lead,लीड
+Sale,बिक्री
+". ' (default)'",". &#39; (चूक)&#39;"
+"Percent of order amount","आदेश राशि का प्रतिशत"
+"Percent of cart amount","कार्ट राशि का प्रतिशत"
+"Fixed amount","निश्चित राशि"
+"Pay per Sale","प्रति बिक्री भुगतान करें"
+"Pay per Lead","प्रति लीड भुगतान करें"
+"Pay per Click","प्रति क्लिक भुगतान"
+"Pay per Impression","प्रति इंप्रेशन भुगतान करें"
+Complete,पूर्ण
+"In Hold","पकड़ में"
+Commission,आयोग
+Withdraw,निकालना
+PayPal,पेपैल
+Skrill,Skrill
+"Store Credit","भंड़ार उधार"
+Other,अन्य
+Pending,विचाराधीन
+Accepted,"को स्वीकृत"
+Completed,"पूरा हुआ"
+Denied,निषेध
+"Number of Orders from reffered customers","रेफ़र किए गए ग्राहकों से ऑर्डर की संख्या"
+"Sales Amount from reffered customers","रेफर किए गए ग्राहकों से बिक्री राशि"
+is,है
+"is not","क्या नहीं है"
+"greater than","से अधिक"
+"less than","से कम"
+"equals or greater than","बराबर या इससे बड़ा"
+"equals or less than","बराबर या उससे कम less"
+"Conditions Combination","शर्तें संयोजन"
+"Affiliate conditions","संबद्धता शर्तें"
+General,आम
+"Customer Group","ग्राहक समूह"
+Store,दुकान
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","फ़ाइल प्रकार की अनुमति नहीं है (केवल JPG, JPEG, PNG और GIF फ़ाइलों की अनुमति है)"
+"Commission for order #%1 (%2)","आदेश के लिए आयोग #%1 (%2)"
+"Refund for order #%1","आदेश #%1 के लिए धनवापसी"
+Withdrawal,निकासी
+"Withdraw cannot exceed current balance.","निकासी वर्तमान शेष राशि से अधिक नहीं हो सकती है।"
+"Minimum withdrawal amount is %1.","न्यूनतम निकासी राशि %1 है।"
+"You already have a pending withdrawal request.","आपके पास पहले से ही एक लंबित निकासी अनुरोध है।"
+"Affiliate Withdrawal","संबद्ध निकासी"
+Back,वापस
+Delete,हटाएं
+"Are you sure you want to proceed?","क्या आप सुनिश्चित रूप से आगे बढ़ना चाहते हैं?"
+"Save and Continue Edit","सहेजें और जारी रखें संपादित करें"
+Save,सहेजें
+"Click on row to edit the coupon","कूपन संपादित करने के लिए पंक्ति पर क्लिक करें"
+"Referred Customers","संदर्भित ग्राहक"
+Actions,कार्रवाई
+"Add Customers","ग्राहक जोड़ें"
+Customers,ग्राहकों
+Cancel,"रद्द करना"
+"Add Selected Customers","चयनित ग्राहक जोड़ें"
+Remove,हटाना
+ID,ईद
+Name,नाम
+Email,ईमेल
+View,राय
+Edit,"संपादित करें"
+"Delete item?","चीज़ें हटाएं?"
+Conditions,शर्तेँ
+"Affiliate conditions (affects only automatically updated group)","संबद्ध शर्तें (केवल स्वचालित रूप से अपडेट किए गए समूह को प्रभावित करती हैं)"
+"Assigned Affiliates","असाइन किए गए सहयोगी"
+"Add Affiliate","संबद्ध जोड़ें"
+Affiliates,सहबद्धों
+"Add Selected","चुने हुए को जोड़ो"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","निम्नलिखित शर्तों से मेल खाने वाले कार्ट आइटम पर ही कमीशन लागू करें (सभी मदों के लिए खाली छोड़ दें)।"
+Accept,"स्वीकार करना"
+Reject,अस्वीकार
+"Referring Website","वेबसाइट का जिक्र"
+"Subscribe to email notifications","ईमेल सूचनाओं की सदस्यता लें"
+"I accept the terms and conditions","मुझे नियम और शर्तें स्वीकार्य हैं"
+"Sign Up","साइन अप करें"
+"Referral Website","रेफरल वेबसाइट"
+"Payment Method","भुगतान का तरीका"
+"Payment Information","भुगतान की जानकारी"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","कृपया व्यक्तिगत भुगतान जानकारी निर्दिष्ट करें: पेपाल ईमेल या कोई ई-वॉलेट भुगतान विवरण।"
+From,से
+To,सेवा
+Apply,लागू
+Clicks,क्लिक्स
+Leads,सुराग
+Orders,आदेश
+Views,विचारों
+Earned,अर्जित
+"My Account",
+"Commissions according to your affiliate group","आपके सहबद्ध समूह के अनुसार कमीशन"
+"<b>%1%</b> of order amount from first order","पहले ऑर्डर से ऑर्डर राशि का <b>%1%</b>"
+"<b>%1%</b> of order amount from second and more orders","दूसरे और अधिक ऑर्डर से ऑर्डर राशि का <b>%1%</b>"
+"<b>%1%</b> of cart amount from first order","<b>_1__%</b> कार्ट राशि का पहला ऑर्डर"
+"<b>%1%</b> of cart amount from second and more orders","दूसरे और अधिक ऑर्डर से कार्ट राशि का <b>%1%</b>"
+"<b>%1</b> per sale from first order","<b>_1__</b> प्रति बिक्री पहले ऑर्डर से"
+"<b>%1</b> per sale from second and more orders","<b>_1__</b> प्रति बिक्री दूसरे और अधिक ऑर्डर से"
+"<b>%1</b> per unique click","<b>%1</b> प्रति अद्वितीय क्लिक"
+"<b>%1</b> per lead","<b>_1__</b> प्रति लीड"
+"<b>%1</b> per 1000 views","<b>_1__</b> प्रति 1000 दृश्य"
+Banners,बैनर
+Type,प्रकार
+Size,आकार
+Link,संपर्क
+"Get Code","कोड प्राप्त करें"
+"Copy and paste this code into your website: ","इस कोड को अपनी वेबसाइट में कॉपी और पेस्ट करें:"
+"Referral Coupons","रेफरल कूपन"
+Program,कार्यक्रम
+Coupon,कूपन
+Discount,छूट
+"Personal Referral Link","व्यक्तिगत रेफरल लिंक"
+"Enter any URL from this store in the form below to generate a new referral link:","नया रेफ़रल लिंक जेनरेट करने के लिए नीचे दिए गए फॉर्म में इस स्टोर से कोई भी URL दर्ज करें:"
+"Your unique referral link is:","आपका विशिष्ट रेफ़रल लिंक है:"
+"Referral Widget","रेफ़रल विजेट"
+"Widget Title:","विजेट शीर्षक:"
+"Related Products","संबंधित उत्पाद"
+Width:,चौड़ाई:
+Height:,ऊंचाई:
+"Number of products:","उत्पादों की संख्या:"
+"Show Bestsellers","बेस्टसेलर दिखाएं"
+"Show New Products","नए उत्पाद दिखाएं"
+Search,खोज
+"Search term","जाँच अवधि"
+"Show Product's names","उत्पाद के नाम दिखाएं"
+"Show Prices","कीमतें दिखाएं"
+"Place this code wherever you want the widget to appear on your page.","इस कोड को आप जहां चाहें विजेट को अपने पेज पर प्रदर्शित करें।"
+"Current balance: <b>%1</b>","वर्तमान शेष: <b>%1</b>"
+"On hold: %1","होल्ड पर: %1"
+"Lifetime: %1","आजीवन: %1"
+"Paid: %1","भुगतान किया गया: %1"
+Date,तारीख
+Balance,संतुलन
+Amount,रकम
+Details,विवरण
+"On hold to %1","%1 तक होल्ड पर"
+"There have been no transactions yet.","अभी तक कोई लेन-देन नहीं हुआ है।"
+"Request withdrawal","निकासी का अनुरोध करें"
+"Minimum balance to request withdrawal is %1","निकासी का अनुरोध करने के लिए न्यूनतम शेषराशि %1 है"
+Fee,शुल्क
+Status,स्थिति
+"Pending approval","लंबित अनुमोदन"
+"There have been no withdrawals yet.","अभी तक कोई निकासी नहीं हुई है।"
+"Your account is assigned to the <span>%1</span> affiliate group","<span>आपका खाता %1</span> संबद्ध समूह को सौंपा गया है"
+Commissions,आयोगों
+"Our Programs","हमारे कार्यक्रम"
+"Our Program","हमारा कार्यक्रम"
+"%1  - Minimum balance required for payout.","_1__ - पेआउट के लिए आवश्यक न्यूनतम शेषराशि।"
+"Affiliate Group","संबद्ध समूह"
+Description,विवरण
+"Sign In","दाखिल करना"
+"New Affiliate Account","नया संबद्ध खाता"
+"Account Information","खाता संबंधी जानकारी"
+"%name,","% नाम,"
+"Your affiliate account at %store_name has been approved.","%store_name पर आपका संबद्ध खाता स्वीकृत हो गया है।"
+"Click <a href=""%login_url"">here</a> to sign in to your account.","अपने खाते में साइन इन करने के लिए <a href=""%login_url"">यहां</a> क्लिक करें।"
+"Your account balance has been updated at %store_name.","आपके खाते की शेष राशि %store_name पर अपडेट कर दी गई है।"
+Balance:,"शेष राशि:"
+"Welcome to %store_name affiliate program!","%store_name सहबद्ध कार्यक्रम में आपका स्वागत है!"
+Email:,ईमेल:
+"Referring Website:","संदर्भित वेबसाइट:"
+"A customer referred by you has just placed an order at %store_name.","आपके द्वारा निर्दिष्ट एक ग्राहक ने अभी-अभी %store_name पर एक आदेश दिया है।"
+"Thus, it was credited to your affiliate account.","इस प्रकार, यह आपके सहबद्ध खाते में जमा हो गया था।"
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","जब आदेश पूरा हो जाएगा, तो हम कमीशन को हमारे सिस्टम में आपके खाते की शेष राशि में स्थानांतरित कर देंगे और फिर आप जब चाहें पैसे निकाल सकते हैं।"
+"Transaction Amount:","लेन - देन की राशि:"
+"Current Balance:","वर्तमान शेष:"
+"New Withdrawal Request","नया निकासी अनुरोध"
+Information,जानकारी
+"Please log in to the admin panel to manage this request.","कृपया इस अनुरोध को प्रबंधित करने के लिए व्यवस्थापक पैनल में लॉग इन करें।"
+"Affiliate: Sign In Button","संबद्ध: साइन इन बटन"
+"Affiliate: List of programs","संबद्ध: कार्यक्रमों की सूची"
+"Account Dashboard","खाता डैशबोर्ड"
+Transactions,लेनदेन
+Settings,समायोजन
+"Affiliate Program","संबद्ध कार्यक्रम"

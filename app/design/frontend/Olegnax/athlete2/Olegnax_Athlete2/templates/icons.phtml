@@ -1,0 +1,24 @@
+<?php
+// add main icons symbols after body start
+$helper_icons = $this->helper(Olegnax\Athlete2\Helper\Icons::class);
+$icons_list = $helper_icons->getIconsList();
+if(!is_array($icons_list)){
+    return;
+}
+?>
+<?php foreach ($icons_list as $icon_name) :?>
+    <?php
+    $icon = $helper_icons->getIcon($icon_name);
+
+    if($icon && is_array($icon)){
+        $width = $icon[1];
+        $height = $icon[2];
+    ?>
+        <svg style="display: none" xmlns="http://www.w3.org/2000/svg">
+            <symbol id="a2-<?php echo $block->escapeHtmlAttr($icon_name) ?>-icon" viewBox="0 0 <?php echo $block->escapeHtmlAttr($width) ?> <?php echo $block->escapeHtmlAttr($height) ?>">
+                <?php echo $icon[0]; ?>
+            </symbol>
+        </svg>
+    <?php } ?>
+<?php endforeach; ?>
+

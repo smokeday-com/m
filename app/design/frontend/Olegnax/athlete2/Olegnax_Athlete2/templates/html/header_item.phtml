@@ -1,0 +1,52 @@
+<?php
+
+$theme_helper = $this->helper(Olegnax\Athlete2\Helper\Icons::class);
+$theme_header = $theme_helper->getConfig( 'athlete2_settings/header' );
+
+$data = $this->getData();
+$name = $this->getData('a2_name') ?: 'custom';
+$dropClass = 'ox-modal-' . $name;
+$dropContent = $block->getChildBlock('a2_header_custom_item_content');
+if( !$dropContent ){
+	return;
+}
+$text  = array_key_exists('a2_text', $data) ? $data['a2_text'] : $theme_header[ $name . '_text' ];
+$dropType  = array_key_exists('a2_drop_type', $data) ? $data['a2_drop_type'] : $theme_header[ $name . '_drop_type' ];
+$hideText  = (bool)array_key_exists('a2_hide_text', $data) ? $data['a2_hide_text'] : $theme_header[ $name . '_hide_text' ];
+$hideItemMobile  = (bool)array_key_exists('a2_hide_mobile', $data) ? $data['a2_hide_mobile'] : $theme_header[ $name . '_hide_mobile' ];
+
+// icon
+$icon = $theme_helper->getIconHTML($name, 'athlete2_design/appearance_icons_header/header_icon_'); // $name, $icon_option = '', $classes = ''
+?>
+<div class="header__item header__item-<?= $name ?> <?php echo $hideItemMobile ? 'hide-on-tablet hide-on-mobile' : ''; ?> <?php if($text && !$hideText){ echo "header__item--with-text"; } ?>" data-move-desktop="header.<?= $name ?>">
+	<div class="button js-item-<?= $name ?>-action">
+		<?= $icon; ?>
+		<?php if($text): ?>
+		<span class="label <?php if($hideText){ echo "visually-hidden"; } ?>">
+			<?= $block->escapeHtml($text) ?>
+		</span>
+		<?php endif; ?>
+	</div>
+
+	<div class="header__item-dropdown-content block-<?= $name ?>"
+			 data-role="OXmodal"
+			 data-mage-init='{"OXmodal":{
+				"triggerTarget":".js-item-<?= $name ?>-action",
+				"overlayClass":"<?php echo ('modal' === $dropType) ? 'ox-modal-overlay' : 'ox-slideout-shadow'; ?>",
+				"timeout": "200",
+				"defaultModalClass":"ox-dialog <?= $block->escapeHtml($dropClass) ?>",
+				"closeOnEscape": true,
+				"closeButtonTrigger": "#btn-<?= $name ?>-close",
+				"closeOnMouseLeave": <?php echo 'dropdown-hover' == $block->escapeHtml($dropType) ? 'true' : 'false'; ?>,
+				"hoverOpen": <?php echo 'dropdown-hover' == $block->escapeHtml($dropType) ? 'true' : 'false'; ?>,
+				"type": "<?php echo 'slideout' == $block->escapeHtml($dropType) ? 'slideout' : ''; ?>",
+				"htmlClass":"ox-fixed"
+			}}'>
+		<button type="button" id="btn-<?= $name ?>-close" class="ox-overlay-close-btn" aria-label="Close Modal" data-action="close"><span></span></button>
+		<div class="block-content">
+				<?php echo $dropContent->toHtml(); ?>
+				<?php echo $this->getChildHtml("header_item_additional_container"); ?>
+		</div>
+	</div>
+
+</div>

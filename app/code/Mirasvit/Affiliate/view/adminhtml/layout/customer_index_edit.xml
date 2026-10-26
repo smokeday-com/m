@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer_form">
+            <block name="affiliate" class="Mirasvit\Affiliate\Block\Adminhtml\Customer\Edit\Tab\Affiliate" template="customer/edit/tab/affiliate.phtml">
+                <action method="setTabLabel">
+                    <argument name="label" xsi:type="string">Affiliate</argument>
+                </action>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

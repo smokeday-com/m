@@ -1,0 +1,16 @@
+<?php
+$text = $block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_text_menu' ) ?: $block->getConfig('athlete2_settings/mobile_header/mobile_header_menu_text');
+$hideText   =  (bool)$block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_hide_text' );
+$icon_option   =  'athlete2_settings/mobile_bottom_nav/bottom_nav_icon_';
+$icon = $this->helper(Olegnax\Athlete2\Helper\Icons::class)->getIconHTML('menu', $icon_option); // $name, $icon_option = '', $classes = ''
+?>
+<div class="ox-bnav__item ox-bnav__menu">
+	<div data-action="toggle-mobile-nav" class="action">
+		<span class="icon">
+			<?= $icon; ?>
+		</span>
+		<span class="label <?php if($hideText){ echo "visually-hidden"; } ?>">
+			<?= $block->escapeHtml($text) ?>
+		</span>
+	</div>
+</div>

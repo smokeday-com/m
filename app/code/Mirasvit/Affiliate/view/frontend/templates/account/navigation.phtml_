@@ -1,0 +1,21 @@
+<?php
+declare(strict_types=1);
+
+/**
+ * @var \Magento\Framework\View\Element\Html\Links $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<?php /** @var \Magento\Customer\Block\Account\Navigation $block */ ?>
+<div class="block account-nav">
+    <div class="title">
+        <strong><?= __('My Account') ?></strong>
+    </div>
+    <div class="content">
+        <nav class="account-nav">
+            <ul class="nav items">
+                <?= $block->getChildHtml() ?>
+            </ul>
+        </nav>
+    </div>
+</div>

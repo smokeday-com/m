@@ -1,0 +1,22 @@
+<div id="route-login-form">
+    <div class="form-wrapper">
+        <div class="form-container">
+            <div class="form">
+                <p>It looks like your email address is linked to another store in our system.</p>
+                <p>Please sign in below to link this installation with your existing account.</p>
+                <form action="<?= $block->userLoginAction() ?>" method="POST">
+                    <?php echo $block->getBlockHtml('formkey'); ?>
+                    <label class="form-label">Email Address</label>
+                    <span><?= $block->getUsername() ?></span>
+                    <input name="username" type="hidden" value="<?= $block->getUsername() ?>"/>
+                    <label class="form-label">Password</label>
+                    <input class="form-input" name="password" type="password"/>
+                    <span>By proceeding, you are agreeing to our <a href="https://route.com/terms-and-conditions/" class="terms" target="_blank">Terms and Conditions</a></span>
+                    <button><span>Continue</span></button>
+                </form>
+                <p><a href="https://dashboard.route.com/forgot-password" target="_blank">Forgot Password</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modals-overlay" style="z-index: 901;"></div>

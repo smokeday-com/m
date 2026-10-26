@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="img-src">
+            <values>
+                <value id="facebook" type="host">www.facebook.com</value>
+                <value id="pinterest" type="host">pinterest.com</value>
+                <value id="assets.pinterest" type="host">assets.pinterest.com</value>
+                <value id="syndication.twitter" type="host">syndication.twitter.com</value>
+                <value id="amcglobal.sc" type="host">amcglobal.sc.omtrdc.net</value>
+            </values>
+        </policy>
+        <policy id="script-src">
+            <values>
+                <value id="facebook" type="host">connect.facebook.net</value>
+                <value id="twitter" type="host">twitter.com</value>
+                <value id="platform.twitter" type="host">platform.twitter.com</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="facebook" type="host">www.facebook.com</value>
+                <value id="platform.twitter" type="host">platform.twitter.com</value>
+            </values>
+        </policy>
+        <policy id="font-src">
+            <values>
+                <value id="maxcdn.bootstrapcdn" type="host">maxcdn.bootstrapcdn.com</value>
+                <value id="fonts.gstatic" type="host">fonts.gstatic.com</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

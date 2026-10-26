@@ -1,0 +1,82 @@
+<?php
+/**
+ * @var \Route\Route\Block\Adminhtml\Sales\Order\Create\Shipping\Additional $block
+ */
+$decodedConfig = json_decode($block->getConfig());
+?>
+<div class="route-div"></div>
+<script type="text/javascript">
+    require(['jquery', 'domReady!','route-protection-widget'], function ($) {
+        const TIME_OUT = 3000;
+        const STAGE = 'stage';
+
+        setTimeout(function () {
+            let config = JSON.parse('<?= $block->getConfig(); ?>');
+
+            function UpdateRouteInsurance(data) {
+                $.ajax({
+                    url: config.controller_url,
+                    type: "POST",
+                    data: {
+                        "is_route_insured": data.to,
+                        "form_key": config.form_key
+                    },
+                    showLoader: true,
+                    beforeSend: showLoader,
+                    cache: false,
+                    success: function (response) {
+                        updateTotals();
+                        hideLoader();
+                    }, error: hideLoader,
+                    complete: hideLoader,
+                });
+
+            }
+
+            function hideLoader(){
+                $('body').loader('hide');
+            }
+            function showLoader(){
+                $('body').loader('show');
+            }
+
+            function updateTotals() {
+                order.isShippingMethodReseted = false;
+                order.loadArea(['totals', 'billing_method'], true, {});
+            }
+
+            $.getScript(config.quote_function_url).done(function () {
+
+                if (typeof window.Route != "undefined") {
+
+                    window.Route.Protection.render({
+                        allowMultipleRenders:true,
+                        storeDomain: config.store_domain,
+                        subtotal: config.subtotal,
+                        currency: config.currency,
+                        environment: config.route_environment === STAGE ? window.Route.Environment.Dev : window.Route.Environment.Production,
+                        status: config.is_checked ? window.Route.Coverage.ActiveByDefault : window.Route.Coverage.InactiveByDefault,
+                        merchantId: config.merchant_id,
+                        theming: {
+                            mode: window.Route.Theme.Mode.LightMode,
+                            alignment: window.Route.Theme.Alignment.Left
+                        }
+                    });
+
+                    window.Route.Protection.on("status_change", UpdateRouteInsurance);
+
+                }
+
+            }).fail(function( jqxhr, settings, exception ) {
+                console.error('Failed to load quote function', exception);
+            });
+        },TIME_OUT)
+    });
+</script>
+<?php if (!$decodedConfig->is_carbon_neutral): ?>
+<style>
+    .pw-row-3{
+        display: none;
+    }
+</style>
+<?php endif;?>

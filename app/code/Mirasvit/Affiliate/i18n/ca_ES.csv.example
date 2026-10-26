@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Revisarem el vostre registre i us ho notificarem."
+"Your request to sign up to the affiliate program has been rejected.","La vostra sol·licitud d’inscripció al programa d’afiliació s’ha rebutjat."
+"Sign In to Affiliates","Inicieu la sessió als afiliats"
+"You have successfully signed up for an affiliate account.","Us heu registrat amb èxit per obtenir un compte afiliat."
+"Affiliate Dashboard","Tauler d&#39;afiliació"
+"Affiliate Account Settings","Configuració del compte d&#39;afiliació"
+"Account information successfully updated.","La informació del compte s&#39;ha actualitzat correctament."
+"Transactions History","Historial de transaccions"
+"Promotion Materials","Materials de promoció"
+Statistics,Estadístiques
+"Affiliate Program Overview","Descripció general del programa d’afiliació"
+Withdrawals,Retirades
+"Withdrawal request has been submitted.","S&#39;ha enviat la sol·licitud de retirada."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Actualment, un o més <a href=""%1"">comptes afiliats</a> es troben en estat pendent."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Una o més <a href=""%1"">sol·licituds de retirada</a> es troben actualment en estat pendent."
+"Pending Approval","Pendent d&#39;aprovació"
+Approved,Aprovat
+"Not Approved","No aprovat"
+Image,Imatge
+Text,Text
+"Assign to first referred affiliate","Assigneu-lo al primer afiliat referit"
+"Assign to last referred affiliate","Assigneu a l&#39;últim afiliat referit"
+Available,Disponible
+Inactive,Inactiu
+Removed,Eliminat
+"- Disable these emails -","- Desactiva aquests correus electrònics -"
+Click,"Feu clic a"
+Impression,Impressió
+Lead,Dirigir
+Sale,Venda
+". ' (default)'",". &quot;(per defecte)&quot;"
+"Percent of order amount","Percentatge de l&#39;import de la comanda"
+"Percent of cart amount","Percentatge de l&#39;import del carretó"
+"Fixed amount","Import fix"
+"Pay per Sale","Pagament per venda"
+"Pay per Lead","Pagament per client potencial"
+"Pay per Click","Pagament per clic"
+"Pay per Impression","Pagament per impressió"
+Complete,Complet
+"In Hold","En espera"
+Commission,Comissió
+Withdraw,Retirar-se
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Crèdit a la botiga"
+Other,Altres
+Pending,Pendents
+Accepted,Acceptat
+Completed,Completat
+Denied,Negat
+"Number of Orders from reffered customers","Nombre de comandes de clients referits"
+"Sales Amount from reffered customers","Quantitat de vendes dels clients referits"
+is,és
+"is not","no és"
+"greater than","més gran que"
+"less than","menys que"
+"equals or greater than","igual o superior a"
+"equals or less than","és igual o inferior a"
+"Conditions Combination","Combinació de condicions"
+"Affiliate conditions","Condicions d’afiliació"
+General,General
+"Customer Group","Grup de clients"
+Store,Botiga
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","No es permet el tipus de fitxer (només es permeten fitxers JPG, JPEG, PNG i GIF)"
+"Commission for order #%1 (%2)","Comissió per a la comanda núm .%1 (%2)"
+"Refund for order #%1","Reembossament per comanda núm .%1"
+Withdrawal,Retirada
+"Withdraw cannot exceed current balance.","La retirada no pot superar el saldo actual."
+"Minimum withdrawal amount is %1.","L’import mínim de retirada és de %1."
+"You already have a pending withdrawal request.","Ja teniu una sol·licitud de retirada pendent."
+"Affiliate Withdrawal","Retirada d’afiliats"
+Back,Esquena
+Delete,Suprimeix
+"Are you sure you want to proceed?","Esteu segur que voleu continuar?"
+"Save and Continue Edit","Desa i continua editant"
+Save,Desa
+"Click on row to edit the coupon","Feu clic a la fila per editar el cupó"
+"Referred Customers","Clients referits"
+Actions,Accions
+"Add Customers","Afegiu clients"
+Customers,Clients
+Cancel,"Cancel · lar"
+"Add Selected Customers","Afegiu clients seleccionats"
+Remove,Elimina
+ID,Identificació
+Name,Nom
+Email,"Correu electrònic"
+View,Veure
+Edit,Edita
+"Delete item?","Voleu suprimir l&#39;element?"
+Conditions,Condicions
+"Affiliate conditions (affects only automatically updated group)","Condicions d&#39;afiliació (només afecta el grup actualitzat automàticament)"
+"Assigned Affiliates","Afiliats assignats"
+"Add Affiliate","Afegiu afiliats"
+Affiliates,Afiliats
+"Add Selected","Afegeix seleccionats"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Apliqueu la comissió només als articles del carretó que compleixin les condicions següents (deixeu-ho en blanc per a tots els articles)."
+Accept,Accepta
+Reject,Rebutjar
+"Referring Website","Lloc web de referència"
+"Subscribe to email notifications","Subscriviu-vos a les notificacions per correu electrònic"
+"I accept the terms and conditions","Accepto els termes i condicions"
+"Sign Up",Registra&#39;t
+"Referral Website","Lloc web de referència"
+"Payment Method","Mètode de pagament"
+"Payment Information","Informació sobre el pagament"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Especifiqueu la informació de pagament personal: correu electrònic de PayPal o qualsevol informació de pagament de la cartera electrònica."
+From,"Des de"
+To,"Per a"
+Apply,Aplicar
+Clicks,Clics
+Leads,Condueix
+Orders,Comandes
+Views,Vistes
+Earned,Guanyat
+"My Account","El meu compte"
+"Commissions according to your affiliate group","Comissions segons el vostre grup afiliat"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> de l&#39;import de la comanda des del primer ordre"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> de l&#39;import de la comanda de la segona comanda o més"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> de l&#39;import del carret des del primer ordre"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> de l&#39;import del carretó des de segona comanda o més"
+"<b>%1</b> per sale from first order","<b>%1</b> per venda des de la primera comanda"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> per venda a partir de segona comanda i més"
+"<b>%1</b> per unique click","<b>%1</b> per clic únic"
+"<b>%1</b> per lead","<b>%1</b> per oportunitat"
+"<b>%1</b> per 1000 views","<b>%1</b> per cada 1.000 visualitzacions"
+Banners,Pancartes
+Type,Tipus
+Size,Mida
+Link,Enllaç
+"Get Code","Obtenir el codi"
+"Copy and paste this code into your website: ","Copieu i enganxeu aquest codi al vostre lloc web:"
+"Referral Coupons","Cupons de referència"
+Program,Programa
+Coupon,Cupó
+Discount,Descompte
+"Personal Referral Link","Enllaç de referència personal"
+"Enter any URL from this store in the form below to generate a new referral link:","Introduïu qualsevol URL d&#39;aquesta botiga al formulari següent per generar un nou enllaç de referència:"
+"Your unique referral link is:","El vostre enllaç de referència únic és:"
+"Referral Widget","Giny de referència"
+"Widget Title:","Títol del widget:"
+"Related Products","Productes relacionats"
+Width:,Amplada:
+Height:,Alçada:
+"Number of products:","Nombre de productes:"
+"Show Bestsellers","Mostra els més venuts"
+"Show New Products","Mostra nous productes"
+Search,Cerca
+"Search term","Terme de cerca"
+"Show Product's names","Mostra els noms del producte"
+"Show Prices","Mostra els preus"
+"Place this code wherever you want the widget to appear on your page.","Col·loqueu aquest codi allà on vulgueu que aparegui el widget a la vostra pàgina."
+"Current balance: <b>%1</b>","Saldo actual: <b>%1</b>"
+"On hold: %1","En espera: %1"
+"Lifetime: %1","Per vida: %1"
+"Paid: %1","Pagat: %1"
+Date,Data
+Balance,Equilibri
+Amount,Import
+Details,Detalls
+"On hold to %1","En espera fins a %1"
+"There have been no transactions yet.","Encara no hi ha hagut cap transacció."
+"Request withdrawal","Sol·licita la retirada"
+"Minimum balance to request withdrawal is %1","El saldo mínim per sol·licitar la retirada és de %1"
+Fee,Quota
+Status,Estat
+"Pending approval","Pendent d&#39;aprovació"
+"There have been no withdrawals yet.","Encara no hi ha hagut cap retirada."
+"Your account is assigned to the <span>%1</span> affiliate group","El vostre compte està assignat al grup d&#39;afiliats <span>%1</span>"
+Commissions,Comissions
+"Our Programs","Els nostres programes"
+"Our Program","El nostre programa"
+"%1  - Minimum balance required for payout.","%1: saldo mínim necessari per al pagament."
+"Affiliate Group","Grup d&#39;afiliats"
+Description,Descripció
+"Sign In","Inicieu la sessió"
+"New Affiliate Account","Nou compte d&#39;afiliats"
+"Account Information","Informació del compte"
+"%name,","%nom,"
+"Your affiliate account at %store_name has been approved.","El vostre compte d&#39;afiliació a% store_name s&#39;ha aprovat."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Feu clic <a href=""%login_url"">aquí</a> per iniciar la sessió al vostre compte."
+"Your account balance has been updated at %store_name.","El saldo del vostre compte s&#39;ha actualitzat a% store_name."
+Balance:,Saldo:
+"Welcome to %store_name affiliate program!","Benvingut al programa d&#39;afiliació% store_name."
+Email:,"Correu electrònic:"
+"Referring Website:","Lloc web de referència:"
+"A customer referred by you has just placed an order at %store_name.","Un client que heu fet referència acaba de fer una comanda a% store_name."
+"Thus, it was credited to your affiliate account.","Per tant, es va acreditar al vostre compte d&#39;afiliació."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Un cop finalitzada la comanda, transferirem la comissió al saldo del vostre compte al nostre sistema i després podreu retirar els diners quan vulgueu."
+"Transaction Amount:","Import de la transacció:"
+"Current Balance:","Balanç actual:"
+"New Withdrawal Request","Nova sol·licitud de retirada"
+Information,Informació
+"Please log in to the admin panel to manage this request.","Inicieu la sessió al tauler d’administració per gestionar aquesta sol·licitud."
+"Affiliate: Sign In Button","Afiliat: botó d&#39;inici de sessió"
+"Affiliate: List of programs","Afiliat: llista de programes"
+"Account Dashboard","Tauler de comptes"
+Transactions,Transaccions
+Settings,Configuració
+"Affiliate Program","Programa d&#39;afiliació"

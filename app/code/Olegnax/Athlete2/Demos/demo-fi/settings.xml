@@ -1,0 +1,2228 @@
+<root>
+	<config>
+		<design>
+			<header>
+				<logo_width>98</logo_width>
+				<logo_height>73</logo_height>
+			</header>
+		</design>
+		<web>
+			<default>
+				<cms_home_page>athlete2-home-fi</cms_home_page>
+			</default>
+		</web>
+		<cms>
+			<wysiwyg>
+				<enabled>hidden</enabled>
+			</wysiwyg>
+		</cms>
+		<mfblog>
+			<index_page>
+				<template></template>
+			</index_page>
+			<post_view>
+				<design>
+					<template></template>
+				</design>
+				<related_posts>
+					<template></template>
+					<number_of_posts>3</number_of_posts>
+				</related_posts>
+				<nextprev>
+					<template></template>
+				</nextprev>
+			</post_view>
+			<post_list>
+				<template></template>
+			</post_list>
+			<search>
+				<template></template>
+			</search>
+			<author>
+				<template></template>
+			</author>
+			<sidebar>
+				<recent_posts>
+					<template></template>
+				</recent_posts>
+				<featured_posts>
+					<template></template>
+				</featured_posts>
+				<popular_posts>
+					<template></template>
+				</popular_posts>
+			</sidebar>
+			<product_page>
+				<related_posts_template></related_posts_template>
+			</product_page>
+		</mfblog>
+		<athlete2_settings>
+			<general>
+				<enable>1</enable>
+				<content_maxwidth>1710</content_maxwidth>
+				<to_top>1</to_top>
+				<lazyload>1</lazyload>
+				<lazyload_svg>1</lazyload_svg>
+				<lazyload_resized_placeholder>1</lazyload_resized_placeholder>
+				<lazyload_exclude>rev-slidebg</lazyload_exclude>
+				<lazy_use_cache>0</lazy_use_cache>
+				<lazyload_video>1</lazyload_video>
+				<expand>0</expand>
+				<expand_selectors></expand_selectors>
+				<expand_height></expand_height>
+				<deferjs>1</deferjs>
+				<deferjs_combine_inline>1</deferjs_combine_inline>
+				<deferjs_combine_magentoinit>1</deferjs_combine_magentoinit>
+				<deferjs_exclude_homepage>0</deferjs_exclude_homepage>
+				<deferjs_exclude_action>{"_1576115527932_932":{"condition":"checkout_index_index"},"_1576116261940_940":{"condition":"checkout_cart_index"}}</deferjs_exclude_action>
+				<deferjs_exclude_path>[]</deferjs_exclude_path>
+				<deferjs_show_action_path>0</deferjs_show_action_path>
+				<deferjs_use_cache>0</deferjs_use_cache>
+				<waypoints>1</waypoints>
+				<videojs>1</videojs>
+				<bannersjs>1</bannersjs>
+				<content_fullwidth>1</content_fullwidth>
+				<messages_fixed>1</messages_fixed>
+				<cms_validator_disable>0</cms_validator_disable>
+			</general>
+			<header>
+				<header_layout>header_4</header_layout>
+				<header_fullwidth>1</header_fullwidth>
+				<menu_hover_style>menu-style-4</menu_hover_style>
+				<sticky_header>1</sticky_header>
+				<sticky_header_smart>1</sticky_header_smart>
+				<sticky_header_minimized>1</sticky_header_minimized>
+				<sticky_header_hide_logo>0</sticky_header_hide_logo>
+				<sticky_header_mobile>0</sticky_header_mobile>
+				<disable_topline>0</disable_topline>
+				<show_top_links>0</show_top_links>
+				<account_greet>0</account_greet>
+				<show_account_greet>0</show_account_greet>
+				<top_left_static>Need Help? +44 (0) 123 4567</top_left_static>
+				<top_middle_static></top_middle_static>
+				<top_right_static><![CDATA[<a href="#">Top Deals</a> <a href="#">Deal of the Day</a> <a href="#">Add your links</a> {{widget type="Olegnax\Athlete2\Block\SocialIcons" link_target="self" link_style="simple" link_size="tiny" text_color="#666666" text_hover_color="#343434" background="transparent" background_hover="transparent" facebook_link="#" facebook_sort="1" facebook_messenger_sort="2" instagram_link="#" instagram_sort="3" twitter_link="#" twitter_sort="4" skype_sort="5" tumblr_sort="5" google_plus_sort="7" amazon_sort="8" kickstarter_sort="9" stripe_sort="10" paypal_sort="11" vimeo_sort="12" vk_sort="13" foursquare_sort="14" flickr_sort="15" linkedin_sort="16" whatsapp_sort="17" telegram_plane_sort="18" template="Olegnax_Athlete2::widgets/social_icons.phtml"}}]]></top_right_static>
+				<minicart_type>dropdown-hover</minicart_type>
+				<minicart_style>modern</minicart_style>
+				<minicart_btn_minimal>1</minicart_btn_minimal>
+				<minicart_counter_mobile>1</minicart_counter_mobile>
+				<minicart_btn_hide_icon>0</minicart_btn_hide_icon>
+				<minicart_btn_text>Bag</minicart_btn_text>
+				<minicart_show_text>0</minicart_show_text>
+				<minicart_reorder>0</minicart_reorder>
+				<search_type>panel</search_type>
+				<menu_position>1</menu_position>
+				<menu_align>left</menu_align>
+				<menu_align_sticky></menu_align_sticky>
+				<wishlist_position>main</wishlist_position>
+				<wishlist_text></wishlist_text>
+				<wishlist_hide_text>1</wishlist_hide_text>
+				<compare_position>topline</compare_position>
+				<compare_text></compare_text>
+				<compare_hide_text>1</compare_hide_text>
+				<account_position>main</account_position>
+				<account_text></account_text>
+				<account_hide_text>1</account_hide_text>
+				<account_hide_icon>0</account_hide_icon>
+				<account_action>login</account_action>
+				<account_type>dropdown-hover</account_type>
+				<language_tiny_drops>0</language_tiny_drops>
+				<language_type>modal</language_type>
+				<language_drop_position></language_drop_position>
+				<language_drop_width>800</language_drop_width>
+				<language_label>custom</language_label>
+				<language_label_currency>0</language_label_currency>
+				<language_text>Change Country</language_text>
+				<language_in_header>0</language_in_header>
+				<language_drop_layout>adaptive</language_drop_layout>
+				<language_drop_style>medium</language_drop_style>
+				<language_drop_style_mobile>medium</language_drop_style_mobile>
+				<language_drop_icon>flag</language_drop_icon>
+				<language_drop_trigger_icon>icon</language_drop_trigger_icon>
+				<language_drop_show_currency>1</language_drop_show_currency>
+				<language_drop_show_stores>1</language_drop_show_stores>
+				<language_drop_show_languages>1</language_drop_show_languages>
+				<language_drop_hide_headings>0</language_drop_hide_headings>
+				<language_move_mobile>1</language_move_mobile>
+				<custom_item_enable>1</custom_item_enable>
+				<custom_drop_type>dropdown-hover</custom_drop_type>
+				<custom_drop_width>350</custom_drop_width>
+				<custom_text></custom_text>
+				<custom_hide_icon>0</custom_hide_icon>
+				<custom_hide_text>0</custom_hide_text>
+				<custom_hide_mobile>1</custom_hide_mobile>
+				<content_custom_type>textfield</content_custom_type>
+				<content_custom_custom><![CDATA[        <div class="hcard light-bg-hover">
+            <div class="hcard_left">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px">
+                    <path d="M0,3v18h24V3H0z M21.4,5L12,12.7L2.6,5H21.4z M2,19V7.1l10,8.2l10-8.2V19H2z"/>
+                </svg>
+            </div>
+            <div class="hcard_right">
+                <h6 class="hcard_title">Call Us</h6>
+                <ul class="clean-list no-margin">
+                    <li>
+                        <div class="info_text">US Office</div>
+                        <strong><a class="info_link" href="tel:+34912158091">+1 (555) 555-1234</a></strong>
+                    </li>
+                    <li>
+                        <div class="info_text">UK Office</div>
+                        <strong><a class="info_link" href="tel:+34912158091">+1 (555) 555-1234</a></strong>
+                    </li>
+                    <li>
+                        Monday to Friday from 10:00 to 20:00 (except holidays)
+                    </li>
+                </ul>                
+            </div>
+        </div>
+        <div class="hcard light-bg-hover border-top">
+            <div class="hcard_left">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px">
+                    <path d="M5.9,2l1.8,4.3L5.5,8.2l-1.2,1L5,10.6c1.8,3.7,4.8,6.7,8.5,8.5l1.4,0.7l1-1.2l1.8-2.2l4.3,1.8L20.9,22
+                        C10.5,21.9,2.1,13.5,2,3.1L5.9,2 M6,0C5.9,0,5.7,0,5.5,0.1L1.4,1.2C0.6,1.4,0,2.1,0,3c0,11.6,9.4,21,21,21c0.8,0,1.6-0.6,1.8-1.4
+                        l1.1-4.1c0.2-0.9-0.2-1.9-1.1-2.2l-4.5-1.9c-0.2-0.1-0.5-0.1-0.7-0.1c-0.6,0-1.1,0.2-1.4,0.7l-1.9,2.3c-3.3-1.6-6-4.2-7.5-7.5
+                        l2.3-1.9c0.6-0.5,0.9-1.4,0.5-2.2L7.7,1.1v0C7.4,0.4,6.8,0,6,0L6,0z"></path>
+                </svg>
+            </div>
+            <div class="hcard_right">
+                <h6 class="hcard_title">Drop us an email</h6>
+                <ul class="clean-list no-margin">
+                    <li>
+                        <strong><a class="info_link" href="mailto:sample@email.com">sample@email.com</a></strong>
+                    </li>
+                    <li>
+                       Monday to Friday from 10:00 to 20:00 (except holidays)
+                    </li>
+                </ul>               
+            </div>
+        </div>
+
+        <div class="hcard light-bg-hover border-top">
+            <div class="hcard_left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" class="a2-icon--support">
+                   <path fill="none" stroke-width="2" stroke-miterlimit="10" d="M6,13.25v-1.5C6,6.75,10,3,15,3s9,3.75,9,8.75v1.5"/><path fill="none" stroke-width="2" stroke-miterlimit="10" d="M18,25c3,0,5-1,6-4"/><path d="M24,14.5c0.8,0,1.5,0.7,1.5,1.5v3c0,0.8-0.7,1.5-1.5,1.5h-0.4v-6H24 M24,13h-2v9h2c1.7,0,3-1.3,3-3v-3 C27,14.3,25.7,13,24,13L24,13z"/><path d="M6,14.5h0.4v6H6c-0.8,0-1.5-0.7-1.5-1.5v-3C4.5,15.2,5.2,14.5,6,14.5 M6,13c-1.7,0-3,1.3-3,3v3c0,1.7,1.3,3,3,3h2v-9H6 L6,13z"/><path d="M15,24.5c1.613,0,2.5,0.751,2.5,1s-0.887,1-2.5,1s-2.5-0.751-2.5-1S13.387,24.5,15,24.5 M15,23c-2.209,0-4,1.119-4,2.5 s1.791,2.5,4,2.5s4-1.119,4-2.5S17.209,23,15,23L15,23z"/>
+                </svg>
+            </div>
+            <div class="hcard_right">
+                <h6 class="hcard_title">Chat with us</h6>
+                <ul class="clean-list no-margin">
+                    <li>Chat with us now to get immediate assistance!</li>
+                    <li><a class="button primary small" href="#">open chat</a></li>
+                </ul>                         
+            </div>
+        </div>]]></content_custom_custom>
+				<content_custom_static></content_custom_static>
+				<items_text_position>below</items_text_position>
+				<header_item_search_order></header_item_search_order>
+				<header_item_account_order></header_item_account_order>
+				<header_item_compare_order></header_item_compare_order>
+				<header_item_wishlist_order></header_item_wishlist_order>
+				<header_item_cart_order></header_item_cart_order>
+				<header_item_language_order></header_item_language_order>
+				<header_item_custom_order></header_item_custom_order>
+				<sticky_alt_logo>0</sticky_alt_logo>
+				<mobile_header_layout>1</mobile_header_layout>
+				<mobile_header_minimal>1</mobile_header_minimal>
+				<search_field_show>1</search_field_show>
+				<catalog_category_products_list>1</catalog_category_products_list>
+				<header_links_show>1</header_links_show>
+				<test_image_header>overlay</test_image_header>
+				<test_image_header2>panel</test_image_header2>
+				<menu_style>default</menu_style>
+			</header>
+			<mobile_header>
+				<mobile_header_layout>5</mobile_header_layout>
+				<search_mobile_hide>0</search_mobile_hide>
+				<search_mobile_below>1</search_mobile_below>
+				<wishlist_mobile_position>none</wishlist_mobile_position>
+				<compare_mobile_position>none</compare_mobile_position>
+				<mobile_header_menu_text>Navigation</mobile_header_menu_text>
+				<mobile_menu_content_before><![CDATA[<a href="#"><img src="{{media url="athlete2/Demos/ca/mobile-menu-ca.jpg"}}" alt="" widht="365" height="160" /></a>]]></mobile_menu_content_before>
+				<mobile_menu_content_after><![CDATA[<div style="padding:0 10px">Need Help? +44 (0) 123 4567<br>
+You can add your content here.</div>]]></mobile_menu_content_after>
+				<mobile_header_hide_compare>0</mobile_header_hide_compare>
+				<mobile_header_hide_wishlist>0</mobile_header_hide_wishlist>
+				<mobile_header_minimal>0</mobile_header_minimal>
+				<mobile_alt_logo>0</mobile_alt_logo>
+			</mobile_header>
+			<logo>
+				<logo_upload></logo_upload>
+				<logo_upload_retina></logo_upload_retina>
+				<logo_upload_print></logo_upload_print>
+				<logo_img_width>100</logo_img_width>
+				<logo_img_height>53</logo_img_height>
+				<logo_width>190</logo_width>
+				<logo_padding_horizontal>0</logo_padding_horizontal>
+				<logo_padding_vertical>6</logo_padding_vertical>
+				<mobile_logo_padding_horizontal></mobile_logo_padding_horizontal>
+				<mobile_logo_padding_vertical></mobile_logo_padding_vertical>
+				<logo_padding>30</logo_padding>
+				<logo_upload_alt></logo_upload_alt>
+				<logo_upload_alt_retina></logo_upload_alt_retina>
+			</logo>
+			<header_banner_below>
+				<show_banner>1</show_banner>
+				<header_banner_location></header_banner_location>
+				<header_banner_type>textfield</header_banner_type>
+				<header_banner_columns>1</header_banner_columns>
+				<header_banner_custom>{{widget type="Olegnax\Carousel\Block\Widget\Carousel" carousel="header-text" slide_transition="none" loop="0" rewind="1" nav="1" nav_style="simple nav-small" nav_always="0" dots="0" autoplay="3" pause_on_hover="0" progress="0" columns_desktop="1" columns_desktop_small="1" columns_tablet="1" columns_mobile="1" slider_height="settings" auto_height="0" height_desktop="58" lazy_load="exclude" arrows_icon_color="#000" arrows_icon_color_hover="#000"}}</header_banner_custom>
+				<header_banner_static></header_banner_static>
+				<header_banner_custom_2></header_banner_custom_2>
+			</header_banner_below>
+			<header_banner_top>
+				<show_banner>1</show_banner>
+				<header_banner_location></header_banner_location>
+				<header_banner_type>textfield</header_banner_type>
+				<header_banner_custom></header_banner_custom>
+				<header_banner_static></header_banner_static>
+				<header_banner_align_center>1</header_banner_align_center>
+				<closable>1</closable>
+				<cookie_num>1</cookie_num>
+				<banner_hide_by_date>0</banner_hide_by_date>
+				<banner_hide_date></banner_hide_date>
+				<banner_days_to_hours></banner_days_to_hours>
+				<banner_hide_on_mobile>1</banner_hide_on_mobile>
+				<head_top_ban_type>textfield</head_top_ban_type>
+				<head_top_ban_custom></head_top_ban_custom>
+				<head_top_ban_mode>always</head_top_ban_mode>
+				<head_top_ban_close>1</head_top_ban_close>
+			</header_banner_top>
+			<header_banner_above>
+				<show_banner>1</show_banner>
+				<header_banner_location></header_banner_location>
+				<header_banner_type>textfield</header_banner_type>
+				<header_banner_custom><![CDATA[<div class="d-flex align-items-center flex-wrap flex-column-m" style="gap: 10px 20px;">
+    <strong class="h3" style="font-size:22px">Flash sale!</strong>
+    {{widget type="Olegnax\Athlete2\Block\Countdown" loop="1" end_days="0" end_hours="1" day_to_hours="0" hide_zero="1" hide_text="0" body_class="testexpire" expire_content="This offer has expired" css_class="big-font"}}
+    <div style="text-align: left;line-height: 1.2;" class="hide-on-mobile hide-on-tablet" >Save up to 62% on limited time deals, plus get FREE shipping storewide.<br>
+        Earn 3% back in HP Rewards on your purchase of select HP laptops or desktops.</div>
+    <a href="#" class="button secondary wide">shop</a>
+</div>
+]]></header_banner_custom>
+				<header_banner_static></header_banner_static>
+				<header_banner_align_center>1</header_banner_align_center>
+				<closable>1</closable>
+				<cookie_num>4</cookie_num>
+				<banner_hide_by_date>0</banner_hide_by_date>
+				<banner_hide_date></banner_hide_date>
+				<banner_days_to_hours></banner_days_to_hours>
+				<banner_hide_on_mobile>0</banner_hide_on_mobile>
+			</header_banner_above>
+			<cms_pages>
+				<cms_page_layout></cms_page_layout>
+			</cms_pages>
+			<product>
+				<disable_sticky_header>0</disable_sticky_header>
+				<gallery_wrapper>1</gallery_wrapper>
+				<product_fullwidth>0</product_fullwidth>
+				<gallery_preload>1</gallery_preload>
+				<gallery_layout>fast</gallery_layout>
+				<gallery_navdir>vertical</gallery_navdir>
+				<css_only_gallery>0</css_only_gallery>
+				<gallery_images_stretch_cssonly>stretch</gallery_images_stretch_cssonly>
+				<gallery_popup_cssonly>1</gallery_popup_cssonly>
+				<gallery_mobile_css_dots_cssonly>1</gallery_mobile_css_dots_cssonly>
+				<gallery_disable_lazy>0</gallery_disable_lazy>
+				<gallery_images_stretch>center</gallery_images_stretch>
+				<gallery_images_min_count>2</gallery_images_min_count>
+				<gallery_mobile>1</gallery_mobile>
+				<gallery_mobile_breakpoint></gallery_mobile_breakpoint>
+				<gallery_mobile_css>0</gallery_mobile_css>
+				<gallery_mobile_css_dots>1</gallery_mobile_css_dots>
+				<gallery_popup>1</gallery_popup>
+				<gallery_zoom>0</gallery_zoom>
+				<gallery_sticky>0</gallery_sticky>
+				<gallery_zoom_cursor>1</gallery_zoom_cursor>
+				<product_gallery_fixed_size>0</product_gallery_fixed_size>
+				<product_gallery_width></product_gallery_width>
+				<actions_position>2</actions_position>
+				<compare_disable>0</compare_disable>
+				<wishlist_disable>0</wishlist_disable>
+				<qty_disable>0</qty_disable>
+				<product_social_block>1</product_social_block>
+				<hide-conf-price-label>0</hide-conf-price-label>
+				<related_columns>4</related_columns>
+				<upsell_columns>5</upsell_columns>
+				<product_tabs_position></product_tabs_position>
+				<product_tabs_accordion>1</product_tabs_accordion>
+				<product_tabs_opened>1</product_tabs_opened>
+				<product_accordion_multiple>1</product_accordion_multiple>
+				<product_accordion_collapsable>1</product_accordion_collapsable>
+				<product_tabs_closed>0</product_tabs_closed>
+				<product_tabs_style>minimal</product_tabs_style>
+				<description_button>1</description_button>
+				<description_button_text></description_button_text>
+				<description_button_url></description_button_url>
+				<description_button_style>button secondary bordered naked small rounded</description_button_style>
+				<description_expand>0</description_expand>
+				<description_expand_height></description_expand_height>
+				<related_columns_l>3</related_columns_l>
+				<related_columns_m>2</related_columns_m>
+				<related_columns_s>1</related_columns_s>
+				<related_dots_align>left</related_dots_align>
+				<related_arrows_position>title</related_arrows_position>
+				<related_title_align>left</related_title_align>
+				<related_dots>1</related_dots>
+				<related_arrows>1</related_arrows>
+				<related_title_lines>0</related_title_lines>
+				<related_positon>oxbottom</related_positon>
+				<upsell_positon>oxbottom</upsell_positon>
+				<description_related>0</description_related>
+				<prev_next>1</prev_next>
+				<prev_next_mini>1</prev_next_mini>
+				<product_social_min>title</product_social_min>
+				<product_mailtosocial>1</product_mailtosocial>
+				<show_category_name>0</show_category_name>
+				<show_mini_reviews>1</show_mini_reviews>
+				<conf_prod_drop_down_price>0</conf_prod_drop_down_price>
+				<reviews_position>intabs</reviews_position>
+				<related_overflow>1</related_overflow>
+				<after_info_block_show>1</after_info_block_show>
+				<after_info_block_content_type>custom_block</after_info_block_content_type>
+				<after_info_block_content_custom></after_info_block_content_custom>
+				<after_info_block_content_static>athlete2-after-product-info-block-2</after_info_block_content_static>
+				<brand>0</brand>
+				<brand_image_alt>1</brand_image_alt>
+				<brand_image_width></brand_image_width>
+				<brand_image_height></brand_image_height>
+				<customtabs_enable>1</customtabs_enable>
+				<fast_gallery_load_enable>1</fast_gallery_load_enable>
+				<product_tabs_right>0</product_tabs_right>
+				<customtabs_by_block>{"_1557431587125_125":{"title":"Custom","block":"athlete2-custom-product-tab-02","category_ids":"","product_skus":"","sort_order":""}}</customtabs_by_block>
+				<customtabs_by_attribute>[]</customtabs_by_attribute>
+				<reviews_in_tab>0</reviews_in_tab>
+				<gallery_override>1</gallery_override>
+				<columns_maxwidth></columns_maxwidth>
+				<bottom_wrapper_maxwidth></bottom_wrapper_maxwidth>
+				<product_gallery_width_2col></product_gallery_width_2col>
+				<product_gallery_width_3col></product_gallery_width_3col>
+				<product_page_layout></product_page_layout>
+				<gallery_wrapper_maxwidth>1460</gallery_wrapper_maxwidth>
+			</product>
+			<product_stock>
+				<enable>1</enable>
+				<show>always</show>
+				<position>above_cart</position>
+				<low_stock_value></low_stock_value>
+				<show_total_sold>1</show_total_sold>
+				<set_base_qty>0</set_base_qty>
+				<fake_base_qty>1000</fake_base_qty>
+				<stock_text>{{qty}} available</stock_text>
+				<low_stock_text></low_stock_text>
+				<sold_text></sold_text>
+				<show_out_of_stock>0</show_out_of_stock>
+			</product_stock>
+			<product_bar>
+				<enabled>1</enabled>
+				<position_top>0</position_top>
+				<fullwidth_content>0</fullwidth_content>
+				<stretch_content>0</stretch_content>
+				<show_qty>1</show_qty>
+				<show_image>1</show_image>
+				<show_name>1</show_name>
+				<show_wishlist>1</show_wishlist>
+				<show_price>1</show_price>
+				<show_price_diff>1</show_price_diff>
+				<show_rating>1</show_rating>
+				<show_content_above>0</show_content_above>
+				<content_above_type>textfield</content_above_type>
+				<content_above_custom></content_above_custom>
+				<content_above_static></content_above_static>
+				<show_content_below>0</show_content_below>
+				<content_below_type>textfield</content_below_type>
+				<content_below_custom></content_below_custom>
+				<content_below_static></content_below_static>
+				<show_content_right>0</show_content_right>
+				<content_right_type></content_right_type>
+				<content_right_custom></content_right_custom>
+				<content_right_static></content_right_static>
+				<show_on_mobile>1</show_on_mobile>
+				<mobile_layout></mobile_layout>
+				<stretch_addtocart_mobile>1</stretch_addtocart_mobile>
+				<show_qty_mobile>0</show_qty_mobile>
+				<show_name_mobile>0</show_name_mobile>
+				<show_image_mobile>0</show_image_mobile>
+				<show_wishlist_mobile>0</show_wishlist_mobile>
+				<show_price_mobile>1</show_price_mobile>
+				<show_price_diff_mobile>1</show_price_diff_mobile>
+				<show_rating_mobile>0</show_rating_mobile>
+				<show_content_above_mobile>0</show_content_above_mobile>
+				<show_content_below_mobile>0</show_content_below_mobile>
+				<show_content_right_mobile>0</show_content_right_mobile>
+				<content_price_type>textfield</content_price_type>
+				<content_price_custom></content_price_custom>
+				<show_content_price>1</show_content_price>
+				<show_content_price_mobile>0</show_content_price_mobile>
+			</product_bar>
+			<product_quick_nav>
+				<enabled>1</enabled>
+				<hide_mobile>0</hide_mobile>
+				<position></position>
+				<show_tabs>1</show_tabs>
+				<hide_description>0</hide_description>
+				<description_link_text></description_link_text>
+				<hide_additional>0</hide_additional>
+				<additional_link_text>Specs</additional_link_text>
+				<hide_reviews>0</hide_reviews>
+				<reviews_link_text></reviews_link_text>
+				<show_related>1</show_related>
+				<related_link_text></related_link_text>
+				<show_all_link>1</show_all_link>
+				<all_link_text></all_link_text>
+				<custom_content></custom_content>
+				<all_info_text>asda</all_info_text>
+			</product_quick_nav>
+			<products_listing>
+				<catalog_page_layout></catalog_page_layout>
+				<search_results_layout></search_results_layout>
+				<grid_fullwidth>1</grid_fullwidth>
+				<grid_fullwidth_nopadding>1</grid_fullwidth_nopadding>
+				<move_cat_title>0</move_cat_title>
+				<category_title_align>center</category_title_align>
+				<move_cat_cms_block>0</move_cat_cms_block>
+				<sticky_sidebar>0</sticky_sidebar>
+				<close_sidebar>1</close_sidebar>
+				<sidebar_maxheight>1</sidebar_maxheight>
+				<filters_closed>1</filters_closed>
+				<filters_opened_categories>1</filters_opened_categories>
+				<filters_opened_by_attribute>{"_1710869298526_526":{"id":"color"},"_1710869331686_686":{"id":"price"}}</filters_opened_by_attribute>
+				<filters_counter>1</filters_counter>
+				<products_layout>6</products_layout>
+				<products_layout_centered>1</products_layout_centered>
+				<grid_disable_link>0</grid_disable_link>
+				<grid_columns>3</grid_columns>
+				<grid_columns_l>3</grid_columns_l>
+				<grid_columns_m>2</grid_columns_m>
+				<grid_columns_s>1</grid_columns_s>
+				<add_to_cart>1</add_to_cart>
+				<add_to_cart_list>1</add_to_cart_list>
+				<wishlist>1</wishlist>
+				<compare>1</compare>
+				<rating>1</rating>
+				<review_count>1</review_count>
+				<price>1</price>
+				<show_price_diff>1</show_price_diff>
+				<show_price_diff_text>SAVE {{price_diff}}</show_price_diff_text>
+				<show_price_diff_pos>before</show_price_diff_pos>
+				<hover_image>1</hover_image>
+				<thumb_carousel>1</thumb_carousel>
+				<thumb_carousel_show_logic>all</thumb_carousel_show_logic>
+				<thumb_carousel_min_items>3</thumb_carousel_min_items>
+				<thumb_carousel_max_items>4</thumb_carousel_max_items>
+				<category_name>0</category_name>
+				<outofstock>1</outofstock>
+				<outofstock_highlight>1</outofstock_highlight>
+				<stock_status>1</stock_status>
+				<quickview>1</quickview>
+				<quickview_position>bottom-left</quickview_position>
+				<quickview_button_style></quickview_button_style>
+				<quickview_mobile>0</quickview_mobile>
+				<description_on_grid>1</description_on_grid>
+				<description_on_grid_source>catalog-short</description_on_grid_source>
+				<description_on_grid_more>0</description_on_grid_more>
+				<preloader_enabled>1</preloader_enabled>
+				<brand>0</brand>
+				<brand_image_alt>1</brand_image_alt>
+				<brand_image_width></brand_image_width>
+				<brand_image_height></brand_image_height>
+				<catalog_ajax_add_to_cart>0</catalog_ajax_add_to_cart>
+				<show_minicart_after_added_product>0</show_minicart_after_added_product>
+				<grid_columns_layout2>4</grid_columns_layout2>
+				<products_layout_bordered>1</products_layout_bordered>
+			</products_listing>
+			<products_listing_banners>
+				<enable_grid>1</enable_grid>
+				<banners_by_block_grid>{"_1717173276023_23":{"category_ids":"2","block":"athlete2-demo-grid-banner-01","sort_order":"5"},"_1717176024542_542":{"category_ids":"2","block":"athlete2-demo-grid-banner-03","sort_order":"10"}}</banners_by_block_grid>
+				<enable_list>0</enable_list>
+				<banners_by_block_list></banners_by_block_list>
+				<enable>1</enable>
+				<banners_by_block>{"_1703963308482_482":{"category_ids":"2","block":"athlete2-header-text","sort_order":"3"},"_1703964208206_206":{"category_ids":"2","block":"athlete2-header-text","sort_order":"4"},"_1709501936320_320":{"category_ids":"2","block":"athlete2-header-text","sort_order":"6"}}</banners_by_block>
+			</products_listing_banners>
+			<footer>
+				<show_footer>1</show_footer>
+				<footer_content_type>custom_block</footer_content_type>
+				<footer_content_custom>asd</footer_content_custom>
+				<footer_content_static>athlete2-footer-content-fi</footer_content_static>
+				<footer_layout>5</footer_layout>
+				<newsletter_style>big</newsletter_style>
+				<newsletter_input_underlined>1</newsletter_input_underlined>
+				<newsletter_title><![CDATA[Get the latest <br> deals and more.]]></newsletter_title>
+				<newsletter_label></newsletter_label>
+				<show_footer_below_newsletter>0</show_footer_below_newsletter>
+				<footer_below_newsletter_content_type>custom_block</footer_below_newsletter_content_type>
+				<footer_below_newsletter_content_custom></footer_below_newsletter_content_custom>
+				<footer_below_newsletter_content_static>athlete2-footer-content-after-newsletter</footer_below_newsletter_content_static>
+				<show_footer_above>1</show_footer_above>
+				<footer_above_content_type>textfield</footer_above_content_type>
+				<footer_above_content_custom>{{block class="Magento\Store\Block\Switcher" name="store_language" template="Magento_Store::switch/languages-nomove.phtml"}}
+{{block class="Magento\Directory\Block\Currency" name="store_currency" template="Magento_Directory::currency-nomove.phtml"}}</footer_above_content_custom>
+				<footer_above_content_static></footer_above_content_static>
+				<show_footer_bottom>1</show_footer_bottom>
+				<footer_bottom_content_type>textfield</footer_bottom_content_type>
+				<footer_bottom_content_custom><![CDATA[<div class="d-flex flex-wrap" style="gap:10px">
+    <a href="#">Recalls</a>
+    <a href="#">Product recycling</a>
+    <a href="#">Accessibility</a>
+    <a href="#">Privacy</a>
+    <a href="#">Use of cookies</a>
+    <a href="#">Your privacy choices</a>
+    <a href="#">Terms of use</a>
+    <a href="#">Limited warranty statement</a>
+    <a href="#">Terms &amp; conditions</a>
+</div>
+<div class="spacer-small">-</div>
+<p>© 2024 Athelete2 - Premium Magento Them by Olegnax. All Rights Reserved.<br>
+This is a demo store. Any orders placed through this store will not be honored or fulfilled.</p>
+
+
+]]></footer_bottom_content_custom>
+				<footer_bottom_content_static>athlete2-footer-content-after</footer_bottom_content_static>
+				<store_switch_position>custom</store_switch_position>
+				<store_switch_flags>0</store_switch_flags>
+				<footer_store_switcher_font_style>0</footer_store_switcher_font_style>
+				<footer_side_content_type>textfield</footer_side_content_type>
+				<footer_side_content_custom><![CDATA[<!-- athlete logo start-->
+<div class="d-flex align-items-center" style="gap:40px"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 63 78" enable-background="new 0 0 63 78" xml:space="preserve" style="fill:white;width: 63px;">
+	<rect x="41" width="8" height="56"></rect>
+	<rect x="55" y="22" width="8" height="56"></rect>
+	<rect x="27" y="22" width="8" height="34"></rect>
+	<path d="M17.5,29.7c5.1,0,9.3,4.2,9.3,9.3s-4.2,9.3-9.3,9.3S8.2,44.1,8.2,39S12.4,29.7,17.5,29.7 M17.5,22
+		c-9.4,0-17,7.6-17,17s7.6,17,17,17s17-7.6,17-17S26.9,22,17.5,22L17.5,22z"></path>
+</svg>
+<div class="title-font" style="font-size:16px;line-height: 1.1;">Athlete 2<br>
+Magento 2 Theme</div>
+</div>
+<!-- athlete logo end -->
+
+<div class="spacer-medium">-</div>
+<p><img src="{{media url="athlete2/Demos/fi/trustpilot-sample.png"}}" alt="trustpilot-sample-badge" /></p>
+*This is a fake badge. Add yours to your site.
+<div class="spacer-medium">-</div>
+
+{{widget type="Olegnax\Athlete2\Block\SocialIcons" link_target="blank" link_noopener="1" link_noreferrer="1" link_nofollow="1" link_style="simple" link_size="normal" text_color="white" text_hover_color="#83f8c4" background="transparent" background_hover="transparent" facebook_link="https://www.facebook.com/olegnax" facebook_sort="1" facebook_messenger_sort="2" instagram_link="https://www.instagram.com/olegnaxcom/" instagram_sort="3" twitter_link="https://twitter.com/olegnax" twitter_sort="4" pinterest_link="#" pinterest_sort="4" skype_sort="5" tumblr_sort="6" youtube_sort="7" amazon_link="#" amazon_sort="8" amazon_pay_sort="8" kickstarter_sort="9" stripe_sort="10" paypal_sort="11" vimeo_sort="12" vk_sort="13" foursquare_sort="14" flickr_sort="15" linkedin_sort="16" whatsapp_sort="17" telegram_plane_sort="18" snapchat_sort="19" reddit_sort="20" discord_sort="21" slack_sort="22" tripadvisor_sort="23" tiktok_link="#" tiktok_sort="24" business_sort="25" template="Olegnax_Athlete2::widgets/social_icons.phtml"}}]]></footer_side_content_custom>
+				<footer_side_content_static></footer_side_content_static>
+				<show_copyright>0</show_copyright>
+				<copyright_layout>2</copyright_layout>
+				<copyright_content_type>custom_block</copyright_content_type>
+				<copyright_content_custom></copyright_content_custom>
+				<copyright_content_static>athlete2-copyright-additional</copyright_content_static>
+				<copyright_text>© 2024 Athelete 2 - Premium Magento Theme. All Rights Reserved. Developed by Olegnax *** This is a demo store. Any orders placed through this store will not be honored or fulfilled.</copyright_text>
+			</footer>
+			<product_images>
+				<product_page_image_width></product_page_image_width>
+				<product_page_image_height></product_page_image_height>
+				<listing_image_width>340</listing_image_width>
+				<listing_image_height>340</listing_image_height>
+				<listing_listview_image_width></listing_listview_image_width>
+				<listing_listview_image_height></listing_listview_image_height>
+				<product_image_width>700</product_image_width>
+				<product_image_height>700</product_image_height>
+				<thumb_image_width></thumb_image_width>
+				<thumb_image_height></thumb_image_height>
+				<list_widget_image_width></list_widget_image_width>
+				<list_widget_image_height></list_widget_image_height>
+			</product_images>
+			<footer_banner>
+				<show_banner>0</show_banner>
+				<footer_banner_columns>1</footer_banner_columns>
+				<footer_banner_custom_2></footer_banner_custom_2>
+				<footer_banner_custom></footer_banner_custom>
+				<footer_banner_type>textfield</footer_banner_type>
+				<footer_banner_location>catalog_category_view,catalog_product_view</footer_banner_location>
+			</footer_banner>
+			<above_footer_block>
+				<show_block>1</show_block>
+				<above_footer_block_location></above_footer_block_location>
+				<above_footer_block_type>custom_block</above_footer_block_type>
+				<above_footer_block_custom>{{widget type="Olegnax\Athlete2\Block\ISlide" block_id="187" slide_time="10000" pause_on_hover="1"  items_width="auto" clone="1" padding="10px 0" bg_color="rgb(225, 238, 98)" text_color="black"}}
+</above_footer_block_custom>
+				<above_footer_block_static>athlete2-demo-content-above-footer-finland</above_footer_block_static>
+				<footer_banner_columns>1</footer_banner_columns>
+				<footer_banner_custom_2></footer_banner_custom_2>
+			</above_footer_block>
+			<above_footer_block2>
+				<show_block>1</show_block>
+				<above_footer_block_location>cms_index_index,catalog_category_view,catalog_product_view</above_footer_block_location>
+				<above_footer_block_type>custom_block</above_footer_block_type>
+				<above_footer_block_custom></above_footer_block_custom>
+				<above_footer_block_static>athlete2-recently-viewed</above_footer_block_static>
+				<above_footer_block2_location>cms_index_index,catalog_category_view,catalog_product_view</above_footer_block2_location>
+			</above_footer_block2>
+			<contacts_page>
+				<show_title>0</show_title>
+				<contacts_page_fullwidth>1</contacts_page_fullwidth>
+				<contacts_layout>default</contacts_layout>
+				<contacts_page_swap_form>1</contacts_page_swap_form>
+				<first_block_type>google_map</first_block_type>
+				<first_block_content></first_block_content>
+				<second_block_show>1</second_block_show>
+				<second_block_content><![CDATA[<div class="spacer hide-on-mobile" style="height:30px;"></div>
+<h2>Visit our stores</h2>
+<div class="spacer" style="height:25px;"></div>
+<div class="row">
+<div class="col-sm-6">
+<h6>flagship store</h6>
+<p>Westfield Les 4 Temps<br>
+2 - 15 Parvis De La Defense<br>
+Paris 92092<br>
+France<br>
+1 800 123 4567<br>
+mail@mainstore.com</p>
+<div class="spacer-small">-</div>
+</div>
+<div class="col-sm-6">
+<h6>nyc store</h6>
+<p>Westfield Les 4 Temps<br>
+2 - 15 Parvis De La Defense<br>
+Paris 92092<br>
+France<br>
+1 800 123 4567<br>
+mail@mainstore.com</p>
+<div class="spacer-small">-</div>
+</div>
+<div class="col-sm-6">
+<h6>NYC Showroom</h6>
+<p>Westfield Les 4 Temps<br>
+2 - 15 Parvis De La Defense<br>
+Paris 92092<br>
+France<br>
+1 800 123 4567<br>
+mail@mainstore.com</p>
+<div class="spacer-small">-</div>
+</div>
+<div class="col-sm-6">
+<h6>soho store</h6>
+<p>Westfield Les 4 Temps<br>
+2 - 15 Parvis De La Defense<br>
+Paris 92092<br>
+France<br>
+1 800 123 4567<br>
+mail@mainstore.com</p>
+<div class="spacer-small">-</div>
+</div>
+</div>
+{{widget type="Olegnax\Athlete2\Block\SocialIcons" link_target="self" link_noopener="1" link_noreferrer="1" link_nofollow="1" link_style="animated" link_size="normal" text_color="#363636" text_hover_color="#363636" background="transparent" background_hover="transparent" facebook_link="#" facebook_sort="1" facebook_messenger_sort="2" instagram_link="#" instagram_sort="3" twitter_link="#" twitter_sort="4" pinterest_link="#" pinterest_sort="4" skype_link="#" skype_sort="5" tumblr_sort="6" youtube_sort="7" amazon_link="#" amazon_sort="8" amazon_pay_sort="8" kickstarter_sort="9" stripe_sort="10" paypal_sort="11" vimeo_sort="12" vk_sort="13" foursquare_sort="14" flickr_sort="15" linkedin_sort="16" whatsapp_link="#" whatsapp_sort="17" telegram_plane_sort="18" snapchat_sort="19" reddit_sort="20" discord_sort="21" slack_sort="22" tripadvisor_sort="23" tiktok_sort="24" business_link="#" business_sort="25" template="Olegnax_Athlete2::widgets/social_icons.phtml"}}]]></second_block_content>
+				<contacts_page_image></contacts_page_image>
+				<third_block_show>0</third_block_show>
+				<third_block_content><![CDATA[<div class="info-block align-items-center">
+<strong>* you can also add custom content here.</strong>
+</div>]]></third_block_content>
+				<google_map_module>0</google_map_module>
+				<google_map_api_key></google_map_api_key>
+				<google_map_latitude>-33.866538</google_map_latitude>
+				<google_map_longitude>151.195843</google_map_longitude>
+				<google_map_zoom>16</google_map_zoom>
+				<google_map_pin_color1></google_map_pin_color1>
+				<google_map_pin_color2></google_map_pin_color2>
+			</contacts_page>
+			<blog>
+				<blog_list_style>overlay</blog_list_style>
+				<blog_style_classic>0</blog_style_classic>
+				<blog_list_columns>2</blog_list_columns>
+				<blog_list_categories>0</blog_list_categories>
+				<description_expand>0</description_expand>
+				<description_expand_height></description_expand_height>
+				<blog_list_comments_link>0</blog_list_comments_link>
+				<description>1</description>
+				<blog_list_read_more>0</blog_list_read_more>
+				<blog_list_author>1</blog_list_author>
+				<blog_list_views_count>1</blog_list_views_count>
+				<blog_list_date>0</blog_list_date>
+				<blog_list_social_theme>1</blog_list_social_theme>
+				<blog_list_social>0</blog_list_social>
+				<blog_list_date_image>1</blog_list_date_image>
+				<blog_list_page_layout>1column-fullwidth</blog_list_page_layout>
+				<hide_title>0</hide_title>
+				<hide_breadcrumbs>0</hide_breadcrumbs>
+				<widget_columns>2</widget_columns>
+				<blog_list_image_width></blog_list_image_width>
+				<blog_list_image_height></blog_list_image_height>
+				<blog_list_big_image_width></blog_list_big_image_width>
+				<blog_list_big_image_height></blog_list_big_image_height>
+				<blog_widget_image_width></blog_widget_image_width>
+				<blog_widget_image_height></blog_widget_image_height>
+				<blog_sidebar_recent_image>0</blog_sidebar_recent_image>
+				<blog_sidebar_recent_image_width></blog_sidebar_recent_image_width>
+				<blog_sidebar_recent_image_height></blog_sidebar_recent_image_height>
+				<blog_list_overlay_minheight>600</blog_list_overlay_minheight>
+				<blog_list_overlay_minheight_mobile>400</blog_list_overlay_minheight_mobile>
+				<blog_widget_overlay_minheight>600</blog_widget_overlay_minheight>
+				<blog_widget_overlay_minheight_mobile>400</blog_widget_overlay_minheight_mobile>
+			</blog>
+			<blog_post>
+				<page_layout>1column</page_layout>
+				<narrow_post>1</narrow_post>
+				<narrow_post_content>0</narrow_post_content>
+				<narrow_post_p>0</narrow_post_p>
+				<sticky_progress>1</sticky_progress>
+				<share_sticky>1</share_sticky>
+				<share_below_title>0</share_below_title>
+				<share_below_title_theme>1</share_below_title_theme>
+				<hide_categories>0</hide_categories>
+				<hide_date>0</hide_date>
+				<hide_comments_link>1</hide_comments_link>
+				<hide_tags>0</hide_tags>
+				<hide_author>0</hide_author>
+				<hide_featured>1</hide_featured>
+				<related_columns>2</related_columns>
+				<related_title_hide>1</related_title_hide>
+				<related_image_width></related_image_width>
+				<related_image_height></related_image_height>
+				<blog_related_product_columns>3</blog_related_product_columns>
+			</blog_post>
+			<blog_product_page>
+				<blog_related_layout>0</blog_related_layout>
+				<related_columns>3</related_columns>
+				<hide_categories>0</hide_categories>
+				<related_title_hide>0</related_title_hide>
+				<hide_image>0</hide_image>
+				<related_image_width></related_image_width>
+				<related_image_height></related_image_height>
+			</blog_product_page>
+			<mobile_bottom_nav>
+				<bottom_nav_hide_text>0</bottom_nav_hide_text>
+				<bottom_nav_counter_position>0</bottom_nav_counter_position>
+				<bottom_nav_spacer></bottom_nav_spacer>
+				<bottom_nav_enable>1</bottom_nav_enable>
+				<bottom_nav_enable_cart>1</bottom_nav_enable_cart>
+				<bottom_nav_icon_cart>cart_big</bottom_nav_icon_cart>
+				<bottom_nav_icon_width_cart></bottom_nav_icon_width_cart>
+				<bottom_nav_icon_height_cart></bottom_nav_icon_height_cart>
+				<bottom_nav_icon_custom_cart></bottom_nav_icon_custom_cart>
+				<bottom_nav_show_text_cart>1</bottom_nav_show_text_cart>
+				<bottom_nav_text_cart>Cart</bottom_nav_text_cart>
+				<bottom_nav_enable_wishlist>1</bottom_nav_enable_wishlist>
+				<bottom_nav_icon_wishlist>heart4</bottom_nav_icon_wishlist>
+				<bottom_nav_icon_width_wishlist>30</bottom_nav_icon_width_wishlist>
+				<bottom_nav_icon_height_wishlist>30</bottom_nav_icon_height_wishlist>
+				<bottom_nav_icon_custom_wishlist></bottom_nav_icon_custom_wishlist>
+				<bottom_nav_show_text_wishlist>1</bottom_nav_show_text_wishlist>
+				<bottom_nav_text_wishlist>Wishlist</bottom_nav_text_wishlist>
+				<bottom_nav_enable_compare>0</bottom_nav_enable_compare>
+				<bottom_nav_icon_compare></bottom_nav_icon_compare>
+				<bottom_nav_icon_width_compare></bottom_nav_icon_width_compare>
+				<bottom_nav_icon_height_compare></bottom_nav_icon_height_compare>
+				<bottom_nav_icon_custom_compare></bottom_nav_icon_custom_compare>
+				<bottom_nav_show_text_compare>1</bottom_nav_show_text_compare>
+				<bottom_nav_text_compare>Compare</bottom_nav_text_compare>
+				<bottom_nav_enable_search>1</bottom_nav_enable_search>
+				<bottom_nav_icon_search></bottom_nav_icon_search>
+				<bottom_nav_icon_width_search></bottom_nav_icon_width_search>
+				<bottom_nav_icon_height_search></bottom_nav_icon_height_search>
+				<bottom_nav_icon_custom_search></bottom_nav_icon_custom_search>
+				<bottom_nav_show_text_search>1</bottom_nav_show_text_search>
+				<bottom_nav_text_search>Search</bottom_nav_text_search>
+				<bottom_nav_enable_account>1</bottom_nav_enable_account>
+				<bottom_nav_icon_account></bottom_nav_icon_account>
+				<bottom_nav_icon_width_account></bottom_nav_icon_width_account>
+				<bottom_nav_icon_height_account></bottom_nav_icon_height_account>
+				<bottom_nav_icon_custom_account></bottom_nav_icon_custom_account>
+				<bottom_nav_show_text_account>1</bottom_nav_show_text_account>
+				<bottom_nav_text_account>Account</bottom_nav_text_account>
+				<bottom_nav_enable_home>0</bottom_nav_enable_home>
+				<bottom_nav_icon_home>house</bottom_nav_icon_home>
+				<bottom_nav_icon_width_home></bottom_nav_icon_width_home>
+				<bottom_nav_icon_height_home></bottom_nav_icon_height_home>
+				<bottom_nav_icon_custom_home></bottom_nav_icon_custom_home>
+				<bottom_nav_show_text_home>1</bottom_nav_show_text_home>
+				<bottom_nav_text_home>Home</bottom_nav_text_home>
+				<bottom_nav_enable_shop>1</bottom_nav_enable_shop>
+				<bottom_nav_icon_shop>shop2</bottom_nav_icon_shop>
+				<bottom_nav_icon_width_shop></bottom_nav_icon_width_shop>
+				<bottom_nav_icon_height_shop></bottom_nav_icon_height_shop>
+				<bottom_nav_icon_custom_shop></bottom_nav_icon_custom_shop>
+				<bottom_nav_show_text_shop>1</bottom_nav_show_text_shop>
+				<bottom_nav_text_shop>Shop</bottom_nav_text_shop>
+				<bottom_nav_url_shop></bottom_nav_url_shop>
+				<bottom_nav_enable_menu>0</bottom_nav_enable_menu>
+				<bottom_nav_icon_menu>menu2</bottom_nav_icon_menu>
+				<bottom_nav_icon_width_menu></bottom_nav_icon_width_menu>
+				<bottom_nav_icon_height_menu></bottom_nav_icon_height_menu>
+				<bottom_nav_icon_custom_menu></bottom_nav_icon_custom_menu>
+				<bottom_nav_show_text_menu>1</bottom_nav_show_text_menu>
+				<bottom_nav_text_menu>Menu</bottom_nav_text_menu>
+				<bottom_nav_enable_custom>1</bottom_nav_enable_custom>
+				<bottom_nav_icon_custom>support</bottom_nav_icon_custom>
+				<bottom_nav_icon_width_custom></bottom_nav_icon_width_custom>
+				<bottom_nav_icon_height_custom></bottom_nav_icon_height_custom>
+				<bottom_nav_icon_custom_custom></bottom_nav_icon_custom_custom>
+				<bottom_nav_text_custom>Help</bottom_nav_text_custom>
+				<bottom_nav_item_search_order>3</bottom_nav_item_search_order>
+				<bottom_nav_item_account_order></bottom_nav_item_account_order>
+				<bottom_nav_item_compare_order>6</bottom_nav_item_compare_order>
+				<bottom_nav_item_wishlist_order>7</bottom_nav_item_wishlist_order>
+				<bottom_nav_item_cart_order>8</bottom_nav_item_cart_order>
+				<bottom_nav_item_menu_order>2</bottom_nav_item_menu_order>
+				<bottom_nav_item_home_order>1</bottom_nav_item_home_order>
+				<bottom_nav_item_shop_order>4</bottom_nav_item_shop_order>
+				<bottom_nav_item_custom_order>2</bottom_nav_item_custom_order>
+			</mobile_bottom_nav>
+			<shipping_bar>
+				<minicart_enable>1</minicart_enable>
+				<cart_page_enable>1</cart_page_enable>
+				<cart_page_position>summary</cart_page_position>
+				<cart_text_enable>1</cart_text_enable>
+				<cart_text>Free shipping on all orders over {{free_shipping_price}}</cart_text>
+				<cart_text_progress><![CDATA[Spend {{free_shipping_remaining_price}} more for <span  class="free-shipping-highlight">free shipping!</span>]]></cart_text_progress>
+				<cart_text_success>You are eligible for Free Shipping!</cart_text_success>
+				<hide_in_empty_cart>0</hide_in_empty_cart>
+				<cart_enable>1</cart_enable>
+			</shipping_bar>
+		</athlete2_settings>
+		<athlete2_design>
+			<appearance_general>
+				<fallback>0</fallback>
+				<google_font_enable>1</google_font_enable>
+				<fonts_display_mode>swap</fonts_display_mode>
+				<fontawesome_enabled>0</fontawesome_enabled>
+				<body_font>Roboto</body_font>
+				<body_font_custom></body_font_custom>
+				<body_font_weight>500,600,700,regular</body_font_weight>
+				<general_font>Roboto</general_font>
+				<general_font_weight>500,600,700,regular</general_font_weight>
+				<general_font_custom></general_font_custom>
+				<title_font>Outfit</title_font>
+				<title_font_custom></title_font_custom>
+				<title_font_weight>regular</title_font_weight>
+				<title_font_medium_enable>1</title_font_medium_enable>
+				<title_font_medium>Outfit</title_font_medium>
+				<title_font_medium_custom></title_font_medium_custom>
+				<title_font_medium_weight>500,600,700,regular</title_font_medium_weight>
+				<title_font_fancy>Nothing You Could Do</title_font_fancy>
+				<title_font_fancy_custom></title_font_fancy_custom>
+				<title_font_fancy_weight>regular</title_font_fancy_weight>
+				<menu_font>Roboto</menu_font>
+				<menu_font_custom></menu_font_custom>
+				<menu_font_weight>600</menu_font_weight>
+				<button_font>Roboto</button_font>
+				<button_font_custom></button_font_custom>
+				<button_font_weight></button_font_weight>
+				<footer_google_font_enable>0</footer_google_font_enable>
+				<footer_content_font>Roboto</footer_content_font>
+				<footer_content_font_custom></footer_content_font_custom>
+				<footer_content_font_weight></footer_content_font_weight>
+				<copyright_google_font_enable>0</copyright_google_font_enable>
+				<copyright_content_font>Roboto</copyright_content_font>
+				<copyright_content_font_weight></copyright_content_font_weight>
+				<copyright_content_font_custom></copyright_content_font_custom>
+				<sidebar_title_google_font_enable>1</sidebar_title_google_font_enable>
+				<sidebar_title_font>Roboto</sidebar_title_font>
+				<sidebar_title_font_weight>regular</sidebar_title_font_weight>
+				<sidebar_title_font_custom></sidebar_title_font_custom>
+				<text_letter_spacing_small>0</text_letter_spacing_small>
+				<text_letter_spacing_h4></text_letter_spacing_h4>
+				<text_letter_spacing_medium>0</text_letter_spacing_medium>
+				<text_letter_spacing_big>0</text_letter_spacing_big>
+				<text_font_weight_small>600</text_font_weight_small>
+				<text_font_weight_fancy>400</text_font_weight_fancy>
+				<text_letter_spacing_fancy>1</text_letter_spacing_fancy>
+				<text_font_weight_h4>400</text_font_weight_h4>
+				<text_font_weight_medium>500</text_font_weight_medium>
+				<text_font_weight_big>400</text_font_weight_big>
+				<text_font_weight_other></text_font_weight_other>
+				<text_transform_fancy>initial</text_transform_fancy>
+				<text_transform_small>initial</text_transform_small>
+				<text_transform_medium>initial</text_transform_medium>
+				<text_transform_h4></text_transform_h4>
+				<text_transform_big>initial</text_transform_big>
+				<text_transform_other></text_transform_other>
+				<website_bg_color></website_bg_color>
+				<body_color></body_color>
+				<titles_color></titles_color>
+				<main_color>rgb(11, 103, 209)</main_color>
+				<highlight_color>rgb(132, 244, 194)</highlight_color>
+				<links_color>rgb(11, 103, 209)</links_color>
+				<links_hover>rgb(0, 0, 0)</links_hover>
+				<bg_links_hover>rgb(0, 0, 0)</bg_links_hover>
+				<bg_links_hover_bg>rgba(0, 0, 0, 0)</bg_links_hover_bg>
+				<input_label_color></input_label_color>
+				<inputs_underlined>0</inputs_underlined>
+				<website_bg_image_enabled>0</website_bg_image_enabled>
+				<website_bg_image></website_bg_image>
+				<website_bg_position_y>center</website_bg_position_y>
+				<website_bg_position_x>center</website_bg_position_x>
+				<website_bg_repeat>repeat</website_bg_repeat>
+				<website_bg_size>auto</website_bg_size>
+				<content_bg_image_enabled>0</content_bg_image_enabled>
+				<content_bg_image></content_bg_image>
+				<content_bg_position_y>center</content_bg_position_y>
+				<content_bg_position_x>center</content_bg_position_x>
+				<content_bg_repeat>repeat</content_bg_repeat>
+				<content_bg_size>auto</content_bg_size>
+			</appearance_general>
+			<appearance_forms>
+				<label_font_size></label_font_size>
+				<label_text_transform></label_text_transform>
+				<label_font_weight></label_font_weight>
+			</appearance_forms>
+			<appearance_buttons>
+				<main_button_style>simple</main_button_style>
+				<main_button_text_color>rgb(255, 255, 255)</main_button_text_color>
+				<main_button_bg_color>rgb(11, 103, 209)</main_button_bg_color>
+				<main_button_text_hover_color>rgb(255, 255, 255)</main_button_text_hover_color>
+				<main_button_bg_hover_color>rgb(44, 41, 48)</main_button_bg_hover_color>
+				<main_button_letterspacing>0</main_button_letterspacing>
+				<main_button_font_weight>700</main_button_font_weight>
+				<button_text_transform></button_text_transform>
+				<second_button_text_color>rgb(255, 255, 255)</second_button_text_color>
+				<second_button_bg_color>rgb(44, 41, 48)</second_button_bg_color>
+				<second_button_text_hover_color>rgb(44, 41, 48)</second_button_text_hover_color>
+				<second_button_bg_hover_color>rgb(248, 248, 248)</second_button_bg_hover_color>
+				<naked_button_text_color>rgb(44, 41, 48)</naked_button_text_color>
+				<naked_button_text_hover_color>rgb(255, 255, 255)</naked_button_text_hover_color>
+				<naked_button_bg_hover_color>rgb(44, 41, 48)</naked_button_bg_hover_color>
+				<outline_button_border_color>rgb(44, 41, 48)</outline_button_border_color>
+				<outline_button_text_color>rgb(44, 41, 48)</outline_button_text_color>
+				<outline_button_border_hover>rgb(44, 41, 48)</outline_button_border_hover>
+				<outline_button_text_hover>rgb(255, 255, 255)</outline_button_text_hover>
+				<outline_button_background_hover>rgb(44, 41, 48)</outline_button_background_hover>
+				<main_button_font_size></main_button_font_size>
+				<underline_button_text_color>rgb(0, 0, 0)</underline_button_text_color>
+			</appearance_buttons>
+			<appearance_icons>
+				<icon_cart>plus</icon_cart>
+				<icon_width_cart></icon_width_cart>
+				<icon_height_cart></icon_height_cart>
+				<icon_custom_cart></icon_custom_cart>
+				<icon_custom_cart_hover></icon_custom_cart_hover>
+				<icon_wishlist_fallback>0</icon_wishlist_fallback>
+				<icon_wishlist>heart4</icon_wishlist>
+				<icon_width_wishlist>26</icon_width_wishlist>
+				<icon_height_wishlist>26</icon_height_wishlist>
+				<icon_custom_wishlist></icon_custom_wishlist>
+				<icon_custom_wishlist_hover></icon_custom_wishlist_hover>
+				<icon_compare>compare3</icon_compare>
+				<icon_width_compare>24</icon_width_compare>
+				<icon_height_compare>26</icon_height_compare>
+				<icon_custom_compare></icon_custom_compare>
+				<icon_custom_compare_hover></icon_custom_compare_hover>
+				<icon_search>search4</icon_search>
+				<icon_width_search></icon_width_search>
+				<icon_height_search></icon_height_search>
+				<icon_custom_search></icon_custom_search>
+				<icon_custom_search_hover></icon_custom_search_hover>
+				<icon_account>account4</icon_account>
+				<icon_width_account></icon_width_account>
+				<icon_height_account></icon_height_account>
+				<icon_custom_account></icon_custom_account>
+				<icon_custom_account_hover></icon_custom_account_hover>
+				<enable_sample_icons>1</enable_sample_icons>
+			</appearance_icons>
+			<appearance_icons_product>
+				<product_icon_cart></product_icon_cart>
+				<product_icon_width_cart></product_icon_width_cart>
+				<product_icon_height_cart></product_icon_height_cart>
+				<product_icon_custom_cart></product_icon_custom_cart>
+				<product_icon_custom_cart_hover></product_icon_custom_cart_hover>
+				<product_icon_wishlist_fallback>0</product_icon_wishlist_fallback>
+				<product_icon_wishlist></product_icon_wishlist>
+				<product_icon_width_wishlist></product_icon_width_wishlist>
+				<product_icon_height_wishlist></product_icon_height_wishlist>
+				<product_icon_custom_wishlist></product_icon_custom_wishlist>
+				<product_icon_custom_wishlist_hover></product_icon_custom_wishlist_hover>
+				<product_icon_compare_fallback>0</product_icon_compare_fallback>
+				<product_icon_compare></product_icon_compare>
+				<product_icon_width_compare></product_icon_width_compare>
+				<product_icon_height_compare></product_icon_height_compare>
+				<product_icon_custom_compare></product_icon_custom_compare>
+				<product_icon_custom_compare_hover></product_icon_custom_compare_hover>
+				<product_icon_share_fallback>1</product_icon_share_fallback>
+				<product_icon_share></product_icon_share>
+				<product_icon_width_share></product_icon_width_share>
+				<product_icon_height_share></product_icon_height_share>
+				<product_icon_custom_share></product_icon_custom_share>
+				<product_icon_custom_share_hover></product_icon_custom_share_hover>
+				<product_icon_search></product_icon_search>
+				<product_icon_width_search></product_icon_width_search>
+				<product_icon_height_search></product_icon_height_search>
+				<product_icon_custom_search></product_icon_custom_search>
+				<product_icon_account></product_icon_account>
+				<product_icon_width_account></product_icon_width_account>
+				<product_icon_height_account></product_icon_height_account>
+				<product_icon_custom_account></product_icon_custom_account>
+				<product_icon_custom_search_hover></product_icon_custom_search_hover>
+				<product_icon_custom_account_hover></product_icon_custom_account_hover>
+			</appearance_icons_product>
+			<appearance_icons_header>
+				<header_icon_cart>cart_big</header_icon_cart>
+				<header_icon_width_cart></header_icon_width_cart>
+				<header_icon_height_cart></header_icon_height_cart>
+				<header_icon_custom_cart></header_icon_custom_cart>
+				<header_icon_custom_cart_hover></header_icon_custom_cart_hover>
+				<header_icon_wishlist_fallback>0</header_icon_wishlist_fallback>
+				<header_icon_wishlist>heart4</header_icon_wishlist>
+				<header_icon_width_wishlist>30</header_icon_width_wishlist>
+				<header_icon_height_wishlist>30</header_icon_height_wishlist>
+				<header_icon_custom_wishlist></header_icon_custom_wishlist>
+				<header_icon_custom_wishlist_hover></header_icon_custom_wishlist_hover>
+				<header_icon_compare>compare4</header_icon_compare>
+				<header_icon_width_compare>30</header_icon_width_compare>
+				<header_icon_height_compare>30</header_icon_height_compare>
+				<header_icon_custom_compare></header_icon_custom_compare>
+				<header_icon_custom_compare_hover></header_icon_custom_compare_hover>
+				<header_icon_search></header_icon_search>
+				<header_icon_width_search></header_icon_width_search>
+				<header_icon_height_search></header_icon_height_search>
+				<header_icon_custom_search></header_icon_custom_search>
+				<header_icon_custom_search_hover></header_icon_custom_search_hover>
+				<header_icon_account></header_icon_account>
+				<header_icon_width_account></header_icon_width_account>
+				<header_icon_height_account></header_icon_height_account>
+				<header_icon_custom_account></header_icon_custom_account>
+				<header_icon_custom_account_hover></header_icon_custom_account_hover>
+				<header_icon_menu>menu2</header_icon_menu>
+				<header_icon_width_menu></header_icon_width_menu>
+				<header_icon_height_menu></header_icon_height_menu>
+				<header_icon_custom_menu></header_icon_custom_menu>
+				<header_icon_language>globe</header_icon_language>
+				<header_icon_width_language>17</header_icon_width_language>
+				<header_icon_height_language>17</header_icon_height_language>
+				<header_icon_custom_language></header_icon_custom_language>
+				<header_icon_custom_language_hover></header_icon_custom_language_hover>
+				<header_icon_language_modal>pin_s</header_icon_language_modal>
+				<header_icon_width_language_modal></header_icon_width_language_modal>
+				<header_icon_height_language_modal></header_icon_height_language_modal>
+				<header_icon_custom_language_modal></header_icon_custom_language_modal>
+				<header_icon_custom>support</header_icon_custom>
+				<header_icon_width_custom></header_icon_width_custom>
+				<header_icon_height_custom></header_icon_height_custom>
+				<header_icon_custom_custom></header_icon_custom_custom>
+				<header_icon_custom_custom_hover></header_icon_custom_custom_hover>
+			</appearance_icons_header>
+			<appearance_icons_empty>
+				<icon_cart_enable>1</icon_cart_enable>
+				<icon_cart>cart_big</icon_cart>
+				<icon_width_cart>160</icon_width_cart>
+				<icon_height_cart>160</icon_height_cart>
+				<icon_custom_cart></icon_custom_cart>
+				<icon_wishlist_enable>0</icon_wishlist_enable>
+				<icon_wishlist>custom</icon_wishlist>
+				<icon_width_wishlist>200</icon_width_wishlist>
+				<icon_height_wishlist>200</icon_height_wishlist>
+				<icon_custom_wishlist></icon_custom_wishlist>
+				<icon_compare_enable>0</icon_compare_enable>
+				<icon_compare>custom</icon_compare>
+				<icon_width_compare></icon_width_compare>
+				<icon_height_compare></icon_height_compare>
+				<icon_custom_compare></icon_custom_compare>
+			</appearance_icons_empty>
+			<appearance_header>
+				<header_bg>rgb(255, 255, 255)</header_bg>
+				<header_bg_image_enabled>0</header_bg_image_enabled>
+				<header_bg_image></header_bg_image>
+				<header_bg_position_y>center</header_bg_position_y>
+				<header_bg_position_x>center</header_bg_position_x>
+				<header_bg_repeat>repeat</header_bg_repeat>
+				<header_bg_size>auto</header_bg_size>
+				<top_bar_bg_image_enabled>0</top_bar_bg_image_enabled>
+				<top_bar_bg_image></top_bar_bg_image>
+				<top_bar_bg_position_y>center</top_bar_bg_position_y>
+				<top_bar_bg_position_x>center</top_bar_bg_position_x>
+				<top_bar_bg_repeat>repeat</top_bar_bg_repeat>
+				<top_bar_bg_size>auto</top_bar_bg_size>
+				<header_border_enable>1</header_border_enable>
+				<header_border_color>rgba(0, 0, 0, 0.12)</header_border_color>
+				<logo_bg>rgb(255, 255, 255)</logo_bg>
+				<top_bar_border_enable>1</top_bar_border_enable>
+				<top_bar_border_color>rgba(0, 0, 0, 0.12)</top_bar_border_color>
+				<top_bar_bg>rgb(255, 255, 255)</top_bar_bg>
+				<top_bar_color>rgb(128, 128, 128)</top_bar_color>
+				<top_bar_text_font_size>12</top_bar_text_font_size>
+				<top_bar_switcher_border_enable>1</top_bar_switcher_border_enable>
+				<top_bar_switcher_border_color>rgba(0, 0, 0, 0.12)</top_bar_switcher_border_color>
+				<menu_letter_spacing>0</menu_letter_spacing>
+				<top_bar_swatches_bg_hover></top_bar_swatches_bg_hover>
+				<top_bar_swatches_color_hover></top_bar_swatches_color_hover>
+				<minicart_icon_bg>rgba(255, 255, 255, 0)</minicart_icon_bg>
+				<minicart_icon_color>rgb(48, 48, 48)</minicart_icon_color>
+				<minicart_icon_bg_hover>rgba(255, 255, 255, 0)</minicart_icon_bg_hover>
+				<minicart_icon_color_hover>rgb(11, 103, 209)</minicart_icon_color_hover>
+				<minicart_item_color></minicart_item_color>
+				<minicart_item_font_enable>0</minicart_item_font_enable>
+				<minicart_item_font>Open Sans</minicart_item_font>
+				<minicart_item_font_custom></minicart_item_font_custom>
+				<minicart_item_font_size></minicart_item_font_size>
+				<minicart_item_letter_spacing></minicart_item_letter_spacing>
+				<minicart_item_text_transform></minicart_item_text_transform>
+				<minicart_item_font_weight></minicart_item_font_weight>
+				<header_item_icon_bg>rgba(255, 255, 255, 0)</header_item_icon_bg>
+				<header_item_icon_color>rgb(48, 48, 48)</header_item_icon_color>
+				<header_item_icon_bg_hover>rgba(255, 255, 255, 0)</header_item_icon_bg_hover>
+				<header_item_icon_color_hover>rgb(11, 103, 209)</header_item_icon_color_hover>
+				<header_item_color></header_item_color>
+				<header_item_color_hover></header_item_color_hover>
+				<header_item_font_enable>0</header_item_font_enable>
+				<header_item_font>Open Sans</header_item_font>
+				<header_item_font_custom></header_item_font_custom>
+				<header_item_font_size></header_item_font_size>
+				<header_item_letter_spacing></header_item_letter_spacing>
+				<header_item_text_transform></header_item_text_transform>
+				<header_item_font_weight></header_item_font_weight>
+				<search_icon_bg>rgba(255, 255, 255, 0)</search_icon_bg>
+				<search_icon_color>rgb(0, 0, 0)</search_icon_color>
+				<search_icon_bg_hover>rgba(255, 255, 255, 0)</search_icon_bg_hover>
+				<search_icon_color_hover>rgb(11, 103, 209)</search_icon_color_hover>
+				<search_field_bg></search_field_bg>
+				<search_field_text_color></search_field_text_color>
+				<search_field_placeholder_color>rgb(104, 104, 104)</search_field_placeholder_color>
+				<search_style>border-single</search_style>
+				<search_field_border_color>rgba(0, 0, 0, 0.12)</search_field_border_color>
+				<search_field_border_color_hover>rgba(0, 0, 0, 0.56)</search_field_border_color_hover>
+				<search_field_border_radius></search_field_border_radius>
+				<search_field_width>400px</search_field_width>
+				<search_size>big</search_size>
+				<search_field_padding></search_field_padding>
+				<search_field_font_size></search_field_font_size>
+				<search_field_font_enable></search_field_font_enable>
+				<search_field_font></search_field_font>
+				<search_field_font_custom></search_field_font_custom>
+				<menu_color>rgb(97, 97, 97)</menu_color>
+				<menu_bg_hover></menu_bg_hover>
+				<menu_color_hover>rgb(0, 0, 0)</menu_color_hover>
+				<dropdown_menu_text_color></dropdown_menu_text_color>
+				<dropdown_menu_text_bg_hover>rgb(245, 245, 245)</dropdown_menu_text_bg_hover>
+				<dropdown_menu_color_hover>rgb(0, 0, 0)</dropdown_menu_color_hover>
+				<dropdown_bg></dropdown_bg>
+				<top_bar_links_bg>rgb(245, 245, 245)</top_bar_links_bg>
+				<top_bar_links_color_hover>rgb(0, 0, 0)</top_bar_links_color_hover>
+				<top_bar_switcher_text_color></top_bar_switcher_text_color>
+				<top_bar_switcher_bg>rgba(255, 255, 255, 0)</top_bar_switcher_bg>
+				<top_bar_switcher_text_hover>rgb(44, 44, 44)</top_bar_switcher_text_hover>
+				<top_bar_switcher_bg_hover>rgb(255, 255, 255)</top_bar_switcher_bg_hover>
+				<top_bar_switcher_font_size></top_bar_switcher_font_size>
+				<top_bar_switcher_drop_font_size></top_bar_switcher_drop_font_size>
+				<menu_below_bg></menu_below_bg>
+				<menu_below_border_enable>0</menu_below_border_enable>
+				<menu_below_border_color></menu_below_border_color>
+				<menu_overlay_background>1</menu_overlay_background>
+				<menu_overlay_background_exclude_header>1</menu_overlay_background_exclude_header>
+				<menu_overlay_background_color></menu_overlay_background_color>
+				<dropdown_3rd_color></dropdown_3rd_color>
+				<dropdown_menu_active_color>#ffffff</dropdown_menu_active_color>
+				<dropdown_menu_active_bg>rgb(29, 29, 29)</dropdown_menu_active_bg>
+				<submenu_dropdown_bg></submenu_dropdown_bg>
+				<menu_arrow_style>ox-menu--arrow ox-menu--arrow-thin</menu_arrow_style>
+				<menu_font_size>18</menu_font_size>
+				<menu_font_weight>400</menu_font_weight>
+				<menu_font_weight_active>500</menu_font_weight_active>
+				<menu_text_transform>capitalize</menu_text_transform>
+				<menu_drop_font_size></menu_drop_font_size>
+				<menu_drop_letter_spacing></menu_drop_letter_spacing>
+				<menu_drop_font_weight></menu_drop_font_weight>
+				<menu_drop_text_transform></menu_drop_text_transform>
+				<menu_drop3_text_transform></menu_drop3_text_transform>
+				<menu_drop3_font_weight>400</menu_drop3_font_weight>
+				<menu_sections_border_enable>1</menu_sections_border_enable>
+				<menu_sections_border_color></menu_sections_border_color>
+				<allcats_item_color></allcats_item_color>
+				<allcats_item_color_hover></allcats_item_color_hover>
+				<allcats_item_color_active></allcats_item_color_active>
+				<allcats_item_bg></allcats_item_bg>
+				<allcats_item_bg_hover></allcats_item_bg_hover>
+				<allcats_item_bg_active></allcats_item_bg_active>
+				<menu_icon_allcats>menu3</menu_icon_allcats>
+				<menu_icon_width_allcats></menu_icon_width_allcats>
+				<menu_icon_height_allcats></menu_icon_height_allcats>
+				<menu_icon_custom_allcats></menu_icon_custom_allcats>
+				<allcats_item_icon_color></allcats_item_icon_color>
+				<allcats_item_icon_color_hover></allcats_item_icon_color_hover>
+				<allcats_item_icon_color_active></allcats_item_icon_color_active>
+				<allcats_item_font_size></allcats_item_font_size>
+				<allcats_item_letter_spacing></allcats_item_letter_spacing>
+				<allcats_item_font_weight></allcats_item_font_weight>
+				<allcats_item_text_transform></allcats_item_text_transform>
+				<allcats_drop_font_size>16</allcats_drop_font_size>
+				<allcats_drop_letter_spacing></allcats_drop_letter_spacing>
+				<allcats_drop_font_weight>400</allcats_drop_font_weight>
+				<allcats_drop_text_transform>capitalize</allcats_drop_text_transform>
+				<allcats_drop_item_min_height>46</allcats_drop_item_min_height>
+				<allcats_drop_item_padding></allcats_drop_item_padding>
+				<allcats_wide_link>1</allcats_wide_link>
+				<allcats_border_enable>1</allcats_border_enable>
+				<allcats_border_color></allcats_border_color>
+				<minicart_counter_bg>rgb(255, 255, 255)</minicart_counter_bg>
+				<minicart_counter_text>rgb(49, 49, 49)</minicart_counter_text>
+				<menu_margin>10</menu_margin>
+				<header_icon_cart>basket</header_icon_cart>
+				<header_icon_width_cart></header_icon_width_cart>
+				<header_icon_height_cart></header_icon_height_cart>
+				<header_icon_custom_cart></header_icon_custom_cart>
+				<allcats_icon_menu>menu</allcats_icon_menu>
+				<allcats_icon_width_menu></allcats_icon_width_menu>
+				<allcats_icon_height_menu></allcats_icon_height_menu>
+				<allcats_icon_custom_menu></allcats_icon_custom_menu>
+			</appearance_header>
+			<appearance_header_mobile>
+				<menu_color></menu_color>
+				<menu_bg_hover></menu_bg_hover>
+				<menu_color_hover></menu_color_hover>
+				<menu_toggle_bg></menu_toggle_bg>
+				<menu_toggle_text></menu_toggle_text>
+				<menu_toggle_icon>#000000</menu_toggle_icon>
+				<menu_mobile_font_size>25</menu_mobile_font_size>
+				<menu_mobile_letter_spacing></menu_mobile_letter_spacing>
+				<menu_mobile_font_weight></menu_mobile_font_weight>
+				<menu_mobile_tab_color></menu_mobile_tab_color>
+				<menu_mobile_tab_bg></menu_mobile_tab_bg>
+				<menu_mobile_tab_color_hover>rgb(255, 255, 255)</menu_mobile_tab_color_hover>
+				<menu_mobile_tab_bg_hover>rgb(39, 39, 39)</menu_mobile_tab_bg_hover>
+				<heading_menu_acount></heading_menu_acount>
+				<menu_mobile_account_input_border></menu_mobile_account_input_border>
+				<menu_mobile_account_input_border_hover></menu_mobile_account_input_border_hover>
+				<menu_mobile_account_input_text_color></menu_mobile_account_input_text_color>
+				<menu_mobile_account_input_bg></menu_mobile_account_input_bg>
+				<menu_mobile_account_new_bg></menu_mobile_account_new_bg>
+				<menu_mobile_account_new_text></menu_mobile_account_new_text>
+				<menu_mobile_account_new_title></menu_mobile_account_new_title>
+				<search_below_header></search_below_header>
+				<search_style></search_style>
+				<search_field_bg></search_field_bg>
+				<search_field_text_color></search_field_text_color>
+				<search_field_border_color></search_field_border_color>
+				<search_field_height></search_field_height>
+				<search_field_font_size>16</search_field_font_size>
+				<search_block_bg></search_block_bg>
+				<search_block_border_enable>1</search_block_border_enable>
+				<search_block_border_color>rgba(0, 0, 0, 0.12)</search_block_border_color>
+				<search_block_padding></search_block_padding>
+			</appearance_header_mobile>
+			<appearance_modals>
+				<overlay_bg></overlay_bg>
+				<overlay_text_color></overlay_text_color>
+				<overlay_accents></overlay_accents>
+				<overlay_search_text></overlay_search_text>
+				<modal_close_icon_color></modal_close_icon_color>
+				<modal_close_icon_bg></modal_close_icon_bg>
+				<modal_close_icon_color_hover></modal_close_icon_color_hover>
+				<modal_close_icon_bg_hover></modal_close_icon_bg_hover>
+				<overlay_search_dividers></overlay_search_dividers>
+				<overlay_search_titles></overlay_search_titles>
+				<overlay_search_product_name></overlay_search_product_name>
+				<overlay_search_icons></overlay_search_icons>
+				<overlay_search_price></overlay_search_price>
+				<overlay_search_price_hover></overlay_search_price_hover>
+				<overlay_search_oldprice></overlay_search_oldprice>
+				<overlay_search_special_price></overlay_search_special_price>
+				<overlay_search_link_color></overlay_search_link_color>
+				<overlay_search_link_hover></overlay_search_link_hover>
+				<overlay_search_link_bg></overlay_search_link_bg>
+				<overlay_search_tag_color></overlay_search_tag_color>
+				<overlay_search_tag_bg></overlay_search_tag_bg>
+				<overlay_search_tag_hover></overlay_search_tag_hover>
+				<overlay_search_tag_hover_bg></overlay_search_tag_hover_bg>
+				<overlay_search_highlight_color></overlay_search_highlight_color>
+				<overlay_search_highlight_bg></overlay_search_highlight_bg>
+				<language_drop_link_color></language_drop_link_color>
+				<language_drop_link_color_hover></language_drop_link_color_hover>
+				<language_drop_link_bg_hover></language_drop_link_bg_hover>
+				<language_drop_link_color_selected>rgb(0, 0, 0)</language_drop_link_color_selected>
+				<language_drop_link_bg_selected>rgba(0, 0, 0, 0.041)</language_drop_link_bg_selected>
+				<language_drop_mobile_font_size></language_drop_mobile_font_size>
+				<language_drop_mobile_letter_spacing></language_drop_mobile_letter_spacing>
+				<language_drop_mobile_font_weight></language_drop_mobile_font_weight>
+			</appearance_modals>
+			<appearance_breadcrumbs>
+				<fullwidth>1</fullwidth>
+				<border>1</border>
+				<border_color></border_color>
+			</appearance_breadcrumbs>
+			<appearance_fonts>
+				<menu_font_size></menu_font_size>
+				<menu_font_weight></menu_font_weight>
+			</appearance_fonts>
+			<login_page>
+				<login_page_bg_color>rgb(246, 246, 246)</login_page_bg_color>
+				<login_page_create_account_bg></login_page_create_account_bg>
+				<login_page_image>Demos/fi/settings/login-bg-fi.jpg</login_page_image>
+				<register_page_bg_color>rgb(246, 246, 246)</register_page_bg_color>
+				<register_page_image>Demos/fi/settings/login-bg-fi_1.jpg</register_page_image>
+				<register_page_title_color></register_page_title_color>
+			</login_page>
+			<checkout_page>
+				<success_page_bg_color></success_page_bg_color>
+				<success_page_image></success_page_image>
+				<success_page_title_color></success_page_title_color>
+				<order_tab_background></order_tab_background>
+				<order_tab_text_color></order_tab_text_color>
+			</checkout_page>
+			<appearance_sidebar>
+				<sidebar_nobg>1</sidebar_nobg>
+				<sidebar_bordered>1</sidebar_bordered>
+				<sidebar_bg></sidebar_bg>
+				<sidebar_border_size>1</sidebar_border_size>
+				<sidebar_border_color>rgb(228, 228, 228)</sidebar_border_color>
+				<sidebar_title_color></sidebar_title_color>
+				<sidebar_title_font_size></sidebar_title_font_size>
+				<sidebar_title_font_weight>400</sidebar_title_font_weight>
+				<sidebar_title_letter_spacing></sidebar_title_letter_spacing>
+				<sidebar_title_text_transform>capitalize</sidebar_title_text_transform>
+				<sidebar_links_font_size>15</sidebar_links_font_size>
+				<sidebar_links_color>rgb(26, 26, 26)</sidebar_links_color>
+				<sidebar_links_hover_color>rgb(0, 0, 0)</sidebar_links_hover_color>
+				<sidebar_links_hover_bg>rgba(0, 0, 0, 0)</sidebar_links_hover_bg>
+				<filter_buttom_counter_bg_color></filter_buttom_counter_bg_color>
+				<filter_buttom_counter_text_color></filter_buttom_counter_text_color>
+				<layered_navigation_loader_overlay_bg></layered_navigation_loader_overlay_bg>
+				<scroll_loader_color></scroll_loader_color>
+				<sidebar_links_active_color></sidebar_links_active_color>
+				<sidebar_links_active_bg></sidebar_links_active_bg>
+				<sidebar_checkbox_style>big_thin</sidebar_checkbox_style>
+				<sidebar_item_checkbox_color>rgb(39, 39, 39)</sidebar_item_checkbox_color>
+				<sidebar_item_active_checkbox_bg>rgb(39, 39, 39)</sidebar_item_active_checkbox_bg>
+				<sidebar_item_active_checkbox_color>rgb(255, 255, 255)</sidebar_item_active_checkbox_color>
+				<price_slider_handle_color></price_slider_handle_color>
+				<price_slider_handle_hover_color></price_slider_handle_hover_color>
+				<price_slider_line_color></price_slider_line_color>
+				<price_slider_line_active_color></price_slider_line_active_color>
+				<price_slider_tooltip_bg></price_slider_tooltip_bg>
+				<price_slider_tooltip_text></price_slider_tooltip_text>
+				<sidebar_minimal>1</sidebar_minimal>
+				<border_size>1</border_size>
+				<sidebar_links_counter>rgb(40, 40, 40)</sidebar_links_counter>
+				<sidebar_links_counter_hover></sidebar_links_counter_hover>
+				<sidebar_links_counter_hover_bg>rgba(0, 0, 0, 0)</sidebar_links_counter_hover_bg>
+				<sidebar_title_font>Roboto</sidebar_title_font>
+				<sidebar_bordered_catalog>1</sidebar_bordered_catalog>
+			</appearance_sidebar>
+			<appearance_footer>
+				<above_footer_border_enable>1</above_footer_border_enable>
+				<above_footer_border_color>rgb(238, 238, 238)</above_footer_border_color>
+				<above_footer_bg_image_enabled>0</above_footer_bg_image_enabled>
+				<above_footer_bg_image></above_footer_bg_image>
+				<above_footer_bg_position_y>center</above_footer_bg_position_y>
+				<above_footer_bg_position_x>center</above_footer_bg_position_x>
+				<above_footer_bg_repeat>repeat</above_footer_bg_repeat>
+				<above_footer_bg_size>auto</above_footer_bg_size>
+				<footer_bg>rgb(35, 37, 41)</footer_bg>
+				<footer_bg_image_enabled>0</footer_bg_image_enabled>
+				<footer_bg_image></footer_bg_image>
+				<footer_bg_position_y>center</footer_bg_position_y>
+				<footer_bg_position_x>center</footer_bg_position_x>
+				<footer_bg_repeat>repeat</footer_bg_repeat>
+				<footer_bg_size>auto</footer_bg_size>
+				<footer_border_enable>0</footer_border_enable>
+				<footer_border_color>rgb(238, 238, 238)</footer_border_color>
+				<footer_color>rgb(145, 146, 148)</footer_color>
+				<footer_titles>rgb(255, 255, 255)</footer_titles>
+				<footer_titles_text_transform></footer_titles_text_transform>
+				<footer_button_color></footer_button_color>
+				<footer_button_hover_color></footer_button_hover_color>
+				<footer_button_bg></footer_button_bg>
+				<footer_button_bg_hover></footer_button_bg_hover>
+				<footer_link>rgb(145, 146, 148)</footer_link>
+				<footer_link_hover>rgb(255, 255, 255)</footer_link_hover>
+				<footer_link_bg>rgba(0, 0, 0, 0)</footer_link_bg>
+				<footer_link_font_size>14</footer_link_font_size>
+				<footer_top_block_border_color></footer_top_block_border_color>
+				<footer_bottom_block_border_color></footer_bottom_block_border_color>
+				<footer_side_bg>rgb(28, 28, 28)</footer_side_bg>
+				<footer_side_bg_image_enabled>0</footer_side_bg_image_enabled>
+				<footer_side_bg_image></footer_side_bg_image>
+				<footer_side_bg_position_y></footer_side_bg_position_y>
+				<footer_side_bg_position_x></footer_side_bg_position_x>
+				<footer_side_bg_repeat></footer_side_bg_repeat>
+				<footer_side_bg_size></footer_side_bg_size>
+				<footer_side_color>rgb(255, 255, 255)</footer_side_color>
+				<footer_side_titles>rgb(255, 255, 255)</footer_side_titles>
+				<footer_side_link>rgb(255, 255, 255)</footer_side_link>
+				<footer_side_link_hover></footer_side_link_hover>
+				<footer_side_link_bg></footer_side_link_bg>
+				<footer_store_switcher_text_color></footer_store_switcher_text_color>
+				<footer_store_switcher_bg></footer_store_switcher_bg>
+				<footer_store_switcher_text_hover></footer_store_switcher_text_hover>
+				<footer_store_switcher_bg_hover></footer_store_switcher_bg_hover>
+				<footer_store_switcher_font_size></footer_store_switcher_font_size>
+				<footer_store_switcher_drop_font_size></footer_store_switcher_drop_font_size>
+				<copyright_bg>rgb(248, 248, 248)</copyright_bg>
+				<copyright_bg_image_enabled>0</copyright_bg_image_enabled>
+				<copyright_bg_image></copyright_bg_image>
+				<copyright_bg_position_y>center</copyright_bg_position_y>
+				<copyright_bg_position_x>center</copyright_bg_position_x>
+				<copyright_bg_repeat>repeat</copyright_bg_repeat>
+				<copyright_bg_size>auto</copyright_bg_size>
+				<copyright_color>rgb(125, 125, 125)</copyright_color>
+				<copyright_links_color>rgb(125, 125, 125)</copyright_links_color>
+				<copyright_links_hover_color>rgb(0, 0, 0)</copyright_links_hover_color>
+				<copyright_links_hover_bg>rgba(0, 0, 0, 0)</copyright_links_hover_bg>
+				<copyright_border_enable>0</copyright_border_enable>
+				<copyright_border_color></copyright_border_color>
+			</appearance_footer>
+			<appearance_footer_newsletter>
+				<footer_newsletter_big_padding>60</footer_newsletter_big_padding>
+				<footer_newsletter_min_height>200</footer_newsletter_min_height>
+				<footer_newsletter_bg>rgb(251, 251, 251)</footer_newsletter_bg>
+				<footer_newsletter_bg_image_enabled>0</footer_newsletter_bg_image_enabled>
+				<footer_newsletter_bg_image></footer_newsletter_bg_image>
+				<footer_newsletter_bg_position_y>center</footer_newsletter_bg_position_y>
+				<footer_newsletter_bg_position_x>center</footer_newsletter_bg_position_x>
+				<footer_newsletter_bg_repeat>repeat</footer_newsletter_bg_repeat>
+				<footer_newsletter_bg_size>auto</footer_newsletter_bg_size>
+				<footer_newsletter_border_enable>1</footer_newsletter_border_enable>
+				<footer_newsletter_border_color></footer_newsletter_border_color>
+				<footer_newsletter_color>rgb(125, 125, 125)</footer_newsletter_color>
+				<footer_newsletter_title>rgb(29, 29, 29)</footer_newsletter_title>
+				<footer_newsletter_title_size>h1</footer_newsletter_title_size>
+				<footer_newsletter_title_font_size>48</footer_newsletter_title_font_size>
+				<footer_newsletter_title_font_size_mobile></footer_newsletter_title_font_size_mobile>
+				<footer_newsletter_input_bg>rgb(255, 255, 255)</footer_newsletter_input_bg>
+				<footer_newsletter_input_border_size>2</footer_newsletter_input_border_size>
+				<footer_newsletter_input_border>rgb(44, 41, 48)</footer_newsletter_input_border>
+				<footer_newsletter_input_border_focus>rgb(126, 126, 126)</footer_newsletter_input_border_focus>
+				<footer_newsletter_input_color>rgb(44, 41, 48)</footer_newsletter_input_color>
+				<footer_newsletter_button_color>rgb(255, 255, 255)</footer_newsletter_button_color>
+				<footer_newsletter_button_bg>rgb(44, 41, 48)</footer_newsletter_button_bg>
+				<footer_newsletter_button_hover>rgb(26, 26, 26)</footer_newsletter_button_hover>
+				<footer_newsletter_button_hover_bg>rgb(255, 255, 255)</footer_newsletter_button_hover_bg>
+				<footer_newsletter_input_bg_focus>rgb(44, 41, 48)</footer_newsletter_input_bg_focus>
+			</appearance_footer_newsletter>
+			<appearance_custom>
+				<custom_css_enabled>1</custom_css_enabled>
+				<custom_css_content>.page-layout-2columns-right .extended-review-button{
+display:none!important;
+}
+.product-item .price-box .price-container .price-label {
+display:none!important;
+}
+.page-layout-2columns-right.catalog-product-view .number-of-ratings .rating-number .label{
+display:none;
+}
+
+@media (min-width: 769px) {
+.footer--layout-4 .footer.content .block.newsletter .form.subscribe {
+    margin-top: 0;
+}
+}
+
+.free-shipping-highlight{
+background: #f4ff2c;
+    padding: 1px 4px;
+}
+
+/* demo only */
+@media (max-width: 1024px) {
+.ox-pro.-bottom{
+    bottom: 90px;
+    left: 20px;
+}
+}
+/* demo only hide qty in quickview */
+.ox_quickview-catalog_product-view .box-tocart .field.qty{
+display:none;
+}</custom_css_content>
+				<inline_css>1</inline_css>
+				<dynamic_file_arg_enable>1</dynamic_file_arg_enable>
+				<dynamic_file_arg>183</dynamic_file_arg>
+			</appearance_custom>
+			<appearance_reviews>
+				<reviews_rating_color>rgb(224, 224, 224)</reviews_rating_color>
+				<reviews_rating_active_color></reviews_rating_active_color>
+				<reviews_small_rating_nopadding>1</reviews_small_rating_nopadding>
+				<reviews_small_rating_bg>rgb(255, 255, 255)</reviews_small_rating_bg>
+				<reviews_block_bg></reviews_block_bg>
+				<reviews_block_text>rgb(75, 75, 75)</reviews_block_text>
+				<reviews_block_text_big>rgb(34, 34, 34)</reviews_block_text_big>
+				<reviews_block_top_bg>rgb(248, 248, 248)</reviews_block_top_bg>
+				<reviews_block_top_text>rgb(39, 39, 39)</reviews_block_top_text>
+				<reviews_block_top_rating>rgb(224, 224, 224)</reviews_block_top_rating>
+				<reviews_icon_style>stars</reviews_icon_style>
+				<reviews_vote_icon_style>stars</reviews_vote_icon_style>
+			</appearance_reviews>
+			<appearance_toolbar>
+				<toolbar_nobg>1</toolbar_nobg>
+				<toolbar_size>big</toolbar_size>
+				<toolbar_bordered>1</toolbar_bordered>
+				<toolbar_background></toolbar_background>
+				<toolbar_text>rgb(48, 48, 48)</toolbar_text>
+				<toolbar_icons>bold</toolbar_icons>
+				<icon_filters>filters3</icon_filters>
+				<toolbar_text_font_size>14</toolbar_text_font_size>
+				<toolbar_icon_color>rgb(162, 162, 162)</toolbar_icon_color>
+				<toolbar_icon_bg>rgb(248, 248, 248)</toolbar_icon_bg>
+				<toolbar_icon_hover_color>rgb(0, 0, 0)</toolbar_icon_hover_color>
+				<toolbar_icon_hover_bg>rgb(248, 248, 248)</toolbar_icon_hover_bg>
+				<toolbar_progress_line_color>rgb(230, 230, 230)</toolbar_progress_line_color>
+				<toolbar_progress_line_color_active></toolbar_progress_line_color_active>
+				<toolbar_dropdown_bg>rgb(248, 248, 248)</toolbar_dropdown_bg>
+				<toolbar_link_color>rgb(117, 117, 117)</toolbar_link_color>
+				<toolbar_link_hover_color>rgb(0, 0, 0)</toolbar_link_hover_color>
+				<toolbar_link_hover_bg>rgba(0, 0, 0, 0)</toolbar_link_hover_bg>
+				<toolbar_pager_color></toolbar_pager_color>
+				<toolbar_pager_color_hover></toolbar_pager_color_hover>
+				<toolbar_pager_bg></toolbar_pager_bg>
+				<toolbar_pager_active_color>rgb(255, 255, 255)</toolbar_pager_active_color>
+				<toolbar_pager_active_bg></toolbar_pager_active_bg>
+				<toolbar_minimal>1</toolbar_minimal>
+			</appearance_toolbar>
+			<appearance_product>
+				<product_images_bg></product_images_bg>
+				<product_images_popup_bg></product_images_popup_bg>
+				<product_images_popup_text></product_images_popup_text>
+				<product_images_thumb_bordered>bordered</product_images_thumb_bordered>
+				<product_images_thumb_border_color></product_images_thumb_border_color>
+				<product_price_color></product_price_color>
+				<product_page_price_color></product_page_price_color>
+				<product_special_price_color>rgb(0, 0, 0)</product_special_price_color>
+				<product_old_price_color>rgb(136, 136, 136)</product_old_price_color>
+				<product_name_font_size>36</product_name_font_size>
+				<product_name_font_weight>500</product_name_font_weight>
+				<product_name_text_transform>capitalize</product_name_text_transform>
+				<product_name_letter_spacing>0</product_name_letter_spacing>
+				<product_price_font_size>28</product_price_font_size>
+				<product_price_font_weight></product_price_font_weight>
+				<product_price_letter_spacing></product_price_letter_spacing>
+				<product_old_price_font_size></product_old_price_font_size>
+				<product_old_price_font_weight>500</product_old_price_font_weight>
+				<product_price_diff_color></product_price_diff_color>
+				<product_price_diff_bg></product_price_diff_bg>
+				<product_price_diff_font_size></product_price_diff_font_size>
+				<product_price_diff_font_weight></product_price_diff_font_weight>
+				<product_page_actions></product_page_actions>
+				<product_page_actions_hover></product_page_actions_hover>
+				<product_page_actions_popup_bg></product_page_actions_popup_bg>
+				<product_page_actions_popup_text></product_page_actions_popup_text>
+				<product_page_button_stretch>1</product_page_button_stretch>
+				<product_page_button_text_color></product_page_button_text_color>
+				<product_page_button_bg_color></product_page_button_bg_color>
+				<product_page_button_text_hover></product_page_button_text_hover>
+				<product_page_button_bg_hover></product_page_button_bg_hover>
+				<desc_border_top>1</desc_border_top>
+				<desc_border_bottom>0</desc_border_bottom>
+				<desc_border_color></desc_border_color>
+				<product_page_tab_color></product_page_tab_color>
+				<product_page_tab_bg></product_page_tab_bg>
+				<product_page_tab_hover_color></product_page_tab_hover_color>
+				<product_page_tab_active_color></product_page_tab_active_color>
+				<product_page_tab_active_bg></product_page_tab_active_bg>
+				<product_page_accordion_title_size>bigger</product_page_accordion_title_size>
+				<product_page_accordion_text_color></product_page_accordion_text_color>
+				<product_page_tab_content_bg></product_page_tab_content_bg>
+				<product_page_tab_content_text></product_page_tab_content_text>
+				<product_page_tab_divider_color></product_page_tab_divider_color>
+				<product_page_prevnext_link>rgb(167, 167, 167)</product_page_prevnext_link>
+				<product_page_prevnext_text>rgb(44, 41, 48)</product_page_prevnext_text>
+				<product_page_prevnext_content_bg>rgb(245, 245, 245)</product_page_prevnext_content_bg>
+				<product_page_prevnext_arrow>rgb(44, 41, 48)</product_page_prevnext_arrow>
+				<product_page_prevnext_arrow_bg>rgb(245, 245, 245)</product_page_prevnext_arrow_bg>
+				<product_page_more_info_style>2</product_page_more_info_style>
+				<product_page_tab_details_font_size>16</product_page_tab_details_font_size>
+				<product_page_tab_moreinfo_font_size></product_page_tab_moreinfo_font_size>
+				<swatch_text_style>2</swatch_text_style>
+				<swatch_text_width_style>col</swatch_text_width_style>
+				<swatch_text_width>col</swatch_text_width>
+				<swatch_text_height></swatch_text_height>
+				<swatch_text_width_col>4</swatch_text_width_col>
+				<swatch_color_width>42</swatch_color_width>
+				<swatch_color_height>50</swatch_color_height>
+			</appearance_product>
+			<appearance_product_bar>
+				<bg></bg>
+				<padding></padding>
+				<border>0</border>
+				<border_color></border_color>
+				<shadow>1</shadow>
+				<shadow_color></shadow_color>
+				<color></color>
+				<price_color></price_color>
+				<special_price_color></special_price_color>
+				<old_price_color></old_price_color>
+				<qty_bg></qty_bg>
+				<qty_icons_color></qty_icons_color>
+				<qty_text_color></qty_text_color>
+				<button_text_color></button_text_color>
+				<button_bg_color></button_bg_color>
+				<button_text_hover></button_text_hover>
+				<button_bg_hover></button_bg_hover>
+				<actions_color></actions_color>
+				<actions_color_hover></actions_color_hover>
+				<name_font_size>18</name_font_size>
+				<name_letter_spacing></name_letter_spacing>
+				<name_text_transform></name_text_transform>
+				<name_font_weight>500</name_font_weight>
+				<price_font_size></price_font_size>
+				<price_letter_spacing></price_letter_spacing>
+				<price_font_weight></price_font_weight>
+			</appearance_product_bar>
+			<product_quick_nav>
+				<stretch>1</stretch>
+				<bg></bg>
+				<border>1</border>
+				<border_top>0</border_top>
+				<border_color></border_color>
+				<style>minimal</style>
+				<font_size></font_size>
+				<font_weight></font_weight>
+				<letter_spacing></letter_spacing>
+				<text_transform></text_transform>
+				<item_color></item_color>
+				<item_color_hover></item_color_hover>
+				<item_color_active></item_color_active>
+				<item_bg></item_bg>
+				<item_bg_active></item_bg_active>
+			</product_quick_nav>
+			<appearance_arrows>
+				<arrows_product_icon_color>rgb(0, 0, 0)</arrows_product_icon_color>
+				<arrows_product_icon_hover_color>rgb(255, 255, 255)</arrows_product_icon_hover_color>
+				<arrows_product_bg_color>rgba(245, 245, 245, 0)</arrows_product_bg_color>
+				<arrows_product_bg_hover_color>rgb(0, 0, 0)</arrows_product_bg_hover_color>
+				<arrows_icon_color>rgb(0, 0, 0)</arrows_icon_color>
+				<arrows_bg_color>rgb(255, 255, 255)</arrows_bg_color>
+				<arrows_icon_hover_color>rgb(255, 255, 255)</arrows_icon_hover_color>
+				<arrows_bg_hover_color>rgb(44, 41, 48)</arrows_bg_hover_color>
+				<carousel_dot_color>rgb(195, 195, 195)</carousel_dot_color>
+				<carousel_dot_active_color>rgb(42, 42, 42)</carousel_dot_active_color>
+				<bannerslider_arrow_icon_color></bannerslider_arrow_icon_color>
+				<bannerslider_arrow_icon_hover_color></bannerslider_arrow_icon_hover_color>
+				<bannerslider_arrow_background></bannerslider_arrow_background>
+				<bannerslider_arrow_background_hover></bannerslider_arrow_background_hover>
+				<slideshow_arrow_icon_color></slideshow_arrow_icon_color>
+				<slideshow_arrow_icon_hover_color></slideshow_arrow_icon_hover_color>
+				<slideshow_arrow_background></slideshow_arrow_background>
+				<slideshow_arrow_background_hover></slideshow_arrow_background_hover>
+				<slideshow_progress_line></slideshow_progress_line>
+				<totop_icon_color>rgb(44, 41, 48)</totop_icon_color>
+				<totop_icon_hover_color>rgb(255, 255, 255)</totop_icon_hover_color>
+				<totop_background>rgb(255, 255, 255)</totop_background>
+				<totop_background_hover>rgb(44, 41, 48)</totop_background_hover>
+				<brand_arrows_icon_color></brand_arrows_icon_color>
+				<brand_arrows_bg_color></brand_arrows_bg_color>
+				<brand_arrows_icon_hover_color></brand_arrows_icon_hover_color>
+				<brand_arrows_bg_hover_color></brand_arrows_bg_hover_color>
+			</appearance_arrows>
+			<appearance_banners>
+				<header_banner_background_color></header_banner_background_color>
+				<header_banner_bg_image_enabled>0</header_banner_bg_image_enabled>
+				<header_banner_bg_image></header_banner_bg_image>
+				<header_banner_bg_position_y>center</header_banner_bg_position_y>
+				<header_banner_bg_position_x>center</header_banner_bg_position_x>
+				<header_banner_bg_repeat>repeat</header_banner_bg_repeat>
+				<header_banner_bg_size>auto</header_banner_bg_size>
+				<header_banner2_bg_image_enabled>0</header_banner2_bg_image_enabled>
+				<header_banner2_bg_image></header_banner2_bg_image>
+				<header_banner2_bg_position_y>center</header_banner2_bg_position_y>
+				<header_banner2_bg_position_x>center</header_banner2_bg_position_x>
+				<header_banner2_bg_repeat>repeat</header_banner2_bg_repeat>
+				<header_banner2_bg_size>auto</header_banner2_bg_size>
+				<header_banner_border_enable>0</header_banner_border_enable>
+				<header_banner_border_color></header_banner_border_color>
+				<header_banner_text_color>rgb(51, 51, 51)</header_banner_text_color>
+				<header_banner_link_color></header_banner_link_color>
+				<header_banner_link_hover_color></header_banner_link_hover_color>
+				<footer_banner_background_color>rgb(225, 238, 98)</footer_banner_background_color>
+				<footer_banner_border_enable>0</footer_banner_border_enable>
+				<footer_banner_border_color>rgba(121, 121, 121, 0.18)</footer_banner_border_color>
+				<footer_banner_background>rgb(0, 0, 0)</footer_banner_background>
+				<footer_banner_link_color>rgb(0, 0, 0)</footer_banner_link_color>
+				<footer_banner_link_hover_color></footer_banner_link_hover_color>
+				<header_banner2_background_color></header_banner2_background_color>
+				<header_banner2_text_color></header_banner2_text_color>
+				<header_banner2_link_color></header_banner2_link_color>
+				<header_banner2_link_hover_color></header_banner2_link_hover_color>
+				<footer_banner2_background_color></footer_banner2_background_color>
+				<footer_banner2_background></footer_banner2_background>
+				<footer_banner2_link_color></footer_banner2_link_color>
+				<footer_banner2_link_hover_color></footer_banner2_link_hover_color>
+				<footer_banner_bg_image_enabled>0</footer_banner_bg_image_enabled>
+				<footer_banner_bg_image></footer_banner_bg_image>
+				<footer_banner_bg_position_y>center</footer_banner_bg_position_y>
+				<footer_banner_bg_position_x>center</footer_banner_bg_position_x>
+				<footer_banner_bg_repeat>repeat</footer_banner_bg_repeat>
+				<footer_banner_bg_size>auto</footer_banner_bg_size>
+				<footer_banner2_bg_image_enabled>0</footer_banner2_bg_image_enabled>
+				<footer_banner2_bg_image></footer_banner2_bg_image>
+				<footer_banner2_bg_position_y>center</footer_banner2_bg_position_y>
+				<footer_banner2_bg_position_x>center</footer_banner2_bg_position_x>
+				<footer_banner2_bg_repeat>repeat</footer_banner2_bg_repeat>
+				<footer_banner2_bg_size>auto</footer_banner2_bg_size>
+			</appearance_banners>
+			<appearance_banner_top>
+				<background_color></background_color>
+				<background_color_2></background_color_2>
+				<background_gradient_deg></background_gradient_deg>
+				<bg_image_enabled>0</bg_image_enabled>
+				<bg_image></bg_image>
+				<bg_position_y>center</bg_position_y>
+				<bg_position_x>center</bg_position_x>
+				<bg_repeat>repeat</bg_repeat>
+				<bg_size>auto</bg_size>
+				<border_enable>0</border_enable>
+				<border_color></border_color>
+				<text_color></text_color>
+				<link_color></link_color>
+				<link_hover_color></link_hover_color>
+				<close_color></close_color>
+				<close_hover_color></close_hover_color>
+				<close_bg></close_bg>
+				<close_hover_bg></close_hover_bg>
+				<padding_h></padding_h>
+				<padding_h_mobile></padding_h_mobile>
+				<padding_v></padding_v>
+				<padding_v_mobile></padding_v_mobile>
+			</appearance_banner_top>
+			<appearance_banner_above>
+				<background_color>rgb(135, 233, 214)</background_color>
+				<background_color_2>rgb(132, 246, 192)</background_color_2>
+				<background_gradient_deg></background_gradient_deg>
+				<bg_image_enabled>0</bg_image_enabled>
+				<bg_image></bg_image>
+				<bg_position_y>center</bg_position_y>
+				<bg_position_x>center</bg_position_x>
+				<bg_repeat>repeat</bg_repeat>
+				<bg_size>auto</bg_size>
+				<border_enable>0</border_enable>
+				<border_color></border_color>
+				<text_color>rgb(0, 0, 0)</text_color>
+				<link_color></link_color>
+				<link_hover_color></link_hover_color>
+				<close_color>rgb(0, 0, 0)</close_color>
+				<close_hover_color>rgb(255, 255, 255)</close_hover_color>
+				<close_bg>rgba(0, 0, 0, 0)</close_bg>
+				<close_hover_bg>rgb(0, 0, 0)</close_hover_bg>
+				<padding_h></padding_h>
+				<padding_h_mobile></padding_h_mobile>
+				<padding_v>6</padding_v>
+				<padding_v_mobile>16</padding_v_mobile>
+			</appearance_banner_above>
+			<appearance_contact_page>
+				<contact_form_bg>rgb(255, 255, 255)</contact_form_bg>
+				<contact_form_padding>30</contact_form_padding>
+				<contact_form_padding_mobile>0</contact_form_padding_mobile>
+			</appearance_contact_page>
+			<appearance_cart_page>
+				<minicart_viewcart_btn_color></minicart_viewcart_btn_color>
+				<minicart_viewcart_btn_bg>rgb(44, 41, 48)</minicart_viewcart_btn_bg>
+				<minicart_viewcart_btn_color_hover></minicart_viewcart_btn_color_hover>
+				<minicart_viewcart_btn_bg_hover>rgb(44, 41, 48)</minicart_viewcart_btn_bg_hover>
+				<cart_price_color></cart_price_color>
+				<cart_price_font_size></cart_price_font_size>
+				<cart_price_font_weight></cart_price_font_weight>
+				<cart_price_letter_spacing></cart_price_letter_spacing>
+				<cart_page_summary_bottom_bg>rgb(248, 248, 248)</cart_page_summary_bottom_bg>
+				<cart_page_summary_bottom_link>rgb(29, 29, 29)</cart_page_summary_bottom_link>
+			</appearance_cart_page>
+			<appearance_product_listing>
+				<products_layout_bordered>1</products_layout_bordered>
+				<listing_name_letter_spacing>0</listing_name_letter_spacing>
+				<listing_name_font_weight>400</listing_name_font_weight>
+				<listing_name_font_size>20</listing_name_font_size>
+				<list_view_listing_name_font_size></list_view_listing_name_font_size>
+				<listing_name_text_transform>capitalize</listing_name_text_transform>
+				<listing_name_color>rgb(51, 51, 51)</listing_name_color>
+				<listing_name_hover_color>rgb(51, 51, 51)</listing_name_hover_color>
+				<listing_name_bg>rgba(0, 0, 0, 0)</listing_name_bg>
+				<listing_price_color>#000</listing_price_color>
+				<listing_price_font_size>18</listing_price_font_size>
+				<listing_price_font_weight></listing_price_font_weight>
+				<listing_price_hover_color>rgb(51, 51, 51)</listing_price_hover_color>
+				<listing_old_price_color_hover>rgb(159, 159, 159)</listing_old_price_color_hover>
+				<listing_old_price_font_size></listing_old_price_font_size>
+				<listing_old_price_font_weight>400</listing_old_price_font_weight>
+				<listing_special_price_color_hover>rgb(0, 0, 0)</listing_special_price_color_hover>
+				<listing_price_listview>rgb(51, 51, 51)</listing_price_listview>
+				<listing_price_listview_font_size></listing_price_listview_font_size>
+				<listing_price_listview_font_weight></listing_price_listview_font_weight>
+				<listing_price_label_color></listing_price_label_color>
+				<listing_price_label_color_hover></listing_price_label_color_hover>
+				<listing_category_link>rgb(187, 187, 187)</listing_category_link>
+				<listing_price_diff_style>box</listing_price_diff_style>
+				<listing_price_diff_color>rgb(36, 36, 36)</listing_price_diff_color>
+				<listing_price_diff_bg>rgb(131, 248, 196)</listing_price_diff_bg>
+				<listing_price_diff_font_size></listing_price_diff_font_size>
+				<listing_price_diff_font_weight></listing_price_diff_font_weight>
+				<listing_overlay_color></listing_overlay_color>
+				<listing_actions_color>rgb(102, 102, 102)</listing_actions_color>
+				<listing_actions_bg>rgba(44, 41, 48, 0)</listing_actions_bg>
+				<listing_actions_hover>rgb(44, 41, 48)</listing_actions_hover>
+				<listing_actions_bg_hover>rgba(246, 246, 246, 0)</listing_actions_bg_hover>
+				<listing_actions_indetails>rgb(72, 72, 72)</listing_actions_indetails>
+				<listing_quickview_btn>rgb(72, 72, 72)</listing_quickview_btn>
+				<listing_quickview_btn_bg>rgba(255, 255, 255, 0)</listing_quickview_btn_bg>
+				<listing_quickview_btn_hover>rgb(0, 0, 0)</listing_quickview_btn_hover>
+				<listing_quickview_btn_bg_hover>rgba(255, 255, 255, 0)</listing_quickview_btn_bg_hover>
+				<instock_color></instock_color>
+				<outofstock_style>simple</outofstock_style>
+				<outofstock_color></outofstock_color>
+				<outofstock_bg></outofstock_bg>
+			</appearance_product_listing>
+			<appearance_product_listing_thumbs>
+				<arrows_style>thin_long</arrows_style>
+				<arrows_icon_edge_pos>0</arrows_icon_edge_pos>
+				<arrows_icon_color>rgb(41, 41, 41)</arrows_icon_color>
+				<arrows_icon_hover_color>rgb(41, 41, 41)</arrows_icon_hover_color>
+				<arrows_bg_color>rgb(245, 245, 245)</arrows_bg_color>
+				<arrows_bg_hover_color>rgb(245, 245, 245)</arrows_bg_hover_color>
+				<show_dots>1</show_dots>
+				<dots_v_position>bottom</dots_v_position>
+				<dots_h_position>center</dots_h_position>
+				<dots_style>oneline-fullwidth</dots_style>
+				<active_dots_style>wide</active_dots_style>
+				<dots_position>below</dots_position>
+				<dot_color>rgb(227, 227, 227)</dot_color>
+				<dot_active_color>rgb(44, 48, 56)</dot_active_color>
+				<show_counter_text>1</show_counter_text>
+				<counter_text_position>right</counter_text_position>
+				<counter_text_color>rgb(67, 67, 67)</counter_text_color>
+				<counter_text_bg>rgb(255, 255, 255)</counter_text_bg>
+			</appearance_product_listing_thumbs>
+			<blog_list>
+				<title_font_size>50</title_font_size>
+				<title_text_transform>capitalize</title_text_transform>
+				<big_title_text_transform>capitalize</big_title_text_transform>
+				<title_letter_spacing>0</title_letter_spacing>
+				<big_title_font_size></big_title_font_size>
+				<big_title_letter_spacing></big_title_letter_spacing>
+				<title_color></title_color>
+				<title_color_hover></title_color_hover>
+				<title_bg_hover></title_bg_hover>
+				<date_bg_color>rgb(0, 0, 0)</date_bg_color>
+				<date_text_color></date_text_color>
+				<date_bg_color_hover></date_bg_color_hover>
+				<date_text_color_hover></date_text_color_hover>
+				<category_bg_color></category_bg_color>
+				<category_text_color>rgb(255, 255, 255)</category_text_color>
+				<category_bg_color_hover></category_bg_color_hover>
+				<category_text_color_hover></category_text_color_hover>
+				<social_color></social_color>
+				<social_color_hover></social_color_hover>
+				<readmore_color></readmore_color>
+				<readmore_hover></readmore_hover>
+				<big_post_white>1</big_post_white>
+				<big_post_gradient_color>rgba(0, 0, 0, 0.6)</big_post_gradient_color>
+				<big_post_gradient_color_second>rgba(0, 0, 0, 0.12)</big_post_gradient_color_second>
+				<sidebar_tags_bg_color>rgb(0, 0, 0)</sidebar_tags_bg_color>
+				<sidebar_tags_text_color>rgb(255, 255, 255)</sidebar_tags_text_color>
+				<sidebar_tags_bg_color_hover>rgb(245, 245, 245)</sidebar_tags_bg_color_hover>
+				<sidebar_tags_text_color_hover>rgb(0, 0, 0)</sidebar_tags_text_color_hover>
+				<widget_title_font_size></widget_title_font_size>
+				<widget_title_letter_spacing></widget_title_letter_spacing>
+				<widget_title_text_transform></widget_title_text_transform>
+				<widget_titles_color>rgb(0, 0, 0)</widget_titles_color>
+				<widget_titles_color_hover>rgb(0, 0, 0)</widget_titles_color_hover>
+				<widget_titles_bg_hover>rgba(255, 255, 255, 0)</widget_titles_bg_hover>
+			</blog_list>
+			<blog_post>
+				<title_font_size>60</title_font_size>
+				<title_text_transform></title_text_transform>
+				<content_font_size>18</content_font_size>
+				<content_line_height></content_line_height>
+				<related_title_font_size>28</related_title_font_size>
+				<meta_text_color>rgb(169, 169, 169)</meta_text_color>
+				<category_bg_color></category_bg_color>
+				<category_text_color>rgb(255, 255, 255)</category_text_color>
+				<category_bg_color_hover></category_bg_color_hover>
+				<category_text_color_hover></category_text_color_hover>
+				<social_color></social_color>
+				<social_color_hover>rgb(0, 0, 0)</social_color_hover>
+				<progress_color></progress_color>
+				<progess_color_active>rgb(0, 0, 0)</progess_color_active>
+				<tags_bg_color></tags_bg_color>
+				<tags_text_color></tags_text_color>
+				<tags_bg_color_hover>rgb(241, 241, 241)</tags_bg_color_hover>
+				<tags_text_color_hover>rgb(0, 0, 0)</tags_text_color_hover>
+				<next_prev_color>rgb(48, 48, 48)</next_prev_color>
+				<next_prev_color_hover>rgb(0, 0, 0)</next_prev_color_hover>
+				<next_prev_bg_color_hover>rgba(0, 0, 0, 0)</next_prev_bg_color_hover>
+				<comments_form_bg></comments_form_bg>
+				<comments_left_line>rgb(235, 235, 235)</comments_left_line>
+			</blog_post>
+			<blog_product_page>
+				<title_font_size></title_font_size>
+				<title_letter_spacing></title_letter_spacing>
+				<title_text_transform></title_text_transform>
+			</blog_product_page>
+			<my_account>
+				<tab_color></tab_color>
+				<tab_bg></tab_bg>
+				<tab_hover_color></tab_hover_color>
+				<tab_active_color></tab_active_color>
+				<tab_active_bg></tab_active_bg>
+				<accordion_text_color></accordion_text_color>
+				<tab_content_bg></tab_content_bg>
+				<tab_content_text></tab_content_text>
+				<account_sidebar_links></account_sidebar_links>
+				<account_sidebar_links_hover></account_sidebar_links_hover>
+				<account_sidebar_links_bg_hover></account_sidebar_links_bg_hover>
+				<account_sidebar_bg></account_sidebar_bg>
+				<account_sidebar_toggle_color></account_sidebar_toggle_color>
+				<account_sidebar_toggle_bg></account_sidebar_toggle_bg>
+				<account_sidebar_bg_mobile></account_sidebar_bg_mobile>
+			</my_account>
+			<mobile_bottom_nav>
+				<item_color></item_color>
+				<item_font_enable>0</item_font_enable>
+				<item_font></item_font>
+				<item_font_custom></item_font_custom>
+				<item_font_size></item_font_size>
+				<item_letter_spacing></item_letter_spacing>
+				<item_text_transform></item_text_transform>
+				<item_font_weight></item_font_weight>
+				<item_bg></item_bg>
+				<item_icon_color></item_icon_color>
+				<border_color></border_color>
+				<counter_bg></counter_bg>
+				<counter_text></counter_text>
+				<border>1</border>
+				<shadow>0</shadow>
+				<shadow_color></shadow_color>
+			</mobile_bottom_nav>
+			<shipping_bar>
+				<bg>rgb(255, 255, 255)</bg>
+				<text_color></text_color>
+				<padding>20px</padding>
+				<font_size></font_size>
+				<letter_spacing></letter_spacing>
+				<text_transform></text_transform>
+				<font_weight></font_weight>
+				<border_bottom>1</border_bottom>
+				<border_bottom_color></border_bottom_color>
+				<price_color></price_color>
+				<price_font_weight></price_font_weight>
+				<show_icon>1</show_icon>
+				<enable_animation>1</enable_animation>
+				<icon_color></icon_color>
+				<custom_icon_enable>0</custom_icon_enable>
+				<icon_width></icon_width>
+				<icon_height></icon_height>
+				<custom_icon_url></custom_icon_url>
+				<show_progress_line>1</show_progress_line>
+				<progress_height>4</progress_height>
+				<progress_border_radius></progress_border_radius>
+				<progress_bg>rgb(229, 229, 229)</progress_bg>
+				<progress_color_active></progress_color_active>
+				<success_bg></success_bg>
+				<success_text_color></success_text_color>
+				<enable_success_bg_animation>1</enable_success_bg_animation>
+				<enable_success_fw_animation>1</enable_success_fw_animation>
+				<show_success_icon>1</show_success_icon>
+				<success_icon_color></success_icon_color>
+				<success_custom_icon_enable>0</success_custom_icon_enable>
+				<success_icon_width></success_icon_width>
+				<success_icon_height></success_icon_height>
+				<success_custom_icon_url></success_custom_icon_url>
+			</shipping_bar>
+			<product_stock>
+				<style></style>
+				<width_style>full</width_style>
+				<width></width>
+				<bg></bg>
+				<text_color>rgb(25, 25, 25)</text_color>
+				<qty_color></qty_color>
+				<sold_color></sold_color>
+				<padding></padding>
+				<font_size></font_size>
+				<letter_spacing></letter_spacing>
+				<text_transform></text_transform>
+				<font_weight></font_weight>
+				<border>0</border>
+				<border_color></border_color>
+				<show_icon></show_icon>
+				<icon_bg></icon_bg>
+				<icon_color></icon_color>
+				<custom_icon_enable></custom_icon_enable>
+				<icon_width></icon_width>
+				<icon_height></icon_height>
+				<custom_icon_url></custom_icon_url>
+				<show_progress_line>1</show_progress_line>
+				<show_progress_line_low_stock>0</show_progress_line_low_stock>
+				<progress_height></progress_height>
+				<progress_border_radius></progress_border_radius>
+				<progress_bg>rgb(229, 229, 229)</progress_bg>
+				<progress_color_style></progress_color_style>
+				<progress_color_active>rgb(131, 248, 196)</progress_color_active>
+				<progress_color2_active>rgb(0, 217, 255)</progress_color2_active>
+				<low_stock_bg></low_stock_bg>
+				<low_stock_text_color></low_stock_text_color>
+				<low_stock_qty_color>rgb(255, 0, 0)</low_stock_qty_color>
+				<low_stock_sold_color></low_stock_sold_color>
+				<low_stock_border_color></low_stock_border_color>
+				<low_stock_show_icon></low_stock_show_icon>
+				<low_stock_icon_bg></low_stock_icon_bg>
+				<low_stock_icon_color></low_stock_icon_color>
+				<low_stock_progress_bg>rgb(229, 229, 229)</low_stock_progress_bg>
+				<low_stock_progress_color_active>rgb(255, 0, 0)</low_stock_progress_color_active>
+			</product_stock>
+			<appearance_banners_cms>
+				<banners_cms_text_color>rgb(61, 61, 61)</banners_cms_text_color>
+				<banners_cms_text_color_hover>rgb(61, 61, 61)</banners_cms_text_color_hover>
+				<banners_cms_text_bg>rgba(0, 0, 0, 0)</banners_cms_text_bg>
+				<banners_cms_text_bg_hover>rgb(246, 243, 239)</banners_cms_text_bg_hover>
+				<banners_cms_button_text>rgb(255, 255, 255)</banners_cms_button_text>
+				<banners_cms_button_bg>rgb(61, 61, 61)</banners_cms_button_bg>
+			</appearance_banners_cms>
+		</athlete2_design>
+		<athleteslideshow>
+			<general>
+				<enabled>0</enabled>
+			</general>
+		</athleteslideshow>
+		<olegnax_layered_navigation>
+			<general>
+				<enable>1</enable>
+				<filters_type>checkbox</filters_type>
+				<abort_prev_request>1</abort_prev_request>
+			</general>
+			<price_slider>
+				<price_slider>1</price_slider>
+			</price_slider>
+			<loaders>
+				<loader_type_filters>theme</loader_type_filters>
+				<loader_filters></loader_filters>
+				<loader_type_content>theme</loader_type_content>
+				<loader_content></loader_content>
+				<loader_content_selector></loader_content_selector>
+				<loader_type_page></loader_type_page>
+				<loader_page></loader_page>
+			</loaders>
+		</olegnax_layered_navigation>
+		<ox_megamenu_settings>
+			<general>
+				<enable_megamenu>1</enable_megamenu>
+				<show_menu_parent_arrow>0</show_menu_parent_arrow>
+				<show_sub_parent_arrow>1</show_sub_parent_arrow>
+				<close_delay>50</close_delay>
+				<perfect_scrollbar>1</perfect_scrollbar>
+				<wrap_in_all_categories>1</wrap_in_all_categories>
+				<all_categories_title></all_categories_title>
+				<all_categories_megamenu>1</all_categories_megamenu>
+				<all_categories_menu_width>fullwidth</all_categories_menu_width>
+				<ox_all_categories_align_horizontal>window-left</ox_all_categories_align_horizontal>
+				<all_categories_menu_width_custom></all_categories_menu_width_custom>
+				<all_categories_content_width>290</all_categories_content_width>
+				<all_categories_menu_min_height>500</all_categories_menu_min_height>
+				<all_categories_dd_same_height>1</all_categories_dd_same_height>
+				<all_categories_dd_open_first>1</all_categories_dd_open_first>
+				<all_categories_dd_open_last>1</all_categories_dd_open_last>
+				<all_categories_dd_donotclose>1</all_categories_dd_donotclose>
+				<header_container>.row</header_container>
+			</general>
+		</ox_megamenu_settings>
+		<olegnax_newsletterpopupbasic>
+			<general>
+				<enable>1</enable>
+				<many_times>everytime</many_times>
+				<cookie_expire></cookie_expire>
+				<cookie_sufix></cookie_sufix>
+				<layout>-fullwidth</layout>
+				<timeout>1000</timeout>
+				<show_mobile>1</show_mobile>
+				<width>540</width>
+				<height></height>
+				<mobile_width></mobile_width>
+				<mobile_height></mobile_height>
+				<mobile_image_height></mobile_image_height>
+				<column_width></column_width>
+				<padding>0</padding>
+				<tablet_padding></tablet_padding>
+				<mobile_padding></mobile_padding>
+				<content_padding>40</content_padding>
+				<tablet_content_padding></tablet_content_padding>
+				<mobile_content_padding>20</mobile_content_padding>
+				<position_h>h-left</position_h>
+				<position_v>v-bottom</position_v>
+				<form_layout>one-line</form_layout>
+				<content_position_h>h-left</content_position_h>
+				<content_position_v>v-center</content_position_v>
+				<show_shadow>0</show_shadow>
+				<clickable_overlay>0</clickable_overlay>
+			</general>
+			<content>
+				<column_image></column_image>
+				<content><![CDATA[<h2><strong>Get the latest<br>
+deals and more.</strong></h2>
+<p class="hide-on-mobile">Fusce rhoncus tortor sit amet lacus blandit, ac placerat efficitur. Vivamus non ornare ante, sit amet mattis felis. Nullam nec purus arcu.  </p>
+{{block class="Magento\Newsletter\Block\Subscribe" template="Magento_Newsletter::subscribe_form.phtml"}}
+<a href="#" class="ox-newsletter-disable__link ox-grey-underline">Thank you , I already subscribed.</a>]]></content>
+			</content>
+			<appearance>
+				<background_color></background_color>
+				<bg_image_enabled>0</bg_image_enabled>
+				<background_image></background_image>
+				<bg_position_y>center</bg_position_y>
+				<bg_position_x>center</bg_position_x>
+				<bg_repeat>no-repeat</bg_repeat>
+				<bg_size>cover</bg_size>
+				<newsletter_input_style>normal</newsletter_input_style>
+				<newsletter_text_color>rgb(117, 117, 117)</newsletter_text_color>
+				<newsletter_titles_color></newsletter_titles_color>
+				<close_button_bg>rgb(255, 255, 255)</close_button_bg>
+				<close_button_icon_color>rgb(32, 32, 32)</close_button_icon_color>
+				<close_button_bg_hover>rgb(32, 32, 32)</close_button_bg_hover>
+				<close_button_icon_color_hover>rgb(255, 255, 255)</close_button_icon_color_hover>
+				<newsletter_input_bg></newsletter_input_bg>
+				<newsletter_input_border_color>rgb(221, 221, 221)</newsletter_input_border_color>
+				<newsletter_input_border_focus>rgb(61, 61, 61)</newsletter_input_border_focus>
+				<newsletter_color></newsletter_color>
+				<newsletter_button_color></newsletter_button_color>
+				<newsletter_button_bg></newsletter_button_bg>
+				<newsletter_button_hover></newsletter_button_hover>
+				<newsletter_button_hover_bg></newsletter_button_hover_bg>
+				<newsletter_input_color>rgb(94, 94, 94)</newsletter_input_color>
+			</appearance>
+		</olegnax_newsletterpopupbasic>
+		<olegnax_productlabel>
+			<general>
+				<enable>1</enable>
+			</general>
+			<label>
+				<label_position>top-left</label_position>
+				<label_position_product>top-left</label_position_product>
+				<price_delimeter></price_delimeter>
+				<new>1</new>
+				<new_text>NEW</new_text>
+				<new_color></new_color>
+				<new_background_color></new_background_color>
+				<sale>1</sale>
+				<sale_text>{{discount_percent}} OFF</sale_text>
+				<sale_color>rgb(0, 0, 0)</sale_color>
+				<sale_background_color>rgb(255, 253, 44)</sale_background_color>
+				<featured>1</featured>
+				<featured_text>FEATURED</featured_text>
+				<featured_color>rgb(255, 255, 255)</featured_color>
+				<featured_background_color>rgb(0, 0, 0)</featured_background_color>
+				<bestseller>1</bestseller>
+				<bestseller_period></bestseller_period>
+				<bestseller_count>10</bestseller_count>
+				<bestseller_text>BESTSELLER</bestseller_text>
+				<bestseller_color></bestseller_color>
+				<bestseller_background_color></bestseller_background_color>
+				<custom>0</custom>
+				<custom_text></custom_text>
+				<custom_color></custom_color>
+				<custom_background_color></custom_background_color>
+			</label>
+		</olegnax_productlabel>
+		<olegnax_productreviewssummary>
+			<enable_all>
+				<enabled>1</enabled>
+			</enable_all>
+			<general>
+				<rating_overall>1</rating_overall>
+				<write_btn_overall>0</write_btn_overall>
+				<rating_bystar_rating>1</rating_bystar_rating>
+				<stars_text>Stars</stars_text>
+				<show_rating_percent>1</show_rating_percent>
+				<show_rating_count>1</show_rating_count>
+				<rating_breakdown>1</rating_breakdown>
+				<write_btn_after>1</write_btn_after>
+			</general>
+		</olegnax_productreviewssummary>
+		<olegnax_quickview>
+			<general>
+				<enable>1</enable>
+				<enable_product_listing>1</enable_product_listing>
+			</general>
+		</olegnax_quickview>
+		<olegnax_infinitescroll>
+			<general>
+				<type>button</type>
+				<button_label>Load more</button_label>
+				<loader_type>theme</loader_type>
+				<progress_counter>1</progress_counter>
+				<products_container></products_container>
+				<product_container></product_container>
+				<loader></loader>
+				<progress_label1>You've viewed </progress_label1>
+				<progress_label2> of </progress_label2>
+				<progress_label3> products</progress_label3>
+			</general>
+		</olegnax_infinitescroll>
+	</config>
+</root>

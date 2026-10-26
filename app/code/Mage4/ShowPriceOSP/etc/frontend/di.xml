@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\ConfigurableProduct\Pricing\Render\FinalPriceBox" type="Mage4\ShowPriceOSP\Pricing\Render\FinalPriceBox" />
+    <type name="Magento\ConfigurableProduct\Model\ResourceModel\Product\LinkedProductSelectBuilder">
+    <arguments>
+        <argument name="baseSelectProcessor" xsi:type="object">Mage4\ShowPriceOSP\Model\ConfigurableProduct\ResourceModel\Product\StockStatusBaseSelectProcessorN</argument>
+    </arguments>
+    </type>
+    <type name="Magento\ConfigurableProduct\Pricing\Price\ConfigurablePriceResolver">
+      <plugin name="show_price" type="Mage4\ShowPriceOSP\Plugin\ShowPrice" sortOrder="1" disabled="false" />
+    </type>
+    <preference for="Magento\ConfigurableProduct\Helper\Data"  type="Mage4\ShowPriceOSP\ConfigurableProduct\Helper\Data\Data"/>
+
+    <type name="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable">
+		<plugin name="ShowOutOfStockProducts" type="Mage4\ShowPriceOSP\Plugin\ShowOutOfStockProductsPlugin" />
+	</type>
+
+    <type name="Magento\ConfigurableProduct\Model\ResourceModel\Attribute\OptionSelectBuilderInterface">
+        <plugin name="Magento_ConfigurableProduct_Plugin_Model_ResourceModel_Attribute_InStockOptionSelectBuilder" disabled="true" />
+        <plugin name="ShowAllProductSwatches" type="Mage4\ShowPriceOSP\Plugin\InStockOptionSelectorPlugin"/>
+    </type>
+
+
+</config>

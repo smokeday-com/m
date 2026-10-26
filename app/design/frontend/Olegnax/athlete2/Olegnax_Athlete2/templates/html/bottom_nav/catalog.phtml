@@ -1,0 +1,18 @@
+<?php
+$text = $block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_text_shop' ) ?: __('Catalog');
+$url = $block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_url_shop' );
+$match =  $this->helper('Olegnax\Athlete2\Helper\Helper')->isCurrentUrlMatch($url);
+$icon_option   =  'athlete2_settings/mobile_bottom_nav/bottom_nav_icon_';
+$icon = $this->helper(Olegnax\Athlete2\Helper\Icons::class)->getIconHTML('shop', $icon_option); // $name, $icon_option = '', $classes = ''
+$hideText   = $block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_hide_text' );
+?>
+<div class="ox-bnav__item ox-bnav__shop">
+<a href="<?php echo $block->escapeUrl($url) ?>" class="action <?php if($match){ echo 'nolink'; } ?>">
+		<span class="icon">
+			<?= $icon; ?>
+		</span>
+		<span class="label <?php if($hideText){ echo "visually-hidden"; } ?>">
+			<?= $block->escapeHtml($text) ?>
+		</span>
+	</a>
+</div>

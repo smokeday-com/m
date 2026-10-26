@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mirasvit_Affiliate::affiliate" title="Affiliates" module="Mirasvit_Affiliate" sortOrder="110"
+             resource="Mirasvit_Affiliate::affiliate" parent="Magento_Backend::marketing"/>
+
+        <add id="Mirasvit_Affiliate::affiliate_dashboard" title="Dashboard" module="Mirasvit_Affiliate" sortOrder="1"
+             action="affiliate/dashboard" resource="Mirasvit_Affiliate::affiliate_dashboard"
+             parent="Mirasvit_Affiliate::affiliate"/>
+
+        <add id="Mirasvit_Affiliate::affiliate_account" title="Accounts" module="Mirasvit_Affiliate" sortOrder="10"
+             action="affiliate/account" resource="Mirasvit_Affiliate::affiliate_account"
+             parent="Mirasvit_Affiliate::affiliate"/>
+
+        <add id="Mirasvit_Affiliate::affiliate_group" title="Groups" module="Mirasvit_Affiliate" sortOrder="20"
+             action="affiliate/group" resource="Mirasvit_Affiliate::affiliate_group"
+             parent="Mirasvit_Affiliate::affiliate"/>
+
+        <add id="Mirasvit_Affiliate::affiliate_program" title="Programs" module="Mirasvit_Affiliate" sortOrder="30"
+             action="affiliate/program" resource="Mirasvit_Affiliate::affiliate_program"
+             parent="Mirasvit_Affiliate::affiliate"/>
+
+        <add id="Mirasvit_Affiliate::affiliate_transaction" title="Transactions" module="Mirasvit_Affiliate"
+             sortOrder="40"
+             action="affiliate/transaction" resource="Mirasvit_Affiliate::affiliate_transaction"
+             parent="Mirasvit_Affiliate::affiliate"/>
+
+        <add id="Mirasvit_Affiliate::affiliate_banner" title="Banners" module="Mirasvit_Affiliate" sortOrder="50"
+             action="affiliate/banner" resource="Mirasvit_Affiliate::affiliate_banner"
+             parent="Mirasvit_Affiliate::affiliate"/>
+
+        <add id="Mirasvit_Affiliate::affiliate_withdraw" title="Withdrawals" module="Mirasvit_Affiliate" sortOrder="60"
+             action="affiliate/withdraw" resource="Mirasvit_Affiliate::affiliate_withdraw"
+             parent="Mirasvit_Affiliate::affiliate"/>
+
+        <add id="Mirasvit_Affiliate::affiliate_referred_customers" title="Referred Customers" module="Mirasvit_Affiliate" sortOrder="70"
+             action="affiliate/referred" resource="Mirasvit_Affiliate::affiliate_referred_customers"
+             parent="Mirasvit_Affiliate::affiliate"/>
+
+        <add id="Mirasvit_Affiliate::account_fields_config" title="Additional Fields" module="Mirasvit_Affiliate"
+             sortOrder="90" action="affiliate/config/index/set/fields"
+             resource="Mirasvit_Affiliate::affiliate_configuration" parent="Mirasvit_Affiliate::affiliate"/>
+
+        <add id="Mirasvit_Affiliate::affiliate_settings" title="Settings" module="Mirasvit_Affiliate"
+             sortOrder="100" action="adminhtml/system_config/edit/section/affiliate"
+             resource="Mirasvit_Affiliate::affiliate_configuration" parent="Mirasvit_Affiliate::affiliate"/>
+
+        <add id="Mirasvit_Affiliate::account_fields_settings" title="Additional Fields" module="Mirasvit_Affiliate"
+             sortOrder="25" action="affiliate/config/index/set/fields"
+             resource="Mirasvit_Affiliate::affiliate_configuration" parent="Magento_Backend::stores_settings" />
+    </menu>
+</config>

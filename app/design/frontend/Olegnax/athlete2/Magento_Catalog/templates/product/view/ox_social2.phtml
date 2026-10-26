@@ -1,0 +1,11 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+$position = $block->getConfig('athlete2_settings/product/product_social_min');
+if ( !$position || $position === 'title') {
+	return;
+}
+echo $block->getChildHtml('', true);

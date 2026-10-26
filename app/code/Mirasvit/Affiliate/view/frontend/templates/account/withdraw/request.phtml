@@ -1,0 +1,55 @@
+<?php
+declare(strict_types=1);
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Affiliate\Block\Account\Withdraw\Request $block */
+
+$account = $block->getAccount();
+$balance = $account ? $account->getBalance() : 0;
+$min     = $block->getMinAmount();
+
+/** @var \Magento\Framework\Pricing\Helper\Data $pricingHelper */
+$pricingHelper = $this->helper('Magento\Framework\Pricing\Helper\Data');
+?>
+<div class="affiliate__withdraw-request">
+    <div class="box balance">
+        <div class="affiliate__balance">
+            <div><?= __('Current balance: <b>%1</b>', $pricingHelper->currency($balance)) ?></div>
+        </div>
+    </div>
+
+    <div class="box request">
+        <?php if ($balance >= $min): ?>
+            <form action="<?= $block->getUrl('*/*/withdrawPost') ?>" method="post" autocomplete="off"
+                  id="form-withdraw-request"
+                  class="affiliate__withdraw-request-form">
+                <?= $block->getBlockHtml('formkey') ?>
+
+                <div class="field">
+                    <div class="control">
+                        <input type="text" name="amount"
+                               id="amount" value=""
+                               placeholder="<?= __('Amount') ?>"
+                               title=" <?= __('Amount') ?>" class="input-text"
+                               data-validate="{required:true,'validate-number-range': ['<?= $min ?>-<?= $balance ?>']}">
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="action default" title="<?= __('Request withdrawal') ?>" type="submit">
+                        <span><?= __('Request withdrawal') ?></span>
+                    </button>
+                </div>
+            </form>
+            <script>
+                require([
+                    "jquery",
+                    "mage/mage"
+                ], function ($) {
+                    var dataForm = $('#form-withdraw-request');
+                    dataForm.mage('validation', {});
+                });
+            </script>
+        <?php else: ?>
+            <?= __('Minimum balance to request withdrawal is %1', $pricingHelper->currency($min)) ?>
+        <?php endif ?>
+    </div>
+</div>

@@ -1,0 +1,203 @@
+%1%,%1％
+%1,%1
+"We'll review your registration and notify you.",登録を確認して通知します。
+"Your request to sign up to the affiliate program has been rejected.",アフィリエイトプログラムへの登録リクエストは拒否されました。
+"Sign In to Affiliates",アフィリエイトにサインイン
+"You have successfully signed up for an affiliate account.",アフィリエイトアカウントに正常にサインアップしました。
+"Affiliate Dashboard",アフィリエイトダッシュボード
+"Affiliate Account Settings",アフィリエイトアカウント設定
+"Account information successfully updated.",アカウント情報が正常に更新されました。
+"Transactions History",取引履歴
+"Promotion Materials",販促資料
+Statistics,統計
+"Affiliate Program Overview",アフィリエイトプログラムの概要
+Withdrawals,引き出し
+"Withdrawal request has been submitted.",撤回リクエストが送信されました。
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","1つ以上の<a href=""%1"">アフィリエイトアカウント</a>が現在保留中のステータスです。"
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","1つ以上の<a href=""%1"">引き出しリクエスト</a>は現在保留中のステータスです。"
+"Pending Approval",承認待ちの
+Approved,承認済み
+"Not Approved",未承認
+Image,画像
+Text,テキスト
+"Assign to first referred affiliate",最初に紹介されたアフィリエイトに割り当てる
+"Assign to last referred affiliate",最後に紹介されたアフィリエイトに割り当てる
+Available,利用可能
+Inactive,非活性
+Removed,削除されました
+"- Disable these emails -",-これらのメールを無効にします-
+Click,クリック
+Impression,印象
+Lead,鉛
+Sale,セール
+". ' (default)'","。 &#39; （デフォルト）&#39;"
+"Percent of order amount",注文金額の割合
+"Percent of cart amount",カートの金額の割合
+"Fixed amount",定額
+"Pay per Sale",販売ごとに支払う
+"Pay per Lead",リードごとに支払う
+"Pay per Click",クリック課金制
+"Pay per Impression",インプレッションごとに支払う
+Complete,コンプリート
+"In Hold",保留中
+Commission,手数料
+Withdraw,撤回
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit",ストアクレジット
+Other,その他
+Pending,保留中
+Accepted,承認済み
+Completed,完了
+Denied,拒否されました
+"Number of Orders from reffered customers",参照された顧客からの注文数
+"Sales Amount from reffered customers",参照された顧客からの売上高
+is,です
+"is not",ではありません
+"greater than",より大きい
+"less than",未満
+"equals or greater than",以上
+"equals or less than",以下
+"Conditions Combination",条件の組み合わせ
+"Affiliate conditions",アフィリエイト条件
+General,一般
+"Customer Group",顧客グループ
+Store,お店
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)",ファイルタイプは許可されていません（JPG、JPEG、PNG、およびGIFファイルのみが許可されています）
+"Commission for order #%1 (%2)",注文の手数料＃%1（%2）
+"Refund for order #%1",注文の払い戻し＃%1
+Withdrawal,撤退
+"Withdraw cannot exceed current balance.",引き出しは現在の残高を超えることはできません。
+"Minimum withdrawal amount is %1.",最小引き出し額は%1です。
+"You already have a pending withdrawal request.",すでに保留中の引き出しリクエストがあります。
+"Affiliate Withdrawal",アフィリエイトの撤退
+Back,バック
+Delete,削除
+"Are you sure you want to proceed?",続行してもよろしいですか？
+"Save and Continue Edit",保存して編集を続行
+Save,セーブ
+"Click on row to edit the coupon",行をクリックしてクーポンを編集します
+"Referred Customers",紹介された顧客
+Actions,行動
+"Add Customers",顧客を追加する
+Customers,お客様
+Cancel,キャンセル
+"Add Selected Customers",選択した顧客を追加する
+Remove,削除する
+ID,ID
+Name,名前
+Email,Eメール
+View,見る
+Edit,編集
+"Delete item?",アイテムを削除しますか？
+Conditions,条件
+"Affiliate conditions (affects only automatically updated group)",アフィリエイト条件（自動的に更新されたグループにのみ影響します）
+"Assigned Affiliates",割り当てられたアフィリエイト
+"Add Affiliate",アフィリエイトを追加
+Affiliates,アフィリエイト
+"Add Selected",選択したものを追加
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).",以下の条件に一致するカートアイテムにのみコミッションを適用します（すべてのアイテムは空白のままにします）。
+Accept,受け入れる
+Reject,拒否する
+"Referring Website",参照元のWebサイト
+"Subscribe to email notifications",電子メール通知を購読する
+"I accept the terms and conditions",利用規約に同意します
+"Sign Up",サインアップ
+"Referral Website",紹介ウェブサイト
+"Payment Method",支払方法
+"Payment Information",支払情報
+"Please specify personal payment info: PayPal email or any e-wallet payment details.",個人の支払い情報を指定してください：PayPalの電子メールまたは電子財布の支払いの詳細。
+From,から
+To,に
+Apply,適用する
+Clicks,クリック数
+Leads,リード
+Orders,注文
+Views,ビュー
+Earned,稼いだ
+"My Account",マイアカウント
+"Commissions according to your affiliate group",アフィリエイトグループに応じたコミッション
+"<b>%1%</b> of order amount from first order",最初の注文からの注文額の<b>%1％</b>
+"<b>%1%</b> of order amount from second and more orders",2回目以降の注文金額の<b>%1％</b>
+"<b>%1%</b> of cart amount from first order",最初の注文からのカート金額の<b>%1％</b>
+"<b>%1%</b> of cart amount from second and more orders",2回目以降の注文からのカート金額の<b>%1％</b>
+"<b>%1</b> per sale from first order",最初の注文からの販売ごとに<b>%1</b>
+"<b>%1</b> per sale from second and more orders",2回目以降の注文からの販売ごとに<b>%1</b>
+"<b>%1</b> per unique click",ユニーククリックあたり<b>%1</b>
+"<b>%1</b> per lead",リードあたり<b>%1</b>
+"<b>%1</b> per 1000 views",1000ビューあたり<b>%1</b>
+Banners,バナー
+Type,タイプ
+Size,サイズ
+Link,リンク
+"Get Code",コードを取得
+"Copy and paste this code into your website: ",このコードをコピーしてWebサイトに貼り付けます。
+"Referral Coupons",紹介クーポン
+Program,プログラム
+Coupon,クーポン
+Discount,ディスカウント
+"Personal Referral Link",個人紹介リンク
+"Enter any URL from this store in the form below to generate a new referral link:",このストアのURLを以下のフォームに入力して、新しい紹介リンクを生成します。
+"Your unique referral link is:",独自の紹介リンクは次のとおりです。
+"Referral Widget",紹介ウィジェット
+"Widget Title:",ウィジェットのタイトル：
+"Related Products",関連製品
+Width:,幅：
+Height:,高さ：
+"Number of products:",製品数：
+"Show Bestsellers",ベストセラーを表示する
+"Show New Products",新製品を表示する
+Search,探す
+"Search term",検索語
+"Show Product's names",製品名を表示する
+"Show Prices",価格を表示
+"Place this code wherever you want the widget to appear on your page.",このコードは、ウィジェットをページに表示する場所に配置します。
+"Current balance: <b>%1</b>","現在の残高： <b>%1</b>"
+"On hold: %1",保留中：%1
+"Lifetime: %1",寿命：%1
+"Paid: %1",有料：%1
+Date,日付
+Balance,残高
+Amount,量
+Details,詳細
+"On hold to %1",%1まで保留
+"There have been no transactions yet.",まだ取引はありません。
+"Request withdrawal",引き出しをリクエストする
+"Minimum balance to request withdrawal is %1",引き出しをリクエストするための最小残高は%1です
+Fee,費用
+Status,状態
+"Pending approval",承認待ちの
+"There have been no withdrawals yet.",まだ撤退はありません。
+"Your account is assigned to the <span>%1</span> affiliate group",<span>あなたのアカウントは%1</span>アフィリエイトグループに割り当てられています
+Commissions,手数料
+"Our Programs",私たちのプログラム
+"Our Program",私たちのプログラム
+"%1  - Minimum balance required for payout.",%1-支払いに必要な最小残高。
+"Affiliate Group",アフィリエイトグループ
+Description,説明
+"Sign In",サインイン
+"New Affiliate Account",新しいアフィリエイトアカウント
+"Account Information",口座情報
+"%name,",％名前、
+"Your affiliate account at %store_name has been approved.",％store_nameのアフィリエイトアカウントが承認されました。
+"Click <a href=""%login_url"">here</a> to sign in to your account.","クリックして<a href=""%login_url"">ここに</a>あなたのアカウントにログインします。"
+"Your account balance has been updated at %store_name.",アカウントの残高は％store_nameで更新されました。
+Balance:,残高：
+"Welcome to %store_name affiliate program!",％store_nameアフィリエイトプログラムへようこそ！
+Email:,Eメール：
+"Referring Website:",参照元のWebサイト：
+"A customer referred by you has just placed an order at %store_name.",あなたから紹介された顧客が％store_nameで注文しました。
+"Thus, it was credited to your affiliate account.",したがって、それはあなたのアフィリエイトアカウントにクレジットされました。
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.",注文が完了すると、システムのアカウント残高にコミッションが送金され、いつでもお金を引き出すことができます。
+"Transaction Amount:",取引金額：
+"Current Balance:",経常収支：
+"New Withdrawal Request",新しい引き出しリクエスト
+Information,情報
+"Please log in to the admin panel to manage this request.",このリクエストを管理するには、管理パネルにログインしてください。
+"Affiliate: Sign In Button",アフィリエイト：サインインボタン
+"Affiliate: List of programs",アフィリエイト：プログラムのリスト
+"Account Dashboard",アカウントダッシュボード
+Transactions,トランザクション
+Settings,設定
+"Affiliate Program",アフィリエイトプログラム

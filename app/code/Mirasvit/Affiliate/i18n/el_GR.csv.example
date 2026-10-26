@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Θα εξετάσουμε την εγγραφή σας και θα σας ειδοποιήσουμε."
+"Your request to sign up to the affiliate program has been rejected.","Το αίτημά σας για εγγραφή στο πρόγραμμα συνεργατών απορρίφθηκε."
+"Sign In to Affiliates","Συνδεθείτε σε Συνεργάτες"
+"You have successfully signed up for an affiliate account.","Έχετε εγγραφεί με επιτυχία σε λογαριασμό συνεργάτη."
+"Affiliate Dashboard","Πίνακας ελέγχου συνεργατών"
+"Affiliate Account Settings","Ρυθμίσεις λογαριασμού θυγατρικών"
+"Account information successfully updated.","Οι πληροφορίες λογαριασμού ενημερώθηκαν με επιτυχία."
+"Transactions History","Ιστορικό συναλλαγών"
+"Promotion Materials","Υλικά προώθησης"
+Statistics,Στατιστική
+"Affiliate Program Overview","Επισκόπηση προγράμματος θυγατρικών"
+Withdrawals,Αναλήψεις
+"Withdrawal request has been submitted.","Το αίτημα ανάληψης έχει υποβληθεί."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Ένας ή περισσότεροι <a href=""%1"">λογαριασμοί συνεργατών</a> βρίσκονται σε εκκρεμότητα."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Ένα ή περισσότερα <a href=""%1"">αιτήματα ανάληψης</a> βρίσκονται σε εκκρεμότητα."
+"Pending Approval","Εκκρεμεί έγκριση"
+Approved,Εγκρίθηκε
+"Not Approved","Δεν εγκρινεται"
+Image,Εικόνα
+Text,Κείμενο
+"Assign to first referred affiliate","Εκχώρηση στην πρώτη αναφερόμενη θυγατρική"
+"Assign to last referred affiliate","Εκχώρηση στην τελευταία αναφερόμενη θυγατρική"
+Available,Διαθέσιμος
+Inactive,Αδρανής
+Removed,Καταργήθηκε
+"- Disable these emails -","- Απενεργοποιήστε αυτά τα μηνύματα ηλεκτρονικού ταχυδρομείου -"
+Click,"Κάντε κλικ"
+Impression,Εντύπωση
+Lead,Οδηγω
+Sale,Πώληση
+". ' (default)'",". &#39; (Προκαθορισμένο)&#39;"
+"Percent of order amount","Ποσοστό ποσού παραγγελίας"
+"Percent of cart amount","Ποσοστό ποσού καλαθιού"
+"Fixed amount","Προκαθορισμένο ποσό"
+"Pay per Sale","Πληρωμή ανά πώληση"
+"Pay per Lead","Πληρωμή ανά μόλυβδο"
+"Pay per Click","Πληρωμή ανά κλικ"
+"Pay per Impression","Πληρωμή ανά εμφάνιση"
+Complete,Πλήρης
+"In Hold","Σε αναμονή"
+Commission,Επιτροπή
+Withdraw,Αποσύρω
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Πίστωση καταστήματος"
+Other,Αλλα
+Pending,Εκκρεμής
+Accepted,Αποδεκτό
+Completed,"Ολοκληρώθηκε το"
+Denied,Απορρίφθηκε
+"Number of Orders from reffered customers","Αριθμός παραγγελιών από πελάτες που αναφέρονται"
+"Sales Amount from reffered customers","Ποσό πωλήσεων από πελάτες που απευθύνονται"
+is,είναι
+"is not","δεν είναι"
+"greater than","μεγαλύτερος από"
+"less than","λιγότερο από"
+"equals or greater than","ισούται ή μεγαλύτερο από"
+"equals or less than","ισούται ή μικρότερο από"
+"Conditions Combination","Συνδυασμός Συνθηκών"
+"Affiliate conditions","Συνθήκες θυγατρικών"
+General,Γενικός
+"Customer Group","Ομάδα πελατών"
+Store,Κατάστημα
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Δεν επιτρέπεται ο τύπος αρχείου (επιτρέπονται μόνο αρχεία JPG, JPEG, PNG &amp; GIF)"
+"Commission for order #%1 (%2)","Προμήθεια για παραγγελία #%1 (%2)"
+"Refund for order #%1","Επιστροφή χρημάτων για παραγγελία #%1"
+Withdrawal,Απόσυρση
+"Withdraw cannot exceed current balance.","Η ανάληψη δεν μπορεί να υπερβεί το τρέχον υπόλοιπο."
+"Minimum withdrawal amount is %1.","Το ελάχιστο ποσό ανάληψης είναι %1."
+"You already have a pending withdrawal request.","Έχετε ήδη εκκρεμεί αίτημα ανάληψης."
+"Affiliate Withdrawal","Απόσυρση συνεργατών"
+Back,Πίσω
+Delete,Διαγράφω
+"Are you sure you want to proceed?","Είστε βέβαιοι ότι θέλετε να συνεχίσετε;"
+"Save and Continue Edit","Αποθήκευση και συνέχεια επεξεργασίας"
+Save,Σώσει
+"Click on row to edit the coupon","Κάντε κλικ στη σειρά για να επεξεργαστείτε το κουπόνι"
+"Referred Customers","Αναφερόμενοι πελάτες"
+Actions,Ενέργειες
+"Add Customers","Προσθήκη πελατών"
+Customers,"Οι πελάτες"
+Cancel,Ματαίωση
+"Add Selected Customers","Προσθήκη επιλεγμένων πελατών"
+Remove,Αφαιρώ
+ID,Ταυτότητα
+Name,Ονομα
+Email,"ΗΛΕΚΤΡΟΝΙΚΗ ΔΙΕΥΘΥΝΣΗ"
+View,Θέα
+Edit,Επεξεργασία
+"Delete item?","Διαγραφή αντικειμένου;"
+Conditions,Συνθήκες
+"Affiliate conditions (affects only automatically updated group)","Συνθήκες συνεργατών (επηρεάζει μόνο την ομάδα που ενημερώνεται αυτόματα)"
+"Assigned Affiliates","Ανατεθειμένοι συνεργάτες"
+"Add Affiliate","Προσθήκη Συνεργάτη"
+Affiliates,Συνεργάτες
+"Add Selected","Προσθήκη επιλεγμένων"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Εφαρμόστε την προμήθεια μόνο σε είδη καλαθιού που ταιριάζουν με τις ακόλουθες συνθήκες (αφήστε κενό για όλα τα είδη)."
+Accept,Αποδέχομαι
+Reject,Απορρίπτω
+"Referring Website","Παραπομπή ιστότοπου"
+"Subscribe to email notifications","Εγγραφείτε στις ειδοποιήσεις μέσω email"
+"I accept the terms and conditions","Αποδέχομαι τους όρους και τις προϋποθέσεις"
+"Sign Up",Εγγραφείτε
+"Referral Website","Ιστοσελίδα παραπομπής"
+"Payment Method","Μέθοδος πληρωμής"
+"Payment Information","Πληροφορίες Πληρωμής"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Προσδιορίστε τα προσωπικά στοιχεία πληρωμής: Email PayPal ή τυχόν στοιχεία πληρωμής μέσω e-wallet."
+From,Από
+To,"Προς την"
+Apply,Ισχύουν
+Clicks,Κλικ
+Leads,Οδηγεί
+Orders,Παραγγελίες
+Views,Προβολές
+Earned,Κερδηθείς
+"My Account","Ο λογαριασμός μου"
+"Commissions according to your affiliate group","Προμήθειες σύμφωνα με την ομάδα συνεργατών σας"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> του ποσού της παραγγελίας από την πρώτη παραγγελία"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> του ποσού της παραγγελίας από δεύτερες και περισσότερες παραγγελίες"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> του ποσού του καλαθιού από την πρώτη παραγγελία"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> του ποσού του καλαθιού από δεύτερες και περισσότερες παραγγελίες"
+"<b>%1</b> per sale from first order","<b>%1</b> ανά πώληση από την πρώτη παραγγελία"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> ανά πώληση από δεύτερη και περισσότερες παραγγελίες"
+"<b>%1</b> per unique click","<b>%1</b> ανά μοναδικό κλικ"
+"<b>%1</b> per lead","<b>%1</b> ανά δυνητικό πελάτη"
+"<b>%1</b> per 1000 views","<b>%1</b> ανά 1000 προβολές"
+Banners,Πανό
+Type,Τύπος
+Size,Μέγεθος
+Link,Σύνδεσμος
+"Get Code","Πάρετε τον κωδικό"
+"Copy and paste this code into your website: ","Αντιγράψτε και επικολλήστε αυτόν τον κώδικα στον ιστότοπό σας:"
+"Referral Coupons","Κουπόνια παραπομπής"
+Program,Πρόγραμμα
+Coupon,Κουπόνι
+Discount,Εκπτωση
+"Personal Referral Link","Προσωπικός σύνδεσμος παραπομπής"
+"Enter any URL from this store in the form below to generate a new referral link:","Εισαγάγετε οποιαδήποτε διεύθυνση URL από αυτό το κατάστημα στην παρακάτω φόρμα για να δημιουργήσετε έναν νέο σύνδεσμο παραπομπής:"
+"Your unique referral link is:","Ο μοναδικός σύνδεσμος παραπομπής σας είναι:"
+"Referral Widget","Widget παραπομπής"
+"Widget Title:","Τίτλος Widget:"
+"Related Products","Σχετικά προϊόντα"
+Width:,Πλάτος:
+Height:,Υψος:
+"Number of products:","Αριθμός προϊόντων:"
+"Show Bestsellers","Εμφάνιση πωλητών"
+"Show New Products","Εμφάνιση νέων προϊόντων"
+Search,Αναζήτηση
+"Search term","Ορος αναζήτησης"
+"Show Product's names","Εμφάνιση ονομάτων προϊόντος"
+"Show Prices","Εμφάνιση τιμών"
+"Place this code wherever you want the widget to appear on your page.","Τοποθετήστε αυτόν τον κωδικό όπου θέλετε το widget να εμφανίζεται στη σελίδα σας."
+"Current balance: <b>%1</b>","Τρέχον υπόλοιπο: <b>%1</b>"
+"On hold: %1","Σε αναμονή: %1"
+"Lifetime: %1","Διάρκεια ζωής: %1"
+"Paid: %1","Πληρωμή: %1"
+Date,Ημερομηνία
+Balance,Ισορροπία
+Amount,Ποσό
+Details,Λεπτομέριες
+"On hold to %1","Σε αναμονή έως %1"
+"There have been no transactions yet.","Δεν έχουν πραγματοποιηθεί ακόμη συναλλαγές."
+"Request withdrawal","Αίτημα ανάκλησης"
+"Minimum balance to request withdrawal is %1","Το ελάχιστο υπόλοιπο για να ζητήσετε ανάληψη είναι %1"
+Fee,Τέλη
+Status,Κατάσταση
+"Pending approval","Εκκρεμεί έγκριση"
+"There have been no withdrawals yet.","Δεν έχουν πραγματοποιηθεί ακόμη αναλήψεις."
+"Your account is assigned to the <span>%1</span> affiliate group","Ο λογαριασμός σας έχει ανατεθεί στην ομάδα συνεργατών <span>%1</span>"
+Commissions,Προμήθειες
+"Our Programs","Τα προγράμματά μας"
+"Our Program","Το πρόγραμμά μας"
+"%1  - Minimum balance required for payout.","%1 - Απαιτείται ελάχιστο υπόλοιπο για την πληρωμή."
+"Affiliate Group","Ομάδα Συνεργατών"
+Description,Περιγραφή
+"Sign In",Συνδεθείτε
+"New Affiliate Account","Νέος λογαριασμός θυγατρικών"
+"Account Information","Πληροφορίες λογαριασμού"
+"%name,","%όνομα,"
+"Your affiliate account at %store_name has been approved.","Ο λογαριασμός συνεργάτη σας στο% store_name έχει εγκριθεί."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Κάντε κλικ <a href=""%login_url"">εδώ</a> για να συνδεθείτε στον λογαριασμό σας."
+"Your account balance has been updated at %store_name.","Το υπόλοιπο του λογαριασμού σας ενημερώθηκε στο% store_name."
+Balance:,Ισορροπία:
+"Welcome to %store_name affiliate program!","Καλώς ορίσατε στο πρόγραμμα συνεργατών% store_name!"
+Email:,"ΗΛΕΚΤΡΟΝΙΚΗ ΔΙΕΥΘΥΝΣΗ:"
+"Referring Website:","Ιστοσελίδα παραπομπής:"
+"A customer referred by you has just placed an order at %store_name.","Ένας πελάτης που αναφέρατε μόλις υπέβαλε μια παραγγελία στο% store_name."
+"Thus, it was credited to your affiliate account.","Έτσι, πιστώθηκε στον λογαριασμό θυγατρικών σας."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Όταν ολοκληρωθεί η παραγγελία, θα μεταφέρουμε την προμήθεια στο υπόλοιπο του λογαριασμού σας στο σύστημά μας και, στη συνέχεια, μπορείτε να κάνετε ανάληψη των χρημάτων όποτε θέλετε."
+"Transaction Amount:","Ποσό Συναλλαγής:"
+"Current Balance:","Τωρινή ισσοροπία:"
+"New Withdrawal Request","Νέο αίτημα ανάληψης"
+Information,Πληροφορίες
+"Please log in to the admin panel to manage this request.","Συνδεθείτε στον πίνακα διαχείρισης για να διαχειριστείτε αυτό το αίτημα."
+"Affiliate: Sign In Button","Συνεργάτης: Κουμπί σύνδεσης"
+"Affiliate: List of programs","Συνεργάτης: Λίστα προγραμμάτων"
+"Account Dashboard","Πίνακας ελέγχου λογαριασμού"
+Transactions,Συναλλαγές
+Settings,Ρυθμίσεις
+"Affiliate Program","Πρόγραμμα συνεργατών"

@@ -1,0 +1,25 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Mirasvit\Affiliate\Controller\AbstractAccount">
+        <plugin name="mstAffiliateAuthorization" type="Mirasvit\Affiliate\Plugin\Frontend\AuthorizationPlugin"/>
+    </type>
+
+    <type name="Magento\Customer\Controller\Account\CreatePost">
+        <plugin name="mstAffiliateCreateAccount" type="Mirasvit\Affiliate\Plugin\Frontend\CreateAccountPlugin"/>
+    </type>
+
+    <type name="Magento\Framework\App\Response\Http">
+        <plugin name="affiliate" type="Mirasvit\Affiliate\Plugin\Frontend\EnsureAccountRelationsBeforeSendResponsePlugin"/>
+        <plugin name="clear_widget" type="Mirasvit\Affiliate\Plugin\Frontend\ClearWidgetBeforeSendResponsePlugin"/>
+    </type>
+
+    <type name="Mirasvit\GdprCookie\Model\Config\RequiredCookieList">
+        <arguments>
+            <argument name="cookies" xsi:type="array">
+                <item name="affiliate" xsi:type="string">affiliate</item>
+                <item name="affiliate_referrer" xsi:type="string">affiliate_referrer</item>
+                <item name="affiliate_identifier" xsi:type="string">affiliate_identifier</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

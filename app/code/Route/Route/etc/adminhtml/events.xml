@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_order_shipment_save_after">
+        <observer name="route_route_sales_order_shipment_save_after" instance="Route\Route\Observer\SalesOrderShipmentSaveAfter"/>
+    </event>
+    <event name="backend_auth_user_login_success">
+        <observer name="registration_after_installation" instance="Route\Route\Observer\Registration"/>
+    </event>
+    <event name="admin_system_config_changed_section_route">
+        <observer name="reset_merchant_flat_after_settings_change" instance="Route\Route\Observer\RouteSettingsChange"/>
+    </event>
+</config>

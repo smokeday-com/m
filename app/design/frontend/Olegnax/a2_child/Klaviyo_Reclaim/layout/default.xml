@@ -1,0 +1,7 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.wrapper">
+            <block class="Klaviyo\Reclaim\Block\Initialize" template="Klaviyo_Reclaim::analytics/initialize.phtml" before="-"/>
+        </referenceContainer>
+    </body>
+</page>

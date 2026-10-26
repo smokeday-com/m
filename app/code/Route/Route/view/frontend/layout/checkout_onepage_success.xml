@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="order_totals">
+            <block class="Route\Route\Block\Sales\Totals\RouteFee" name="route_fee"/>
+        </referenceContainer>
+        <referenceContainer name="order.success.additional.info">
+            <block class="Route\Route\Block\Success" name="route.thankyoupage.asset" template="success.phtml" after="-" />
+        </referenceContainer>
+    </body>
+</page>

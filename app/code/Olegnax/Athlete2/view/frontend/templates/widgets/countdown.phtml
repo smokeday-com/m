@@ -1,0 +1,92 @@
+<?php
+
+$classes = '';
+if($block->getCssClass()){
+  $classes .= ' ' . $block->getCssClass();
+}
+$id = $block->escapeHtml($block->getBlockId());
+
+
+$daysText = $block->getDaysText() ?: __('days');
+$hoursText = $block->getHoursText() ?: __('hrs');
+$minText = $block->getMinText() ?: __('min');
+$secText = $block->getSecText() ?: __('sec');
+$hideText = $block->getHideText();
+$hideElement = $block->getHideElement();
+$hideClass = $block->getHideClass();
+$bodyClass = $block->getBodyClass();
+$expireContent = $block->getExpireContent();
+$endTime = $endDate = 0;
+$showSeparator = $block->getShowSeparator();
+$loop = (bool)$block->getLoop();
+$endDate = $block->getEndDays();
+$endTime = $block->getEndHours();
+$relative = true;
+if(!$endTime && !$endDate){  
+  if(!$block->isDateValid($block->getEndDate())){
+    return;
+  }
+  $dateTime = explode(" ", (string)$block->getEndDate());
+  if(is_array($dateTime) && !empty($dateTime) && count($dateTime) > 1){
+    $endDate = $dateTime[0];
+    $endTime = $dateTime[1];
+    $relative = false;
+  }
+}
+if(!$endTime && !$endDate){
+  return;
+}
+$daysToHours = (bool)($block->getDayToHours() ?: 0);
+?>
+
+<div id="<?php echo $id ?>" class="a2-countdown <?= $block->escapeHtmlAttr($classes); ?>" data-role="OXcountdown" data-mage-init='{"OXcountdown":{
+  "relative":"<?php echo $relative; ?>", 
+  "endDate":"<?php echo $endDate ?: 0; ?>", 
+  "endTime":"<?php echo $endTime ?: 0; ?>", 
+  "timeZone":"<?php echo ($block->getTimeZoneOffset() ?: 0) ?>",
+  "timeZoneDiff":"true",
+  <?php if($hideElement): ?>
+  "hideEl":"<?php echo $block->escapeHtmlAttr($hideElement) ?>",
+  <?php endif; ?>
+  <?php if($hideClass): ?>
+  "hideClass":"<?php echo $block->escapeHtmlAttr($hideClass) ?>",
+  <?php endif; ?>
+  <?php if($bodyClass): ?>
+  "bodyClass":"<?php echo $block->escapeHtmlAttr($bodyClass) ?>",
+  <?php endif; ?>
+  "daysToHours":"<?php echo (bool)$daysToHours ?>",
+  "loop":"<?php echo $loop; ?>"
+}}'>
+  <?php if(!$daysToHours): ?>
+	<div class="days">
+    <span class="num">--</span>
+    <?php if(!$hideText): ?><span><?php echo $block->escapeHtml($daysText); ?></span><?php endif; ?>
+  </div>
+  <?php if($showSeparator): ?><span class="separator">:</span ><?php endif; ?>
+  <?php endif; ?>
+	<div class="hours">
+    <span class="num">--</span>
+    <?php if(!$hideText): ?><span><?php echo $block->escapeHtml($hoursText); ?></span><?php endif; ?>
+    </div>
+    <?php if($showSeparator): ?><span class="separator">:</span ><?php endif; ?>
+	<div class="minutes">
+    <span class="num">--</span>
+    <?php if(!$hideText): ?><span><?php echo $block->escapeHtml($minText); ?></span><?php endif; ?>
+  </div>
+  <?php if($showSeparator): ?><span class="separator">:</span ><?php endif; ?>
+	<div class="seconds">
+    <span class="num">--</span>
+    <?php if(!$hideText): ?><span><?php echo $block->escapeHtml($secText); ?></span><?php endif; ?>
+  </div>
+  <?php if($expireContent): ?>
+  <div class="expired_text justify-content-center">
+    <?php echo $block->escapeHtml($expireContent); ?>
+  </div>
+  <?php endif; ?>
+</div>
+<?php 
+$styles = '';
+$hideClass = $hideClass ?: 'expired';
+$styles .= '#' . $id . '.' . $block->escapeHtmlAttr($hideClass) . ' > div,';
+$styles .= '#' . $id . ':not(.' . $block->escapeHtmlAttr($hideClass) . ') .expired_text { display: none; }';
+echo $block->renderStyles($id, $styles);

@@ -1,0 +1,44 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+<?php if ($_description = $block->getCurrentCategory()->getDescription()) :?>
+    <div class="category-description">
+		<div class="ox-expand minimized" data-max-height="90">
+			<div class="value ox-expand__inner" aria-expanded="false" style="max-height: 90px">
+				<?= /* @noEscape */ $this->helper(Magento\Catalog\Helper\Output::class)->categoryAttribute(
+					$block->getCurrentCategory(),
+					$_description,
+					'description'
+				) ?>
+			</div>
+			<div class="ox-expand__link">
+				<span class="more"><?= __('Show more') ?></span>
+				<span class="less"><?= __('Show less') ?></span>
+			</div>
+		</div>
+    </div>
+<?php endif; ?>
+<?php if ($ex_description = $block->getCurrentCategory()->getExDes()): ?>
+<div class="ex-des">
+    <div class="value_external_description" aria-expanded="true">
+        <?= /* @noEscape */
+        $this->helper(Magento\Catalog\Helper\Output::class)->categoryAttribute(
+            $block->getCurrentCategory(),
+            $ex_description,
+            'ex_des'
+        ) ?>
+    </div>
+</div>
+<?php endif; ?>

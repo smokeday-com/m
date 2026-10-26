@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Við munum fara yfir skráningu þína og láta þig vita."
+"Your request to sign up to the affiliate program has been rejected.","Beiðni þinni um að skrá þig í hlutdeildarforritið hefur verið hafnað."
+"Sign In to Affiliates","Skráðu þig inn í hlutdeildarfélög"
+"You have successfully signed up for an affiliate account.","Þú hefur skráð þig á tengdan reikning."
+"Affiliate Dashboard",Tengjastjórnborð
+"Affiliate Account Settings","Stillingar tengdra reikninga"
+"Account information successfully updated.","Reikningsupplýsingar uppfærðar."
+"Transactions History",Viðskiptasaga
+"Promotion Materials",Kynningarefni
+Statistics,Tölfræði
+"Affiliate Program Overview","Yfirlit tengdrar áætlunar"
+Withdrawals,Uppsagnir
+"Withdrawal request has been submitted.","Beiðni um afturköllun hefur verið lögð fram."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Einn eða fleiri <a href=""%1"">tengdir reikningar</a> eru sem stendur í biðstöðu."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Ein eða fleiri <a href=""%1"">afturköllunarbeiðnir</a> eru í biðstöðu."
+"Pending Approval","Bíður samþykkis"
+Approved,Samþykkt
+"Not Approved","Ekki samþykkt"
+Image,Mynd
+Text,Texti
+"Assign to first referred affiliate","Úthluta hlutdeildarfélagi sem vísað er til"
+"Assign to last referred affiliate","Úthluta síðast tengdum hlutdeildarfélagi"
+Available,Laus
+Inactive,Óvirkt
+Removed,Fjarlægð
+"- Disable these emails -","- Slökkva á þessum tölvupósti -"
+Click,Smellur
+Impression,Hrifning
+Lead,Blý
+Sale,Útsala
+". ' (default)'",". &#39;(sjálfgefið)&#39;"
+"Percent of order amount","Hlutfall pöntunarupphæðar"
+"Percent of cart amount","Hlutfall af körfuupphæð"
+"Fixed amount","Fast upphæð"
+"Pay per Sale","Borga fyrir hverja sölu"
+"Pay per Lead","Borgaðu fyrir hverja forystu"
+"Pay per Click","Borgaðu fyrir hvern smell"
+"Pay per Impression","Greitt er fyrir hverja birtingu"
+Complete,Heill
+"In Hold","Í bið"
+Commission,Framkvæmdastjórn
+Withdraw,Afturkalla
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit",Verslunarinneign
+Other,Annað
+Pending,"Í bið"
+Accepted,Samþykkt
+Completed,Lokið
+Denied,Afneitað
+"Number of Orders from reffered customers","Fjöldi pantana frá viðskiptavinum sem vísað er til"
+"Sales Amount from reffered customers","Söluupphæð frá vísuðum viðskiptavinum"
+is,er
+"is not","er ekki"
+"greater than","meiri en"
+"less than","minna en"
+"equals or greater than","jafnt eða meira en"
+"equals or less than","jafnt eða minna en"
+"Conditions Combination","Aðstæður sameining"
+"Affiliate conditions","Tengd skilyrði"
+General,Almennt
+"Customer Group",Viðskiptavinahópur
+Store,Geymið
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Skráargerð er ekki leyfð (aðeins JPG, JPEG, PNG og GIF skrár eru leyfðar)"
+"Commission for order #%1 (%2)","Umboð fyrir pöntun #%1 (%2)"
+"Refund for order #%1","Endurgreiðsla fyrir pöntun #%1"
+Withdrawal,Afturköllun
+"Withdraw cannot exceed current balance.","Afturköllun má ekki fara yfir núverandi stöðu."
+"Minimum withdrawal amount is %1.","Lágmarks úttektarupphæð er %1."
+"You already have a pending withdrawal request.","Þú ert þegar með beiðni um afturköllun í bið."
+"Affiliate Withdrawal","Uppsögn tengdra aðila"
+Back,Aftur
+Delete,Eyða
+"Are you sure you want to proceed?","Ertu viss um að þú viljir halda áfram?"
+"Save and Continue Edit","Vista og halda áfram Breyta"
+Save,Vista
+"Click on row to edit the coupon","Smelltu á röð til að breyta afsláttarmiða"
+"Referred Customers",Viðskiptavinir
+Actions,Aðgerðir
+"Add Customers","Bæta við viðskiptavinum"
+Customers,Viðskiptavinir
+Cancel,"Hætta við"
+"Add Selected Customers","Bæta við völdum viðskiptavinum"
+Remove,Fjarlægðu
+ID,Skilríki
+Name,Nafn
+Email,Tölvupóstur
+View,Útsýni
+Edit,Breyta
+"Delete item?","Eyða hlut?"
+Conditions,Aðstæður
+"Affiliate conditions (affects only automatically updated group)","Tengd skilyrði (hefur aðeins áhrif á sjálfkrafa uppfærðan hóp)"
+"Assigned Affiliates","Úthlutað hlutdeildarfélög"
+"Add Affiliate","Bæta við samstarfsaðila"
+Affiliates,"Tengd fyrirtæki"
+"Add Selected","Bæta við völdum"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Notaðu aðeins umboðið á hlutum í körfu sem passa við eftirfarandi skilyrði (skiljið autt fyrir alla hluti)."
+Accept,Samþykkja
+Reject,Hafnaðu
+"Referring Website","Vísandi vefsíða"
+"Subscribe to email notifications","Gerast áskrifandi að tilkynningum í tölvupósti"
+"I accept the terms and conditions","Ég samþykki skilmálana"
+"Sign Up","Skráðu þig"
+"Referral Website",Tilvísunarvefur
+"Payment Method",Greiðslumáti
+"Payment Information","Greiðslu upplýsingar"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Vinsamlegast tilgreindu persónulegar greiðsluupplýsingar: PayPal netfang eða einhverjar upplýsingar um greiðslu veskis."
+From,Frá
+To,Til
+Apply,"Sækja um"
+Clicks,Smellir
+Leads,Leiðir
+Orders,Pantanir
+Views,Útsýni
+Earned,Aflaði
+"My Account","Minn reikningur"
+"Commissions according to your affiliate group","Umboð samkvæmt hlutdeildarhópi þínum"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> af pöntunarupphæð frá fyrstu pöntun"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> af pöntunarupphæð frá annarri og fleiri pöntunum"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> af körfuupphæð frá fyrstu pöntun"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> af körfuupphæðinni úr annarri og fleiri pantunum"
+"<b>%1</b> per sale from first order","<b>%1</b> á sölu frá fyrstu pöntun"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> á sölu úr annarri og fleiri pöntunum"
+"<b>%1</b> per unique click","<b>%1</b> fyrir hvern einasta smell"
+"<b>%1</b> per lead","<b>%1</b> á blý"
+"<b>%1</b> per 1000 views","<b>%1 á</b> hverja 1000 áhorf"
+Banners,Borðar
+Type,Gerð
+Size,Stærð
+Link,Tengill
+"Get Code","Fá kóða"
+"Copy and paste this code into your website: ","Afritaðu og límdu þennan kóða á vefsíðuna þína:"
+"Referral Coupons","Tilvísunar afsláttarmiða"
+Program,Forrit
+Coupon,Afsláttarmiða
+Discount,Afsláttur
+"Personal Referral Link","Persónulegur tilvísunartengill"
+"Enter any URL from this store in the form below to generate a new referral link:","Sláðu inn hvaða vefslóð sem er frá þessari verslun á forminu hér að neðan til að búa til nýjan tilvísunartengil:"
+"Your unique referral link is:","Sérstakur tilvísunartengill þinn er:"
+"Referral Widget",Tilvísunargræja
+"Widget Title:","Heiti búnaðar:"
+"Related Products","Skyldar vörur"
+Width:,Breidd:
+Height:,Hæð:
+"Number of products:","Fjöldi vara:"
+"Show Bestsellers","Sýna metsölur"
+"Show New Products","Sýna nýjar vörur"
+Search,Leitaðu
+"Search term",Leitarorð
+"Show Product's names","Sýnið nöfn vöru"
+"Show Prices","Sýna verð"
+"Place this code wherever you want the widget to appear on your page.","Settu þennan kóða hvar sem þú vilt að búnaðurinn birtist á síðunni þinni."
+"Current balance: <b>%1</b>","Núverandi staða: <b>%1</b>"
+"On hold: %1","Í bið: %1"
+"Lifetime: %1","Ævi: %1"
+"Paid: %1","Greitt: %1"
+Date,Dagsetning
+Balance,Jafnvægi
+Amount,Magn
+Details,Upplýsingar
+"On hold to %1","Í bið til %1"
+"There have been no transactions yet.","Engin viðskipti hafa verið ennþá."
+"Request withdrawal","Óska eftir afturköllun"
+"Minimum balance to request withdrawal is %1","Lágmarksjöfnuður til að óska eftir afturköllun er %1"
+Fee,Gjald
+Status,Staða
+"Pending approval","Bíður samþykkis"
+"There have been no withdrawals yet.","Engar úttektir hafa orðið ennþá."
+"Your account is assigned to the <span>%1</span> affiliate group","Reikningnum þínum er úthlutað í hlutdeildarhópinn <span>%1</span>"
+Commissions,Umboð
+"Our Programs","Forritin okkar"
+"Our Program","Forritið okkar"
+"%1  - Minimum balance required for payout.","%1 - Lágmarksjöfnuður sem þarf til útborgunar."
+"Affiliate Group",Hlutdeildarhópur
+Description,Lýsing
+"Sign In","Skráðu þig inn"
+"New Affiliate Account","Nýr samstarfsreikningur"
+"Account Information","Aðgangs upplýsingar"
+"%name,","% nafn,"
+"Your affiliate account at %store_name has been approved.","Tengdur reikningur þinn á% store_name hefur verið samþykktur."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Smelltu <a href=""%login_url"">hér</a> til að skrá þig inn á reikninginn þinn."
+"Your account balance has been updated at %store_name.","Reikningsjöfnuður þinn hefur verið uppfærður á% store_name."
+Balance:,Jafnvægi:
+"Welcome to %store_name affiliate program!","Velkomin (n) í% store_name tengda forritið!"
+Email:,Netfang:
+"Referring Website:","Vefsíða sem vísar til:"
+"A customer referred by you has just placed an order at %store_name.","Viðskiptavinur sem þú vísar til hefur nýlega pantað pöntun á% store_name."
+"Thus, it was credited to your affiliate account.","Þannig var það lagt á tengda reikninginn þinn."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Þegar pöntuninni er lokið flytjum við þóknunina á reikningsjöfnuðinn þinn í kerfinu okkar og þá geturðu tekið út peningana hvenær sem þú vilt."
+"Transaction Amount:",Viðskiptamagn:
+"Current Balance:","Núverandi staða:"
+"New Withdrawal Request","Ný úttektarbeiðni"
+Information,Upplýsingar
+"Please log in to the admin panel to manage this request.","Vinsamlegast skráðu þig inn á stjórnborðið til að stjórna þessari beiðni."
+"Affiliate: Sign In Button","Tengja: Innskráningarhnappur"
+"Affiliate: List of programs","Tengd: Listi yfir forrit"
+"Account Dashboard","Stjórnborð reiknings"
+Transactions,Viðskipti
+Settings,Stillingar
+"Affiliate Program",Tengjaáætlun

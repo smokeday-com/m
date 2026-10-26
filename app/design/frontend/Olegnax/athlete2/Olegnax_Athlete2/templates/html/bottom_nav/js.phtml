@@ -1,0 +1,22 @@
+<?php $scriptString = <<<script
+require(["jquery"], function ($) {
+	"use strict";
+	$(function () {
+		const ox_bnav = document.getElementById("ox_bnav");
+		if(ox_bnav){
+			updateBnavHeight();
+			$(window).on('resize', updateBnavHeight);
+			function updateBnavHeight(){
+				let height = parseInt(ox_bnav.getBoundingClientRect().height);
+				document.documentElement.style.setProperty('--ox-bnav-height', height + 'px');
+			}
+		}
+	});
+});
+script;
+if (isset($secureRenderer)){
+	echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+} else{
+	echo /* @noEscape */ '<script>' .  $scriptString . '</script>';
+}
+?>	

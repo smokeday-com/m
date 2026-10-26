@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Route_Route" setup_version="1.3.1">
+        <sequence>
+            <module name="Aheadworks_OneStepCheckout" />
+            <module name="Swissup_Firecheckout" />
+            <module name="Onestepcheckout_Iosc" />
+            <module name="Magento_Sales" />
+            <module name="MagePal_CustomShippingRate" />
+            <module name="Magento_Customer" />
+        </sequence>
+    </module>
+</config>
+

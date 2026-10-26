@@ -1,0 +1,18 @@
+<?php
+$theme_helper = $this->helper(Olegnax\Athlete2\Helper\Icons::class);
+$text = $theme_helper->getConfig( 'athlete2_settings/header/account_text' ) ?: __('My Account');
+$hideText   = $theme_helper->getConfig( 'athlete2_settings/header/account_hide_text' );
+
+// account icon
+$icon_option   = 'athlete2_design/appearance_icons_header/header_icon_';
+$icon = $theme_helper ->getIconHTML('account', $icon_option); // $name, $icon_option = '', $classes = ''
+?>
+<div class="header__item header__item-account hide-on-tablet hide-on-mobile <?php if(!$hideText){ echo "header__item--with-text"; } ?>" data-move-desktop="header.myaccount">
+	<a class="button js-item-myaccount-action" href="<?= $block->escapeUrl($block->getUrl('customer/account')); ?>">
+		<?= $icon; ?>
+		<span class="label <?php if($hideText){ echo "visually-hidden"; } ?>">
+			<?= $block->escapeHtml($text) ?>
+		</span>
+	</a>
+	<?php echo $this->getChildHtml("header_account_drop"); ?>
+</div>

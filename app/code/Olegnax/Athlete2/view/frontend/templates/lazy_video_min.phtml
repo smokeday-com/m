@@ -1,0 +1,11 @@
+<?php $scriptString = <<<script
+(()=>{function OxLazyVideo(){let e=document.querySelectorAll(".ox-video-lazy");if("IntersectionObserver"in window){let n=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(t(e.target),n.unobserve(e.target))})});e.forEach(e=>{n.observe(e)})}}function t(e){[...e.children].forEach(e=>{"SOURCE"===e.tagName&&(e.src=e.dataset.src)}),e.load(),e.classList.remove("ox-video-lazy"),document.dispatchEvent(new Event("oxVideoLoaded"))}window.OxLazyVideo=function(){return new OxLazyVideo}})(),document.addEventListener("DOMContentLoaded",function(){OxLazyVideo()},!1);
+require(['jquery'], function (\$) {\$(document.body).on('contentUpdated contentUpdated.oxlazyvideo', OxLazyVideo)})
+script;
+?>
+<?php
+if (isset($secureRenderer)){
+    echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+} else{
+    echo /* @noEscape */ '<script>' .  $scriptString . '</script>';
+}

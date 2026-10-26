@@ -1,0 +1,36 @@
+<?php
+declare(strict_types=1);
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Affiliate\Block\Widget $block */
+
+$list   = $block->getList();
+$jsName = $block->isM245orGreater() ? 'widget245' : 'widget';
+?>
+<div class="affiliate__widget" data-mage-init='{"Mirasvit_Affiliate/js/<?=$jsName?>":{}}'>
+    <?php if ($block->getTitle()): ?>
+        <h3><?= $block->getTitle() ?></h3>
+    <?php endif ?>
+    <ul>
+        <?php foreach ($list->getItems() as $product): ?>
+            <li>
+                <a href="<?= $block->getProductUrl($product) ?>" target="_parent">
+                    <?= $block->getImage($product, 'related_products_list')->toHtml() ?>
+                </a>
+
+                <div>
+                    <?php if ($block->isShowName()): ?>
+                        <strong>
+                            <a href="<?= $block->getProductUrl($product) ?>" target="_parent">
+                                <?= $block->escapeHtml($product->getName()) ?>
+                            </a>
+                        </strong>
+                    <?php endif ?>
+
+                    <?php if ($block->isShowPrice()): ?>
+                        <?= $block->getProductPrice($product) ?>
+                    <?php endif ?>
+                </div>
+            </li>
+        <?php endforeach ?>
+    </ul>
+</div>

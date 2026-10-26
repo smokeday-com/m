@@ -1,0 +1,66 @@
+<?php
+$theme_helper = $this->helper( 'Olegnax\Athlete2\Helper\Helper' );
+$at_settings	 = $theme_helper->getConfig( 'athlete2_settings/contacts_page' );
+
+if ( $at_settings[ 'first_block_type' ] === 'google_map' ) {
+	if ( $theme_helper->isActivePlugin( 'Olegnax_GoogleMap' ) && $at_settings[ 'google_map_module' ]) {
+		echo $this->getChildHtml( 'ox.google.map' );
+	} else {
+		$google_map_api_key		 = $at_settings[ 'google_map_api_key' ];
+		$google_map_latitude	 = $at_settings[ 'google_map_latitude' ];
+		$google_map_longitude	 = $at_settings[ 'google_map_longitude' ];
+		$google_map_zoom		 = $at_settings[ 'google_map_zoom' ] ?: 4;
+		$svgColor1 = $at_settings[ 'google_map_pin_color1' ] ?: '#000000';
+		$svgColor2 = $at_settings[ 'google_map_pin_color2' ] ?: '#f8e749';
+		?>
+		<div id="contact-page-gmap" ></div>
+
+<?php $scriptString = '(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+    key: "' . $google_map_api_key .'",
+    v: "weekly",
+  });';
+$scriptString .= <<<script
+// Initialize and add the map
+let map;
+
+async function athleteInitMap() {
+	// The location of Uluru
+	const position = { lat: {$google_map_latitude}, lng: {$google_map_longitude} };
+	const { Map } = await google.maps.importLibrary("maps");
+	const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+	// The map, centered at Uluru
+	map = new Map(document.getElementById("contact-page-gmap"), {
+	zoom: {$google_map_zoom},
+	center: position,
+	mapId: "athlete2_contact_page_gmap",
+	mapTypeControlOptions: {mapTypeIds: []}, 
+	streetViewControl: false,
+	});
+
+	const parser = new DOMParser();
+	// Marker SVG
+	let athleteMarker = ['<svg id="athlete-marker" data-name="athlete-marker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 48.4" width="34" height="48.4">',
+			'<circle fill="{$svgColor1}" cx="17" cy="17" r="17"/>',
+			'<circle fill="{$svgColor2}" cx="17" cy="17" r="6"/>',
+			'<polyline fill="{$svgColor1}" points="30.9 26.8 17.1 48.4 2.6 26"/>',
+		'</svg>'
+		].join('\\n');
+	const pinSvg = parser.parseFromString(athleteMarker,"image/svg+xml",).documentElement;
+	const pinSvgMarkerView = new AdvancedMarkerElement({
+		map,
+		position,
+		content: pinSvg,
+	});
+}
+athleteInitMap();
+script; ?>
+<?php 		
+if (isset($secureRenderer)){
+	echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+} else{
+	echo /* @noEscape */ '<script type="text/javascript">' .  $scriptString . '</script>';
+}
+?>
+<?php }
+}

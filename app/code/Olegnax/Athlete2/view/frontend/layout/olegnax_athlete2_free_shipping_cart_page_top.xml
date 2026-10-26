@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="checkout.cart.form.before">
+            <block class="Olegnax\Athlete2\Block\FreeShipping" name="ox_shipping_bar_cart" template="Magento_Checkout::cart/free_shipping.phtml" before="-">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="ox-shipping-bar-cart" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Checkout/js/view/ox-shipping-bar</item>
+                                <item name="template" xsi:type="string">Magento_Checkout/ox-shipping-bar/content</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

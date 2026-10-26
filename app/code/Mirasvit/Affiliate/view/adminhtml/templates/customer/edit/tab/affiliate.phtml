@@ -1,0 +1,39 @@
+<?php
+declare(strict_types=1);
+/**
+ * @var \Mirasvit\Affiliate\Block\Adminhtml\Customer\Edit\Tab\Affiliate $block
+ */
+$affiliate = $block->getAffiliate();
+?>
+
+<div class="fieldset-wrapper customer-information">
+    <?php if ($affiliate): ?>
+        <div class="fieldset-wrapper-title">
+            <span class="title"><?= $block->escapeHtml(__('General Information')) ?></span>
+        </div>
+        <table class="admin__table-secondary">
+            <tbody>
+            <tr>
+                <th><?= $block->escapeHtml(__('Current Balance:')) ?></th>
+                <td><?= $block->escapeHtml($block->getBalance()) ?></td>
+            </tr>
+            <tr>
+                <th><?= $block->escapeHtml(__('On hold:')) ?></th>
+                <td><?= $block->escapeHtml($block->getHoldedComissions()) ?></td>
+            </tr>
+            <tr>
+                <th><?= $block->escapeHtml(__('Unique code:')) ?></th>
+                <td><?= $block->escapeHtml($affiliate->getIdentifier()) ?></td>
+            </tr>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <p><strong><?= $block->escapeHtml(__('Customer is not registered as affiliate yet.')) ?></strong></p>
+
+        <?php if ($block->getCreateUrl()): ?>
+            <button class="action-secondary" onclick="window.location='<?= $block->escapeJs($block->getCreateUrl()) ?>'">
+                <span><?= $block->escapeHtml(__('Register as Affiliate')) ?></span>
+            </button>
+        <?php endif ?>
+    <?php endif ?>
+</div>

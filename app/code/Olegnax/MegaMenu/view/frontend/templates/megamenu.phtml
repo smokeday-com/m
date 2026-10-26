@@ -1,0 +1,57 @@
+<?php
+/**
+ * Olegnax MegaMenu
+ *
+ * This file is part of Olegnax/Core.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Olegnax.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.olegnax.com/license
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Olegnax
+ * @package     Olegnax_MegaMenu
+ * @copyright   Copyright (c) 2023 Olegnax (http://www.olegnax.com/)
+ * @license     https://www.olegnax.com/license
+ */
+
+use Olegnax\MegaMenu\Block\Html\Megamenu; 
+
+/** @var Megamenu $block */
+$menu_position = $block->getSystemValue('athlete2_settings/header/menu_position');
+$headerLayout = $block->getSystemValue('athlete2_settings/header/header_layout');
+
+$classes = '';
+$classes .= $block->getValueOption('header_container') ? ' ox-mm-sub-icons' : '';
+$classes .= $block->getValueOption('perfect_scrollbar') ? ' ps-enabled' : '';
+$classes .= ' ' . $block->getSystemValue('athlete2_design/appearance_header/menu_arrow_style');
+if ($menu_position == 2 || $headerLayout == 'header_6') {
+	$classes .= ' ox-move-sticky ox-move-sticky-header.main.left';
+}
+$animation_type = $block->getValueOption('animation_type', 'fade');
+$columnsLimit = $block->getColumnsLimit() ?: 0;
+$_menu = $block->getHtml('level-top', 'submenu', $columnsLimit);
+?>
+<nav class="ox-megamenu ox-move-item ox-move-item-store.menu<?= $classes ?>" data-action="navigation"
+	 data-ox-mm-anim-type="<?php echo $animation_type ?>" data-mage-init='{"OxMegaMenu":{
+	 "header":"<?= $block->getValueOption('header_container') ?>",
+	 "direction":"<?= $block->getValueOption('direction', 'horizontal') ?>",
+	 "mediaBreakpoint":"1025",
+	 "positionHorizontal":"<?= $block->getValueOption('position_horizontal', 'left') ?>",
+	 <?php if(!empty($block->getValueOption('close_delay'))): ?>
+	 "closeDelay": "<?= (int)$block->getValueOption('close_delay') ?>",
+	 <?php endif; ?>
+	 "autoOpen": "<?= $block->getValueOption('all_categories_dd_open_first') ?>",
+	 "autoOpenLast": "<?= $block->getValueOption('all_categories_dd_open_last') ?>",
+	 "doNotClose": "<?= $block->getValueOption('all_categories_dd_donotclose') ?>"
+	 }}'>
+	<ul class="ox-megamenu-navigation">
+		<?= $_menu ?>
+	</ul>
+</nav>

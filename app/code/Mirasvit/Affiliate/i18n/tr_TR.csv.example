@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Kaydınızı inceleyip sizi bilgilendireceğiz."
+"Your request to sign up to the affiliate program has been rejected.","Ortaklık programına kaydolma talebiniz reddedildi."
+"Sign In to Affiliates","Satış Ortaklarına Giriş Yapın"
+"You have successfully signed up for an affiliate account.","Bir ortaklık hesabına başarıyla kaydoldunuz."
+"Affiliate Dashboard","Ortaklık Gösterge Tablosu"
+"Affiliate Account Settings","Ortaklık Hesabı Ayarları"
+"Account information successfully updated.","Hesap bilgileri başarıyla güncellendi."
+"Transactions History","İşlem Geçmişi"
+"Promotion Materials","Promosyon Malzemeleri"
+Statistics,İstatistik
+"Affiliate Program Overview","Ortaklık Programına Genel Bakış"
+Withdrawals,"Para çekme"
+"Withdrawal request has been submitted.","Para çekme talebi gönderildi."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Bir veya daha fazla <a href=""%1"">satış ortağı hesabı</a> şu anda bekleme durumunda."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Bir veya daha fazla <a href=""%1"">para çekme talebi</a> şu anda beklemede."
+"Pending Approval","Onay bekleyen"
+Approved,Onaylandı
+"Not Approved",Onaylanmamış
+Image,Resim
+Text,Metin
+"Assign to first referred affiliate","İlk yönlendirilen bağlı kuruluşa atayın"
+"Assign to last referred affiliate","Son başvurulan bağlı kuruluşa atayın"
+Available,Mevcut
+Inactive,"Etkin değil"
+Removed,Kaldırıldı
+"- Disable these emails -","- Bu e-postaları devre dışı bırakın -"
+Click,Tıklayın
+Impression,İzlenim
+Lead,"Öncülük etmek"
+Sale,Satış
+". ' (default)'",". &#39; (varsayılan)&#39;"
+"Percent of order amount","Sipariş tutarının yüzdesi"
+"Percent of cart amount","Alışveriş sepeti tutarının yüzdesi"
+"Fixed amount","Sabit miktar"
+"Pay per Sale","Satış Başına Ödeme"
+"Pay per Lead","Olası Satış Başına Ödeme"
+"Pay per Click","Tıklama başına ödeme"
+"Pay per Impression","Gösterim Başına Ödeme"
+Complete,Tamamlayınız
+"In Hold",Beklemede
+Commission,Komisyon
+Withdraw,Çekil
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Kredi yükleme"
+Other,Diğer
+Pending,Bekliyor
+Accepted,"Kabul edilmiş"
+Completed,Tamamlandı
+Denied,Reddedildi
+"Number of Orders from reffered customers","Yönlendirilen müşterilerden gelen Sipariş Sayısı"
+"Sales Amount from reffered customers","Tavsiye edilen müşterilerden Satış Tutarı"
+is,dır-dir
+"is not",değil
+"greater than","daha büyük"
+"less than","daha az"
+"equals or greater than","eşit veya daha büyük"
+"equals or less than","eşit veya daha az"
+"Conditions Combination","Koşullar Kombinasyonu"
+"Affiliate conditions","Ortaklık koşulları"
+General,Genel
+"Customer Group","Müşteri grubu"
+Store,Mağaza
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Dosya türüne izin verilmiyor (yalnızca JPG, JPEG, PNG ve GIF dosyalarına izin verilir)"
+"Commission for order #%1 (%2)","#%1 numaralı sipariş için komisyon (%2)"
+"Refund for order #%1","#%1 numaralı sipariş için geri ödeme"
+Withdrawal,"Para çekme"
+"Withdraw cannot exceed current balance.","Para çekme, mevcut bakiyeyi aşamaz."
+"Minimum withdrawal amount is %1.","Minimum para çekme tutarı %1."
+"You already have a pending withdrawal request.","Zaten bekleyen bir para çekme talebiniz var."
+"Affiliate Withdrawal","Ortaklık Çekme"
+Back,Geri
+Delete,Silme
+"Are you sure you want to proceed?","Devam etmek istediğinizden emin misiniz?"
+"Save and Continue Edit","Kaydet ve Düzenlemeye Devam Et"
+Save,"Kayıt etmek"
+"Click on row to edit the coupon","Kuponu düzenlemek için satıra tıklayın"
+"Referred Customers","Tavsiye Edilen Müşteriler"
+Actions,Hareketler
+"Add Customers","Müşteri Ekle"
+Customers,Müşteriler
+Cancel,"İptal etmek"
+"Add Selected Customers","Seçili Müşterileri Ekle"
+Remove,Kaldırmak
+ID,İD
+Name,"İsim Soyisim"
+Email,"E-posta adresi"
+View,Görünüm
+Edit,Düzenle
+"Delete item?","Öğeyi silmek?"
+Conditions,Koşullar
+"Affiliate conditions (affects only automatically updated group)","Satış ortağı koşulları (yalnızca otomatik olarak güncellenen grubu etkiler)"
+"Assigned Affiliates","Atanmış İştirakler"
+"Add Affiliate","Satış Ortağı Ekle"
+Affiliates,İştirakler
+"Add Selected","Seçileni ekle"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Komisyonu yalnızca aşağıdaki koşullara uyan alışveriş sepeti öğelerine uygulayın (tüm öğeler için boş bırakın)."
+Accept,"Kabul etmek"
+Reject,Reddet
+"Referring Website","Yönlendiren Web Sitesi"
+"Subscribe to email notifications","E-posta bildirimlerine abone olun"
+"I accept the terms and conditions","Ben şartları ve koşulları kabul ediyorum"
+"Sign Up",Kaydol
+"Referral Website","Yönlendirme Web Sitesi"
+"Payment Method","Ödeme şekli"
+"Payment Information","Ödeme bilgileri"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Lütfen kişisel ödeme bilgilerinizi belirtin: PayPal e-postası veya herhangi bir e-cüzdan ödeme bilgisi."
+From,Nereden
+To,İçin
+Apply,Uygulamak
+Clicks,Tıklamalar
+Leads,"Olası satışlar"
+Orders,Emirler
+Views,Görüntüleme
+Earned,Kazanılan
+"My Account",Hesabım
+"Commissions according to your affiliate group","Bağlı kuruluş grubunuza göre komisyonlar"
+"<b>%1%</b> of order amount from first order","İlk siparişten sipariş tutarının <b>% %1</b>"
+"<b>%1%</b> of order amount from second and more orders","İkinci ve daha fazla siparişten sipariş tutarının <b>% %1%</b>"
+"<b>%1%</b> of cart amount from first order","İlk siparişteki alışveriş sepetinin <b>% %1%</b>"
+"<b>%1%</b> of cart amount from second and more orders","İkinci ve daha fazla siparişteki alışveriş sepetinin <b>% %1%</b>"
+"<b>%1</b> per sale from first order","İlk siparişten satış başına <b>%1</b>"
+"<b>%1</b> per sale from second and more orders","İkinci ve daha fazla siparişten satış başına <b>%1</b>"
+"<b>%1</b> per unique click","Benzersiz tıklama başına <b>%1</b>"
+"<b>%1</b> per lead","<b>Olası satış</b> başına %1"
+"<b>%1</b> per 1000 views","1000 görüntüleme başına <b>%1</b>"
+Banners,Afişler
+Type,Tür
+Size,Boyut
+Link,Bağlantı
+"Get Code","Kodu Al"
+"Copy and paste this code into your website: ","Bu kodu kopyalayıp web sitenize yapıştırın:"
+"Referral Coupons","Tavsiye Kuponları"
+Program,Program
+Coupon,Kupon
+Discount,İndirim
+"Personal Referral Link","Kişisel Yönlendirme Bağlantısı"
+"Enter any URL from this store in the form below to generate a new referral link:","Yeni bir yönlendirme bağlantısı oluşturmak için bu mağazadaki herhangi bir URL&#39;yi aşağıdaki forma girin:"
+"Your unique referral link is:","Benzersiz yönlendirme bağlantınız:"
+"Referral Widget","Yönlendirme Widget&#39;ı"
+"Widget Title:","Widget Başlığı:"
+"Related Products","Ilgili ürünler"
+Width:,Genişlik:
+Height:,Yükseklik:
+"Number of products:","Ürün sayısı:"
+"Show Bestsellers","En Çok Satanları Göster"
+"Show New Products","Yeni Ürünleri Göster"
+Search,Arama
+"Search term","Arama terimi"
+"Show Product's names","Ürün isimlerini göster"
+"Show Prices","Fiyatları Göster"
+"Place this code wherever you want the widget to appear on your page.","Bu kodu, widget&#39;ın sayfanızda görünmesini istediğiniz yere yerleştirin."
+"Current balance: <b>%1</b>","Mevcut bakiye: <b>%1</b>"
+"On hold: %1","Beklemede: %1"
+"Lifetime: %1","Ömür: %1"
+"Paid: %1","Ödenen: %1"
+Date,"Tarih (değiştir | kaynağı değiştir)"
+Balance,Denge
+Amount,Miktar
+Details,Detaylar
+"On hold to %1","%1 için beklemede"
+"There have been no transactions yet.","Henüz işlem yapılmadı."
+"Request withdrawal","Para çekme talebinde bulunun"
+"Minimum balance to request withdrawal is %1","Para çekme talebinde bulunmak için minimum bakiye %1"
+Fee,Ücret
+Status,Durum
+"Pending approval","Onay bekleyen"
+"There have been no withdrawals yet.","Henüz para çekme işlemi olmadı."
+"Your account is assigned to the <span>%1</span> affiliate group","Hesabınız <span>%1</span> bağlı kuruluş grubuna atandı"
+Commissions,Komisyonlar
+"Our Programs",Programlarımız
+"Our Program",Programımız
+"%1  - Minimum balance required for payout.","%1 - Ödeme için gerekli minimum bakiye."
+"Affiliate Group","Ortaklık Grubu"
+Description,Açıklama
+"Sign In","Oturum aç"
+"New Affiliate Account","Yeni Ortaklık Hesabı"
+"Account Information","Hesap Bilgileri"
+"%name,","% isim,"
+"Your affiliate account at %store_name has been approved.","% Store_name&#39;deki satış ortağı hesabınız onaylandı."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Hesabınızda oturum açmak için <a href=""%login_url"">burayı</a> tıklayın."
+"Your account balance has been updated at %store_name.","Hesap bakiyeniz% store_name adresinde güncellendi."
+Balance:,Denge:
+"Welcome to %store_name affiliate program!","% Store_name ortaklık programına hoş geldiniz!"
+Email:,E-posta:
+"Referring Website:","Yönlendiren Web Sitesi:"
+"A customer referred by you has just placed an order at %store_name.","Sizin tarafınızdan yönlendirilen bir müşteri% store_name&#39;den bir sipariş verdi."
+"Thus, it was credited to your affiliate account.","Böylece, bağlı kuruluş hesabınıza yatırıldı."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Sipariş tamamlandığında komisyonu sistemimizdeki hesap bakiyenize aktaracağız ve ardından istediğiniz zaman parayı çekebilirsiniz."
+"Transaction Amount:","İşlem tutarı:"
+"Current Balance:","Mevcut Bakiye:"
+"New Withdrawal Request","Yeni Para Çekme İsteği"
+Information,Bilgi
+"Please log in to the admin panel to manage this request.","Bu isteği yönetmek için lütfen yönetici paneline giriş yapın."
+"Affiliate: Sign In Button","Satış Ortağı: Oturum Aç Düğmesi"
+"Affiliate: List of programs","Ortaklık: Programların listesi"
+"Account Dashboard","Hesap Gösterge Tablosu"
+Transactions,İşlemler
+Settings,Ayarlar
+"Affiliate Program","Ortaklık Programı"

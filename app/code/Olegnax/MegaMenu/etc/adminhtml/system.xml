@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="olegnax" translate="label" sortOrder="15">
+			<label>Olegnax</label>
+		</tab>
+		<section id="ox_megamenu_settings" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1"
+				 showInStore="1">
+			<label>Mega Menu</label>
+			<tab>olegnax</tab>
+			<resource>Olegnax_MegaMenu::Olegnax_MegaMenu</resource>
+			<group id="info" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="0" translate="label">
+				<frontend_model>Olegnax\MegaMenu\Block\Adminhtml\System\Config\Form\Info</frontend_model>
+			</group>
+			<group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>General</label>
+				<field id="enable_megamenu" translate="label" type="select" sortOrder="0" showInDefault="1"
+					   showInWebsite="1" showInStore="1">
+					<label>Enable Mega Menu</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<frontend_class>on-off-trigger</frontend_class>
+				</field>
+				<field id="spacer" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+					<frontend_model>Olegnax\MegaMenu\Block\System\Config\Form\Field\Spacer</frontend_model>
+				</field>
+				<field id="header_container" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+					   showInWebsite="1" showInStore="1">
+					<label>Header Container</label>
+					<comment>Set custom css selector (which is used as wrapper for your menu) to make drop down
+						container align options work. Include dots i.e.: ".page-header > .container"
+					</comment>
+				</field>
+				<field id="close_delay" translate="label comment" type="text" sortOrder="11" showInDefault="1"
+				showInWebsite="1" showInStore="1">
+					<label>Drop Down Delay On Close</label>
+					<comment>You can set a delay in milliseconds before the menu will close. For example, you can set a value of 50, which is almost unnoticeable but will prevent 'flickering' when you switch between menu items.</comment>
+				</field>
+				<field id="show_menu_parent_arrow" translate="label" type="select" sortOrder="20" showInDefault="1"
+					   showInWebsite="1" showInStore="1">
+					<label>Show Arrows for Parent menu item</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<frontend_class>on-off-trigger</frontend_class>
+				</field>
+				<field id="show_sub_parent_arrow" translate="label" type="select" sortOrder="22" showInDefault="1"
+					   showInWebsite="1" showInStore="1">
+					<label>Show Arrows for Subcategories parent items</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<frontend_class>on-off-trigger</frontend_class>
+				</field>
+				<field id="perfect_scrollbar" translate="label" type="select" sortOrder="24" showInDefault="1"
+					   showInWebsite="1" showInStore="1">
+					<label>Enable Perfect ScrollBar</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<frontend_class>on-off-trigger</frontend_class>
+				</field>
+				
+				<field id="spacer_2" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+					<frontend_model>Olegnax\MegaMenu\Block\System\Config\Form\Field\Spacer</frontend_model>
+				</field>
+				<field id="wrap_in_all_categories" translate="label" type="select" sortOrder="51" showInDefault="1"
+				showInWebsite="1" showInStore="1">
+					<label>Wrap menu items in "All Categories" DropDown</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<frontend_class>on-off-trigger</frontend_class>
+					<comment>* You can exclude categories in OX Mega Menu section on category edit page.</comment>
+				</field>
+				<field id="all_categories_title" translate="label comment" type="text" sortOrder="52" showInDefault="1"
+				showInWebsite="1" showInStore="1">
+					<label>"All Categories" item text</label>
+					<depends>
+                        <field id="wrap_in_all_categories">1</field>
+                    </depends>
+				</field>
+				<field id="spacer_3" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+					<frontend_model>Olegnax\MegaMenu\Block\System\Config\Form\Field\Spacer</frontend_model>
+					<depends>
+                        <field id="wrap_in_all_categories">1</field>
+                    </depends>
+				</field>
+				<field id="all_categories_megamenu" translate="label comment" type="select" sortOrder="61" showInDefault="1"
+				showInWebsite="1" showInStore="1">
+					<label>"All Categories" - MegaMenu DropDown</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<frontend_class>on-off-trigger</frontend_class>
+					<comment>If enabled categories dropdowns will be rendered inside of the all categories drop down.</comment>
+					<depends>
+                        <field id="wrap_in_all_categories">1</field>
+                    </depends>
+				</field>
+				<field id="all_categories_menu_width" translate="label" type="select" sortOrder="61" showInDefault="1"
+				showInWebsite="1" showInStore="1">
+					<label>"All Categories" DropDown Width</label>
+					<source_model>Olegnax\MegaMenu\Model\Config\Settings\AllCatsMenuwidth</source_model>
+					<depends>
+						<field id="all_categories_megamenu">1</field>
+                        <field id="wrap_in_all_categories">1</field>
+                    </depends>
+				</field>
+				<field id="ox_all_categories_align_horizontal" translate="label" type="select" sortOrder="62" showInDefault="1"
+				showInWebsite="1" showInStore="1">
+					<label>"All Categories" DropDown Horizontal Alignment</label>
+					<source_model>Olegnax\MegaMenu\Model\Attribute\Alignhorizontal</source_model>
+					<depends>
+                        <field id="wrap_in_all_categories">1</field>
+                    </depends>
+				</field>				
+				<field id="all_categories_menu_width_custom" translate="label comment" type="text" sortOrder="63" showInDefault="1"
+				showInWebsite="1" showInStore="1">
+					<label>"All Categories" DropDown Width (Custom)</label>
+					<comment>Require "All Categories" DropDown Width options to be set as default.</comment>
+					<depends>
+                        <field id="wrap_in_all_categories">1</field>
+                    </depends>
+				</field>
+				<field id="all_categories_content_width" translate="label comment" type="text" sortOrder="64" showInDefault="1"
+				showInWebsite="1" showInStore="1">
+					<label>"All Categories" DropDown Content Width</label>
+					<comment>Width of the "All Categories" Drop Down Menu items</comment>
+					<depends>
+						<field id="all_categories_megamenu">1</field>
+                        <field id="wrap_in_all_categories">1</field>
+                    </depends>
+				</field>
+				<field id="all_categories_menu_min_height" translate="label comment" type="text" sortOrder="65" showInDefault="1"
+				showInWebsite="1" showInStore="1">
+					<label>"All Categories" DropDown Height</label>
+					<depends>
+                        <field id="wrap_in_all_categories">1</field>
+                    </depends>
+				</field>
+				<field id="all_categories_dd_same_height" translate="label comment" type="select" sortOrder="66" showInDefault="1"
+				showInWebsite="1" showInStore="1">
+					<label>"All Categories" - limit height for child items DropDown</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<frontend_class>on-off-trigger</frontend_class>
+					<comment>If enabled child items dropdown will have the same height as "All Categories" DropDown</comment>
+					<depends>
+                        <field id="wrap_in_all_categories">1</field>
+                    </depends>
+				</field>
+				<field id="all_categories_dd_open_first" translate="label comment" type="select" sortOrder="67" showInDefault="1"
+				showInWebsite="1" showInStore="1">
+					<label>"All Categories" - auto open child item dropdown</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<frontend_class>on-off-trigger</frontend_class>
+					<comment>When you open "All categories" DropDown it will also open/activate dropdown of the first category.</comment>
+					<depends>
+                        <field id="wrap_in_all_categories">1</field>
+                    </depends>
+				</field>
+				<field id="all_categories_dd_open_last" translate="label comment" type="select" sortOrder="68" showInDefault="1"
+				showInWebsite="1" showInStore="1">
+					<label>"All Categories" - auto open last opened child item</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<frontend_class>on-off-trigger</frontend_class>
+					<comment>When you open "All categories" DropDown it will also open/activate dropdown of the first or previously last opened child item.</comment>
+					<depends>
+						<field id="all_categories_dd_open_first">1</field>
+                        <field id="wrap_in_all_categories">1</field>
+                    </depends>
+				</field>
+				<field id="all_categories_dd_donotclose" translate="label comment" type="select" sortOrder="68" showInDefault="1"
+				showInWebsite="1" showInStore="1">
+					<label>"All Categories" - do not close on mouse leave</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<frontend_class>on-off-trigger</frontend_class>
+					<comment>So not close All Categories drop down childrens when you move mouse away. Instead current children drop down will be close when you hover over another item.</comment>
+					<depends>
+                        <field id="wrap_in_all_categories">1</field>
+                    </depends>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

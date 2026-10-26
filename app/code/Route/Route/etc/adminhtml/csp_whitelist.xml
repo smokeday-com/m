@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp/etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="cdnRouteApp" type="host">cdn.routeapp.io</value>
+                <value id="googleFonts" type="host">https//fonts.googleapis.com</value>
+                <value id="routeProtectAPI" type="host">https://protect-quote-q.route.com</value>
+                <value id="routeProtectionWidget" type="host">protection-widget.route.com</value>
+                <value id="lightningWidget" type="host">protect-lightning-bolt-widget.route.com</value>
+                <value id="widgetThemeCDN1" type="host">d3od5si8vgcekb.cloudfront.net</value>
+                <value id="widgetThemeCDN2" type="host">ddbmicszvqxcg.cloudfront.net</value>
+                <value id="grafanaAssets" type="host">https://unpkg.com</value>
+                <value id="routeWobs" type="host">wobs.route.com</value>
+            </values>
+        </policy>
+
+        <policy id="style-src">
+            <values>
+                <value id="googleFontsStyle" type="host">https//fonts.googleapis.com</value>
+                <value id="widgetStyleCDN" type="host">https://d1cwup7r903a1d.cloudfront.net</value>
+            </values>
+        </policy>
+
+        <policy id="font-src">
+            <values>
+                <value id="fontStyle" type="host">https://d1cwup7r903a1d.cloudfront.net</value>
+            </values>
+        </policy>
+
+        <policy id="connect-src">
+            <values>
+                <value id="routeAPI" type="host">api.route.com</value>
+                <value id="routeProtectAPI2" type="host">https://protect-quote-q.route.com</value>
+                <value id="routeProtectionWidget2" type="host">protection-widget.route.com</value>
+                <value id="widgetThemeCDN3" type="host">d3od5si8vgcekb.cloudfront.net</value>
+                <value id="lightningWidget2" type="host">protect-lightning-bolt-widget.route.com</value>
+                <value id="widgetThemeCDN4" type="host">ddbmicszvqxcg.cloudfront.net</value>
+                <value id="grafanaAssets2" type="host">https://unpkg.com</value>
+                <value id="routeWobs2" type="host">wobs.route.com</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

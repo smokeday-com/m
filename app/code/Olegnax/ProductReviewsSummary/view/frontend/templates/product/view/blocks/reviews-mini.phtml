@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * Athlete2 Theme
+ *
+ * @author      Olegnax
+ * @package     Olegnax_Athlete2
+ * @copyright   Copyright (c) 2024 Olegnax (https://olegnax.com). All rights reserved.
+ * @license     https://www.olegnax.com/license
+ */
+if(!$block->getConfig('athlete2_settings/product/show_mini_reviews')){
+	return;
+}
+?>
+<div id="ox-reviews-mini" class="ox-reviews-mini ox-reviews-mini-drop">
+	<?php echo $block->getChildHtml('a2.product.review.mini.content'); ?>
+</div>
+
+<?php $scriptString = <<<script
+    require( [ "jquery" ], function ( $ ) {
+        "use strict";
+        $( function () {
+            const _link = $(".product-info-main .product-reviews-summary"),
+                e_selector = '#ox-reviews-mini, .product-info-main .product-reviews-summary',
+                _popup = $("#ox-reviews-mini");
+				let rp_tid;
+            if(_link.length && _link.has('.rating-summary').length){
+				$('body').on('mouseenter', e_selector, function(){
+					clearTimeout(rp_tid);
+					let linkR = _link[0].getBoundingClientRect();
+					_popup.addClass('active').css({
+						left: linkR.left + "px",
+						top: linkR.bottom + "px"
+					});
+				}).on('mouseleave', e_selector, function(){
+					rp_tid = setTimeout(function() {
+						_popup.removeClass('active');
+					}, 200);
+				});
+			}
+        } );
+    } );
+script;
+
+if (isset($secureRenderer)){
+	echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+} else{
+	echo /* @noEscape */ '<script>' .  $scriptString . '</script>';
+} ?>

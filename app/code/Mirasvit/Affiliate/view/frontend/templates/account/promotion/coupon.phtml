@@ -1,0 +1,51 @@
+<?php
+declare(strict_types=1);
+
+use Mirasvit\Affiliate\Block\Account\Promotion\Coupon;
+
+/**
+ * @var Coupon $block
+ */
+$programsList = $block->getProgramsList();
+if (!count($programsList)) {
+    return;
+}
+?>
+
+<div class="block affiliate-account__coupon">
+    <div class="block-title"><strong><?= $block->escapeHtml(__('Referral Coupons')) ?></strong></div>
+    <div class="block-content">
+        <table class="data table">
+            <tr>
+                <th><?= $block->escapeHtml(__('Program')) ?></th>
+                <th><?= $block->escapeHtml(__('Coupon')) ?></th>
+                <th><?= $block->escapeHtml(__('Discount')) ?></th>
+            </tr>
+            <?php foreach ($programsList as $program): ?>
+                <?php
+                $coupon = $block->getCoupon($program);
+                if (!$coupon) {
+                    continue;
+                }
+
+                $salesRule = $block->getSalesRule($program);
+                if (!$salesRule) {
+                    continue;
+                }
+                ?>
+                <tr>
+                    <td class="affiliate__widget-program_name">
+                        <?= $block->escapeHtml($program->getName()) ?>
+                        <?php if ($program->getDescription()): ?>
+                            <p>
+                                <small><?= $block->escapeHtml($program->getDescription()) ?></small>
+                            </p>
+                        <?php endif ?>
+                    </td>
+                    <td><?= $block->escapeHtml($coupon->getCode()) ?></td>
+                    <td><?= $block->escapeHtml($block->getDiscountAmountHtml($salesRule)) ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
+</div>

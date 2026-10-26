@@ -1,0 +1,181 @@
+<?php
+declare(strict_types=1);
+
+use Mirasvit\Affiliate\Api\Data\ProgramInterface;
+
+/**
+ * @var \Mirasvit\Affiliate\Block\Widget\Programs $block
+ */
+
+$programList  = $block->getList();
+$account      = $block->getAccount();
+$defaultGroup = $block->getDefaultGroup();
+?>
+
+<?php if ($account): ?>
+
+    <h3 class="affiliate__widget-current"><?= $block->escapeHtml(__('Your account is assigned to the <span>%1</span> affiliate group', $block->getGroup($account->getGroupId())->getName()), ['span']) ?></h3>
+
+    <table class="data table">
+        <tr>
+            <th><?= $block->escapeHtml(__('Program')) ?></th>
+            <th><?= $block->escapeHtml(__('Type')) ?></th>
+            <th><?= $block->escapeHtml(__('Commissions')) ?></th>
+        </tr>
+
+        <?php foreach ($programList as $program): ?>
+            <?php
+            $configured = false;
+
+            foreach ($program->getTiers() as $tier) {
+                if ($account->getGroupId() === $tier->getGroupId()) {
+                    $configured = true;
+                    break;
+                }
+            }
+
+            // display only programs where commissions are configured for current affiliate group
+            if (!$configured) {
+                continue;
+            }
+            ?>
+            <tr>
+                <td class="affiliate__widget-program_name">
+                    <?= $block->escapeHtml($program->getName()) ?>
+                    <?php if ($program->getDescription()): ?>
+                        <p class="affiliate__widget-program_description">
+                            <small><?= $block->escapeHtml($program->getDescription()) ?></small>
+                        </p>
+                    <?php endif ?>
+                </td>
+                <td>
+                    <?= $block->escapeHtml($block->getProgramTypeLabel($program)) ?>
+                </td>
+                <td>
+                    <table class="affiliate__widget-programs">
+                        <?php foreach ($program->getTiers() as $tier): ?>
+                            <?php
+                            /** @var \Mirasvit\Affiliate\Model\Tier $tier */
+                            if ($account->getGroupId() !== $tier->getGroupId()) {
+                                continue;
+                            }
+                            ?>
+                            <tr>
+                                <td>
+                                    <?php if ($program->getType() == ProgramInterface::TYPE_PAY_PER_SALE): ?>
+                                        <?php if ($tier->getType() == ProgramInterface::COMMISSION_TYPE_PERCENT_TOTAL): ?>
+                                            <p>
+                                                • <?= $block->escapeHtml(__('<b>%1%</b> of order amount from first order', round($block->getTierAmountFirst($tier), 2)), ['b']) ?></p>
+                                            <p>
+                                                • <?= $block->escapeHtml(__('<b>%1%</b> of order amount from second and more orders', round($block->getTierAmountOther($tier), 2)), ['b']) ?></p>
+                                        <?php elseif ($tier->getType() == ProgramInterface::COMMISSION_TYPE_PERCENT_SUBTOTAL): ?>
+                                            <p>
+                                                • <?= $block->escapeHtml(__('<b>%1%</b> of cart amount from first order', round($block->getTierAmountFirst($tier), 2)), ['b']) ?></p>
+                                            <p>
+                                                • <?= $block->escapeHtml(__('<b>%1%</b> of cart amount from second and more orders', round($block->getTierAmountOther($tier), 2)), ['b']) ?></p>
+                                        <?php else: ?>
+                                            <p>
+                                                • <?= $block->escapeHtml(__('<b>%1</b> per sale from first order', $block->getCurrencyFormatted($block->getTierAmountFirst($tier))), ['b']) ?></p>
+                                            <p>
+                                                • <?= $block->escapeHtml(__('<b>%1</b> per sale from second and more orders', $block->getCurrencyFormatted($block->getTierAmountOther($tier))), ['b']) ?></p>
+                                        <?php endif ?>
+                                    <?php elseif ($program->getType() == ProgramInterface::TYPE_PAY_PER_CLICK): ?>
+                                        <?= $block->escapeHtml(__('<b>%1</b> per unique click', $block->getCurrencyFormatted($block->getTierAmount($tier))), ['b']) ?>
+                                    <?php elseif ($program->getType() == ProgramInterface::TYPE_PAY_PER_LEAD): ?>
+                                        <?= $block->escapeHtml(__('<b>%1</b> per lead', $block->getCurrencyFormatted($block->getTierAmount($tier))), ['b']) ?>
+                                    <?php elseif ($program->getType() == ProgramInterface::TYPE_PAY_PER_IMPRESSION): ?>
+                                        <?= $block->escapeHtml(__('<b>%1</b> per 1000 views', $block->getCurrencyFormatted($block->getTierAmount($tier))), ['b']) ?>
+                                    <?php endif ?>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                    </table>
+                </td>
+            </tr>
+        <?php endforeach ?>
+    </table>
+    <p>&nbsp;</p>
+<?php endif; ?>
+
+<?php if (count($programList) > 1): ?>
+    <h3><?= $block->escapeHtml(__('Our Programs')) ?></h3>
+<?php else: ?>
+    <h3><?= $block->escapeHtml(__('Our Program')) ?></h3>
+<?php endif ?>
+
+<p style="text-align: right">
+    <?= $block->escapeHtml(__('%1  - Minimum balance required for payout.', $block->getCurrencyFormatted($block->getConfig()->getWithdrawMinAmount()))) ?>
+</p>
+
+<div class="affiliate__widget-tabs product data items"
+     data-mage-init='{"mage/tabs": {"openedState": "active", "active": 0, "disabledState": "disabled"}}'>
+    <?php foreach ($programList as $program): ?>
+        <div class="item title" data-role="collapsible">
+            <a class="switch" data-toggle="trigger"
+               href="#tab-cars"><b><?= $block->escapeHtml($program->getName()) ?></b></a>
+        </div>
+        <div id="tab-cars" class="item content" data-role="content">
+            <p class="affiliate__widget_program-name"><span><?= $block->escapeHtml($program->getName()) ?></span>
+                (<?= $block->escapeHtml($block->getProgramTypeLabel($program)) ?>)</p>
+            <p><?= $block->escapeHtml($program->getDescription()) ?></p>
+            <hr>
+            <table class="affiliate__widget-programs">
+                <tr>
+                    <th><?= $block->escapeHtml(__('Affiliate Group')) ?></th>
+                    <th><?= $block->escapeHtml(__('Description')) ?></th>
+                    <th><?= $block->escapeHtml(__('Commission')) ?></th>
+                </tr>
+                <?php foreach ($program->getTiers() as $tier): ?>
+                    <?php
+                    /** @var \Mirasvit\Affiliate\Model\Tier $tier */
+
+                    $group = $block->getGroup($tier->getGroupId());
+
+                    if (!$group->getIsVisible()) {
+                        continue;
+                    }
+
+                    $additionalClass = '';
+
+                    if ($account && $account->getGroupId() === $tier->getGroupId()) {
+                        $additionalClass = 'affiliate__widget_group';
+                    }
+
+                    ?>
+
+                    <tr class="<?= $block->escapeHtmlAttr($additionalClass) ?>">
+                        <td>
+                            <?= $block->escapeHtml($group->getName()) ?>
+                        </td>
+                        <td>
+                            <?= $block->escapeHtml($group->getDescription()) ?>
+                        </td>
+                        <td>
+                            <?php if ($program->getType() == ProgramInterface::TYPE_PAY_PER_SALE): ?>
+                                <?php if ($tier->getType() == ProgramInterface::COMMISSION_TYPE_PERCENT_TOTAL): ?>
+                                    <?= '&bull; ' . $block->escapeHtml(__('<b>%1%</b> of order amount from first order', round($block->getTierAmountFirst($tier), 2)), ['b']) ?>
+                                    <br>
+                                    <?= '&bull; ' . $block->escapeHtml(__('<b>%1%</b> of order amount from second and more orders', round($block->getTierAmountOther($tier), 2)), ['b']) ?>
+                                <?php elseif ($tier->getType() == ProgramInterface::COMMISSION_TYPE_PERCENT_SUBTOTAL): ?>
+                                    <?= '&bull; ' . $block->escapeHtml(__('<b>%1%</b> of cart amount from first order', round($block->getTierAmountFirst($tier), 2)), ['b']) ?>
+                                    <br>
+                                    <?= '&bull; ' . $block->escapeHtml(__('<b>%1%</b> of cart amount from second and more orders', round($block->getTierAmountOther($tier), 2)), ['b']) ?>
+                                <?php else: ?>
+                                    <?= '&bull; ' . $block->escapeHtml(__('<b>%1</b> per sale from first order', $block->getCurrencyFormatted($block->getTierAmountFirst($tier))), ['b']) ?>
+                                    <br>
+                                    <?= '&bull; ' . $block->escapeHtml(__('<b>%1</b> per sale from second and more orders', $block->getCurrencyFormatted($block->getTierAmountOther($tier))), ['b']) ?>
+                                <?php endif ?>
+                            <?php elseif ($program->getType() == ProgramInterface::TYPE_PAY_PER_CLICK): ?>
+                                <?= $block->escapeHtml(__('<b>%1</b> per unique click', $block->getCurrencyFormatted($block->getTierAmount($tier))), ['b']) ?>
+                            <?php elseif ($program->getType() == ProgramInterface::TYPE_PAY_PER_LEAD): ?>
+                                <?= $block->escapeHtml(__('<b>%1</b> per lead', $block->getCurrencyFormatted($block->getTierAmount($tier))), ['b']) ?>
+                            <?php elseif ($program->getType() == ProgramInterface::TYPE_PAY_PER_IMPRESSION): ?>
+                                <?= $block->escapeHtml(__('<b>%1</b> per 1000 views', $block->getCurrencyFormatted($block->getTierAmount($tier))), ['b']) ?>
+                            <?php endif ?>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </table>
+        </div>
+    <?php endforeach; ?>
+</div>

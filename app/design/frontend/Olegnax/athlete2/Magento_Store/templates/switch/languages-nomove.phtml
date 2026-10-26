@@ -1,0 +1,129 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var Switcher $block */
+
+use Magento\Store\Block\Switcher;
+if ( count($block->getStores()) > 1):
+	$id = $block->getIdModifier() ? '-' . $block->getIdModifier() : '';
+	$_current = null;
+	foreach ($block->getStores() as $_lang) {
+		if ($_lang->getId() == $block->getCurrentStoreId()) {
+			$_current = $_lang;
+			break;
+		}
+	}
+
+    $theme_helper = $this->helper(Olegnax\Athlete2\Helper\Helper::class);
+    $at_settings = $theme_helper->getConfig('athlete2_settings');
+
+    $language_in_header = $at_settings['header']['language_in_header'];
+    $language_type = $at_settings['header']['language_type'];
+    $language_move_mobile = $at_settings['header']['language_move_mobile'];
+
+    $tiny_drops = $at_settings['header']['language_tiny_drops'];
+    if($block->getData('modal') !== NULL){
+        $modal = $block->getData('modal');
+    } else{
+        $modal = !$tiny_drops && $language_type !== 'dropdown-hover';
+    }
+    if($block->getData('mobile_modal') !== NULL){
+        $mobile_modal = $block->getData('mobile_modal');
+    } else{
+        $mobile_modal = !$tiny_drops && $language_in_header && !$language_move_mobile;
+    }
+
+    $classes = '';
+
+    if( $modal ){
+        $classes .= ' js-item-language-action';
+    } else{
+        $classes .= ' switcher-hover ';
+    }
+    if( !$mobile_modal ){
+        $classes .= ' hide-on-mobile hide-on-tablet';
+    }    
+    ?>
+
+    <div class="switcher language switcher-language tiny-arrow tiny-drop  <?php echo $classes ?>" 
+        <?php if( !$modal ): ?>
+        data-ui-id="language-switcher" 
+        id="switcher-language<?= $block->escapeHtmlAttr($id) ?>"
+        <?php endif; ?>
+        >
+        <strong class="label switcher-label"><span><?= $block->escapeHtml(__('Language')) ?></span></strong>
+        <div class="actions dropdown options switcher-options">
+            <div class="action toggle switcher-trigger"
+                <?php if( !$modal ): ?>
+                id="switcher-language-trigger<?= $block->escapeHtmlAttr($id) ?>"
+                data-mage-init='{"dropdown":{"autoclose":"false"}}'
+                data-toggle="dropdown"
+                data-trigger-keypress-button="true"
+                <?php endif; ?>
+                >
+                <strong class="view-<?= $block->escapeHtml($block->getCurrentStoreCode()) ?>">
+                    <span  style="background-image:url('<?= $block->escapeUrl($block->getViewFileUrl('images/flags/' . $_current->getCode() . '.png')) ?>');"><?= $block->escapeHtml($_current->getName()) ?></span>
+                </strong>
+            </div>
+            <?php if( !$modal ): ?>
+            <ul class="dropdown switcher-dropdown"
+                data-target="dropdown">
+                <?php foreach ($block->getStores() as $_lang): ?>
+                    <?php if ($_lang->getId() != $block->getCurrentStoreId()): ?>
+                        <li class="view-<?= $block->escapeHtml($_lang->getCode()) ?> switcher-option">
+                            <a href="#" data-post='<?= /* @noEscape */ $block->getTargetStorePostData($_lang) ?>' style="background-image:url('<?= $block->escapeUrl($block->getViewFileUrl('images/flags/' . $_lang->getCode() . '.png')) ?>');">
+                                <?= $block->escapeHtml($_lang->getName()) ?>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <?php if(!$mobile_modal): ?>
+        <div class="switcher language switcher-language js-item-language-mobile-action tiny-drop tiny-arrow hide-on-desktop">
+            <strong class="label switcher-label"><span><?= $block->escapeHtml(__('Language')) ?></span></strong>
+            <div class="actions options switcher-options">
+                <div class="action toggle switcher-trigger">
+                    <strong class="view-<?= $block->escapeHtml($block->getCurrentStoreCode()) ?>">
+                        <span  style="background-image:url('<?= $block->escapeUrl($block->getViewFileUrl('images/flags/' . $_current->getCode() . '.png')) ?>');"><?= $block->escapeHtml($_current->getName()) ?></span>
+                    </strong>
+                </div>
+            </div>
+        </div>
+        <?php $scriptString = <<<script
+        require([
+            'jquery'
+        ], function ($) {
+            let flag;
+            const init = () => {
+                if(flag) {return}
+                const settingsTab = $('.ox-section-items a[href="#store.settings"]').parent();
+                if(settingsTab.length){
+                    $(".js-item-language-mobile-action").on('click', function(e) {
+                        e.preventDefault();
+                        $('.slide-out-menu--mobile').click();
+                        settingsTab.click()
+                    });
+                    flag = true;
+                }
+            }
+            init();
+            $('body').on('contentUpdated', init);
+        });
+script;
+        if (isset($secureRenderer)){
+            echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+        } else{
+            echo /* @noEscape */ '<script>' .  $scriptString . '</script>';
+        }
+        ?>
+    <?php endif; ?>
+<?php endif; ?>

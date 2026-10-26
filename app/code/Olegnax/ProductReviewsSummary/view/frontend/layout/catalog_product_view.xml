@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Athlete2 Theme
+ *
+ * @author      Olegnax
+ * @package     Olegnax_Athlete2
+ * @copyright   Copyright (c) 2024 Olegnax (https://olegnax.com). All rights reserved.
+ * @license     https://www.olegnax.com/license
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="before.body.end">
+            <block class="Olegnax\Athlete2\Block\Template" name="a2.product.review.mini.modal" template="Olegnax_ProductReviewsSummary::product/view/blocks/reviews-mini.phtml">
+                <container name="a2.product.review.mini.content">
+                    <block class="Olegnax\ProductReviewsSummary\Block\Html\ReviewSummary" name="a2.product.review.mini" template="Olegnax_ProductReviewsSummary::product/view/blocks/by-rating.phtml"/>
+                    <block class="Olegnax\ProductReviewsSummary\Block\Html\ReviewSummary" name="a2.product.review.mini.link" template="Olegnax_ProductReviewsSummary::product/view/blocks/reviews-link.phtml"/>
+                </container>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

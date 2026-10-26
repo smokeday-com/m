@@ -1,0 +1,7 @@
+<?php
+if ($this->getConfig('athlete2_design/appearance_custom/inline_css')) {
+    $content = $this->getChildHtml('athlete2_dynamic_css');
+    if (!empty($content)) {
+        echo $block->renderStyles($content);
+    }
+}

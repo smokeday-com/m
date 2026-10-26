@@ -1,0 +1,25 @@
+<!--@subject {{trans "Wholesale - %businessname" businessname=$data.businessname}} @-->
+<!--@vars {
+"var data.comment":"Comment",
+"var data.email":"Sender Email",
+"var data.name":"Sender Name"
+} @-->
+<table>
+   <tr>
+     <td>
+	   <table>
+			<caption>The following customer has made registration for the wholesale account.</caption>
+			<tr><td>First Name:</td><td>{{trans "%fname" fname=$data.firstname}}</td></tr>
+			<tr><td>Last Name: </td><td>{{trans "%lname" lname=$data.lastname}}</td></tr>
+			<tr><td>Email Address:</td><td>{{trans "%email" email=$data.email}}</td></tr>
+			<tr><td>Business Name:</td><td>{{trans "%businessname" businessname=$data.businessname}}</td></tr>
+			<tr><td>Tax ID Number:</td><td>{{trans "%taxidnumber" taxidnumber=$data.taxidnumber}}</td></tr>
+			<tr><td>Phone Number:</td><td>{{trans "%telephone" telephone=$data.telephone}}</td></tr>
+			<tr><td>Intent:</td><td>{{trans "%intent1" intent1=$data.intent1}}<br>{{trans "%intent2" intent2=$data.intent2}}<br>{{trans "%intent3" intent3=$data.intent3}}<br>{{trans "%intent4" intent4=$data.intent4}}<br></td></tr>
+			<tr><td>Website:</td><td>{{trans "%website" website=$data.website}}</td></tr>
+			<tr><td>Full Address:</td><td>{{trans "%fulladdress" fulladdress=$data.fulladdress}}</td></tr>
+	   </table>
+   </td>
+   </tr>
+</table>
+ 

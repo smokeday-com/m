@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Vi granskar din registrering och meddelar dig."
+"Your request to sign up to the affiliate program has been rejected.","Din begäran om att registrera dig för affiliate-programmet har avvisats."
+"Sign In to Affiliates","Logga in på dotterbolag"
+"You have successfully signed up for an affiliate account.","Du har registrerat dig för ett affiliate-konto."
+"Affiliate Dashboard","Affiliate Dashboard"
+"Affiliate Account Settings","Inställningar för anslutet konto"
+"Account information successfully updated.","Kontouppgifterna har uppdaterats."
+"Transactions History",Transaktionshistorik
+"Promotion Materials",Marknadsföringsmaterial
+Statistics,Statistik
+"Affiliate Program Overview","Översikt över affiliate-program"
+Withdrawals,Uttag
+"Withdrawal request has been submitted.","Uttagningsbegäran har lämnats in."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Ett eller flera <a href=""%1"">anslutna konton</a> är för närvarande i väntande status."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","En eller flera <a href=""%1"">uttagsbegäranden</a> är för närvarande i pågående status."
+"Pending Approval","Väntar på godkännande"
+Approved,Godkänd
+"Not Approved","Ej godkänd"
+Image,Bild
+Text,Text
+"Assign to first referred affiliate","Tilldela den först hänvisade dotterbolaget"
+"Assign to last referred affiliate","Tilldela det senast hänvisade dotterbolaget"
+Available,Tillgängligt
+Inactive,Inaktiv
+Removed,"Tog bort"
+"- Disable these emails -","- Inaktivera dessa e-postmeddelanden -"
+Click,Klick
+Impression,Intryck
+Lead,Leda
+Sale,Försäljning
+". ' (default)'",". &#39; (standard)&#39;"
+"Percent of order amount","Procent av orderbeloppet"
+"Percent of cart amount","Procent av vagnens belopp"
+"Fixed amount","Bestämd mängd"
+"Pay per Sale","Betala per försäljning"
+"Pay per Lead","Betala per Lead"
+"Pay per Click","Betala per klick"
+"Pay per Impression","Betala per intryck"
+Complete,Komplett
+"In Hold","In Hold"
+Commission,Provision
+Withdraw,"Dra tillbaka"
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit",Butikskredit
+Other,Övrig
+Pending,"I väntan på"
+Accepted,Accepterad
+Completed,Avslutad
+Denied,Förnekad
+"Number of Orders from reffered customers","Antal order från refererade kunder"
+"Sales Amount from reffered customers","Försäljningsbelopp från refererade kunder"
+is,är
+"is not","är inte"
+"greater than","större än"
+"less than","mindre än"
+"equals or greater than","lika med eller större än"
+"equals or less than","lika med eller mindre än"
+"Conditions Combination","Villkor Kombination"
+"Affiliate conditions","Affiliate villkor"
+General,Allmän
+"Customer Group",Kundgrupp
+Store,Lagra
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Filtyp är inte tillåtet (endast JPG-, JPEG-, PNG- och GIF-filer är tillåtna)"
+"Commission for order #%1 (%2)","Provision för order #%1 (%2)"
+"Refund for order #%1","Återbetalning för beställning #%1"
+Withdrawal,Uttag
+"Withdraw cannot exceed current balance.","Uttag kan inte överstiga nuvarande saldo."
+"Minimum withdrawal amount is %1.","Minsta uttagsbelopp är %1."
+"You already have a pending withdrawal request.","Du har redan en pågående uttagsbegäran."
+"Affiliate Withdrawal","Uttag av anslutning"
+Back,Tillbaka
+Delete,Radera
+"Are you sure you want to proceed?","Är du säker på att du vill fortsätta?"
+"Save and Continue Edit","Spara och fortsätt Redigera"
+Save,Spara
+"Click on row to edit the coupon","Klicka på raden för att redigera kupongen"
+"Referred Customers","Hänvisade kunder"
+Actions,Insatser
+"Add Customers","Lägg till kunder"
+Customers,Kunder
+Cancel,Avbryt
+"Add Selected Customers","Lägg till utvalda kunder"
+Remove,Avlägsna
+ID,ID
+Name,Namn
+Email,E-post
+View,Se
+Edit,Redigera
+"Delete item?","Radera sak?"
+Conditions,Betingelser
+"Affiliate conditions (affects only automatically updated group)","Affiliate villkor (påverkar endast automatiskt uppdaterad grupp)"
+"Assigned Affiliates","Tilldelade dotterbolag"
+"Add Affiliate","Lägg till affiliate"
+Affiliates,Dotterbolag
+"Add Selected","Lägg till vald"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Tillämpa endast provisionen på vagnartiklar som matchar följande villkor (lämna tomt för alla artiklar)."
+Accept,Acceptera
+Reject,Avvisa
+"Referring Website","Hänvisande webbplats"
+"Subscribe to email notifications","Prenumerera på e-postaviseringar"
+"I accept the terms and conditions","Jag accepterar villkoren"
+"Sign Up","Bli Medlem"
+"Referral Website",Hänvisningswebbplats
+"Payment Method",Betalningsmetod
+"Payment Information",Betalningsinformation
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Ange personlig betalningsinformation: PayPal-e-post eller alla betalningsuppgifter för e-plånboken."
+From,Från
+To,Till
+Apply,Tillämpa
+Clicks,Klick
+Leads,Leads
+Orders,Order
+Views,Visningar
+Earned,Tjänade
+"My Account","Mitt konto"
+"Commissions according to your affiliate group","Provisioner enligt din medlemsgrupp"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> av orderbeloppet från första ordern"
+"<b>%1%</b> of order amount from second and more orders",
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> av kundvagnens belopp från första beställningen"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> av kundvagnen från andra och fler beställningar"
+"<b>%1</b> per sale from first order","<b>%1</b> per försäljning från första beställningen"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> per försäljning från andra och fler beställningar"
+"<b>%1</b> per unique click","<b>%1</b> per unikt klick"
+"<b>%1</b> per lead","<b>%1</b> per ledning"
+"<b>%1</b> per 1000 views","<b>%1</b> per 1000 visningar"
+Banners,Banderoller
+Type,Typ
+Size,Storlek
+Link,Länk
+"Get Code","Hämta kod"
+"Copy and paste this code into your website: ","Kopiera och klistra in den här koden på din webbplats:"
+"Referral Coupons",Hänvisningskuponger
+Program,Program
+Coupon,Kupong
+Discount,Rabatt
+"Personal Referral Link","Personlig hänvisningslänk"
+"Enter any URL from this store in the form below to generate a new referral link:","Ange vilken webbadress som helst från denna butik i formuläret nedan för att skapa en ny hänvisningslänk:"
+"Your unique referral link is:","Din unika remisslänk är:"
+"Referral Widget","Hänvisnings widget"
+"Widget Title:","Widget Titel:"
+"Related Products","Relaterade produkter"
+Width:,Bredd:
+Height:,Höjd:
+"Number of products:","Antal produkter:"
+"Show Bestsellers","Visa bästsäljare"
+"Show New Products","Visa nya produkter"
+Search,Sök
+"Search term",Sökterm
+"Show Product's names","Visa produktens namn"
+"Show Prices","Visa priser"
+"Place this code wherever you want the widget to appear on your page.","Placera den här koden var du än vill att widgeten ska visas på din sida."
+"Current balance: <b>%1</b>","Nuvarande saldo: <b>%1</b>"
+"On hold: %1","Väntande: %1"
+"Lifetime: %1","Livstid: %1"
+"Paid: %1","Betalad: %1"
+Date,Datum
+Balance,Balans
+Amount,Belopp
+Details,Detaljer
+"On hold to %1","Väntande till %1"
+"There have been no transactions yet.","Det har inte gjorts några transaktioner än."
+"Request withdrawal","Begär uttag"
+"Minimum balance to request withdrawal is %1","Minsta saldo för att begära uttag är %1"
+Fee,Avgift
+Status,Status
+"Pending approval","Väntar på godkännande"
+"There have been no withdrawals yet.","Inga uttag har gjorts än."
+"Your account is assigned to the <span>%1</span> affiliate group","Ditt konto tilldelas till <span>%1-medlemsgruppen</span>"
+Commissions,Uppdrag
+"Our Programs","Våra program"
+"Our Program","Vårt program"
+"%1  - Minimum balance required for payout.","%1 - Minsta balans som krävs för utbetalning."
+"Affiliate Group","Affiliate Group"
+Description,Beskrivning
+"Sign In","Logga in"
+"New Affiliate Account","Nytt dotterbolagskonto"
+"Account Information",Kontoinformation
+"%name,","%namn,"
+"Your affiliate account at %store_name has been approved.","Ditt affiliate-konto på% store_name har godkänts."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Klicka <a href=""%login_url"">här för</a> att logga in på ditt konto."
+"Your account balance has been updated at %store_name.","Ditt kontosaldo har uppdaterats på% store_name."
+Balance:,Balans:
+"Welcome to %store_name affiliate program!","Välkommen till affiliate-programmet% store_name!"
+Email:,E-post:
+"Referring Website:","Hänvisande webbplats:"
+"A customer referred by you has just placed an order at %store_name.","En kund som du hänvisat till har precis gjort en beställning på% store_name."
+"Thus, it was credited to your affiliate account.","Således krediterades det till ditt affiliate-konto."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","När beställningen är klar överför vi provisionen till ditt kontosaldo i vårt system och sedan kan du ta ut pengarna när du vill."
+"Transaction Amount:",Transaktionsbelopp:
+"Current Balance:","Aktuellt saldo:"
+"New Withdrawal Request","Ny uttagsbegäran"
+Information,Information
+"Please log in to the admin panel to manage this request.","Logga in på adminpanelen för att hantera denna begäran."
+"Affiliate: Sign In Button","Affiliate: Inloggningsknapp"
+"Affiliate: List of programs","Affiliate: Lista över program"
+"Account Dashboard",Kontoöversikt
+Transactions,Transaktioner
+Settings,Inställningar
+"Affiliate Program",Partnerprogram

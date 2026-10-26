@@ -1,0 +1,81 @@
+<?php
+declare(strict_types=1);
+
+/**
+ * @var \Mirasvit\Affiliate\Block\Account\Edit $block
+ */
+
+$account = $block->getAccount();
+?>
+
+<?php if ($account): ?>
+    <div class="affiliate__account-edit">
+        <form action="<?= $block->escapeUrl($block->getUrl('*/*/editPost')) ?>" method="post" autocomplete="off" id="form-affiliate-edit">
+            <?= $block->getBlockHtml('formkey') ?>
+
+            <fieldset class="fieldset general">
+                <legend class="legend"><?= $block->escapeHtml(__('General')) ?></legend>
+
+                <?php echo $block->getChildHtml($block->getNameInLayout() . '.additional_data'); ?>
+
+                <div class="field">
+                    <input type="checkbox" name="is_subscribed" title="<?= $block->escapeHtmlAttr(__('Subscribe to email notifications')) ?>"
+                           value="1"
+                           id="is_subscribed" class="checkbox"
+                           <?php if ($account->getIsSubscribed()): ?>checked="checked" <?php endif ?>>
+                    <label for="is_subscribed" class="label"><span>
+                        <?= $block->escapeHtml(__('Subscribe to email notifications')) ?>
+                    </span></label>
+                </div>
+
+            </fieldset>
+
+            <fieldset class="fieldset withdraw">
+                <legend class="legend"><?= $block->escapeHtml(__('Withdrawals')) ?></legend>
+
+                <div class="field required">
+                    <label class="label" for="payment_method"><span><?= $block->escapeHtml(__('Payment Method')) ?></span></label>
+                    <div class="control">
+                        <select id="payment_method" name="payment_method">
+                            <?php foreach ($block->getPaymentMethods() as $value => $label): ?>
+                                <option value="<?= $block->escapeHtmlAttr($value) ?>"
+                                        <?php if ($value == $account->getPaymentMethod()): ?>selected="true"<?php endif ?>>
+                                    <?= $block->escapeHtml($label) ?>
+                                </option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="payment_email"><span><?= $block->escapeHtml(__('Payment Information')) ?></span></label>
+                    <div class="control">
+                    <textarea name="payment_email" id="payment_email"
+                              title="<?= $block->escapeHtmlAttr(__('Payment Information')) ?>" class="input-text"
+                              data-validate="{required:true}"><?= $block->escapeHtml($account->getPaymentEmail()) ?></textarea>
+                    </div>
+                    <div class="note">
+                        <?= $block->escapeHtml(__('Please specify personal payment info: PayPal email or any e-wallet payment details.')) ?>
+                    </div>
+                </div>
+
+            </fieldset>
+
+
+            <div class="clearfix"></div>
+
+            <div class="buttons-set">
+                <button type="submit" class="action primary"><?= $block->escapeHtml(__('Save')) ?></button>
+            </div>
+        </form>
+        <script>
+            require([
+                "jquery",
+                "mage/mage"
+            ], function ($) {
+                var dataForm = $('#form-affiliate-edit');
+                dataForm.mage('validation', {});
+            });
+        </script>
+    </div>
+<?php endif; ?>

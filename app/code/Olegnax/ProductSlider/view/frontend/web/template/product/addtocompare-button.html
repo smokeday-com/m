@@ -1,0 +1,14 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<if args="isAllowed()">
+    <button attr="'data-post': $col.getDataPost($row()), title: getLabel()"
+            class="action tocompare"
+            data-action="add-to-compare">
+            <svg version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="a2-icon-compare"><use xlink:href="#a2-compare-icon"></use></svg>
+            <span text="getLabel()"></span>
+    </button>
+</if>

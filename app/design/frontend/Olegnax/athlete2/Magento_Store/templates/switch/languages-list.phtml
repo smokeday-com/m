@@ -1,0 +1,58 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var Switcher $block */
+
+use Magento\Store\Block\Switcher;
+
+if ( count($block->getStores()) > 1):
+$id = $block->getIdModifier() ? '-' . $block->getIdModifier() : '';
+// language icon
+$icon = '';
+if($block->getData('a2_icon')){
+    $icon = $block->getData('a2_icon');
+} else{
+	$theme_helper = $this->helper(Olegnax\Athlete2\Helper\Icons::class);
+	if($theme_helper->getConfig('athlete2_settings/header/language_drop_icon' ) === 'icon'){
+		$icon_option   = 'athlete2_design/appearance_icons_header/header_icon_';
+		$icon = $theme_helper ->getIconHTML('language_modal', $icon_option); // $name, $icon_option = '', $classes = ''
+	}
+}
+$hideHeadings =  $block->getData('a2_hide_headings');
+$moveMobile = $block->getData('a2_move_mobile') ? ' ox-move-item ox-move-item-store.settings' : '';
+?>
+<div class="switcher language switcher-language <?php echo $moveMobile ?>"  id="switcher-language<?= $block->escapeHtmlAttr($id) ?>">
+    <h3 class="label switcher-label <?php if($hideHeadings){ echo "visually-hidden"; } ?>"><span><?= $block->escapeHtml(__('Language')) ?></span></h3>
+    <div class="actions options switcher-options">
+        <ul class="switcher-list">
+            <?php foreach ($block->getStores() as $_lang): ?>
+                <?php if(!(bool)$icon){
+                    $url = $block->getViewFileUrl('images/flags/' . $_lang->getCode() . '.png');  
+                    $img = '<img class="flag-image" src="'. $block->escapeUrl($url) .'">';
+                }
+                ?>
+                <?php if ($_lang->getId() != $block->getCurrentStoreId()): ?>
+                    <li class="view-<?= $block->escapeHtml($_lang->getCode()) ?> switcher-option">
+                        <a href="#" data-post='<?= /* @noEscape */ $block->getTargetStorePostData($_lang) ?>'>
+                            <?php echo $icon ?: $img ?>                            
+                            <span class="text name"><?= $block->escapeHtml($_lang->getName()) ?></span>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li class="view-<?= $block->escapeHtml($_lang->getCode()) ?> switcher-option current">
+                        <strong>
+                            <?php echo $icon ?: $img ?>
+                            <span><?= $block->escapeHtml($_lang->getName()) ?></span>
+                        </strong>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
+<?php endif; ?>

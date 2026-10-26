@@ -1,0 +1,66 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block View */
+
+use Magento\Catalog\Block\Product\View;
+
+$actionPosition = '';
+$at_settings    = $this->helper(Olegnax\Athlete2\Helper\Helper::class)->getConfig('athlete2_settings/product');
+if ( (('2' == $at_settings[ 'actions_position' ] && $this->helper('Magento\Wishlist\Helper\Data')->isAllow()) || ($at_settings[ 'product_social_min' ] && $at_settings[ 'product_social_min' ] != 'title')) ) {
+	$actionPosition='actions--right-to-cart';
+}
+$hide = $at_settings[ 'qty_disable' ];
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php
+//cart icon
+$icon_option   = 'athlete2_design/appearance_icons_product/product_icon_';
+$buttonIcon = $this->helper(Olegnax\Athlete2\Helper\Icons::class)->getIconHTML('cart', $icon_option); // $name, $icon_option = '', $classes = ''
+?>
+<?php if ($_product->isSaleable()): ?>
+<div class="box-tocart <?= $block->escapeHtmlAttr($actionPosition) ?>">
+    <div class="fieldset">
+        <?php if (!$hide && $block->shouldRenderQuantity()): ?>
+        <div class="field qty">
+            <label class="label" for="qty"><span><?= $block->escapeHtml(__('Qty')) ?></span></label>
+            <div class="control qty-controls-wrap">
+				<a class="icon-minus qty-minus"></a>
+				<a class="icon-plus qty-plus"></a>
+                <input type="number"
+                       name="qty"
+                       id="qty"
+					   min="0"
+                       value="<?= $block->escapeHtmlAttr($block->getProductDefaultQty() * 1) ?>"
+                       title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                       class="input-text qty"
+                       data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                       />
+            </div>
+        </div>
+        <?php endif; ?>
+        <div class="actions">
+            <button type="submit"
+                    title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                    class="action primary tocart"
+                    id="product-addtocart-button" disabled>
+                <?= /* @noEscape */ $buttonIcon ?><span><?= $block->escapeHtml($buttonTitle) ?></span>
+            </button>
+            <?= $block->getChildHtml('', true) ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "AtProductValidate": {}
+        }
+    }
+</script>

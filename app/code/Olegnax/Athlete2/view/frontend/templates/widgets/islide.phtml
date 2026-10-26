@@ -1,0 +1,88 @@
+<?php
+$content = $block->getBlockContent() ?: $block->getCustomContent();
+if(!$content){
+	return;
+}
+$clones = $block->getClonesAmount() ?: 20;
+$customClass = $block->getCustomClass() ?: '';
+$classes = '';
+if($block->getItemsWidth() === 'fullwidth'){
+	$classes .= ' a2-islide--item-fw';
+}
+if($block->getPauseOnHover()){
+	$classes .= ' pause-hover';
+}
+$block_id = $block->getBlockId();
+$styles_mobile = $wrap_styles = $wrap_style = $slide_style = $styles = '';
+if($block->getNoOverflow()){
+	$slide_style .= 'contain: none;';
+}
+if(!empty($block->getSlideTime())){
+	$slide_style .= ' --a2-islide-time:' . (int)$block->getSlideTime() . 'ms;';
+}
+if(!empty($block->getBgColor())){
+	$slide_style .= ' background-color:' . $block->getBgColor() . ';';
+}
+if(!empty($block->getTextColor())){
+	$slide_style .= ' color:' . $block->getTextColor() . ';';
+}
+if(!empty($block->getTextFontSize()) && '' !== $block->getTextFontSize()){
+	$slide_style .= ' font-size:' .$block->getTextFontSize() . 'px;';
+}
+if(!empty($block->getTextFontWeight())){
+	$slide_style .= ' font-weight:' . (int)$block->getTextFontWeight() . ';';
+}
+if(!empty($block->getPadding()) && '' !== $block->getPadding()){
+	$slide_style .= 'padding:' . $block->getPadding(). ';';
+}
+if(!empty( $block->getGap()) && '' !== $block->getGap()){
+	$styles .= '#' .  $block->escapeHtml($block_id) .'.a2-islide-wrap .a2-islide__item{ padding-right:' . (int)$block->getGap() . 'px;}';
+}
+if(!empty($block->getRotation())){
+	$x = $block->getAbsolute() ? '-25%' : '0';
+	$wrap_style .= ' transform: translateX(' . $x . ') rotate(' . (int)$block->getRotation() . 'deg);';
+}
+
+if(!empty($block->getAbsolute())){
+	$wrap_style .= 'position: absolute; z-index:2;';
+	if(!empty($block->getRotation())){
+		$wrap_style .= 'width: 200%;';
+	}
+	if(null !== $block->getLeft() && !'' !== $block->getLeft()){
+		$wrap_styles .= 'left:' . $block->escapeHtml($block->getLeft()) . ';';
+	}
+	if(null !== $block->getTop() && '' !== $block->getTop()){
+		$wrap_styles .= 'top:' . $block->escapeHtml($block->getTop()) . ';';
+	}
+	if(null !== $block->getLeftMobile() && '' !== $block->getLeftMobile()){
+		$styles_mobile .= 'left:' . $block->escapeHtml($block->getLeftMobile()). ';';
+	}
+	if(null !== $block->getTopMobile() && '' !== $block->getTopMobile()){
+		$styles_mobile .= 'top:' . $block->escapeHtml($block->getTopMobile()) . ';';
+	}
+}
+if(!empty($wrap_styles)){
+	$styles .= '#' .  $block->escapeHtmlAttr($block_id) .'.a2-islide-wrap{ ' . $wrap_styles .' }';
+}
+if(!empty($styles_mobile)){
+	$styles .= '@media (max-width: 768px){ #' .  $block->escapeHtmlAttr($block_id) .'.a2-islide-wrap{ ' . $styles_mobile .' }}';
+}
+?>
+<?php if(!empty($styles)){ ?>
+	<?php echo $block->renderStyles($styles) ?>
+<?php } ?>
+
+<div id="<?php echo $block->escapeHtmlAttr($block_id) ?>" class="a2-islide-wrap <?php echo  $block->escapeHtml($customClass) ?>" <?php if($wrap_style){ echo 'style="' . $block->escapeHtml($wrap_style) . '"';} ?>>
+	<div class="a2-islide <?= $block->escapeHtml($classes); ?>" <?php if($slide_style){ echo 'style="' . $block->escapeHtml($slide_style) . '"';} ?>>
+	<?php
+	if($block->getClone()){
+		$i=0;
+		for($i; $i<$clones; $i++){
+			echo '<div class="a2-islide__item">' . $content . '</div>';
+		}
+	} else {
+		echo '<div class="a2-islide__item">' . $content . '</div>';
+	}
+	?>
+	</div>
+</div>

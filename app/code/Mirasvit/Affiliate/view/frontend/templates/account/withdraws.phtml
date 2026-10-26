@@ -1,0 +1,54 @@
+<?php
+declare(strict_types=1);
+
+use Mirasvit\Affiliate\Api\Data\WithdrawInterface;
+
+/**
+ * @var \Mirasvit\Affiliate\Block\Account\Withdraws $block
+ */
+
+$withdrawalsList = $block->getList();
+?>
+
+<?php if (count($withdrawalsList)): ?>
+    <div class="table-wrapper">
+        <table class="data table">
+            <thead>
+            <tr>
+                <th><?= $block->escapeHtml(__('Date')) ?></th>
+                <th><?= $block->escapeHtml(__('Amount')) ?></th>
+                <th><?= $block->escapeHtml(__('Fee')) ?></th>
+                <th><?= $block->escapeHtml(__('Status')) ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($withdrawalsList as $withdraw): ?>
+                <tr>
+                    <td data-th="<?= $block->escapeHtmlAttr(__('Date')) ?>">
+                        <?= $block->escapeHtml($block->formatDate($withdraw->getCreatedAt(), \IntlDateFormatter::MEDIUM, true)) ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtmlAttr(__('Amount')) ?>">
+                        <?= $block->escapeHtml($block->getCurrencyFormatted($withdraw->getAmount())) ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtmlAttr(__('Fee')) ?>">
+                        <?= $block->escapeHtml($block->getCurrencyFormatted($withdraw->getFee())) ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtmlAttr(__('Status')) ?>">
+                        <?php if ($withdraw->getStatus() == WithdrawInterface::STATUS_PENDING): ?>
+                            <i class="fa clock-o fa-fw"></i> <?= $block->escapeHtml(__('Pending approval')) ?>
+                        <?php elseif ($withdraw->getStatus() == WithdrawInterface::STATUS_ACCEPTED): ?>
+                            <i class="fa fa-check fa-fw"></i> <?= $block->escapeHtml(__('Accepted')) ?>
+                        <?php elseif ($withdraw->getStatus() == WithdrawInterface::STATUS_COMPLETE): ?>
+                            <i class="fa fa-check-square-o fa-fw"></i> <?= $block->escapeHtml(__('Completed')) ?>
+                        <?php elseif ($withdraw->getStatus() == WithdrawInterface::STATUS_DENIED): ?>
+                            <i class="fa fa-ban fa-fw"></i> <?= $block->escapeHtml(__('Denied')) ?>
+                        <?php endif ?>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
+<?php else: ?>
+    <div class="message info"><span><?= $block->escapeHtml(__('There have been no withdrawals yet.')) ?></span></div>
+<?php endif ?>

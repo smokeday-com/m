@@ -1,0 +1,26 @@
+<?php
+/**
+ * Olegnax MegaMenu
+ *
+ * This file is part of Olegnax/Core.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Olegnax.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.olegnax.com/license
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Olegnax
+ * @package     Olegnax_MegaMenu
+ * @copyright   Copyright (c) 2024 Olegnax (http://www.olegnax.com/)
+ * @license     https://www.olegnax.com/license
+ */
+
+?>
+<?php $defer = (bool)$this->getConfig('olegnax_core_settings/general/defer_assets'); ?>
+<link rel="stylesheet" href="<?= $block->getViewFileUrl('Olegnax_MegaMenu::css/perfect-scrollbar.min.css')?>" <?php echo ($defer ? 'data-onloadcss' : ''); ?> type="text/css" media="<?php echo ($defer ? 'print' : 'all'); ?>">

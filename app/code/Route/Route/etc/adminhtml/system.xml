@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="route" translate="label" sortOrder="300">
+            <label>Route</label>
+        </tab>
+        <section id="route" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Integration Setup</label>
+            <tab>route</tab>
+            <resource>Route_Route::config_routefee</resource>
+            <group id="route" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General Options</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Route Extension</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="show_on_cart_page" translate="label comment" type="select" sortOrder="15" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show widget on cart page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="merchant_public_token" translate="label comment" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Public Token</label>
+                    <comment><![CDATA[Don't have an account? Please <a href="https://dashboard.route.com/onboarding/welcome" target="_blank"> click here</a> to create one.]]></comment>
+                </field>
+                <field id="merchant_secret_token" translate="label comment" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Secret Token</label>
+                </field>
+                <field id="include_order_thank_you_page_widget" translate="label comment" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Show Route on thank you page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="is_taxable" translate="label comment" type="select" sortOrder="45" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Is Route Fee Taxable?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="carbon_neutral" translate="label comment" type="select" sortOrder="47" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Carbon Neutral Shipping</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="payment_tax_class" translate="label comment" type="select" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Tax Class</label>
+                    <source_model>Magento\Tax\Model\TaxClass\Source\Product</source_model>
+                    <depends>
+                        <field id="is_taxable">1</field>
+                    </depends>
+                </field>
+                <field id="order_status" translate="label" type="multiselect" sortOrder="50" showInDefault="1" showInWebsite="1">
+                    <label>Order status to be sent to Route</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                </field>
+                <field id="order_status_canceled" translate="label" type="multiselect" sortOrder="55" showInDefault="1" showInWebsite="1">
+                    <label>Order status to be cancel at Route</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                </field>
+                <field id="excluded_shipping_methods" translate="label" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1">
+                    <label>Please select all Shipping Methods that are similar to "In Store Pickup"</label>
+                    <source_model>Magento\Shipping\Model\Config\Source\Allmethods</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="custom_excluded_shipping_methods" translate="label" type="text" sortOrder="61" showInDefault="1" showInWebsite="1">
+                    <label>Custom Shipping Method code similar to "In Store Pickup"</label>
+                </field>
+                <field id="excluded_payment_methods" translate="label" type="multiselect" sortOrder="65" showInDefault="1" showInWebsite="1">
+                    <label>Please select all Payment Methods where Route won't be applied</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allmethods</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="resend_shipments_operations_custom" translate="label comment" type="select" sortOrder="70" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Select custom period for reconcile shipments cronjob</label>
+                    <source_model>Route\Route\Model\Config\Source\ShipmentCronjobOptions</source_model>
+                </field>
+             </group>
+        </section>
+    </system>
+</config>

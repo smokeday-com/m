@@ -1,0 +1,58 @@
+<?php
+declare(strict_types=1);
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Affiliate\Block\Adminhtml\Dashboard\QuickStat $block */
+/** @var \Magento\Framework\Pricing\Helper\Data $pricingHelper */
+$pricingHelper = $this->helper('Magento\Framework\Pricing\Helper\Data');
+
+?>
+<div class="affiliate__dashboard-quick-stat">
+    <h3><?= __('Last 7 days') ?></h3>
+    <div class="metrics">
+        <div class="metric">
+            <h4><?= __('Active Affiliates') ?></h4>
+            <strong><?= $block->getActiveAffiliates() ?></strong>
+        </div>
+
+        <div class="metric">
+            <h4><?= __('Visits') ?></h4>
+            <strong><?= $block->getVisits() ?></strong>
+        </div>
+
+        <div class="metric">
+            <h4><?= __('Revenue') ?></h4>
+            <strong><?= $pricingHelper->currency($block->getRevenue()) ?></strong>
+        </div>
+
+        <div class="metric">
+            <h4><?= __('Commissions') ?></h4>
+            <strong><?= $pricingHelper->currency($block->getCommission()) ?></strong>
+        </div>
+    </div>
+</div>
+
+<div class="affiliate__dashboard-quick-stat">
+    <h3><?= __('All Time') ?></h3>
+
+    <div class="metrics">
+        <div class="metric">
+            <h4><?= __('Affiliates') ?></h4>
+            <strong><?= $block->getTotalAffiliates() ?></strong>
+        </div>
+
+        <div class="metric">
+            <h4><?= __('Revenue') ?></h4>
+            <strong><?= $pricingHelper->currency($block->getTotalRevenue()) ?></strong>
+        </div>
+
+        <div class="metric">
+            <h4><?= __('Commissions') ?></h4>
+            <strong><?= $pricingHelper->currency($block->getTotalCommission()) ?></strong>
+        </div>
+
+        <div class="metric">
+            <h4><?= __('Withdrawals') ?></h4>
+            <strong><?= $pricingHelper->currency($block->getTotalWithdrawals()) ?></strong>
+        </div>
+    </div>
+</div>

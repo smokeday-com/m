@@ -1,0 +1,203 @@
+%1%,%1٪
+%1,%1
+"We'll review your registration and notify you.","سنراجع تسجيلك ونبلغك."
+"Your request to sign up to the affiliate program has been rejected.","تم رفض طلبك للاشتراك في البرنامج التابع."
+"Sign In to Affiliates","تسجيل الدخول إلى المسوقين بالعمولة"
+"You have successfully signed up for an affiliate account.","لقد قمت بالتسجيل بنجاح للحصول على حساب تابع."
+"Affiliate Dashboard","التابعة لوحة القيادة"
+"Affiliate Account Settings","إعدادات حساب الشركاء"
+"Account information successfully updated.","تم تحديث معلومات الحساب بنجاح."
+"Transactions History","تاريخ المعاملات"
+"Promotion Materials","مواد ترويجية"
+Statistics,إحصائيات
+"Affiliate Program Overview","نظرة عامة على برنامج الانتساب"
+Withdrawals,الانسحابات
+"Withdrawal request has been submitted.","تم تقديم طلب الانسحاب."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","<a href=""%1"">يوجد حساب أفلييت</a> واحد أو أكثر حاليًا في حالة انتظار."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","<a href=""%1"">يوجد حاليًا طلب سحب</a> واحد أو أكثر في حالة انتظار."
+"Pending Approval","ما زال يحتاج بتصدير"
+Approved,وافق
+"Not Approved","غير مقبول"
+Image,صورة
+Text,نص
+"Assign to first referred affiliate","التعيين إلى الإحالة الأولى المشار إليها"
+"Assign to last referred affiliate","التعيين إلى آخر شركة تابعة مشار إليها"
+Available,متوفرة
+Inactive,"غير نشط"
+Removed,إزالة
+"- Disable these emails -","- تعطيل رسائل البريد الإلكتروني هذه -"
+Click,انقر
+Impression,انطباع
+Lead,قيادة
+Sale,أوكازيون
+". ' (default)'",". &#39; (إفتراضي)&#39;"
+"Percent of order amount","النسبة المئوية لمبلغ الطلب"
+"Percent of cart amount","النسبة المئوية لمبلغ سلة التسوق"
+"Fixed amount","مبلغ ثابت"
+"Pay per Sale","الدفع لكل عملية بيع"
+"Pay per Lead","الدفع لكل عميل محتمل"
+"Pay per Click","تدفع عن كل نقرة"
+"Pay per Impression","الدفع لكل ظهور"
+Complete,اكتمال
+"In Hold","في الانتظار"
+Commission,عمولة
+Withdraw,ينسحب
+PayPal,"باي بال"
+Skrill,سكريل
+"Store Credit","مخزن اعتمادات"
+Other,آخر
+Pending,"قيد الانتظار"
+Accepted,قبلت
+Completed,مكتمل
+Denied,رفض
+"Number of Orders from reffered customers","عدد الطلبات من العملاء المحالين"
+"Sales Amount from reffered customers","مبلغ المبيعات من العملاء المحالين"
+is,هو
+"is not",ليس
+"greater than","أكثر من"
+"less than","أقل من"
+"equals or greater than","يساوي أو أكبر من"
+"equals or less than","يساوي أو أقل من"
+"Conditions Combination","مزيج الشروط"
+"Affiliate conditions","شروط الانضمام"
+General,"جنرال لواء"
+"Customer Group","مجموعة العملاء"
+Store,محل
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","نوع الملف غير مسموح به (يُسمح فقط بملفات JPG و JPEG و PNG و GIF)"
+"Commission for order #%1 (%2)","عمولة الطلب رقم%1 (%2)"
+"Refund for order #%1","رد الأموال للطلب رقم _%1"
+Withdrawal,انسحاب
+"Withdraw cannot exceed current balance.","لا يمكن أن يتجاوز السحب الرصيد الحالي."
+"Minimum withdrawal amount is %1.","الحد الأدنى لمبلغ السحب هو %1."
+"You already have a pending withdrawal request.","لديك بالفعل طلب سحب معلق."
+"Affiliate Withdrawal","الانسحاب من الشركات التابعة"
+Back,عودة
+Delete,حذف
+"Are you sure you want to proceed?","هل انت متأكد انك تريد المتابعة؟"
+"Save and Continue Edit","حفظ ومتابعة التحرير"
+Save,يحفظ
+"Click on row to edit the coupon","انقر على الصف لتعديل القسيمة"
+"Referred Customers","العملاء المحالين"
+Actions,أجراءات
+"Add Customers","أضف عملاء"
+Customers,عملاء
+Cancel,يلغي
+"Add Selected Customers","إضافة العملاء المحددين"
+Remove,إزالة
+ID,"هوية شخصية"
+Name,اسم
+Email,"بريد إلكتروني"
+View,منظر
+Edit,يحرر
+"Delete item?","هل تريد حذف العنصر؟"
+Conditions,الظروف
+"Affiliate conditions (affects only automatically updated group)","شروط الشراكة (تؤثر فقط على المجموعة المحدثة تلقائيًا)"
+"Assigned Affiliates","المسوقون المعينون"
+"Add Affiliate","إضافة المنتسبين"
+Affiliates,"الشركات التابعة"
+"Add Selected","اضف اختيارك"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","قم بتطبيق العمولة فقط على عناصر سلة التسوق المطابقة للشروط التالية (اتركها فارغة لجميع العناصر)."
+Accept,قبول
+Reject,رفض
+"Referring Website","إحالة الموقع"
+"Subscribe to email notifications","اشترك في إشعارات البريد الإلكتروني"
+"I accept the terms and conditions","أوافق على الشروط والأحكام"
+"Sign Up",اشتراك
+"Referral Website","موقع الإحالة"
+"Payment Method","طريقة الدفع او السداد"
+"Payment Information","معلومات الدفع"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","يرجى تحديد معلومات الدفع الشخصية: بريد PayPal الإلكتروني أو أي تفاصيل دفع بالمحفظة الإلكترونية."
+From,"من عند"
+To,ل
+Apply,تطبيق
+Clicks,نقرات
+Leads,يؤدي
+Orders,"الطلب #٪ s"
+Views,الآراء
+Earned,حصل
+"My Account",حسابي
+"Commissions according to your affiliate group","العمولات وفقًا لمجموعتك التابعة"
+"<b>%1%</b> of order amount from first order","<b>%1٪</b> من مبلغ الطلب من الطلب الأول"
+"<b>%1%</b> of order amount from second and more orders","<b>%1٪</b> من مبلغ الطلب من الطلبات الثانية وأكثر"
+"<b>%1%</b> of cart amount from first order","<b>%1٪</b> من مبلغ سلة التسوق من الطلب الأول"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1٪</b> من مبلغ سلة التسوق من الطلبات الثانية وأكثر"
+"<b>%1</b> per sale from first order","<b>%1</b> لكل بيع من الدرجة الأولى"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> لكل بيع من الطلبات الثانية وأكثر"
+"<b>%1</b> per unique click","<b>%1</b> لكل نقرة فريدة"
+"<b>%1</b> per lead","<b>%1</b> لكل عميل محتمل"
+"<b>%1</b> per 1000 views","<b>%1</b> لكل 1000 مشاهدة"
+Banners,لافتات
+Type,يكتب
+Size,بحجم
+Link,"نهاية لهذه الغاية"
+"Get Code","الحصول على رمز"
+"Copy and paste this code into your website: ","انسخ هذا الرمز والصقه في موقع الويب الخاص بك:"
+"Referral Coupons","كوبونات الإحالة"
+Program,برنامج
+Coupon,قسيمة
+Discount,خصم
+"Personal Referral Link","رابط الإحالة الشخصي"
+"Enter any URL from this store in the form below to generate a new referral link:","أدخل أي عنوان URL من هذا المتجر في النموذج أدناه لإنشاء رابط إحالة جديد:"
+"Your unique referral link is:","رابط الإحالة الفريد الخاص بك هو:"
+"Referral Widget","أداة الإحالة"
+"Widget Title:","عنوان الأداة:"
+"Related Products","منتجات ذات صله"
+Width:,عرض:
+Height:,ارتفاع:
+"Number of products:","عدد من المنتجات:"
+"Show Bestsellers","عرض الأكثر مبيعًا"
+"Show New Products","عرض المنتجات الجديدة"
+Search,يبحث
+"Search term","مصطلح البحث"
+"Show Product's names","إظهار أسماء المنتجات"
+"Show Prices","عرض الأسعار"
+"Place this code wherever you want the widget to appear on your page.","ضع هذا الرمز حيثما تريد ظهور الأداة على صفحتك."
+"Current balance: <b>%1</b>","الرصيد الحالي: <b>%1</b>"
+"On hold: %1","معلقة: %1"
+"Lifetime: %1","العمر: %1"
+"Paid: %1","المدفوع: %1"
+Date,تاريخ
+Balance,توازن
+Amount,كمية
+Details,تفاصيل
+"On hold to %1","معلق حتى %1"
+"There have been no transactions yet.","لا توجد معاملات حتى الان."
+"Request withdrawal","طلب سحب"
+"Minimum balance to request withdrawal is %1","الحد الأدنى للرصيد لطلب السحب هو %1"
+Fee,مصاريف
+Status,حالة
+"Pending approval","ما زال يحتاج بتصدير"
+"There have been no withdrawals yet.","لم تكن هناك أي عمليات سحب حتى الآن."
+"Your account is assigned to the <span>%1</span> affiliate group","تم تعيين حسابك إلى <span>%1</span> المجموعة التابعة"
+Commissions,اللجان
+"Our Programs",برامجنا
+"Our Program",برنامجنا
+"%1  - Minimum balance required for payout.","%1 - الحد الأدنى للرصيد المطلوب للدفع."
+"Affiliate Group","مجموعة منتسبة"
+Description,وصف
+"Sign In","تسجيل الدخول"
+"New Affiliate Account","حساب منتسب جديد"
+"Account Information","معلومات الحساب"
+"%name,",٪اسم،
+"Your affiliate account at %store_name has been approved.","تمت الموافقة على حسابك التابع في٪ store_name."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","انقر <a href=""%login_url"">هنا</a> لتسجيل الدخول إلى حسابك."
+"Your account balance has been updated at %store_name.","تم تحديث رصيد حسابك في٪ store_name."
+Balance:,توازن:
+"Welcome to %store_name affiliate program!","مرحبًا بك في برنامج الإحالة٪ store_name!"
+Email:,"بريد إلكتروني:"
+"Referring Website:","موقع الإحالة:"
+"A customer referred by you has just placed an order at %store_name.","قدّم عميل أحالته للتو طلبًا في٪ store_name."
+"Thus, it was credited to your affiliate account.","وبالتالي ، تم إيداعه في حساب الإحالة الخاص بك."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","عند اكتمال الطلب ، سنقوم بتحويل العمولة إلى رصيد حسابك في نظامنا ومن ثم يمكنك سحب الأموال وقتما تشاء."
+"Transaction Amount:","قيمة التحويل:"
+"Current Balance:","الرصيد الحالي:"
+"New Withdrawal Request","طلب سحب جديد"
+Information,معلومة
+"Please log in to the admin panel to manage this request.","الرجاء تسجيل الدخول إلى لوحة الإدارة لإدارة هذا الطلب."
+"Affiliate: Sign In Button","الشركة التابعة: زر تسجيل الدخول"
+"Affiliate: List of programs","الحليف: قائمة البرامج"
+"Account Dashboard","لوحة حساب"
+Transactions,المعاملات
+Settings,إعدادات
+"Affiliate Program","إنضم لبرنامج"

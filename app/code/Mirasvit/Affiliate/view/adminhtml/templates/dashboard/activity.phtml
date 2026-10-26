@@ -1,0 +1,18 @@
+<?php
+declare(strict_types=1);
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Affiliate\Block\Adminhtml\Dashboard\Activity $block */
+
+$activity = $this->getActivity();
+?>
+<div class="affiliate__dashboard-activity">
+    <h3><?= __('Latest Activity') ?></h3>
+    <?php foreach ($activity as $time => $data): ?>
+        <div class="<?= $data['type'] ?>">
+            <?= $data['text'] ?>
+            <small><?= $block->formatDate(date('Y-m-d H:i:s', $time), \IntlDateFormatter::MEDIUM) ?>
+                <?= $block->formatTime(date('Y-m-d H:i:s', $time), \IntlDateFormatter::SHORT) ?>
+            </small>
+        </div>
+    <?php endforeach ?>
+</div>

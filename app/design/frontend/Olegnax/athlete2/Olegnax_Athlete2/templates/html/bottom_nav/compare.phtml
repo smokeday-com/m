@@ -1,0 +1,22 @@
+<?php
+if('main' != $block->getConfig('athlete2_settings/header/compare_position')){
+	return;
+}
+$text = $block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_text_compare' ) ?: __('Compare');
+$icon_option   =  'athlete2_settings/mobile_bottom_nav/bottom_nav_icon_';
+$icon = $this->helper(Olegnax\Athlete2\Helper\Icons::class)->getIconHTML('compare', $icon_option); // $name, $icon_option = '', $classes = ''
+$hideText   =  $block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_hide_text' );
+?>
+<div class="ox-bnav__item ox-bnav__compare">
+    <a class="js-item-compare-action action" data-bind="scope: 'compareProducts'">
+		<span class="icon">
+			<?= $icon; ?>
+			<!-- ko if: compareProducts().count -->
+			<span class="header__item-badge" data-bind="text: compareProducts().countCaption.replace(/[^0-9]*/igm, '')"></span>
+			<!-- /ko -->
+		</span>
+		<span class="label <?php if($hideText){ echo "visually-hidden"; } ?>">
+			<?= $block->escapeHtml($text) ?>
+		</span>
+    </a>
+</div>

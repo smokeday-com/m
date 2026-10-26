@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+  <table name="quote_address" resource="default">
+    <column xsi:type="decimal" name="route_fee" scale="2" precision="10" unsigned="false" nullable="true" default="0" comment="Route Fee"/>
+  </table>
+  <table name="quote" resource="default">
+    <column xsi:type="decimal" name="route_fee" scale="2" precision="10" unsigned="false" nullable="true" default="0" comment="Route Fee"/>
+    <column xsi:type="boolean" name="route_is_insured" nullable="false" comment="Route Is Insured" default="false"/>
+    <column xsi:type="decimal" name="route_tax_fee" scale="2" precision="10" unsigned="false" nullable="true" default="0" comment="Route Tax Fee"/>
+  </table>
+  <table name="sales_order" resource="default">
+    <column xsi:type="decimal" name="route_fee" scale="2" precision="10" unsigned="false" nullable="true" default="0" comment="Route Fee"/>
+    <column xsi:type="boolean" name="route_is_insured" nullable="false" comment="Route Is Insured" default="false"/>
+    <column xsi:type="decimal" name="route_tax_fee" scale="2" precision="10" unsigned="false" nullable="true" default="0" comment="Route Tax Fee"/>
+    <column xsi:type="varchar" name="route_order_id" nullable="false" length="50" default="" comment="Route Order Id"/>
+  </table>
+  <table name="sales_invoice" resource="default">
+    <column xsi:type="decimal" name="route_fee" scale="2" precision="10" unsigned="false" nullable="true" default="0" comment="Route Fee"/>
+  </table>
+  <table name="sales_creditmemo" resource="default">
+    <column xsi:type="decimal" name="route_fee" scale="2" precision="10" unsigned="false" nullable="true" default="0" comment="Route Fee"/>
+  </table>
+  <table name="sales_order_grid" resource="default">
+    <column xsi:type="decimal" name="route_fee" scale="2" precision="10" unsigned="false" nullable="true" default="0" comment="Route Fee"/>
+    <column xsi:type="boolean" name="route_is_insured" nullable="false" comment="Route Is Insured" default="false"/>
+    <column xsi:type="decimal" name="route_tax_fee" scale="2" precision="10" unsigned="false" nullable="true" default="0" comment="Route Fee"/>
+  </table>
+  <table name="route_operation_fallback" resource="default" engine="innodb" comment="route_operation_fallback">
+    <column xsi:type="int" name="operation_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Operation_id"/>
+    <column xsi:type="varchar" name="entity_id" nullable="false" length="32" comment="Entity_id"/>
+    <column xsi:type="varchar" name="type" nullable="false" length="32" default="" comment="Type"/>
+    <column xsi:type="varchar" name="operation" nullable="false" length="32" default="" comment="Operation"/>
+    <column xsi:type="int" name="status" padding="11" unsigned="false" nullable="false" identity="false" default="0" comment="Status"/>
+    <column xsi:type="int" name="retry" padding="11" unsigned="false" nullable="false" identity="false" default="0" comment="Retry"/>
+    <column xsi:type="datetime" name="updated_at" on_update="false" nullable="true" comment="Updated_at"/>
+    <column xsi:type="datetime" name="created_at" on_update="false" nullable="true" comment="Created_at"/>
+    <constraint xsi:type="primary" referenceId="PRIMARY">
+      <column name="operation_id"/>
+    </constraint>
+  </table>
+  <table name="sales_shipment_track" resource="default">
+    <column xsi:type="varchar" name="route_shipment_id" nullable="false" length="50" default="" comment="Route Shipping Id"/>
+  </table>
+</schema>

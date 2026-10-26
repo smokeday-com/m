@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Ui\Component\Filters\Type\Select" type="Route\Route\Ui\Component\Filters\Type\Select"/>
+    <preference for="Route\Route\Api\ProtectionInterface" type="Route\Route\Model\Protection"/>
+    <preference for="Route\Route\Api\GuestProtectionInterface" type="Route\Route\Model\GuestProtection"/>
+    <preference for="Route\Route\Api\Data\RouteProtectionDataInterface" type="Route\Route\Api\Data\RouteProtectionData"/>
+
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid" type="Magento\Sales\Model\ResourceModel\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <item name="route_fee" xsi:type="string">sales_order.route_fee</item>
+                <item name="route_tax_fee" xsi:type="string">sales_order.route_tax_fee</item>
+                <item name="route_is_insured" xsi:type="string">sales_order.route_is_insured</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Layout\File\Collector\Aggregated">
+        <plugin name="change_layout_custom_grid"
+                type="Route\Route\Model\Plugin\AggregatedPlugin"
+                sortOrder="10"/>
+    </type>
+
+    <type name="Magento\Sales\Model\ResourceModel\Order">
+        <plugin name="order_state_plugin"
+                type="Route\Route\Plugin\Model\ResourceModel\OrderPlugin"
+                sortOrder="10"/>
+    </type>
+
+    <type name="Route\Route\Helper\Data">
+        <arguments>
+            <argument name="quoteClient" xsi:type="object">Route\Route\Model\Route\Quote\Proxy</argument>
+            <argument name="merchantClient" xsi:type="object">Route\Route\Model\Route\Merchant\Proxy</argument>
+            <argument name="logger" xsi:type="object">Route\Route\Logger\Sentry\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Route\Route\Helper\Setup">
+        <arguments>
+            <argument name="logger" xsi:type="object">Route\Route\Logger\Sentry\Proxy</argument>
+            <argument name="userClient" xsi:type="object">Route\Route\Model\Route\User\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Paypal\Model\Cart">
+        <plugin name="paypal_tax_fee_rearrange" type="Route\Route\Plugin\Paypal\Cart"/>
+    </type>
+
+    <type name="CyberSource\SecureAcceptance\Helper\RequestDataBuilder">
+        <plugin name="route_cyber_source_adapter" type="Route\Route\Plugin\CyberSource\RequestDataBuilderPlugin"/>
+    </type>
+
+    <type name="CyberSource\SecureAcceptance\Gateway\Request\Soap\ItemsDataBuilder">
+        <plugin name="route_cyber_source_soap_item_data_builder" type="Route\Route\Plugin\CyberSource\ItemsDataBuilderPlugin"/>
+    </type>
+
+    <type name="Magento\Framework\Data\Form\Element\Multiselect">
+        <plugin name="route_avoid_missing_label_attribute" type="Route\Route\Plugin\Element\MultiselectPlugin"/>
+    </type>
+
+    <type name="Route\Route\Model\Route\Client">
+        <arguments>
+            <argument name="logger" xsi:type="object">Route\Route\Logger\Sentry\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Route\Route\Model\Route\Order">
+        <arguments>
+            <argument name="logger" xsi:type="object">Route\Route\Logger\Sentry\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Route\Route\Model\Route\Shipment">
+        <arguments>
+            <argument name="logger" xsi:type="object">Route\Route\Logger\Sentry\Proxy</argument>
+        </arguments>
+    </type>
+
+    <type name="Bolt\Boltpay\Model\Api\RouteInsuranceManagement">
+        <plugin name="bolt_route_insurance_management"
+                type="Route\Route\Plugin\Bolt\RouteInsuranceManagementPlugin"
+                sortOrder="1"/>
+    </type>
+
+</config>

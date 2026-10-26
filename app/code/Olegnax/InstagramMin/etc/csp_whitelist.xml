@@ -1,0 +1,11 @@
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp/etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="connect-src">
+            <values>
+                <value id="olegnax" type="host">https://olegnax.com</value>
+                <value id="api_instagram" type="host">https://api.instagram.com</value>
+                <value id="graph_instagram" type="host">https://graph.instagram.com/</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Ჩვენ გადავხედავთ თქვენს რეგისტრაციას და შეგატყობინებთ."
+"Your request to sign up to the affiliate program has been rejected.","Თქვენი თხოვნა შვილობილი პროგრამაში შესასვლელად უარყოფილია."
+"Sign In to Affiliates","Შედით პარტნიორებში"
+"You have successfully signed up for an affiliate account.","Თქვენ წარმატებით დარეგისტრირდით შვილობილი ანგარიშისთვის."
+"Affiliate Dashboard","Შვილობილი დაფა"
+"Affiliate Account Settings","Შვილობილი ანგარიშის პარამეტრები"
+"Account information successfully updated.","Ანგარიშის ინფორმაცია წარმატებით განახლდა."
+"Transactions History","Გარიგების ისტორია"
+"Promotion Materials","Სარეკლამო მასალები"
+Statistics,Სტატისტიკა
+"Affiliate Program Overview","Შვილობილი პროგრამის მიმოხილვა"
+Withdrawals,Გატანა
+"Withdrawal request has been submitted.","Გაგზავნილია მოთხოვნა გატანის შესახებ."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Ერთი ან მეტი <a href=""%1"">შვილობილი ანგარიში</a> ამჟამად სტატუსშია."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","<a href=""%1"">გატანის</a> ერთი ან მეტი მოთხოვნა ამჟამად სტატუსშია."
+"Pending Approval","Დამტკიცების მოლოდინში"
+Approved,Დამტკიცებულია
+"Not Approved",Დაუდასტურებელი
+Image,Სურათი
+Text,Ტექსტი
+"Assign to first referred affiliate","Მიანიჭეთ პირველად მითითებულ შვილობილ კომპანიას"
+"Assign to last referred affiliate","Მიანიჭეთ ბოლოს მითითებულ შვილობილ კომპანიას"
+Available,Ხელმისაწვდომია
+Inactive,Არააქტიური
+Removed,Ამოღებულია
+"- Disable these emails -","- გამორთეთ ეს ელ.ფოსტა -"
+Click,Დააჭირეთ
+Impression,Შთაბეჭდილება
+Lead,Ტყვია
+Sale,Გაყიდვა
+". ' (default)'",". &#39;(ნაგულისხმევი)&#39;"
+"Percent of order amount","Შეკვეთის თანხის პროცენტი"
+"Percent of cart amount","Კალათის თანხის პროცენტი"
+"Fixed amount","Ფიქსირებული თანხა"
+"Pay per Sale","Გადაიხადე გაყიდვაში"
+"Pay per Lead","Გადაიხადეთ წამყვანზე"
+"Pay per Click","Გადაიხადეთ თითო დაწკაპუნებაზე"
+"Pay per Impression","Გადაიხადე თითო შთაბეჭდილება"
+Complete,Დასრულებულია
+"In Hold",Გამართვაში
+Commission,Კომისია
+Withdraw,Გაყვანა
+PayPal,PayPal
+Skrill,Სკრილი
+"Store Credit","Მაღაზიის მიერ შემოტავაზებული კრედიტი, განვადება"
+Other,Სხვა
+Pending,Ელოდება
+Accepted,Მიღებულია
+Completed,Დასრულებულია
+Denied,Უარყოფილი
+"Number of Orders from reffered customers","Შეკვეთების რაოდენობა შემოთავაზებული მომხმარებლებისგან"
+"Sales Amount from reffered customers","Გაყიდვების თანხა რეფერენტი მომხმარებლებისგან"
+is,არის
+"is not","არ არის"
+"greater than","უფრო მეტი ვიდრე"
+"less than","ნაკლები ვიდრე"
+"equals or greater than","ტოლია ან მეტია ვიდრე"
+"equals or less than","ტოლია ან ნაკლებია"
+"Conditions Combination","Პირობების კომბინაცია"
+"Affiliate conditions","Შვილობილი პირობები"
+General,Გენერალი
+"Customer Group","Მომხმარებელთა ჯგუფი"
+Store,Მაღაზია
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Დაუშვებელია ფაილის ტიპი (დასაშვებია მხოლოდ JPG, JPEG, PNG და GIF ფაილები)"
+"Commission for order #%1 (%2)","Ბრძანება #%1 (%2)"
+"Refund for order #%1","Ანაზღაურება შეკვეთისთვის #%1"
+Withdrawal,Გაყვანა
+"Withdraw cannot exceed current balance.","Გამოტანა არ უნდა აღემატებოდეს მიმდინარე ბალანსს."
+"Minimum withdrawal amount is %1.","Გამოტანის მინიმალური თანხაა %1."
+"You already have a pending withdrawal request.","Თქვენ უკვე გაქვთ მოლოდინის მოთხოვნა."
+"Affiliate Withdrawal","Შვილობილი კომპანიის გაყვანა"
+Back,Უკან
+Delete,Წაშლა
+"Are you sure you want to proceed?","Დარწმუნებული ხართ, რომ გსურთ გაგრძელება?"
+"Save and Continue Edit","Შეინახეთ და განაგრძეთ რედაქტირება"
+Save,Გადარჩენა
+"Click on row to edit the coupon","Კუპონის რედაქტირებისთვის დააჭირეთ სტრიქონს"
+"Referred Customers","Მოხსენიებული მომხმარებლები"
+Actions,Მოქმედებები
+"Add Customers","Მომხმარებლების დამატება"
+Customers,Მომხმარებლები
+Cancel,Გაუქმება
+"Add Selected Customers","Არჩეული მომხმარებლების დამატება"
+Remove,Ამოღება
+ID,"Პირადობის მოწმობა"
+Name,Სახელი
+Email,Ელ.ფოსტა
+View,Ხედი
+Edit,Რედაქტირება
+"Delete item?","Გსურთ ნივთის წაშლა?"
+Conditions,Პირობები
+"Affiliate conditions (affects only automatically updated group)","Შვილობილი პირობები (მოქმედებს მხოლოდ ავტომატურად განახლებულ ჯგუფზე)"
+"Assigned Affiliates","Დანიშნულია შვილობილი კომპანიები"
+"Add Affiliate","Შვილობილი კომპანიის დამატება"
+Affiliates,"Შვილობილი კომპანიები"
+"Add Selected","Არჩეულის დამატება"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Გამოიყენეთ საკომისიო მხოლოდ კალათის ნივთებზე, რომლებიც შეესაბამება შემდეგ პირობებს (ყველა ელემენტისთვის დატოვეთ ცარიელი)."
+Accept,Მიღება
+Reject,"Უარი თქვას"
+"Referring Website","Ვებსაიტის მითითება"
+"Subscribe to email notifications","Გამოიწერეთ ელ.ფოსტის შეტყობინებები"
+"I accept the terms and conditions","Მე ვიღებ პირობებს"
+"Sign Up",Დარეგისტრირება
+"Referral Website","Მიმართვის ვებსაიტი"
+"Payment Method","Გადახდის საშუალება"
+"Payment Information","Გადახდის ინფორმაცია"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Გთხოვთ, მიუთითოთ გადახდის პირადი ინფორმაცია: PayPal ელ.ფოსტა ან ელექტრონული საფულის გადახდის ნებისმიერი დეტალი."
+From,Დან
+To,Რომ
+Apply,Მიმართვა
+Clicks,Დაწკაპუნებები
+Leads,Ლიდერობს
+Orders,Შეკვეთები
+Views,Დათვალიერება
+Earned,Გამოიმუშავა
+"My Account","Ჩემი ანგარიში"
+"Commissions according to your affiliate group","Საკომისიოები თქვენი შვილობილი ჯგუფის მიხედვით"
+"<b>%1%</b> of order amount from first order","<b>პირველი შეკვეთიდან %1</b> შეკვეთის თანხის%"
+"<b>%1%</b> of order amount from second and more orders","<b>შეკვეთის თანხის %1%</b> მეორე და მეტი შეკვეთებიდან"
+"<b>%1%</b> of cart amount from first order","<b>კალათის %1%</b> პირველი შეკვეთით"
+"<b>%1%</b> of cart amount from second and more orders","<b>კალათის %1%</b> მეორე და მეტი შეკვეთებიდან"
+"<b>%1</b> per sale from first order","<b>%1</b> თითო გაყიდვაში პირველი შეკვეთით"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> თითო გაყიდვაში მეორე და მეტი შეკვეთებიდან"
+"<b>%1</b> per unique click","<b>%1</b> თითო უნიკალური დაწკაპუნებით"
+"<b>%1</b> per lead","<b>%1 ტყვიაზე</b>"
+"<b>%1</b> per 1000 views","1000 <b>ნახვაზე %1</b>"
+Banners,Ბანერები
+Type,Ტიპი
+Size,Ზომა
+Link,Ბმული
+"Get Code","Კოდის მიღება"
+"Copy and paste this code into your website: ","Დააკოპირეთ და ჩასვით ეს კოდი თქვენს ვებ – გვერდზე:"
+"Referral Coupons","Რეფერალური კუპონები"
+Program,Პროგრამა
+Coupon,Კუპონი
+Discount,Ფასდაკლება
+"Personal Referral Link","Პირადი მიმართვის ბმული"
+"Enter any URL from this store in the form below to generate a new referral link:","Შეიყვანეთ ნებისმიერი URL ამ მაღაზიიდან ქვემოთ მოცემული ფორმით, რომ შექმნათ ახალი რეფერალური ბმული:"
+"Your unique referral link is:","Თქვენი უნიკალური რეფერალური ბმულია:"
+"Referral Widget","Რეფერალური ვიჯეტი"
+"Widget Title:","Ვიჯეტის სათაური:"
+"Related Products","Მსგავსი პროდუქტები"
+Width:,Სიგანე:
+Height:,Სიმაღლე:
+"Number of products:","Პროდუქციის რაოდენობა:"
+"Show Bestsellers","Აჩვენეთ ბესტსელერები"
+"Show New Products","Ახალი პროდუქტების ჩვენება"
+Search,Ძებნა
+"Search term","Საძიებო სიტყვა"
+"Show Product's names","Აჩვენეთ პროდუქტის სახელები"
+"Show Prices","Ფასების ჩვენება"
+"Place this code wherever you want the widget to appear on your page.","Განათავსეთ ეს კოდი იქ, სადაც გსურთ ვიჯეტი გამოჩნდეს თქვენს გვერდზე."
+"Current balance: <b>%1</b>","Მიმდინარე ბალანსი: <b>%1</b>"
+"On hold: %1","Დაყოვნება: %1"
+"Lifetime: %1","Სიცოცხლის ხანგრძლივობა: %1"
+"Paid: %1","Გადახდილია: %1"
+Date,Თარიღი
+Balance,Ბალანსი
+Amount,Თანხა
+Details,Დეტალები
+"On hold to %1","Შეჩერებულია %1"
+"There have been no transactions yet.","Ჯერ არ ყოფილა გარიგება."
+"Request withdrawal","Მოითხოვეთ გაყვანა"
+"Minimum balance to request withdrawal is %1","Მინიმალური ბალანსი გასვლის მოთხოვნისთვის არის %1"
+Fee,Მოსაკრებელი
+Status,Სტატუსი
+"Pending approval","Დამტკიცების მოლოდინში"
+"There have been no withdrawals yet.","Გატანა ჯერ არ მომხდარა."
+"Your account is assigned to the <span>%1</span> affiliate group","Თქვენი ანგარიში ენიჭება <span>%1</span> შვილობილი ჯგუფს"
+Commissions,Კომისიები
+"Our Programs","Ჩვენი პროგრამები"
+"Our Program","Ჩვენი პროგრამა"
+"%1  - Minimum balance required for payout.","%1 - გადახდისთვის საჭირო მინიმალური ნაშთი."
+"Affiliate Group","Შვილობილი ჯგუფი"
+Description,Აღწერა
+"Sign In",Შებრძანდით
+"New Affiliate Account","Ახალი შვილობილი ანგარიში"
+"Account Information","Ანგარიშის ინფორმაცია"
+"%name,","% სახელი,"
+"Your affiliate account at %store_name has been approved.","Თქვენი შვილობილი ანგარიში% store_name– ზე დამტკიცებულია."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Დააჭირეთ <a href=""%login_url"">აქ</a> თქვენს ანგარიშში შესასვლელად."
+"Your account balance has been updated at %store_name.","Თქვენი ანგარიშის ბალანსი განახლდა% store_name- ზე."
+Balance:,Ბალანსი:
+"Welcome to %store_name affiliate program!","Მოგესალმებით% store_name შვილობილი პროგრამაში!"
+Email:,Ელ.ფოსტა:
+"Referring Website:","Საიტის მითითება:"
+"A customer referred by you has just placed an order at %store_name.","Თქვენს მიერ მითითებულმა მომხმარებელმა ახლახანს შეუკვეთა% store_name."
+"Thus, it was credited to your affiliate account.","Ამრიგად, იგი ჩაირიცხა თქვენს შვილობილი ანგარიშზე."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Შეკვეთის დასრულების შემდეგ, ჩვენ გადავრიცხავთ საკომისიოს თქვენს ანგარიშში არსებულ ბალანსზე, შემდეგ კი თანხის გამოტანა შეგიძლიათ ნებისმიერ დროს."
+"Transaction Amount:","Გარიგების თანხა:"
+"Current Balance:","Მიმდინარე ბალანსი:"
+"New Withdrawal Request","Გაყვანის ახალი მოთხოვნა"
+Information,Ინფორმაცია
+"Please log in to the admin panel to manage this request.","Გთხოვთ, შეხვიდეთ ადმინისტრატორის პანელში, ამ მოთხოვნის სამართავად."
+"Affiliate: Sign In Button","Შვილობილი კომპანია: შესვლის ღილაკი"
+"Affiliate: List of programs","Შვილობილი კომპანია: პროგრამების ჩამონათვალი"
+"Account Dashboard","Ანგარიშის დაფა"
+Transactions,Გარიგებები
+Settings,Პარამეტრები
+"Affiliate Program","Პარტნიორული პროგრამა"

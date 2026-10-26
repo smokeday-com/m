@@ -1,0 +1,41 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block Compare */
+use Magento\Catalog\Block\Product\View\AddTo\Compare;
+
+$theme_helper = $this->helper(Olegnax\Athlete2\Helper\Icons::class);
+$compare_disabled = $theme_helper->getConfig('athlete2_settings/product/compare_disable');
+if(!$compare_disabled):
+$actions_position = $theme_helper->getConfig('athlete2_settings/product/actions_position');
+
+$icon = '';
+$iconfont = $theme_helper->getConfig('athlete2_design/appearance_icons_product/product_icon_compare_fallback') ? 'athlete2-icon-compare' : '';
+if(!$iconfont){
+    $icon_option   = 'athlete2_design/appearance_icons_product/product_icon_';
+    $icon = $this->helper(Olegnax\Athlete2\Helper\Icons::class)->getIconHTML('compare', $icon_option); // $name, $icon_option = '', $classes = ''
+}
+?>
+
+<?php $viewModel = $block->getData('addToCompareViewModel'); ?>
+<?php if ($viewModel->isAvailableForCompare($block->getProduct())): ?>
+	<?php if ('2' == $actions_position) { ?>
+	<a href="#" data-post='<?= /* @noEscape */ $block->getPostDataParams() ?>'
+	   data-role="add-to-links"
+	   class="action tocompare <?php echo $iconfont ?> a2-tooltip-btn">
+	   <?php echo $icon ?>
+		<span class="a2-tooltip"><?= $block->escapeHtml(__('Add to Compare')) ?></span>
+	</a>
+	<?php } else { ?>
+	<a href="#" data-post='<?= /* @noEscape */ $block->getPostDataParams() ?>'
+	   data-role="add-to-links"
+	   class="action tocompare <?php echo $iconfont ?>">
+	   <?php echo $icon ?>
+		<span><?= $block->escapeHtml(__('Add to Compare')) ?></span>
+	</a>
+	<?php } ?>
+<?php endif; ?>
+<?php endif; ?>

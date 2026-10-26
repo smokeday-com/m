@@ -1,0 +1,29 @@
+<!--@subject  {{var store.getFrontendName()}}: New Transaction #{{var transaction.id}} @-->
+<!--@vars {
+"var store.getFrontendName()": "Store Name",
+"var account.id": "Affiliate ID",
+"var account.name": "Affiliate Name",
+"var account.email": "Affiliate Email",
+"var transaction.id": "Transaction ID",
+"var transaction.status": "Transaction Status",
+"var amount": "Amount",
+"var balance": "Balance"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<p class="greeting">{{trans "%name," name=$account.name}}</p>
+
+<p>
+    {{trans "A customer referred by you has just placed an order at %store_name." store_name=$store.getFrontendName()}}
+    {{trans "Thus, it was credited to your affiliate account."}}
+</p>
+<p>
+    {{trans "When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want."}}
+</p>
+
+<p><strong>{{trans "Transaction Amount:"}}</strong> {{var amount}}</p>
+<p><strong>{{trans "Current Balance:"}}</strong> {{var balance}}</p>
+
+{{template config_path="design/email/footer_template"}}

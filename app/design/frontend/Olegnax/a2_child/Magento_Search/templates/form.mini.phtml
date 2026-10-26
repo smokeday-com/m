@@ -1,0 +1,372 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+use Magento\Search\Helper\Data;
+use Magento\Search\ViewModel\AdditionalSearchFormData;
+use Magento\Search\ViewModel\ConfigProvider;
+
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+?>
+<?php
+/** @var $block Template */
+/** @var $helper Data */
+/** @var $escaper Escaper */
+
+/** @var $configProvider ConfigProvider */
+$configProvider = $block->getData('configProvider');
+/** @var $versionManager AdditionalSearchFormData */
+$additionalSearchFormData = $block->getData('additionalSearchFormData');
+
+// ox compatiblity with prev magento versions
+if ($configProvider && method_exists($configProvider, 'getSearchHelperData')) {
+    $helper = $configProvider->getSearchHelperData();
+} else {
+    $helper = $this->helper(\Magento\Search\Helper\Data::class);
+}
+
+
+$theme_helper = $this->helper(Olegnax\Athlete2\Helper\Icons::class);
+$athlete_search_type = $theme_helper->getConfig('athlete2_settings/header/search_type');
+$athlete_header_layout = $theme_helper->getConfig('athlete2_settings/header/header_layout');
+
+// search icon form
+$icon = '<svg data-name="search-icon-small 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15"><rect x="11.73223" y="10.52513" width="2" height="4.41421" transform="translate(-5.27386 12.73223) rotate(-45)"></rect><path d="M7,0a7,7,0,1,0,7,7A7,7,0,0,0,7,0ZM7,12a5,5,0,1,1,5-5A5,5,0,0,1,7,12Z"></path></svg>';
+$search_icon = '<span class="search-icon-wrapper">' . $icon . '</span>';
+// search icon header
+$icon_option = 'athlete2_design/appearance_icons_header/header_icon_';
+$icon = $theme_helper->getIconHTML('search', $icon_option); // $name, $icon_option = '', $classes = ''
+$search_icon_header = '<span class="search-icon-wrapper">' . $icon . '</span>';
+$placeholderText = __('Search');
+$input_classes = 'js-input-focus';
+$defaultModalClass = 'ox-dialog';
+$slideoutHtmlClass = 'ox-fixed';
+if ($athlete_search_type == 'overlay') {
+    $input_classes .= ' width-dynamic';
+}
+?>
+
+<style>
+    .block-search .action.search + span {
+        display: none;
+    }
+
+    .block-search .action.search[disabled] + span {
+        display: block;
+        position: absolute;
+        min-width: 60px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    html.ox-search-focuseout .klevuWrap {
+        display: none !important;
+    }
+
+    @media only screen and (min-width: 1025px) {
+        .minicart-wrapper .action.showcart svg {
+            position: relative;
+            left: 5px;
+        }
+
+        .block-search .action.search span {
+            display: block !important;
+        }
+
+        .page-header .block-search .action.search svg {
+            width: 15px;
+            stroke: none;
+        }
+    }
+</style>
+
+<div
+    class="block block-search header__item header__item-search block-search--type-<?= $escaper->escapeHtmlAttr($athlete_search_type) ?>">
+    <div <?php if (in_array($athlete_search_type, ['slideout', 'overlay'])) : ?>data-move-mobile="search.slideout"
+         data-move-sticky="search.slideout"<?php endif; ?> class="block block-content"<?php
+    switch ($athlete_search_type) {
+        case 'slideout':
+        case 'overlay':
+            ?> data-role="OXmodal"
+            data-mage-init='{"OXmodal":{
+				 "defaultModalClass": "<?= $defaultModalClass ?>",
+				 "triggerTarget":".action-search-slideout",
+				 "closeButtonTrigger": ".ox-overlay-close-btn",
+				 "overlayClass":"ox-slideout-shadow",
+				 "timeout": "1000",
+				 "closeOnEscape": true,
+				 "closeOnMouseLeave": false,
+				 "hoverOpen": false,
+				 "type": "<?= $escaper->escapeHtmlAttr($athlete_search_type) ?>",
+				 "positionSlideout":"top",
+				 "htmlClass":"<?= $slideoutHtmlClass ?>"
+				 }}'<?php
+            break;
+    }
+    ?>>
+        <?php if ($athlete_header_layout != 'header_6') : ?>
+            <div class="header__search-wrapper<?=
+            !in_array($athlete_search_type, ['slideout', 'overlay']) ? ' ox-move-item ox-move-item-search.slideout' : '';
+            ?>">
+                <div class="ox-overlay-close-btn" aria-label="Close Modal"><span></span></div>
+                <?php if ($athlete_search_type == 'overlay') {
+                    ?>
+                    <div class="logo__container">
+                        <?php echo $block->getLayout()->getBlock('logo')->toHtml(); ?>
+                    </div>
+                    <?php
+                } ?>
+                <form class="form minisearch" id="search_mini_form"
+                      action="<?= $escaper->escapeUrl($helper->getResultUrl()) ?>" method="get">
+                    <div class="search_form_wrap">
+                        <div class="field search">
+                            <div class="control">
+                                <div class="flashing-cursor"></div>
+                                <input id="search"
+                                       data-mage-init='{"quickSearch":{
+								   "formSelector":"#search_mini_form",
+								   "url":"<?= $block->escapeUrl($helper->getSuggestUrl()) ?>",
+								   "destinationSelector":"#search_autocomplete"}
+								   }'
+                                       type="text"
+                                       name="<?= $escaper->escapeHtmlAttr($helper->getQueryParamName()) ?>"
+                                       value="<?= /* @noEscape */
+                                       $helper->getEscapedQueryText() ?>"
+                                       placeholder="<?= $escaper->escapeHtmlAttr($placeholderText) ?>"
+                                       class="input-text <?= $escaper->escapeHtmlAttr($input_classes) ?>"
+                                       maxlength="<?= $escaper->escapeHtmlAttr($helper->getMaxQueryLength()) ?>"
+                                       role="combobox"
+                                       aria-haspopup="false"
+                                       aria-autocomplete="both"
+                                       autocomplete="off"
+                                       aria-expanded="false"/>
+                                <div id="search_autocomplete" class="search-autocomplete"></div>
+                                <div class="label animated-text--masked">
+                                    <div class="wrap">
+                                        <label class="inner" for="search"
+                                               data-role="minisearch-label"><?= $escaper->escapeHtml($placeholderText) ?></label>
+                                    </div>
+                                </div>
+                                <?= $block->getChildHtml() ?>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button type="submit"
+                                    title="<?= $escaper->escapeHtml(__('Go')) ?>"
+                                    class="action search"
+                                    aria-label="Search"
+                            >
+                                <!--                                < ?= $search_icon ?>-->
+                                <span id="p1"><?= $escaper->escapeHtml(__('Go')) ?></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        <?php endif; ?>
+    </div>
+    <?php if (!in_array($athlete_search_type, ['slideout', 'overlay'])) : ?>
+        <div class="block block-content block-content-slideout" data-move-mobile="search.slideout"
+             data-move-sticky="search.slideout"
+             style="display:none" data-role="OXmodal"
+             data-mage-init='{"OXmodal":{
+			 "defaultModalClass": "<?= $defaultModalClass ?>",
+			 "triggerTarget":".action-search-slideout",
+			 "closeButtonTrigger": ".ox-overlay-close-btn",
+			 "overlayClass":"ox-slideout-shadow",
+			 "timeout": "1000",
+			 "closeOnEscape": true,
+			 "closeOnMouseLeave": false,
+			 "hoverOpen": false,
+			 "type": "slideout",
+			 "positionSlideout":"top",
+			 "htmlClass":"<?= $slideoutHtmlClass ?>"
+			 }}'>
+        </div>
+    <?php endif; ?>
+    <a class="button button-slide"><?= $search_icon ?></a>
+    <a class="button action-search-slideout"><?= $search_icon ?></a>
+</div>
+
+<style>
+
+    @media only screen and (min-width: 768px) {
+        .block.block-search.header__item.header__item-search.block-search--type-panel {
+            width: 60px !important;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .block.block-search.block-active.header__item.header__item-search.block-search--type-panel {
+            width: 285px !important;
+        }
+
+        .block.block-search.header__item.header__item-search.block-search--type-panel .block.block-content {
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: .4s ease;
+            transition-property: all;
+            transition-property: all;
+            transition-property: all;
+            transition-property: transform, border-color;
+        }
+
+        .block.block-search.header__item.header__item-search.block-active.block-search--type-panel .block.block-content {
+            transform: scaleX(1);
+            z-index: 100;
+        }
+
+        .page-header.sticky .block.block-search.header__item.header__item-search.block-search--type-panel > a.button-slide {
+            display: none;
+        }
+
+        .page-header.sticky .block.block-search.header__item.header__item-search.block-search--type-panel {
+            width: auto !important;
+            overflow: visible;
+        }
+
+        .page-header.sticky .block.block-search.header__item.header__item-search.block-search--type-panel .block.block-content {
+            transform: none;
+        }
+
+        .block.block-search.header__item.header__item-search.block-search--type-panel > a.button-slide {
+            position: absolute;
+            z-index: 10;
+            height: 100%;
+        }
+
+        .block.block-search.block-active.header__item.header__item-search.block-search--type-panel > a.button-slide {
+            display: none;
+        }
+
+        .button-slide svg {
+            width: 15px;
+        }
+
+        .menu-style-2 .page-header .ox-megamenu > ul > .level0, .menu-style-2 .page-header .navigation > ul > .level0 {
+            height: auto;
+        }
+
+        /*updated css chandresh*/
+        .page-header.sticky .block.block-search.header__item.header__item-search.block-search--type-panel {
+            width: 60px !important;
+            overflow: visible;
+        }
+
+        .header--layout-4 .header__content .flex-right .header__item {
+            z-index: 55 !important;
+        }
+
+        .minicart-wrapper {
+            z-index: 99 !important;
+        }
+
+        .header__item-search .header__search-wrapper > form {
+            float: left;
+            position: unset !IMPORTANT;
+            width: 285px;
+        }
+
+        .page-header.sticky .block.block-search.header__item.header__item-search.block-search--type-panel .block.block-content {
+            transform: none;
+            transition: all 0s ease;
+        }
+
+        /*end css chandresh*/
+
+    }
+
+    @media only screen and (max-width: 767px) {
+        .block.block-search.header__item.header__item-search.block-search--type-panel > a.button-slide {
+            display: none
+        }
+    }
+
+</style>
+
+
+<script>
+    require([
+        'jquery',
+        'domReady!'// wait for dom ready
+    ], function ($) {
+
+        $('.button-slide').click(function () {
+            $('.block.block-search.header__item').addClass('block-active');
+
+            if ($('.page-header').hasClass('sticky')) {
+                $('.minisearch input').css({
+                    'opacity': '1',
+                    'transform': 'scaleX(1)'
+                });
+
+
+            }
+
+        });
+
+    });
+</script>
+
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        $(document).ready(function () {
+            if ($(window).width() > 768) {
+                $(".block-search .actions").append("<span class='button-slide-in'></span>");
+                $('html').addClass('ox-search-focuseout');
+
+                $('.button-slide-in').on('click', function () {
+                    $('.block.block-search.header__item').removeClass('block-active');
+                    $('.header__content .header__item-search form input').focusout();
+                    $('html').addClass('ox-search-focuseout');
+                });
+
+                $('.button-slide').on('click', function () {
+                    $('.header__content .header__item-search form input').focus();
+                    $('html').removeClass('ox-search-focuseout');
+                    $('.klevu-fluid.kuQuickSearchAutoCompleteLayout').css({
+                        'display': 'block'
+                    });
+                    setTimeout(() => {
+                        $('.klevu-fluid.kuQuickSearchAutoCompleteLayout').css({
+                            'display': 'block'
+                        });
+                    }, 500);
+                    setTimeout(() => {
+                        $('.klevu-fluid.kuQuickSearchAutoCompleteLayout').css({
+                            'display': 'block'
+                        });
+                    }, 1000);
+                    setTimeout(() => {
+                        $('.klevu-fluid.kuQuickSearchAutoCompleteLayout').css({
+                            'display': 'block'
+                        });
+                    }, 1500);
+                    setTimeout(() => {
+                        $('.klevu-fluid.kuQuickSearchAutoCompleteLayout').css({
+                            'display': 'block'
+                        });
+                    }, 2000);
+                });
+            }
+        });
+    });
+</script>
+<script>
+    if (window.innerWidth <= 768) {
+        document.getElementById('p1').innerHTML = 'Go';
+    }
+    if (window.innerWidth > 768) {
+        document.getElementById('p1').innerHTML = '<svg data-name="search-icon-small 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15"><rect x="11.73223" y="10.52513" width="2" height="4.41421" transform="translate(-5.27386 12.73223) rotate(-45)"></rect><path d="M7,0a7,7,0,1,0,7,7A7,7,0,0,0,7,0ZM7,12a5,5,0,1,1,5-5A5,5,0,0,1,7,12Z"></path></svg>';
+    }
+</script>
+

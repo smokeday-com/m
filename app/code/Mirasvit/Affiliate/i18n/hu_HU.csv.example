@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Ellenőrizzük regisztrációját és értesítjük."
+"Your request to sign up to the affiliate program has been rejected.","A partnerprogramba való regisztráció iránti kérelmét elutasítottuk."
+"Sign In to Affiliates","Jelentkezzen be a leányvállalatokhoz"
+"You have successfully signed up for an affiliate account.","Sikeresen regisztrált egy társult fiókra."
+"Affiliate Dashboard","Társult irányítópult"
+"Affiliate Account Settings","Társult fiók beállításai"
+"Account information successfully updated.","A fiókadatok sikeresen frissítve."
+"Transactions History","Tranzakciók előzményei"
+"Promotion Materials","Promóciós anyagok"
+Statistics,Statisztika
+"Affiliate Program Overview","Partnerprogram áttekintése"
+Withdrawals,Kivonások
+"Withdrawal request has been submitted.","Visszavonási kérelmet nyújtottak be."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Egy vagy több <a href=""%1"">kapcsolt fiók</a> jelenleg függőben lévő állapotban van."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Egy vagy több <a href=""%1"">visszavonási kérelem</a> jelenleg függőben van."
+"Pending Approval","Jóváhagyásra váró"
+Approved,Jóváhagyott
+"Not Approved","Nem engedélyezett"
+Image,Kép
+Text,Szöveg
+"Assign to first referred affiliate","Hozzárendelés az első hivatkozott leányvállalathoz"
+"Assign to last referred affiliate","Hozzárendelés az utoljára hivatkozott taghoz"
+Available,Elérhető
+Inactive,Inaktív
+Removed,Eltávolítva
+"- Disable these emails -","- Tiltsa le ezeket az e-maileket -"
+Click,"Kattintson a gombra"
+Impression,Benyomás
+Lead,Vezet
+Sale,Eladás
+". ' (default)'",". &#39;(alapértelmezett)&#39;"
+"Percent of order amount","A megrendelés összegének százaléka"
+"Percent of cart amount","A kosár mennyiségének százaléka"
+"Fixed amount","Állandó mennyiség"
+"Pay per Sale","Fizetés akciónként"
+"Pay per Lead","Ólom fizetés"
+"Pay per Click","Kattintásonkénti fizetés"
+"Pay per Impression","Fizetés megjelenítésenként"
+Complete,Teljes
+"In Hold","A Holdban"
+Commission,Jutalék
+Withdraw,Visszavonás
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Bolti hitel"
+Other,Egyéb
+Pending,"Függőben levő"
+Accepted,Elfogadott
+Completed,Elkészült
+Denied,Megtagadva
+"Number of Orders from reffered customers","A visszajuttatott ügyfelek megrendelésének száma"
+"Sales Amount from reffered customers","Értékesítés összege a visszajuttatott ügyfelektől"
+is,van
+"is not",nem
+"greater than","nagyobb, mint"
+"less than","kevesebb, mint"
+"equals or greater than","egyenlő vagy nagyobb, mint"
+"equals or less than","egyenlő vagy kevesebb, mint"
+"Conditions Combination","Feltételek kombinációja"
+"Affiliate conditions","Társult feltételek"
+General,Tábornok
+"Customer Group",Ügyfélcsoport
+Store,Bolt
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","A fájltípus nem engedélyezett (csak JPG, JPEG, PNG és GIF fájlok engedélyezettek)"
+"Commission for order #%1 (%2)","Jutalék a #%1 (%2) számú megrendeléshez"
+"Refund for order #%1","Visszatérítés a (z) 1__ számú megrendeléshez"
+Withdrawal,Visszavonás
+"Withdraw cannot exceed current balance.","A visszavonás nem haladhatja meg az aktuális egyenleget."
+"Minimum withdrawal amount is %1.","A minimális kifizetési összeg %1."
+"You already have a pending withdrawal request.","Már van függőben lévő kivonási kérelme."
+"Affiliate Withdrawal","Társvállalatok visszavonása"
+Back,Vissza
+Delete,Töröl
+"Are you sure you want to proceed?","Biztosan folytatja?"
+"Save and Continue Edit","Mentés és folytatás a szerkesztéssel"
+Save,Mentés
+"Click on row to edit the coupon","Kattintson a sorra a kupon szerkesztéséhez"
+"Referred Customers","Hivatkozott ügyfelek"
+Actions,Műveletek
+"Add Customers","Vevők hozzáadása"
+Customers,Ügyfelek
+Cancel,Megszünteti
+"Add Selected Customers","Válogatott ügyfelek hozzáadása"
+Remove,Eltávolítás
+ID,ID
+Name,Név
+Email,Email
+View,Kilátás
+Edit,Szerkesztés
+"Delete item?","Törli az elemet?"
+Conditions,Körülmények
+"Affiliate conditions (affects only automatically updated group)","Partneri feltételek (csak az automatikusan frissülő csoportokat érinti)"
+"Assigned Affiliates","Hozzárendelt leányvállalatok"
+"Add Affiliate","Adja hozzá a Partnert"
+Affiliates,"Társult vállalkozások"
+"Add Selected","Kiválasztott hozzáadása"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Csak a következő feltételeknek megfelelő kosárcikkekre alkalmazza a jutalékot (hagyja üresen az összes elemet)."
+Accept,Elfogad
+Reject,Elutasít
+"Referring Website","Hivatkozó weboldal"
+"Subscribe to email notifications","Feliratkozás az e-mailes értesítésekre"
+"I accept the terms and conditions","Elfogadom a szerződési feltételeket"
+"Sign Up",Regisztrálj
+"Referral Website","Referral Weboldal"
+"Payment Method","Fizetési mód"
+"Payment Information","Fizetési információ"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Kérjük, adja meg személyes fizetési adatait: PayPal e-mail vagy bármilyen e-pénztárca fizetési adat."
+From,"Tól től"
+To,"Nak nek"
+Apply,Alkalmaz
+Clicks,Kattintások
+Leads,Vezet
+Orders,Rendelések
+Views,Nézetek
+Earned,Megszerzett
+"My Account","A fiókom"
+"Commissions according to your affiliate group","Jutalékok az Ön kapcsolt csoportja szerint"
+"<b>%1%</b> of order amount from first order","Az első megrendelés megrendelésének <b>%1% -a</b>"
+"<b>%1%</b> of order amount from second and more orders","<b>A megrendelés összegének %1%</b> -a a második és több megrendelésből"
+"<b>%1%</b> of cart amount from first order","Az első megrendelés <b>kosárának %1% -a</b>"
+"<b>%1%</b> of cart amount from second and more orders","<b>A kosár összegének __1%</b> -a a második és újabb megrendeléseknél"
+"<b>%1</b> per sale from first order","<b>%1 akciónként</b> az első megrendeléstől kezdve"
+"<b>%1</b> per sale from second and more orders","<b>%1 akciónként</b> második és újabb megrendelésekből"
+"<b>%1</b> per unique click","<b>%1</b> egyedi kattintásonként"
+"<b>%1</b> per lead","<b>%1 leadenként</b>"
+"<b>%1</b> per 1000 views","<b>%1</b> / 1000 megtekintés"
+Banners,Bannerek
+Type,Típus
+Size,Méret
+Link,Link
+"Get Code","Megkapni a kódot"
+"Copy and paste this code into your website: ","Másolja és illessze be ezt a kódot a webhelyére:"
+"Referral Coupons",Ajánlószelvények
+Program,Program
+Coupon,Kupon
+Discount,Kedvezmény
+"Personal Referral Link","Személyes hivatkozási link"
+"Enter any URL from this store in the form below to generate a new referral link:","Írja be az áruház bármely URL-jét az alábbi űrlapba egy új hivatkozási link létrehozásához:"
+"Your unique referral link is:","Az Ön egyedi hivatkozási linkje:"
+"Referral Widget","Referral Widget"
+"Widget Title:","Modul címe:"
+"Related Products","Kapcsolódó termékek"
+Width:,Szélesség:
+Height:,Magasság:
+"Number of products:","Termékek száma:"
+"Show Bestsellers","Bestsellerek megjelenítése"
+"Show New Products","Új termékek megjelenítése"
+Search,Keresés
+"Search term","Keresési kifejezés"
+"Show Product's names","A termék neveinek megjelenítése"
+"Show Prices","Árak megjelenítése"
+"Place this code wherever you want the widget to appear on your page.","Helyezze el ezt a kódot bárhol, ahol azt szeretné, hogy a widget megjelenjen az oldalán."
+"Current balance: <b>%1</b>","Jelenlegi egyenleg: <b>%1</b>"
+"On hold: %1","Várakozásban: %1"
+"Lifetime: %1","Élettartam: %1"
+"Paid: %1","Fizetett: %1"
+Date,Dátum
+Balance,Egyensúly
+Amount,Összeg
+Details,Részletek
+"On hold to %1","Visszatartva %1"
+"There have been no transactions yet.","Még nem történt tranzakció."
+"Request withdrawal","Visszavonás kérése"
+"Minimum balance to request withdrawal is %1","A visszavonás kérelmezéséhez szükséges minimális egyenleg %1"
+Fee,Díj
+Status,Állapot
+"Pending approval","Jóváhagyásra váró"
+"There have been no withdrawals yet.","Még nem történt visszavonás."
+"Your account is assigned to the <span>%1</span> affiliate group","Fiókod a <span>%1 társcsoporthoz van hozzárendelve</span>"
+Commissions,Jutalékok
+"Our Programs",Programjaink
+"Our Program",Programunk
+"%1  - Minimum balance required for payout.","%1 - A kifizetéshez minimális egyenleg szükséges."
+"Affiliate Group","Társult csoport"
+Description,Leírás
+"Sign In",Bejelentkezés
+"New Affiliate Account","Új társult fiók"
+"Account Information","Számla információ"
+"%name,","%név,"
+"Your affiliate account at %store_name has been approved.","A (z)% store_name címen található társfiókját jóváhagytuk."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Kattintson <a href=""%login_url"">ide</a> a fiókjába való bejelentkezéshez."
+"Your account balance has been updated at %store_name.","Fiókjának egyenlegét frissítettük itt:% store_name."
+Balance:,Egyensúly:
+"Welcome to %store_name affiliate program!","Üdvözöljük a% store_name társult programban!"
+Email:,Email:
+"Referring Website:","Hivatkozó weboldal:"
+"A customer referred by you has just placed an order at %store_name.","Az Ön által hivatkozott ügyfél éppen megrendelést adott le a% store_name címen."
+"Thus, it was credited to your affiliate account.","Így jóváírták a leányvállalati számláján."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Amikor a megrendelés elkészült, átutaljuk a jutalékot a rendszerünk számlájára, majd bármikor felveheti a pénzt."
+"Transaction Amount:","Tranzakció összege:"
+"Current Balance:","Aktuális egyenleg:"
+"New Withdrawal Request","Új visszavonási kérelem"
+Information,Információ
+"Please log in to the admin panel to manage this request.","A kérelem kezeléséhez jelentkezzen be az adminisztrációs panelre."
+"Affiliate: Sign In Button","Társult vállalkozás: Bejelentkezés gomb"
+"Affiliate: List of programs","Partner: Programok listája"
+"Account Dashboard","Fiók irányítópultja"
+Transactions,Tranzakciók
+Settings,Beállítások
+"Affiliate Program",Partnerprogram

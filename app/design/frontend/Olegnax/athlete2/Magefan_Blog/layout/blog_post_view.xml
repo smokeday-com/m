@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="blog.post">
+            <block class="Magefan\Blog\Block\Post\Info" name="blog.post.ox_categories" template="post/categories.phtml" />
+            <block class="Magefan\Blog\Block\Post\Info" name="blog.post.ox_share" template="post/share.phtml" />
+            <block class="Magefan\Blog\Block\Post\Info" name="blog.post.ox_sticky" template="post/stickyjs.phtml" after="-"/>            
+            <block class="Magefan\Blog\Block\Post\Info" name="blog.post.ox_share_theme" template="post/share_theme.phtml" />
+            <block class="Magefan\Blog\Block\Post\Info" name="blog.post.ox_tags" template="post/tags.phtml" />
+            <block class="Magefan\Blog\Block\Post\Info" name="blog.post.ox_author" template="post/author.phtml" />
+            <block class="Magefan\Blog\Block\Post\Info" name="blog.post.ox_comments_link" template="post/comments_link.phtml" />
+            <block class="Magefan\Blog\Block\Post\Info" name="blog.post.ox_views_count" template="post/ox_views_count.phtml" />
+        </referenceBlock>
+        <referenceBlock name="blog.post.relatedposts">
+            <block class="Magefan\Blog\Block\Post\Info" name="blog.post.ox_categories_related" template="post/categories.phtml" />
+        </referenceBlock>
+        <move element="breadcrumbs" destination="blog.post"  before="-"/>
+        <move element="page.main.title" destination="blog.post"/>
+    </body>
+</page>

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp/etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="amazon_aws_script" type="host">*.amazonaws.com</value>
+                <value id="jst_ai" type="host">*.jst.ai</value>
+                <value id="google-analytics" type="host">www.google-analytics.com</value>
+                <value id="cloudflare" type="host">*.cloudflare.com</value>
+                <value id="klaviyo_script" type="host">*.klaviyo.com</value>
+                <value id="klaviyo_script_static" type="host">static.klaviyo.com</value>
+                <value id="klaviyo_script_fast" type="host">fast.a.klaviyo.com</value>
+                <value id="klaviyo_script_a" type="host">a.klaviyo.com</value>
+                <value id="adobetm_assets" type="host">assets.adobedtm.com</value>
+                <value id="adobedtm_all" type="host">*.adobe.com</value>
+                <value id="typeform_aff_partner_script" type="host">*.typeform.com</value>
+                <value id="retention_script" type="host">*.liadm.com</value>
+                <value id="retention_api" type="host">*.retention.com</value>
+                <value id="execute" type="host">*.execute-api.us-west-2.amazonaws.com</value>
+                <value id="vimeo_cdn" type="host">*.vimeocdn.com</value>
+                <value id="vimeo" type="host">*.vimeo.com</value>
+            </values>
+        </policy>
+        <policy id="style-src">
+            <values>
+                <value id="cloudflare_stylesheet" type="host">*.cloudflare.com</value>
+                <value id="google_fonts" type="host">fonts.googleapis.com</value>
+                <value id="adobe_css" type="host">*.adobe.com</value>
+                <value id="klaviyo_style" type="host">*.klaviyo.com</value>
+                <value id="fontawesome_css" type="host">*.fontawesome.com</value>
+                <value id="fontawesome_bootstrap" type="host">*.bootstrapcdn.com</value>
+                <value id="braintreegateway_css" type="host">assets.braintreegateway.com</value>
+                <value id="typekit_css" type="host">*.typekit.net</value>
+                <value id="typeform_aff_partner_style" type="host">*.typeform.com</value>
+                <value id="cdnfonts_styles" type="host">*.cdnfonts.com</value>
+            </values>
+        </policy>
+        <policy id="font-src">
+            <values>
+                <value id="cloudflare_font" type="host">*.cloudflare.com</value>
+                <value id="klaviyo_font" type="host">static.klaviyo.com</value>
+                <value id="fontawesome_bootstrap_font" type="host">*.bootstrapcdn.com</value>
+                <value id="cdnfonts_font" type="host">*.cdnfonts.com</value>
+            </values>
+        </policy>
+        <policy id="connect-src">
+            <values>
+                <value id="double_click" type="host">stats.g.doubleclick.net</value>
+                <value id="typeform_aff_partner_connect" type="host">*.typeform.com</value>
+                <value id="retention_script_connect" type="host">*.liadm.com</value>
+                <value id="retention_api_connect" type="host">*.retention.com</value>
+                <value id="klaviyo_connect" type="host">*.klaviyo.com</value>
+                <value id="klaviyo_connect_fast" type="host">fast.a.klaviyo.com</value>
+                <value id="klaviyo_connect_a" type="host">a.klaviyo.com</value>
+                <value id="execute_connect" type="host">*.execute-api.us-west-2.amazonaws.com</value>
+                <value id="jst_ai_connect" type="host">aly.jst.ai</value>
+                <value id="sezzle_connect" type="host">*.sezzle.com</value>
+                <value id="self" type="host">'self'</value>
+                <value id="unsafe_inline" type="host">'unsafe-inline'</value>
+            </values>
+        </policy>
+        <policy id="img-src">
+            <values>
+                <value id="amazon_aws" type="host">*.amazonaws.com</value>
+                <value id="cloudinary" type="host">*.cloudinary.com</value>
+                <value id="google_all" type="host">*.google.com</value>
+                <value id="google_uk" type="host">www.google.com.co.uk</value>
+                <value id="blob" type="host">blob:</value>
+                <value id="adobedtm" type="host">assets.adobedtm.com</value>
+                <value id="adobe" type="host">*.adobe.com</value>
+                <value id="cloudfront" type="host">*.cloudfront.net</value>
+                <value id="double_click_img" type="host">stats.g.doubleclick.net</value>
+                <value id="amazon_aws_img" type="host">*.s3-us-west-2.amazonaws.com</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="blob" type="host">blob:</value>
+            </values>
+        </policy>
+        <policy id="object-src">
+            <values>
+                <value id="blob" type="host">blob:</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

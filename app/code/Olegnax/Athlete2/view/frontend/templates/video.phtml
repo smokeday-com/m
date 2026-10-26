@@ -1,0 +1,38 @@
+<?php
+/**
+ * Athlete2 Theme
+ *
+ * @author      Olegnax
+ * @package     Olegnax_Athlete2
+ * @copyright   Copyright (c) 2024 Olegnax (https://olegnax.com). All rights reserved.
+ * @license     https://www.olegnax.com/license
+ */
+
+use Magento\Framework\View\Element\Template;
+use Olegnax\Athlete2\Service\GetVideoService;
+
+/** @var Template $block */
+$attributes = (array)$block->getVideoAttrs();
+$attributes = array_replace($attributes, [
+    'tabindex' => -1,
+    'playsinline' => true,
+]);
+$classes = '';
+if(!array_key_exists('class' , $attributes)){
+  $classes .= ' ox-grid-gallery-video';
+}
+
+$lazy = false;
+if(array_key_exists('lazy' , $attributes)){
+  $lazy = $attributes['lazy'];
+  $classes .= ' ox-video-lazy';
+}
+if(!empty($classes)){
+  $attributes['class'] = $classes;
+}
+?>
+<video<?= GetVideoService::prepareAttributes($attributes, $this) ?>>
+    <?php foreach ($block->getMimeFiles() as $mime => $url): ?>
+		<source <?= $lazy ? 'data-' : '' ?>src="<?= $url ?>" type="<?= $mime ?>">
+    <?php endforeach; ?>
+</video>

@@ -1,0 +1,46 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Default appearance styles
+//  _____________________________________________
+& when (@media-common = true) {
+    div[data-content-type='tabs'] {
+        &.a2-tabs--minimal{
+            &.-minimal2{
+                .tabs-navigation {
+                    &:before{
+                        content:none;
+                    }
+                    li.tab-header {
+                        a.tab-title {
+                            &:before {
+                                transform: translateY(1px);
+                                will-change:background-color;
+                                background: var(--a2-tab-bg, #dbdbdb);
+                            }
+                        }
+                        &.ui-state-focus, 
+                        &.ui-tabs-hover {
+                             a.tab-title {
+                                &:before{
+                                     background:var(--a2-tab-bg-hover,  var(--a2-main-color));
+                                }
+                             }
+                        }
+                        &.ui-state-active {
+                            a.tab-title {
+                                &:before {
+                                    transform: translateY(0);
+                                    background:var(--a2-tab-bg-active,  var(--a2-main-color));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

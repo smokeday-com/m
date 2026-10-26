@@ -1,0 +1,50 @@
+<?php
+$drop_down_type = $block->getConfig('athlete2_settings/header/language_type' );
+
+$classes = ' style--' . $block->getConfig('athlete2_settings/header/language_drop_style' );
+
+$dropClass = ' layout--' . $block->getConfig('athlete2_settings/header/language_drop_layout' );
+$moveMobile = $block->getConfig('athlete2_settings/header/language_move_mobile' );
+
+$showStores =  $block->getData('show_stores');
+$showLanguages =  $block->getData('show_lang');
+$showCurrency = $block->getData('show_currency');
+$drop_down_position = $block->getData('drop_position');
+$oxVars = [
+	'a2_hide_headings' =>  $block->getConfig('athlete2_settings/header/language_drop_hide_headings' ),
+	'a2_move_mobile' => $moveMobile
+]
+?>
+<div class="header__item-dropdown-content <?php echo $block->escapeHtmlAttr($classes) ?>" data-role="OXmodal"
+	data-mage-init='{"OXmodal":{
+		"defaultModalClass":"ox-dialog ox-modal-language <?php echo $dropClass ?>",
+		"triggerTarget":".js-item-language-action",
+		"overlayClass":"<?php echo ('modal' === $drop_down_type) ? 'ox-modal-overlay' : 'ox-slideout-shadow'; ?>",
+		"timeout": "200",
+		"closeOnEscape": true,
+		"closeButtonTrigger": "#btn-switch-close",
+		"closeOnMouseLeave": <?php echo 'dropdown-hover' == $drop_down_type ? 'true' : 'false'; ?>,
+		"hoverOpen": <?php echo 'dropdown-hover' == $drop_down_type ? 'true' : 'false'; ?>,
+		"type": "<?php echo ('slideout' === $drop_down_type || 'modal' === $drop_down_type) ? $drop_down_type : '' ?>",
+		<?php if($drop_down_position): ?>
+		"positionSlideout": "<?php echo $block->escapeHtmlAttr($drop_down_position); ?>",
+		<?php endif; ?>
+		"htmlClass":"ox-fixed"
+	}}'>
+	<button type="button" id="btn-switch-close" class="ox-overlay-close-btn" aria-label="><?= $block->escapeHtml(__('Close Modal')) ?>" data-action="close"><span></span></button>
+	
+	<div class="inner">
+
+		<?php if($showStores && $stores = $block->getChildBlock('header_switch_store_list')) { 
+			echo $langstoresuage->addData($oxVars)->toHtml(); 
+		} ?>
+		<?php if($showLanguages && $language = $block->getChildBlock('header_switch_language_list')) { 
+			echo $language->addData($oxVars)->toHtml(); 
+		} ?>
+		<?php if($showCurrency && $currency = $block->getChildBlock('header_switch_currency_list')) { 
+			echo $currency->addData($oxVars)->toHtml(); 
+		 } ?>
+		<?php echo $this->getChildHtml("header_switch_additional_container"); ?>
+
+	</div>
+</div>

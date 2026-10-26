@@ -1,0 +1,19 @@
+<?php
+/**
+ * @var \Mirasvit\Affiliate\Block\Adminhtml\Transaction\Explain $block
+ */
+?>
+<div class="explain">
+    <?php foreach ($block->getExplainData() as $item): ?>
+        <div class="row level-<?= $block->escapeHtmlAttr($item->getLevel()) ?>">
+            <span>
+                <?= $block->escapeHtml($item->getMsg()) ?>
+            </span>
+            <?php if ($item->getAmount() !== null): ?>
+                <span
+                    class="<?= $block->escapeHtmlAttr($item->getSign()) ?>"><?= $block->escapeHtml($item->getAmount()) ?>
+                </span>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+</div>

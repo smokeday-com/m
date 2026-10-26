@@ -1,0 +1,149 @@
+<div class="page-title">
+    <h1><?php echo 'Register WHOLESALE ACCOUNT'; ?></h1>
+</div>
+<form id="competition-form" name="competition-form" class="form-horizontal form warranty-form"
+      onsubmit="return validateForm()" method="post" enctype="multipart/form-data"
+      action="<?php echo $block->getBaseUrl() ?>wholesale/index/submit">
+
+    <div class="form-inner-container">
+        <div class="box">
+            <br>
+            <h2 class="legend" style="font-size: 16px;"><?php echo 'Register for a Wholesale Account'; ?></h2>
+            <div class="step first-step">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 left-section">
+                    <div class="first-block-">
+                        <div class="form-group">
+                            <label for="firstname" class="col-lg-4 control-label">First Name*:</label>
+                            <div class="input-field-box">
+                                <input type="text" name="firstname" id="firstname" class="form-control address-required"
+                                       placeholder="First Name" value="" required>
+                                <label id="firstname-error" class="error" for="name">This field is required.</label>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname" class="col-lg-4 control-label">Last Name*:</label>
+                            <div class="input-field-box">
+                                <input type="text" name="lastname" id="lastname" class="form-control address-required"
+                                       placeholder="Last Name" value="" required>
+                                <label id="lastname-error" class="error" for="name">This field is required.</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-lg-4 control-label">Email Address*:</label>
+                            <div class="input-field-box">
+                                <input type="email" name="email" id="email" class="form-control address-required"
+                                       placeholder="Email" value="" required>
+                                <label id="email-error" class="error" for="name">This field is required.</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="businessname" class="col-lg-4 control-label">Business Name*:</label>
+                            <div class="input-field-box">
+                                <input type="text" name="businessname" id="businessname"
+                                       class="form-control address-required" placeholder="Business Name" value=""
+                                       required>
+                                <label id="businessname-error" class="error" for="businessname">This field is
+                                    required.</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="taxidnumber" class="col-lg-4 control-label">Tax ID Number:</label>
+                            <div class="input-field-box">
+                                <input type="text" name="taxidnumber" id="taxidnumber"
+                                       class="form-control address-required" placeholder="Tax ID Number" value="">
+                                <label id="taxidnumber-error" class="error" for="name">This field is required.</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telephone" class="col-lg-4 control-label">Phone Number*:</label>
+                            <div class="input-field-box">
+                                <input type="text" name="telephone" id="telephone" class="form-control address-required"
+                                       placeholder="Phone Number" value="" required>
+                                <label id="telephone-error" class="error" for="name">This field is required.</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Intent" class="col-lg-4 control-label">Intent*:</label>
+                            <div class="input-field-box">
+                                <input class="acb" type="checkbox" id="intent1" name="intent1"
+                                       value="Brick&MortarSales">
+                                <label for="intent1" class="intent_text"> Brick & Mortar Sales</label><br>
+                                <input class="acb" type="checkbox" id="intent2" name="intent2" value="eCommerce">
+                                <label for="intent2" class="intent_text"> eCommerce</label><br>
+                                <input class="acb" type="checkbox" id="intent3" name="intent3" value="DropShipping">
+                                <label for="intent3" class="intent_text">Drop Shipping</label><br>
+                                <input class="acb" type="checkbox" id="intent4" name="intent4" value="Other">
+                                <label for="intent4" class="intent_text">Other</label><br><br>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="website" class="col-lg-4 control-label">Website:</label>
+                            <div class="input-field-box">
+                                <input type="text" name="website" id="website" class="form-control address-required"
+                                       placeholder="Website" value="">
+                                <label id="website-error" class="error" for="website">This field is required.</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fulladdress" class="col-lg-4 control-label">Full Address*:</label>
+                            <div class="input-field-box">
+                                <textarea class="input-text required-entry" id="fulladdress" name="fulladdress"
+                                          style="width: 250px;" type="text" required></textarea>
+                                <label id="fulladdress-error" class="error" for="fulladdress">This field is
+                                    required.</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="display:none;">
+                            <label for="document" class="col-lg-4 control-label">Image:</label>
+                            <div class="input-field-box">
+                                <input accept="image/*" name="document" accept=".jpg,.jpeg,.png" type="file" value=""/>
+                            </div>
+                        </div>
+                    </div>
+                    <?= $block->getChildHtml('form.additional.info.competition.for.recaptcha') ?>
+                    <div class="action-btn-row">
+                        <button type="submit" id="competition-submit" class="action btn-hot text-capitalize submit btn"
+                                style="float: right;">Register
+                        </button>
+                    </div>
+                </div>
+</form>
+
+
+<script type="text/javascript">
+    function validateForm() {
+        if (!validateCheckbox()) {
+            alert("You must select atleast one of the checkboxes");
+            return false;
+        }
+    }
+
+    function validateCheckbox() {
+        var c = document.getElementsByTagName('input');
+        for (var i = 0; i < c.length; i++) {
+            if (c[i].type == 'checkbox') {
+                if (c[i].checked) {
+                    return true
+                }
+            }
+        }
+        return false;
+    }
+</script>
+<script type="text/x-magento-init">
+       {
+         "#competition-form": {
+         "validation": {}
+        }
+       }
+
+
+</script>

@@ -1,0 +1,31 @@
+<?php
+/**
+ * @author      Olegnax
+ * @package     Olegnax_InfiniteScroll
+ * @copyright   Copyright (c) 2024 Olegnax (http://olegnax.com/). All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** var \Olegnax\LayeredNavigation\Block\Scroll $block */
+if ($block->isEnabled()) : ?>
+    <?php $scriptString = <<<script
+require([
+    'jquery',
+    'OxInfiniteScroll'
+], function ($) {
+    var _body = $('body');
+    if (_body.data('OxInfiniteScroll')) {
+        _body.OxInfiniteScroll('init');
+    } else {
+        _body.OxInfiniteScroll({$block->getConfig()});
+    }
+});
+script;
+    ?>
+    <?php
+    if (isset($secureRenderer)){
+        echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+    } else{
+        echo /* @noEscape */ '<script>' .  $scriptString . '</script>';
+    } ?>
+<?php endif; ?>

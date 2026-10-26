@@ -1,0 +1,11 @@
+<?php $klaviyoKey = $this->getPublicApiKey(); ?>
+<?php if ( $this->isKlaviyoEnabled() && $klaviyoKey ): ?>
+    <script type="text/javascript" async="" src="https://static.klaviyo.com/onsite/js/<?= $klaviyoKey ?>/klaviyo.js"></script>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "KlaviyoCustomerData": {}
+            }
+        }
+    </script>
+<?php endif; ?>

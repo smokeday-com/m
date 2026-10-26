@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<ox_megamenu_settings>
+			<general>
+				<enable_megamenu>1</enable_megamenu>
+				<show_menu_parent_arrow>1</show_menu_parent_arrow>
+				<show_sub_parent_arrow>1</show_sub_parent_arrow>
+				<close_delay></close_delay>
+				<perfect_scrollbar>1</perfect_scrollbar>
+				<wrap_in_all_categories></wrap_in_all_categories>
+				<all_categories_title></all_categories_title>
+				<all_categories_megamenu></all_categories_megamenu>
+				<all_categories_menu_width></all_categories_menu_width>
+				<ox_all_categories_align_horizontal></ox_all_categories_align_horizontal>
+				<all_categories_menu_width_custom></all_categories_menu_width_custom>
+				<all_categories_content_width></all_categories_content_width>
+				<all_categories_menu_min_height></all_categories_menu_min_height>
+				<all_categories_dd_same_height></all_categories_dd_same_height>
+				<all_categories_dd_open_first>0</all_categories_dd_open_first>
+				<all_categories_dd_open_last></all_categories_dd_open_last>
+				<all_categories_dd_donotclose></all_categories_dd_donotclose>
+			</general>
+		</ox_megamenu_settings>
+	</default>
+</config>

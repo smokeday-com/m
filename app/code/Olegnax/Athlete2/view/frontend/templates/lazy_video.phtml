@@ -1,0 +1,40 @@
+<script type="text/javascript">
+    (() => {
+        function OxLazyVideo() {
+            const lazyVideos = document.querySelectorAll(".ox-video-lazy");
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            OxloadLazyVideo(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+
+                lazyVideos.forEach(video => {
+                    observer.observe(video);
+                });
+            }
+        }
+        function OxloadLazyVideo(videoElement) {
+            [...videoElement.children].forEach(child => {
+                if (child.tagName === 'SOURCE') {
+                    child.src = child.dataset.src;
+                }
+            });
+            videoElement.load();
+            videoElement.classList.remove("ox-video-lazy");
+            document.dispatchEvent(new Event("oxVideoLoaded"));
+        }
+        window.OxLazyVideo = function () {
+            return new OxLazyVideo()
+        }
+    })()
+    document.addEventListener('DOMContentLoaded', function () {
+        OxLazyVideo()
+    }, false)
+    require(['jquery'], function ($) {
+        $(document.body).on('contentUpdated contentUpdated.oxlazyvideo', OxLazyVideo)
+    })
+</script>

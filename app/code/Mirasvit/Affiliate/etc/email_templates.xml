@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+
+    <template id="affiliate_notification_admin_account_new_template" label="New Account(admin)"
+              file="account/admin_new.html" type="html" module="Mirasvit_Affiliate" area="frontend"/>
+
+    <template id="affiliate_notification_admin_withdraw_new_template" label="New Withdraw(admin)"
+              file="withdraw/admin_new.html" type="html" module="Mirasvit_Affiliate" area="frontend"/>
+
+
+    <template id="affiliate_notification_customer_account_new_template" label="New Account"
+              file="account/affiliate_new.html" type="html" module="Mirasvit_Affiliate" area="frontend"/>
+
+    <template id="affiliate_notification_customer_account_approved_template" label="Account was approved"
+              file="account/affiliate_approved.html" type="html" module="Mirasvit_Affiliate" area="frontend"/>
+
+    <template id="affiliate_notification_customer_transaction_new_template" label="New transaction"
+              file="transaction/affiliate_new.html" type="html" module="Mirasvit_Affiliate" area="frontend"/>
+
+    <template id="affiliate_notification_customer_update_balance_template" label="Balance"
+              file="account/affiliate_balance.html" type="html" module="Mirasvit_Affiliate" area="frontend"/>
+</config>

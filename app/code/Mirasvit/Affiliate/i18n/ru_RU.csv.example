@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Мы рассмотрим вашу регистрацию и сообщим вам."
+"Your request to sign up to the affiliate program has been rejected.","Ваш запрос на регистрацию в партнерской программе был отклонен."
+"Sign In to Affiliates","Войти в аффилированные лица"
+"You have successfully signed up for an affiliate account.","Вы успешно зарегистрировали партнерскую учетную запись."
+"Affiliate Dashboard","Партнерская панель"
+"Affiliate Account Settings","Настройки партнерской учетной записи"
+"Account information successfully updated.","Информация об учетной записи успешно обновлена."
+"Transactions History","История транзакций"
+"Promotion Materials","Рекламные материалы"
+Statistics,Статистика
+"Affiliate Program Overview","Обзор партнерской программы"
+Withdrawals,"Вывод средств"
+"Withdrawal request has been submitted.","Запрос на вывод средств отправлен."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Один или несколько <a href=""%1"">партнерских счетов</a> в настоящее время находятся в состоянии ожидания."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Один или несколько <a href=""%1"">запросов на вывод средств</a> в настоящее время находятся в состоянии ожидания."
+"Pending Approval","В ожидании утверждения"
+Approved,Одобренный
+"Not Approved","Не одобрено"
+Image,Изображение
+Text,Текст
+"Assign to first referred affiliate","Назначить первому привлеченному партнеру"
+"Assign to last referred affiliate","Назначить последнему привлеченному партнеру"
+Available,"Имеется в наличии"
+Inactive,Неактивный
+Removed,Удаленный
+"- Disable these emails -","- Отключить эти электронные письма -"
+Click,Нажмите
+Impression,Впечатление
+Lead,Вести
+Sale,Распродажа
+". ' (default)'",". &#39; (По умолчанию)&#39;"
+"Percent of order amount","Процент от суммы заказа"
+"Percent of cart amount","Процент от суммы корзины"
+"Fixed amount","Фиксированное количество"
+"Pay per Sale","Оплата за продажу"
+"Pay per Lead","Плата за лид"
+"Pay per Click","Оплата за клик"
+"Pay per Impression","Плата за показ"
+Complete,Полный
+"In Hold","В ожидании"
+Commission,Комиссия
+Withdraw,Отзывать
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Кредит магазина"
+Other,Другой
+Pending,"В ожидании"
+Accepted,Принял
+Completed,Завершенный
+Denied,Отклонен
+"Number of Orders from reffered customers","Количество заказов от привлеченных клиентов"
+"Sales Amount from reffered customers","Сумма продаж от привлеченных клиентов"
+is,является
+"is not","не является"
+"greater than","больше чем"
+"less than","меньше, чем"
+"equals or greater than","равно или больше чем"
+"equals or less than","равно или меньше чем"
+"Conditions Combination","Комбинация условий"
+"Affiliate conditions","Партнерские условия"
+General,Общий
+"Customer Group","Группа клиентов"
+Store,Магазин
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Тип файла запрещен (разрешены только файлы JPG, JPEG, PNG и GIF)"
+"Commission for order #%1 (%2)","Комиссия за заказ №%1 (%2)"
+"Refund for order #%1","Возврат средств за заказ №%1"
+Withdrawal,Вывод
+"Withdraw cannot exceed current balance.","Вывод средств не может превышать текущий баланс."
+"Minimum withdrawal amount is %1.","Минимальная сумма вывода %1."
+"You already have a pending withdrawal request.","У вас уже есть ожидающий запрос на снятие средств."
+"Affiliate Withdrawal","Партнерский вывод"
+Back,Назад
+Delete,Удалить
+"Are you sure you want to proceed?","Вы уверены, что хотите продолжить?"
+"Save and Continue Edit","Сохранить и продолжить редактировать"
+Save,Сохранить
+"Click on row to edit the coupon","Щелкните строку, чтобы изменить купон"
+"Referred Customers","Привлеченные клиенты"
+Actions,Действия
+"Add Customers","Добавить клиентов"
+Customers,Клиенты
+Cancel,Отмена
+"Add Selected Customers","Добавить выбранных клиентов"
+Remove,Удалять
+ID,"Я БЫ"
+Name,Имя
+Email,"Электронное письмо"
+View,Вид
+Edit,Редактировать
+"Delete item?","Удалить пункт?"
+Conditions,Условия
+"Affiliate conditions (affects only automatically updated group)","Партнерские условия (влияет только на автоматически обновляемую группу)"
+"Assigned Affiliates","Назначенные аффилированные лица"
+"Add Affiliate","Добавить партнера"
+Affiliates,Филиалы
+"Add Selected","Добавить в избранное"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Применяйте комиссию только к товарам в корзине, которые соответствуют следующим условиям (оставьте поле пустым для всех товаров)."
+Accept,Принимать
+Reject,Отклонять
+"Referring Website","Ссылающийся веб-сайт"
+"Subscribe to email notifications","Подпишитесь на уведомления по электронной почте"
+"I accept the terms and conditions","Я принимаю правила и условия"
+"Sign Up",Зарегистрироваться
+"Referral Website","Реферальный веб-сайт"
+"Payment Method","Способ оплаты"
+"Payment Information","Платежная информация"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Пожалуйста, укажите личную платежную информацию: электронную почту PayPal или платежные реквизиты электронного кошелька."
+From,Из
+To,К
+Apply,Применять
+Clicks,Клики
+Leads,Ведет
+Orders,Заказы
+Views,Взгляды
+Earned,Заработано
+"My Account","Мой аккаунт"
+"Commissions according to your affiliate group","Комиссии согласно вашей партнерской группе"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> от суммы заказа от первого заказа"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> от суммы заказа от второго и более заказов"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> от суммы корзины с первого заказа"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> от суммы корзины со второго и более заказов"
+"<b>%1</b> per sale from first order","<b>%1</b> за продажу с первого заказа"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> за продажу от второго и более заказов"
+"<b>%1</b> per unique click","<b>%1</b> за уникальный клик"
+"<b>%1</b> per lead","<b>%1</b> за сделку"
+"<b>%1</b> per 1000 views","<b>%1</b> на 1000 просмотров"
+Banners,Баннеры
+Type,Тип
+Size,Размер
+Link,"Ссылка на сайт"
+"Get Code","Получить код"
+"Copy and paste this code into your website: ","Скопируйте и вставьте этот код на свой сайт:"
+"Referral Coupons","Реферальные купоны"
+Program,Программа
+Coupon,Купон
+Discount,Скидка
+"Personal Referral Link","Персональная реферальная ссылка"
+"Enter any URL from this store in the form below to generate a new referral link:","Введите любой URL из этого магазина в форму ниже, чтобы сгенерировать новую реферальную ссылку:"
+"Your unique referral link is:","Ваша уникальная реферальная ссылка:"
+"Referral Widget","Реферальный виджет"
+"Widget Title:","Название виджета:"
+"Related Products","Сопутствующие товары"
+Width:,Ширина:
+Height:,Высота:
+"Number of products:","Количество товаров:"
+"Show Bestsellers","Показать бестселлеры"
+"Show New Products","Показать новые продукты"
+Search,Поиск
+"Search term","Искать термин"
+"Show Product's names","Показать названия продуктов"
+"Show Prices","Показать цены"
+"Place this code wherever you want the widget to appear on your page.","Разместите этот код там, где вы хотите, чтобы виджет появлялся на вашей странице."
+"Current balance: <b>%1</b>","Текущий баланс: <b>%1</b>"
+"On hold: %1","В ожидании: %1"
+"Lifetime: %1","Срок службы: %1"
+"Paid: %1","Оплачено: %1"
+Date,Дата
+Balance,"Остаток средств"
+Amount,Количество
+Details,Подробности
+"On hold to %1","В ожидании до %1"
+"There have been no transactions yet.","Сделок еще не было."
+"Request withdrawal","Запрос на вывод"
+"Minimum balance to request withdrawal is %1","Минимальный баланс для запроса вывода составляет %1"
+Fee,Платеж
+Status,Статус
+"Pending approval","В ожидании утверждения"
+"There have been no withdrawals yet.","Выводов пока не было."
+"Your account is assigned to the <span>%1</span> affiliate group","Ваша учетная запись отнесена к партнерской группе <span>%1</span>"
+Commissions,Комиссии
+"Our Programs","Наши программы"
+"Our Program","Наша программа"
+"%1  - Minimum balance required for payout.","%1 - Минимальный баланс, необходимый для выплаты."
+"Affiliate Group","Партнерская группа"
+Description,Описание
+"Sign In",Войти
+"New Affiliate Account","Новый Партнерский Аккаунт"
+"Account Information","Информация Об Учетной Записи"
+"%name,","%название,"
+"Your affiliate account at %store_name has been approved.","Ваш партнерский аккаунт в% store_name был одобрен."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Щелкните <a href=""%login_url"">здесь,</a> чтобы войти в свою учетную запись."
+"Your account balance has been updated at %store_name.","Баланс вашего аккаунта был обновлен на% store_name."
+Balance:,"Остаток средств:"
+"Welcome to %store_name affiliate program!","Добро пожаловать в партнерскую программу% store_name!"
+Email:,"Электронное письмо:"
+"Referring Website:","Ссылающийся веб-сайт:"
+"A customer referred by you has just placed an order at %store_name.","Привлеченный вами покупатель только что разместил заказ в% store_name."
+"Thus, it was credited to your affiliate account.","Таким образом, он был зачислен на ваш партнерский счет."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Когда заказ будет выполнен, мы переведем комиссию на баланс вашего счета в нашей системе, а затем вы сможете снять деньги, когда захотите."
+"Transaction Amount:","Сумма транзакции:"
+"Current Balance:","Текущий баланс:"
+"New Withdrawal Request","Новый запрос на вывод средств"
+Information,Информация
+"Please log in to the admin panel to manage this request.","Пожалуйста, войдите в панель администратора, чтобы обработать этот запрос."
+"Affiliate: Sign In Button","Партнер: кнопка входа"
+"Affiliate: List of programs","Партнер: список программ"
+"Account Dashboard","Панель управления учетной записью"
+Transactions,Сделки
+Settings,Настройки
+"Affiliate Program","Партнерская программа"

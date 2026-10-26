@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="affiliate_account"/>
+
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Promotion Materials</argument>
+            </action>
+        </referenceBlock>
+
+        <referenceContainer name="content">
+            <block class="Mirasvit\Affiliate\Block\Account\Promotion\Link" name="affiliate_promotion_link"
+                   template="account/promotion/link.phtml"/>
+
+            <block class="Mirasvit\Affiliate\Block\Account\Programs" name="affiliate_promotion_programs"
+                   template="account/programs.phtml"/>
+
+            <block class="Mirasvit\Affiliate\Block\Account\Promotion\Coupon" name="affiliate_promotion_coupon"
+                   template="account/promotion/coupon.phtml" ifconfig="affiliate/coupon/enabled"/>
+
+            <block class="Mirasvit\Affiliate\Block\Account\Promotion\Widget" name="affiliate_promotion_widget"
+                   template="account/promotion/widget.phtml"/>
+
+            <block class="Mirasvit\Affiliate\Block\Account\Promotion\Banners" name="affiliate_promotion_banners"
+                   template="account/promotion/banners.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

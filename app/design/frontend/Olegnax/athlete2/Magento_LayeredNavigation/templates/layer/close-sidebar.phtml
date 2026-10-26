@@ -1,0 +1,12 @@
+<?php
+if(! $this->helper( 'Olegnax\Athlete2\Helper\Helper' )->getConfig('athlete2_settings/products_listing/close_sidebar')){
+    return;
+}
+$iconHide = '<span class="ox-close-icon"></span>';
+?>
+<div class="filters-toggle filters-toggle-hide js-filters-toggle hide-on-tablet hide-on-mobile">
+    <span class="action hide-filters">
+        <span class="icon" role="img" aria-hidden="true"><?php echo $iconHide ?></span>
+        <span class="text"><?= $block->escapeHtml(__('Hide Filters')); ?></span>
+    </span>
+</div>

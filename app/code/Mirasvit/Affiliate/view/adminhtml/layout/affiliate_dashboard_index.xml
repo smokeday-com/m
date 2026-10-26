@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Backend\Block\Template" template="Mirasvit_Affiliate::dashboard.phtml">
+                <container name="main" htmlTag="div">
+                    <block class="Mirasvit\Affiliate\Block\Adminhtml\Dashboard\QuickStat"
+                           template="dashboard/quick_stat.phtml"/>
+                    <block class="Mirasvit\Affiliate\Block\Adminhtml\Dashboard\Top"
+                           template="dashboard/top.phtml"/>
+                    <block class="Mirasvit\Affiliate\Block\Adminhtml\Dashboard\Pending"
+                           template="dashboard/pending.phtml"/>
+                </container>
+
+                <container name="sidebar" htmlTag="div">
+                    <block class="Mirasvit\Affiliate\Block\Adminhtml\Dashboard\Activity"
+                           template="dashboard/activity.phtml"/>
+                </container>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

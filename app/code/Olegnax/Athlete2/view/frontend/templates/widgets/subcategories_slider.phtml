@@ -1,0 +1,80 @@
+<?php
+$subcategories = $block->getSubcategories();
+if(is_object($subcategories) && count($subcategories)):
+    $widget_id    = $block->getWidgetId();
+    $showCount = $block->getShowProductCount();
+    $showName = $block->getShowCategoryName();
+    $nameTag = $block->getCategoryNameTag() ?: 'h3';
+    $showImage = $block->getShowCategoryImage();
+    $classes = 'ox-cats row css_slider_items scroll-thin-h ox-cats-grid';
+
+    $classes_item = '';
+    if(!$block->getColumnWidth()){
+        $classes .= ' ox-cats-grid';
+    }
+    /* Items Styles */
+    if($block->getStyle() == '3' || $block->getStyle() == '4'){
+        $classes_item .= ' ox-cat--rounded';
+    }
+    if($block->getStyle() == '5'){
+        $classes_item .= ' ox-cat--h ox-cat--h-left';
+    }
+    if($block->getStyle() == '6'){
+        $classes_item .= 'ox-cat--h ox-cat--h-right';
+    }
+    /* Slider Navigation */
+    $nav_classes = '';
+    if($block->getNavStyle() === 's-fadeover'){
+        $nav_classes .= ' s-fadeover hide-dis';
+    }
+    if(!$block->getNavAlways()){
+        $nav_classes .= ' onhover';
+    }
+    $showNav = $block->getNav();
+    $isDrag = $block->getDrag();
+    
+?>
+<div id="<?php echo $escaper->escapeHtmlAttr($widget_id) ?>" 
+data-role="OXCssSlider" <?php if($showNav || $isDrag){ echo 'data-mage-init=\'{"js/ox-slider":{}}\''; } ?>
+class="block widget ox-cats-widget css_slider <?php echo $escaper->escapeHtmlAttr($widget_id) ?>" 
+data-drag="<?php echo (bool)$isDrag ?>">
+    <div class="<?php echo $escaper->escapeHtmlAttr($classes); ?>">
+        <?php foreach ($subcategories as $subcategory) : ?>
+            <?php $name = $subcategory->getName(); ?>
+            <div class="ox-cat col css_slider_item">
+                <div class="ox-cat__inner">
+                    <?php if($showImage && $imageUrl = $block->getImage($subcategory)): ?>
+                    <div class="ox-cat__img-holder">
+                        <img src="<?php echo $block->escapeUrl($imageUrl) ?>" alt="<?php echo $block->escapeHtmlAttr($name) ?>" <?php echo $block->getImageSize(); ?> class="ox-cat__img"/>
+                    </div>
+                    <?php endif; ?>
+                    <?php if($showName || $showCount): ?>
+                    <div class="ox-cat__name-wrap">
+                        <?php if($showName): ?>
+                        <<?php echo $nameTag ?> class="ox-cat__name"><?php echo $block->escapeHtml($name) ?></<?php echo $nameTag ?>>
+                        <?php endif; ?>
+                        <?php if($showCount): ?>
+                        <span class="ox-cat__count"><?php echo (int)$subcategory->getProductCount(); ?></span>
+                        <?php endif; ?>
+                    </div>
+                    <?php endif; ?>
+                    <a href="<?php echo $block->escapeUrl($subcategory->getUrl()) ?>" class="ox-cat__link overlay-link" title="<?php echo $block->escapeHtmlAttr($name) ?>"></a>
+                </div>
+            </div>
+        <?php endforeach;  ?>
+    </div>
+    <?php if($showNav): ?>
+    <div class="ox-nav <?php echo $nav_classes ?>">
+        <button role="presentation" class="prev disabled"><span aria-label="Previous">‹</span></button>
+        <button role="presentation" class="next"><span aria-label="Next">›</span></button>
+    </div>
+    <?php endif; ?>
+</div>
+<?php 
+$styles = '';
+if($block->getColumnsAlignCenter()){
+    $styles .= '#'. $widget_id . ' .ox-cat:first-child{margin-left:auto;} .ox-cat:last-child{margin-right:auto;}';
+}
+echo $block->renderStyles('#' . $widget_id, $styles);
+?>
+<?php endif; ?>

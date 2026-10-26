@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+$showCompare = $this->helper('Olegnax\Athlete2\Helper\Helper')->getConfig('athlete2_settings/products_listing/compare');
+// @codingStandardsIgnoreFile
+/** @var $block Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare */
+$compareIcon = '<svg version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="a2-icon-compare"><use xlink:href="#a2-compare-icon"></use></svg>';
+if( $showCompare ) {
+?>
+<a href="#"
+   class="action tocompare"
+   title="<?= $block->escapeHtml(__('Add to Compare')) ?>"
+   aria-label="<?= $block->escapeHtml(__('Add to Compare')) ?>"
+   data-post='<?= /* @escapeNotVerified */ $block->getCompareHelper()->getPostDataParams($block->getProduct()) ?>'
+   role="button">
+    <?= $compareIcon ?><span><?= /* @escapeNotVerified */ __('Add to Compare') ?></span>
+</a>
+<?php } ?>

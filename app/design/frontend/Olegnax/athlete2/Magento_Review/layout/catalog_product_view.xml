@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="review_product_form_component"/>
+    <body>
+        <referenceBlock name="ox_quick_nav_tabs">
+            <block class="Magento\Review\Block\Product\Review" name="reviews.tab.quick_nav" as="reviews" template="Magento_Review::review.phtml" group="detailed_info" ifconfig="catalog/review/active">
+                <arguments>
+                    <argument name="sort_order" xsi:type="string">30</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="product.review.form">
+            <container name="form.additional.review.info" as="form_additional_review_info"/>
+        </referenceBlock>
+    </body>
+</page>

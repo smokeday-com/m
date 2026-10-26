@@ -1,0 +1,203 @@
+%1%,%1％
+%1,%1
+"We'll review your registration and notify you.",我们将审核您的注册并通知您。
+"Your request to sign up to the affiliate program has been rejected.",您注册会员计划的请求已被拒绝。
+"Sign In to Affiliates",登录会员
+"You have successfully signed up for an affiliate account.",您已成功注册会员帐户。
+"Affiliate Dashboard",会员仪表板
+"Affiliate Account Settings",会员帐号设置
+"Account information successfully updated.",帐户信息已成功更新。
+"Transactions History",交易记录
+"Promotion Materials",宣传资料
+Statistics,统计数据
+"Affiliate Program Overview",会员计划概述
+Withdrawals,提款
+"Withdrawal request has been submitted.",提款请求已提交。
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","一个或多个<a href=""%1"">会员帐户</a>当前处于待处理状态。"
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","当前有一个或多个<a href=""%1"">提款请求</a>处于待处理状态。"
+"Pending Approval",待批准
+Approved,得到正式认可的
+"Not Approved",不批准
+Image,图像
+Text,文本
+"Assign to first referred affiliate",分配给第一个推荐的会员
+"Assign to last referred affiliate",分配给上次推荐的会员
+Available,可用的
+Inactive,不活跃
+Removed,已移除
+"- Disable these emails -",-禁用这些电子邮件-
+Click,点击
+Impression,印象
+Lead,带领
+Sale,销售
+". ' (default)'","。 &#39; （默认）&#39;"
+"Percent of order amount",订单金额百分比
+"Percent of cart amount",购物车金额百分比
+"Fixed amount",固定值
+"Pay per Sale",每次销售付款
+"Pay per Lead",按潜在客户付费
+"Pay per Click",每次点击付费
+"Pay per Impression",每次展示付费
+Complete,完全的
+"In Hold",保持中
+Commission,委员会
+Withdraw,提取
+PayPal,贝宝
+Skrill,Skrill
+"Store Credit",商场信用积分
+Other,其他
+Pending,待办的
+Accepted,公认
+Completed,完全的
+Denied,被拒绝
+"Number of Orders from reffered customers",拜访客户的订单数
+"Sales Amount from reffered customers",拜访客户的销售额
+is,是
+"is not",不是
+"greater than",比...更棒
+"less than",少于
+"equals or greater than",等于或大于
+"equals or less than",等于或小于
+"Conditions Combination",条件组合
+"Affiliate conditions",加盟条件
+General,一般的
+"Customer Group",客户群
+Store,店铺
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)",不允许的文件类型（仅允许JPG，JPEG，PNG和GIF文件）
+"Commission for order #%1 (%2)",订单#%1（%2）的佣金
+"Refund for order #%1",退款订单#%1
+Withdrawal,退出
+"Withdraw cannot exceed current balance.",提款不能超过当前余额。
+"Minimum withdrawal amount is %1.",最低提款金额为%1。
+"You already have a pending withdrawal request.",您已经有一个待处理的提款请求。
+"Affiliate Withdrawal",会员提现
+Back,后退
+Delete,删除
+"Are you sure you want to proceed?",您确定要继续吗？
+"Save and Continue Edit",保存并继续编辑
+Save,保存
+"Click on row to edit the coupon",单击行以编辑优惠券
+"Referred Customers",推荐客户
+Actions,动作
+"Add Customers",添加客户
+Customers,顾客
+Cancel,取消
+"Add Selected Customers",添加选定的客户
+Remove,去掉
+ID,ID
+Name,名称
+Email,电子邮件
+View,看法
+Edit,编辑
+"Delete item?",删除项目？
+Conditions,使适应
+"Affiliate conditions (affects only automatically updated group)",关联条件（仅影响自动更新的组）
+"Assigned Affiliates",分配的会员
+"Add Affiliate",添加会员
+Affiliates,会员关系
+"Add Selected",添加所选
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).",仅将佣金应用于符合以下条件的购物车项目（所有项目均保留空白）。
+Accept,接受
+Reject,拒绝
+"Referring Website",推荐网站
+"Subscribe to email notifications",订阅电子邮件通知
+"I accept the terms and conditions",我接受这些条款和条件
+"Sign Up",报名
+"Referral Website",推荐网站
+"Payment Method",付款方法
+"Payment Information",支付信息
+"Please specify personal payment info: PayPal email or any e-wallet payment details.",请指定个人付款信息：PayPal电子邮件或任何电子钱包付款明细。
+From,从
+To,至
+Apply,申请
+Clicks,点击次数
+Leads,潜在客户
+Orders,命令
+Views,观看次数
+Earned,已赚
+"My Account",我的帐户
+"Commissions according to your affiliate group",根据您的会员团体收取的佣金
+"<b>%1%</b> of order amount from first order",订单金额的<b>%1％</b>
+"<b>%1%</b> of order amount from second and more orders",第二笔及以上订单的订单金额的<b>%1％</b>
+"<b>%1%</b> of cart amount from first order",<b>订单金额的%1％</b>来自第一笔订单
+"<b>%1%</b> of cart amount from second and more orders",第二笔及更多订单的购物车金额的<b>%1％</b>
+"<b>%1</b> per sale from first order",第一次订单每笔销售<b>%1</b>
+"<b>%1</b> per sale from second and more orders",<b>第二笔</b>及以上订单每笔销售%1
+"<b>%1</b> per unique click",每次独特点击<b>%1</b>
+"<b>%1</b> per lead",每根<b>%1</b>
+"<b>%1</b> per 1000 views",每1000次观看<b>%1</b>
+Banners,标语
+Type,类型
+Size,尺寸
+Link,关联
+"Get Code",取得验证码
+"Copy and paste this code into your website: ",将此代码复制并粘贴到您的网站中：
+"Referral Coupons",推荐优惠券
+Program,程序
+Coupon,优惠券
+Discount,折扣
+"Personal Referral Link",个人推荐链接
+"Enter any URL from this store in the form below to generate a new referral link:",在下面的表格中输入该商店的任何URL，以生成新的引荐链接：
+"Your unique referral link is:",您独特的推介链接是：
+"Referral Widget",推荐小工具
+"Widget Title:",小工具标题：
+"Related Products",相关产品
+Width:,宽度：
+Height:,高度：
+"Number of products:",产品数量：
+"Show Bestsellers",显示畅销书
+"Show New Products",显示新产品
+Search,搜索
+"Search term",搜索词
+"Show Product's names",显示产品名称
+"Show Prices",显示价格
+"Place this code wherever you want the widget to appear on your page.",将此代码放在您希望窗口小部件显示在页面上的任何位置。
+"Current balance: <b>%1</b>","当前余额： <b>%1</b>"
+"On hold: %1",暂停：%1
+"Lifetime: %1",寿命：%1
+"Paid: %1",付费：%1
+Date,日期
+Balance,平衡
+Amount,数量
+Details,细节
+"On hold to %1",保留至%1
+"There have been no transactions yet.",尚无交易。
+"Request withdrawal",要求提款
+"Minimum balance to request withdrawal is %1",要求提款的最低余额为%1
+Fee,费用
+Status,地位
+"Pending approval",待批准
+"There have been no withdrawals yet.",尚未提款。
+"Your account is assigned to the <span>%1</span> affiliate group",您的帐户已分配到<span>%1</span>联盟会员组
+Commissions,佣金
+"Our Programs",我们的程序
+"Our Program",我们的计划
+"%1  - Minimum balance required for payout.",%1-付款所需的最低余额。
+"Affiliate Group",会员集团
+Description,描述
+"Sign In",登入
+"New Affiliate Account",新会员帐户
+"Account Information",帐户信息
+"%name,",％名称，
+"Your affiliate account at %store_name has been approved.",您位于％store_name的会员帐户已获批准。
+"Click <a href=""%login_url"">here</a> to sign in to your account.","点击<a href=""%login_url"">此处</a>登录您的帐户。"
+"Your account balance has been updated at %store_name.",您的帐户余额已更新为％store_name。
+Balance:,平衡：
+"Welcome to %store_name affiliate program!",欢迎使用％store_name会员计划！
+Email:,电子邮件：
+"Referring Website:",推荐网站：
+"A customer referred by you has just placed an order at %store_name.",您推荐的客户刚刚在％store_name下了订单。
+"Thus, it was credited to your affiliate account.",因此，它已记入您的会员帐户。
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.",订单完成后，我们会将佣金转入您系统中的帐户余额，然后您可以随时提取资金。
+"Transaction Amount:",交易金额：
+"Current Balance:",当前余额：
+"New Withdrawal Request",新的提款要求
+Information,信息
+"Please log in to the admin panel to manage this request.",请登录到管理面板以管理此请求。
+"Affiliate: Sign In Button",会员：登录按钮
+"Affiliate: List of programs",会员：程序列表
+"Account Dashboard",帐户仪表板
+Transactions,交易次数
+Settings,设定值
+"Affiliate Program",会员计划

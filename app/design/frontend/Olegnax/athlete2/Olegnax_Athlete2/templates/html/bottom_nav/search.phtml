@@ -1,0 +1,19 @@
+<?php
+if(!$block->getConfig('athlete2_settings/mobile_header/search_mobile_hide') && $block->getConfig('athlete2_settings/mobile_header/search_mobile_below')){
+	return;
+}
+$text = $block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_text_search' ) ?: __('Search');
+$icon_option   =  'athlete2_settings/mobile_bottom_nav/bottom_nav_icon_';
+$icon = $this->helper(Olegnax\Athlete2\Helper\Icons::class)->getIconHTML('search', $icon_option); // $name, $icon_option = '', $classes = ''
+$hideText   =  $block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_hide_text' );
+?>
+<div class="ox-bnav__item ox-bnav__search">
+	<div class="js-action-search-slideout action">
+		<span class="icon">
+			<?= $icon; ?>
+		</span>
+		<span class="label <?php if($hideText){ echo "visually-hidden"; } ?>">
+			<?= $block->escapeHtml($text) ?>
+		</span>
+	</div>
+</div>

@@ -1,0 +1,17 @@
+<?php
+$name = $this->getData('a2_name') ?: 'custom';
+$hideText   =  $block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_hide_text' );
+$text = $block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_text_' . $name );
+$icon_option   =  'athlete2_settings/mobile_bottom_nav/bottom_nav_icon_';
+$icon = $this->helper(Olegnax\Athlete2\Helper\Icons::class)->getIconHTML($name, $icon_option); // $name, $icon_option = '', $classes = ''
+?>
+<div class="ox-bnav__item ox-bnav__<?php echo $name ?>">
+	<div class="js-item-<?= $name ?>-action action">
+		<span class="icon">
+			<?= $icon; ?>
+		</span>
+		<span class="label <?php if($hideText){ echo "visually-hidden"; } ?>">
+			<?= $block->escapeHtml($text) ?>
+		</span>
+	</div>
+</div>

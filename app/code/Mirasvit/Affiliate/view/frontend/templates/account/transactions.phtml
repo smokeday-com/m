@@ -1,0 +1,71 @@
+<?php
+declare(strict_types=1);
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Affiliate\Block\Account\Transactions $block */
+$account               = $block->getAccount();
+$transactionCollection = $block->getTransactionCollection() ?? [];
+/** @var \Magento\Framework\Pricing\Helper\Data $pricingHelper */
+$pricingHelper = $this->helper('Magento\Framework\Pricing\Helper\Data');
+?>
+
+<?php if ($account): ?>
+    <div class="affiliate__balance">
+        <div><?= __('Current balance: <b>%1</b>', $pricingHelper->currency($account->getBalance())) ?></div>
+
+        <div><?= __('On hold: %1', $pricingHelper->currency($account->getTotalHoldedCommissions())) ?></div>
+
+        <div><?= __('Lifetime: %1', $pricingHelper->currency($account->getTotalCommissions())) ?></div>
+
+        <div><?= __('Paid: %1', $pricingHelper->currency($account->getTotalWithdrawals())) ?></div>
+    </div>
+
+    <?php if (count($transactionCollection)): ?>
+        <div class="table-wrapper">
+            <table class="data table">
+                <thead>
+                <tr>
+                    <th><?= __('Date') ?></th>
+                    <th><?= __('Balance') ?></th>
+                    <th><?= __('Amount') ?></th>
+                    <th><?= __('Details') ?></th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($transactionCollection as $transaction): ?>
+                    <tr>
+                        <td data-th="<?= __('Date') ?>">
+                            <?= $block->formatDate($transaction->getCreatedAt(), \IntlDateFormatter::MEDIUM, true) ?>
+                        </td>
+                        <td data-th="<?= __('Balance') ?>">
+                            <?= $pricingHelper->currency($transaction->getBalance()) ?>
+                        </td>
+                        <td data-th="<?= __('Amount') ?>">
+                            <?php if ($transaction->getAmount() > 0): ?>
+                                <span class="affiliate__positive">
+                                    +<?= $pricingHelper->currency($transaction->getAmount()) ?>
+                                </span>
+                            <?php else: ?>
+                                <span class="affiliate__negative">
+                                    <?= $pricingHelper->currency($transaction->getAmount()) ?>
+                                </span>
+                            <?php endif ?>
+                        </td>
+                        <td data-th="<?= __('Details') ?>">
+                            <?= $transaction->getMessage() ?>
+                            <?php if ($transaction->getStatus() == 'in_hold'): ?>
+                                <br>
+                                <?= __('On hold to %1', $block->formatDate($transaction->getHoldTo(), \IntlDateFormatter::MEDIUM)) ?>
+                            <?php endif ?>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+        <?php if ($block->getPagerHtml()): ?>
+            <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+        <?php endif ?>
+    <?php else: ?>
+        <div class="message info"><span><?= __('There have been no transactions yet.') ?></span></div>
+    <?php endif ?>
+<?php endif ?>

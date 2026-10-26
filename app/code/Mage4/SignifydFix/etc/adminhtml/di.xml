@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Override Signifyd Grid with our fixed version -->
+    <preference for="Signifyd\Connect\Block\Adminhtml\Shopcart\Abandoned\Grid" type="Mage4\SignifydFix\Block\Adminhtml\Shopcart\Abandoned\Grid" />
+    
+    <!-- Explicitly configure Grid to ensure proper dependency injection -->
+    <type name="Mage4\SignifydFix\Block\Adminhtml\Shopcart\Abandoned\Grid">
+        <arguments>
+            <argument name="urlDecoder" xsi:type="object">Magento\Framework\Url\Decoder</argument>
+            <argument name="parameters" xsi:type="object">Magento\Framework\Stdlib\Parameters</argument>
+        </arguments>
+    </type>
+</config>
+

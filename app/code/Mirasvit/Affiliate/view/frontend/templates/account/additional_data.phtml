@@ -1,0 +1,133 @@
+<?php
+declare(strict_types=1);
+
+// @codingStandardsIgnoreFile
+
+use Mirasvit\Affiliate\Api\Data\AccountInterface;
+use Mirasvit\Affiliate\Block\Account\AdditionalData;
+use Mirasvit\Affiliate\Model\Config\Source\Config\FieldTypeSource;
+use Mirasvit\Affiliate\Model\ConfigProvider;
+
+/**
+ * @var AdditionalData $block
+ */
+
+$formData = $block->getFormData();
+?>
+
+<?php foreach ($block->getAccountFields() as $field): ?>
+    <?php
+    $type = $block->escapeHtmlAttr($field[ConfigProvider::FIELD_TYPE] ?? 'text');
+
+     if (
+         in_array($type, FieldTypeSource::TYPES_WITH_OPTIONS) &&
+         (!isset($field[ConfigProvider::FIELD_OPTIONS]) || !count($field[ConfigProvider::FIELD_OPTIONS]))
+     ) {
+         continue;
+     }
+
+    $label       = $block->escapeHtml(__($field[ConfigProvider::FIELD_LABEL] ?? ''));
+    $key         = $block->escapeHtmlAttr($field[ConfigProvider::FIELD_KEY] ?? '');
+    $name        = !empty($key) ? sprintf('%s[%s]', AccountInterface::ADDITIONAL_DATA_SERIALIZED, $key) : '';
+    $required    = isset($field[ConfigProvider::FIELD_IS_REQUIRED])
+        && $field[ConfigProvider::FIELD_IS_REQUIRED];
+    $isCheckbox  = FieldTypeSource::FIELD_TYPE_CHECKBOX === $type;
+    $withSet     = in_array($type, FieldTypeSource::TYPES_WITH_SET)
+        && (isset($field[ConfigProvider::FIELD_OPTIONS]));
+    $divSuffix   = ($withSet) ? ' ' . $type : '';
+    ?>
+
+    <div class="field<?= $divSuffix ?><?php if ($required): ?> required<?php endif; ?>">
+
+        <?php if (!$isCheckbox): ?>
+            <label class="label" for="<?= $name ?>">
+                <span><?= $label ?></span>
+            </label>
+        <?php endif; ?>
+
+        <?php if ($withSet): ?>
+            <?php
+            $isRadioSet = $type === FieldTypeSource::FIELD_TYPE_RADIOSET;
+            $type       = $isRadioSet ? 'radio' : 'checkbox'
+            ?>
+
+            <?php foreach ($field[ConfigProvider::FIELD_OPTIONS] as $option): ?>
+                <?php
+                $optionId   = $block->escapeHtmlAttr($option[ConfigProvider::FIELD_OPTION_KEY] ?? '');
+                $label      = $block->escapeHtml(__($option[ConfigProvider::FIELD_OPTION_LABEL] ?? ''));
+                $optionName = $isRadioSet ? $name : sprintf('%s[%s]', $name, $optionId);
+                $checked    = $isRadioSet
+                    ? ($formData[$key] ?? '') === $optionId
+                    : (bool)($formData[$key][$optionId] ?? false);
+                ?>
+
+                <div class="control">
+                    <input
+                        type="<?= $type ?>"
+                        name="<?= $optionName ?>"
+                        id="<?= $optionId ?>"
+                        value="<?= $optionId ?>"
+                        title="<?= $label ?>"
+                        <?php if ($checked): ?>
+                            checked="checked"
+                        <?php endif; ?>
+                        <?php if ($required): ?>
+                            data-validate="{'validate-one-required-by-name':true}"
+                        <?php endif; ?>
+                        class="<?= $type ?>">
+                    <label class="label" for="<?= $optionId ?>">
+                        <span><?= $label ?></span>
+                    </label>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <?php
+            $isInputField   = in_array($type, FieldTypeSource::TYPES_WITH_INPUT);
+            $hasPlaceholder = in_array($type, FieldTypeSource::TYPES_WITH_PLACEHOLDER);
+            $value          = $block->escapeHtml($formData[$key] ?? '');
+            ?>
+
+            <div class="control">
+                <<?= $isInputField ? 'input type="' . $type . '"' : $type ?>
+                    name="<?= $name ?>"
+                    id="<?= $name ?>"
+                    value="<?= $isCheckbox ? '1' : $value ?>"
+                    title="<?= $label ?>"
+                    <?php if ($hasPlaceholder): ?>
+                        placeholder="<?= $block->escapeHtml($field[ConfigProvider::FIELD_PLACEHOLDER] ?? '') ?>"
+                    <?php endif ?>
+                    <?php if ($isCheckbox && $value): ?>
+                        checked="checked"
+                    <?php endif; ?>
+                    class="input-<?= $type ?>"
+                    <?php if ($required): ?>
+                        data-validate="{required:true}"
+                    <?php endif; ?>
+                ><?= $type === FieldTypeSource::FIELD_TYPE_TEXTAREA ? $value . '</textarea>' : '' ?>
+                <?php if ($type === FieldTypeSource::FIELD_TYPE_SELECT): ?>
+                    <?php foreach ($field[ConfigProvider::FIELD_OPTIONS] as $option): ?>
+                        <?php
+                        $optionId = $block->escapeHtmlAttr($option[ConfigProvider::FIELD_OPTION_KEY] ?? '');
+                        $label    = $block->escapeHtml(__($option[ConfigProvider::FIELD_OPTION_LABEL] ?? ''));
+                        $checked  = ($formData[$key] ?? '') === $optionId;
+                        ?>
+
+                        <div class="control">
+                            <option value="<?= $optionId ?>" <?php if ($checked): ?>selected="selected"<?php endif; ?>>
+                                <?= $label ?>
+                            </option>
+                        </div>
+                    <?php endforeach; ?>
+
+                    </select>
+                <?php endif; ?>
+                <?php if ($isCheckbox): ?>
+                    <label class="label" for="<?= $name ?>">
+                        <span class="strong"><?= $label ?></span>
+                    </label>
+                <?php endif; ?>
+            </div>
+
+        <?php endif; ?>
+    </div>
+<?php endforeach; ?>

@@ -1,0 +1,160 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\Template;
+use Magento\Search\Helper\Data;
+use Magento\Search\ViewModel\AdditionalSearchFormData;
+use Magento\Search\ViewModel\ConfigProvider;
+
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+?>
+<?php
+/** @var $block Template */
+/** @var $helper Data */
+/** @var $escaper Escaper */
+
+/** @var $configProvider ConfigProvider */
+$configProvider = $block->getData('configProvider');
+/** @var $versionManager AdditionalSearchFormData */
+$additionalSearchFormData = $block->getData('additionalSearchFormData');
+
+// ox compatiblity with prev magento versions
+if($configProvider && method_exists($configProvider, 'getSearchHelperData')){
+	$helper = $configProvider->getSearchHelperData();
+} else{
+	$helper = $this->helper(\Magento\Search\Helper\Data::class);
+}
+
+
+
+$theme_helper = $this->helper(Olegnax\Athlete2\Helper\Icons::class);
+$athlete_search_type = $theme_helper->getConfig('athlete2_settings/header/search_type');
+$athlete_header_layout = $theme_helper->getConfig('athlete2_settings/header/header_layout');
+
+// search icon form
+$icon	 = '<svg version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="a2-icon-search"><use xlink:href="#a2-search-icon"></use></svg>';
+$search_icon = '<span class="search-icon-wrapper">' . $icon . '</span>';
+// search icon header
+$icon_option   =  'athlete2_design/appearance_icons_header/header_icon_';
+$icon = $theme_helper->getIconHTML('search', $icon_option); // $name, $icon_option = '', $classes = ''
+$search_icon_header = '<span class="search-icon-wrapper">' . $icon . '</span>';
+
+$placeholderText = __('Search');
+$input_classes = 'js-input-focus';
+$defaultModalClass = 'ox-dialog';
+$slideoutHtmlClass = 'ox-fixed';
+if ($athlete_search_type == 'overlay') {
+    $input_classes .= ' width-dynamic';
+}
+?>
+<div class="block block-search header__item header__item-search block-search--type-<?= $escaper->escapeHtmlAttr($athlete_search_type) ?>">
+	<div <?php if (in_array($athlete_search_type, ['slideout', 'overlay'])) : ?>data-move-mobile="search.slideout" data-move-sticky="search.slideout"<?php endif; ?> class="block block-content"<?php
+    switch ($athlete_search_type) {
+        case 'slideout':
+        case 'overlay':
+            ?> data-role="OXmodal"
+			data-mage-init='{"OXmodal":{
+				 "defaultModalClass": "<?= $defaultModalClass ?>",
+				 "triggerTarget":".js-action-search-slideout",
+				 "closeButtonTrigger": ".ox-overlay-close-btn",
+				 "overlayClass":"ox-slideout-shadow",
+				 "timeout": "1000",
+				 "closeOnEscape": true,
+				 "closeOnMouseLeave": false,
+				 "hoverOpen": false,
+				 "type": "<?= $escaper->escapeHtmlAttr($athlete_search_type) ?>",
+				 "positionSlideout":"top",
+				 "htmlClass":"<?= $slideoutHtmlClass ?>"
+				 }}'<?php
+            break;
+    }
+    ?>>
+	<?php if ($athlete_header_layout != 'header_6') : ?>
+	<div class="header__search-wrapper<?=
+        !in_array($athlete_search_type, ['slideout', 'overlay']) ? ' ox-move-item ox-move-item-search.slideout' : '';
+        ?>">
+			<div class="ox-overlay-close-btn" aria-label="Close Modal" ><span></span></div>
+			<?php if ($athlete_search_type == 'overlay') {
+            ?>
+				<div class="logo__container">
+					<?php echo $block->getLayout()->getBlock('logo')->toHtml(); ?>
+				</div>
+			<?php
+        } ?>
+			<form class="form minisearch" id="search_mini_form" action="<?= $escaper->escapeUrl($helper->getResultUrl()) ?>" method="get">
+                <?php // ox check compatiblity with prev magento versions ?>
+				<?php if ($configProvider && $additionalSearchFormData && !empty($queryParams = $additionalSearchFormData->getFormData())): ?>
+                    <?php foreach ($queryParams as $param): ?>
+                        <input type="hidden" name="<?= $escaper->escapeHtmlAttr($param['name']) ?>"
+                               value="<?= $escaper->escapeHtmlAttr($param['value']) ?>"/>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+				<div class="search_form_wrap">
+					<div class="field search">
+						<div class="control">
+							<div class="flashing-cursor"></div>
+							<input id="search"
+								   data-mage-init='{"quickSearch":{
+								   "formSelector":"#search_mini_form",
+								   "url":"<?= $block->escapeUrl($helper->getSuggestUrl()) ?>",
+								   "destinationSelector":"#search_autocomplete"}
+								   }'
+								   type="text"
+								   name="<?= $escaper->escapeHtmlAttr($helper->getQueryParamName()) ?>"
+								   value="<?= /* @noEscape */ $helper->getEscapedQueryText() ?>"
+								   placeholder="<?= $escaper->escapeHtmlAttr($placeholderText) ?>"
+								   class="input-text <?= $escaper->escapeHtmlAttr($input_classes) ?>"
+								   maxlength="<?= $escaper->escapeHtmlAttr($helper->getMaxQueryLength()) ?>"
+								   role="combobox"
+								   aria-haspopup="false"
+								   aria-autocomplete="both"
+								   autocomplete="off"
+								   aria-expanded="false"/>
+							<div id="search_autocomplete" class="search-autocomplete"></div>
+							<div class="label animated-text--masked">
+								<div class="wrap">
+									<label class="inner" for="search" data-role="minisearch-label"><?= $escaper->escapeHtml($placeholderText) ?></label>
+								</div>
+							</div>
+							<?= $block->getChildHtml() ?>
+						</div>
+					</div>
+					<div class="actions">
+						<button type="submit"
+								title="<?= $escaper->escapeHtml(__('Go')) ?>"
+								class="action search"
+								aria-label="Search"
+						>
+							<?= $search_icon ?>
+							<span><?= $escaper->escapeHtml(__('Go')) ?></span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	<?php endif; ?>
+	</div>
+	<?php if (!in_array($athlete_search_type, ['slideout', 'overlay'])) : ?>
+		<div class="block block-content block-content-slideout" data-move-mobile="search.slideout" data-move-sticky="search.slideout"
+			 style="display:none" data-role="OXmodal"
+			 data-mage-init='{"OXmodal":{
+			 "defaultModalClass": "<?= $defaultModalClass ?>",
+			 "triggerTarget":".js-action-search-slideout",
+			 "closeButtonTrigger": ".ox-overlay-close-btn",
+			 "overlayClass":"ox-slideout-shadow",
+			 "timeout": "1000",
+			 "closeOnEscape": true,
+			 "closeOnMouseLeave": false,
+			 "hoverOpen": false,
+			 "type": "slideout",
+			 "positionSlideout":"top",
+			 "htmlClass":"<?= $slideoutHtmlClass ?>"
+			 }}'>
+		</div>
+	<?php endif; ?>
+	<a class="button action-search-slideout js-action-search-slideout"><?= $search_icon_header ?></a>
+</div>

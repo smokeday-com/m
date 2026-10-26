@@ -1,0 +1,113 @@
+/**
+ * Olegnax
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Olegnax.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.olegnax.com/license
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Olegnax
+ * @package     Olegnax_MegaMenu
+ * @copyright   Copyright (c) 2010-2024 Olegnax (http://www.olegnax.com/)
+ * @license     https://www.olegnax.com/license
+ */
+
+ //
+//  Desktop Navigation
+//  ---------------------------------------------
+
+@ox-mega-menu-navigation__min-height: 55px;
+@ox-mega-menu-navigation__padding: 0;
+
+@ox-mega-menu-arrow-icon__show: true;
+
+// Drop Down
+@ox-mega-menu-submenu__background: #ffffff;
+@ox-mega-menu-desktop-submenu__padding: var(--oxmm-dd-padding);
+@ox-mega-menu-desktop-submenu-mega__padding: var(--oxmm-padding);
+@ox-mega-menu-submenu__width: var(--oxmm-width);
+@ox-mega-menu-submenu__shadow: var(--oxmm-shadow);
+
+
+// Level0
+@ox-mega-menu-desktop-level0-item__font-size: @ox-mega-menu-level0-item__font-size;
+@ox-mega-menu-desktop-level0-item__font-weight: @ox-mega-menu-level0-item__font-weight; 
+@ox-mega-menu-desktop-level0-item__height: @ox-mega-menu-level0-item__height;
+@ox-mega-menu-desktop-level0-item__margin: @ox-mega-menu-level0-item__margin;
+@ox-mega-menu-desktop-level0-item__padding: @ox-mega-menu-level0-item__padding;
+@ox-mega-menu-desktop-level0-item__text-transform: @ox-mega-menu-level0-item__text-transform;
+@ox-mega-menu-desktop-level0-item__letter-spacing: @ox-mega-menu-level0-item__letter-spacing;
+
+@ox-mega-menu-desktop-level0-item__background:transparent;
+@ox-mega-menu-desktop-level0-item__color: @ox-mega-menu-level0-item__color;
+@ox-mega-menu-desktop-level0-item__active__background: @ox-mega-menu-level0-item__active__background;
+@ox-mega-menu-desktop-level0-item__active__color: @ox-mega-menu-level0-item__active__color;
+@ox-mega-menu-desktop-level0-item__hover__background: @ox-mega-menu-level0-item__hover__background;
+@ox-mega-menu-desktop-level0-item__hover__color: @ox-mega-menu-level0-item__hover__color;
+
+// Submenu Items
+@ox-mega-menu-desktop-submenu-item__background: @ox-mega-menu-submenu-item__background;
+@ox-mega-menu-desktop-submenu-item__border: @ox-mega-menu-submenu-item__border;
+@ox-mega-menu-desktop-submenu-item__padding: @ox-mega-menu-submenu-item__padding;
+@ox-mega-menu-desktop-submenu-item__margin: @ox-mega-menu-submenu-item__margin;
+@ox-mega-menu-desktop-submenu-item__font-size: @ox-mega-menu-submenu-item__font-size;
+@ox-mega-menu-desktop-submenu-item__font-weight: @ox-mega-menu-submenu-item__font-weight;
+@ox-mega-menu-desktop-submenu-item__text-transform: @ox-mega-menu-submenu-item__text-transform;
+@ox-mega-menu-desktop-submenu-item__letter-spacing: @ox-mega-menu-submenu-item__letter-spacing;
+@ox-mega-menu-desktop-submenu-item__color: @ox-mega-menu-submenu-item__color;
+
+@ox-mega-menu-desktop-submenu-item__active__background: @ox-mega-menu-submenu-item__active__background;
+@ox-mega-menu-desktop-submenu-item__active__color: @ox-mega-menu-submenu-item__active__color;
+@ox-mega-menu-desktop-submenu-item__hover__background: @ox-mega-menu-submenu-item__hover__background;
+@ox-mega-menu-desktop-submenu-item__hover__color: @ox-mega-menu-submenu-item__hover__color;
+
+// Level1 item in Mega Drop Down
+@ox-mega-menu-desktop-submenu-mega-level1-item__font-size: var(--oxmm-l1-fs);
+@ox-mega-menu-desktop-submenu-mega-level1-item__font-weight: var(--oxmm-l1-fw);
+@ox-mega-menu-desktop-submenu-mega-level1-item__margin: 0;
+@ox-mega-menu-desktop-submenu-mega-level1-item__padding: var(--oxmm-l1-padding);
+@ox-mega-menu-desktop-submenu-mega-level1-item__color: var(--oxmm-l1-color);
+@ox-mega-menu-desktop-submenu-mega-level1-item__background: var(--oxmm-l1-bg);
+@ox-mega-menu-desktop-submenu-mega-level1-item__text-transform: var(--oxmm-l1-tt);
+@ox-mega-menu-desktop-submenu-mega-level1-item__letter-spacing: var(--oxmm-l1-ls);
+
+@ox-mega-menu-desktop-submenu-mega-level1-item__active__background: var(--oxmm-l1-bg-a, @ox-mega-menu-desktop-submenu-item__active__background);
+@ox-mega-menu-desktop-submenu-mega-level1-item__active__color: var(--oxmm-l1-color-a, @ox-mega-menu-desktop-submenu-item__active__color);
+@ox-mega-menu-desktop-submenu-mega-level1-item__hover__background: var(--oxmm-l1-bg-h,  @ox-mega-menu-desktop-submenu-item__hover__background);
+@ox-mega-menu-desktop-submenu-mega-level1-item__hover__color: var(--oxmm-l1-color-h, @ox-mega-menu-desktop-submenu-item__hover__color);
+
+// Level1 Submenu item in Mega Drop Down
+@ox-mega-menu-desktop-submenu-mega-level1-submenu__font-size: var(--oxmm-l1s-fs, @ox-mega-menu-desktop-submenu-item__font-size);
+@ox-mega-menu-desktop-submenu-mega-level1-submenu__font-weight: var(--oxmm-l1s-fw, @ox-mega-menu-desktop-submenu-item__font-weight);
+@ox-mega-menu-desktop-submenu-mega-level1-submenu__padding: 6px 8px;
+@ox-mega-menu-desktop-submenu-mega-level1-submenu__margin: @ox-mega-menu-desktop-submenu-item__margin;
+@ox-mega-menu-desktop-submenu-mega-level1-submenu__color: var(--oxmm-l1s-color, @ox-mega-menu-desktop-submenu-item__color);
+@ox-mega-menu-desktop-submenu-mega-level1-submenu__background: var(--oxmm-l1s-bg, @ox-mega-menu-desktop-submenu-item__background);
+@ox-mega-menu-desktop-submenu-mega-level1-submenu__text-transform: var(--oxmm-l1s-tt, @ox-mega-menu-desktop-submenu-item__text-transform);
+@ox-mega-menu-desktop-submenu-mega-level1-submenu__letter-spacing: var(--oxmm-l1s-ls, @ox-mega-menu-desktop-submenu-item__letter-spacing);
+@ox-mega-menu-desktop-submenu-mega-level1-submenu__border: var(--oxmm-l1s-border, @ox-mega-menu-desktop-submenu-item__border);
+
+@ox-mega-menu-desktop-submenu-mega-level1-submenu__active__background: var(--oxmm-l1s-bg-a, @ox-mega-menu-desktop-submenu-item__active__background);
+@ox-mega-menu-desktop-submenu-mega-level1-submenu__active__color: var(--oxmm-l1s-color-a, @ox-mega-menu-desktop-submenu-item__active__color);
+@ox-mega-menu-desktop-submenu-mega-level1-submenu__hover__background: var(--oxmm-l1s-bg-h, @ox-mega-menu-desktop-submenu-item__hover__background);
+@ox-mega-menu-desktop-submenu-mega-level1-submenu__hover__color: var(--oxmm-l1s-color-h, @ox-mega-menu-desktop-submenu-item__hover__color);
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    :root{
+        --oxmm-l0-fs: 16px;
+        --oxmm-l1-fs:14px;
+        --oxmm-l1-fw: @font-weight__bold;
+        --oxmm-l1-padding: 15px;
+        // --oxmm-l1-color: #333333;
+        // --oxmm-l1-bg:transparent;
+        --oxmm-l1-tt:uppercase;
+        // --oxmm-l1-ls:0;
+    }
+}

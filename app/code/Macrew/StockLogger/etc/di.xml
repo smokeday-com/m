@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Detect direct stock DB writes -->
+    <type name="Magento\CatalogInventory\Model\ResourceModel\Stock\Item">
+        <plugin name="macrew_stockitem_save_logger"
+                type="Macrew\StockLogger\Plugin\StockItemSaveLogger" />
+    </type>
+
+    <!-- Detect product status DB writes -->
+    <type name="Magento\Catalog\Model\ResourceModel\Product">
+        <plugin name="macrew_product_resource_logger"
+                type="Macrew\StockLogger\Plugin\ProductResourceLogger" />
+    </type>
+	
+	<type name="Magento\Framework\DB\Adapter\Pdo\Mysql">
+        <plugin name="macrew_sql_stock_tracker"
+        type="Macrew\StockLogger\Plugin\SqlStockTracker" />
+    </type>
+
+</config>

@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Ще прегледаме вашата регистрация и ще ви уведомим."
+"Your request to sign up to the affiliate program has been rejected.","Вашето искане за регистрация в партньорска програма е отхвърлено."
+"Sign In to Affiliates","Влезте в партньори"
+"You have successfully signed up for an affiliate account.","Успешно сте се регистрирали за партньорски акаунт."
+"Affiliate Dashboard","Табло за управление на партньор"
+"Affiliate Account Settings","Настройки на партньорския акаунт"
+"Account information successfully updated.","Информацията за акаунта е актуализирана успешно."
+"Transactions History","История на транзакциите"
+"Promotion Materials","Промоционални материали"
+Statistics,Статистика
+"Affiliate Program Overview","Общ преглед на партньорската програма"
+Withdrawals,Тегления
+"Withdrawal request has been submitted.","Изпратено е искане за оттегляне."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Понастоящем един или повече <a href=""%1"">партньорски акаунта</a> са в чакащо състояние."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Понастоящем една или повече <a href=""%1"">заявки за теглене</a> са в очакване на състояние."
+"Pending Approval","Изчакване на потвърждение"
+Approved,Одобрена
+"Not Approved",Неодобрен
+Image,Изображение
+Text,Текст
+"Assign to first referred affiliate","Присвояване на първо посочено филиал"
+"Assign to last referred affiliate","Присвояване на последно препоръчан филиал"
+Available,"На разположение"
+Inactive,Неактивен
+Removed,Премахнато
+"- Disable these emails -","- Деактивирайте тези имейли -"
+Click,Щракнете
+Impression,Впечатление
+Lead,Водя
+Sale,Разпродажба
+". ' (default)'",". &#39; (по подразбиране)&#39;"
+"Percent of order amount","Процент от сумата на поръчката"
+"Percent of cart amount","Процент от количеството количка"
+"Fixed amount","Фиксирана сума"
+"Pay per Sale","Плащане на продажба"
+"Pay per Lead","Плащане на потенциален клиент"
+"Pay per Click","Плащане на кликване"
+"Pay per Impression","Плащане на импресия"
+Complete,Пълна
+"In Hold","В задържане"
+Commission,Комисионна
+Withdraw,Теглене
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Кредит за магазин"
+Other,Други
+Pending,"В очакване"
+Accepted,Прието
+Completed,Завършен
+Denied,"Отрича се"
+"Number of Orders from reffered customers","Брой поръчки от препоръчани клиенти"
+"Sales Amount from reffered customers","Сума на продажбите от препоръчани клиенти"
+is,е
+"is not","не е"
+"greater than","по-велик от"
+"less than","по-малко от"
+"equals or greater than","е равно или по-голямо от"
+"equals or less than","е равно или по-малко от"
+"Conditions Combination","Условия Комбинация"
+"Affiliate conditions","Партньорски условия"
+General,Общ
+"Customer Group","Група клиенти"
+Store,Съхранявайте
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Типът на файла не е разрешен (разрешени са само JPG, JPEG, PNG и GIF файлове)"
+"Commission for order #%1 (%2)","Комисионна за поръчка №%1 (%2)"
+"Refund for order #%1","Възстановяване на сума за поръчка №%1"
+Withdrawal,Оттегляне
+"Withdraw cannot exceed current balance.","Тегленето не може да надвишава текущото салдо."
+"Minimum withdrawal amount is %1.","Минималната сума за теглене е %1."
+"You already have a pending withdrawal request.","Вече имате чакаща заявка за теглене."
+"Affiliate Withdrawal","Оттегляне на партньор"
+Back,Обратно
+Delete,Изтрий
+"Are you sure you want to proceed?","Наистина ли искате да продължите?"
+"Save and Continue Edit","Запазете и продължете Редактиране"
+Save,Запазете
+"Click on row to edit the coupon","Кликнете върху реда, за да редактирате талона"
+"Referred Customers","Препоръчани клиенти"
+Actions,Действия
+"Add Customers","Добавяне на клиенти"
+Customers,Клиенти
+Cancel,Отказ
+"Add Selected Customers","Добавяне на избрани клиенти"
+Remove,Премахване
+ID,"Документ за самоличност"
+Name,Име
+Email,"Електронна поща"
+View,Изглед
+Edit,Редактиране
+"Delete item?","Да се изтрие ли елементът?"
+Conditions,Условия
+"Affiliate conditions (affects only automatically updated group)","Условия на партньор (засяга само автоматично актуализирана група)"
+"Assigned Affiliates","Назначени филиали"
+"Add Affiliate","Добавяне на партньор"
+Affiliates,Съдружници
+"Add Selected","Добавяне на избрано"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Прилагайте комисионната само за артикули от количката, отговарящи на следните условия (оставете празно за всички артикули)."
+Accept,Приемете
+Reject,Отхвърлете
+"Referring Website","Препращащ уебсайт"
+"Subscribe to email notifications","Абонирайте се за известия по имейл"
+"I accept the terms and conditions","Приемам правилата и условията"
+"Sign Up","Регистрирай се"
+"Referral Website","Уебсайт за препоръки"
+"Payment Method","Начин на плащане"
+"Payment Information","Информация за плащане"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Моля, посочете лична информация за плащане: имейл на PayPal или всякакви данни за плащане в електронния портфейл."
+From,От
+To,"Да се"
+Apply,Приложи
+Clicks,Кликвания
+Leads,Води
+Orders,Поръчки
+Views,Изгледи
+Earned,Спечелено
+"My Account","Моята сметка"
+"Commissions according to your affiliate group","Комисионни според вашата партньорска група"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> от сумата на поръчката от първата поръчка"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> от сумата на поръчката от втора и повече поръчки"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> от сумата на количката от първата поръчка"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> от сумата на количката от втора и повече поръчки"
+"<b>%1</b> per sale from first order","<b>%1</b> на продажба от първа поръчка"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> на продажба от втора и повече поръчки"
+"<b>%1</b> per unique click","<b>%1</b> на уникално кликване"
+"<b>%1</b> per lead","<b>%1</b> на потенциален клиент"
+"<b>%1</b> per 1000 views","<b>%1</b> на 1000 показвания"
+Banners,Банери
+Type,Тип
+Size,Размер
+Link,Връзка
+"Get Code","Вземи код"
+"Copy and paste this code into your website: ","Копирайте и поставете този код във вашия уебсайт:"
+"Referral Coupons","Реферални купони"
+Program,Програма
+Coupon,Купон
+Discount,Отстъпка
+"Personal Referral Link","Лична препоръчана връзка"
+"Enter any URL from this store in the form below to generate a new referral link:","Въведете всеки URL от този магазин във формуляра по-долу, за да генерирате нова препратка:"
+"Your unique referral link is:","Вашата уникална препратка е:"
+"Referral Widget","Приспособление за препоръки"
+"Widget Title:","Заглавие на приспособлението:"
+"Related Products","Свързани продукти"
+Width:,Ширина:
+Height:,Височина:
+"Number of products:","Брой продукти:"
+"Show Bestsellers","Показване на бестселъри"
+"Show New Products","Показване на нови продукти"
+Search,Търсене
+"Search term","Термин за търсене"
+"Show Product's names","Показване на имената на продукта"
+"Show Prices","Покажи цени"
+"Place this code wherever you want the widget to appear on your page.","Поставете този код навсякъде, където искате приспособлението да се появи на вашата страница."
+"Current balance: <b>%1</b>","Текущо салдо: <b>%1</b>"
+"On hold: %1","На изчакване: %1"
+"Lifetime: %1","Живот: %1"
+"Paid: %1","Платено: %1"
+Date,Дата
+Balance,Баланс
+Amount,Количество
+Details,Подробности
+"On hold to %1","На изчакване до %1"
+"There have been no transactions yet.","Все още няма транзакции."
+"Request withdrawal","Искайте оттегляне"
+"Minimum balance to request withdrawal is %1","Минималното салдо за искане на теглене е %1"
+Fee,Такса
+Status,Състояние
+"Pending approval","Изчакване на потвърждение"
+"There have been no withdrawals yet.","Все още няма тегления."
+"Your account is assigned to the <span>%1</span> affiliate group","Вашият акаунт е присвоен на <span>%1</span> асоциирана група"
+Commissions,Комисионни
+"Our Programs","Нашите програми"
+"Our Program","Нашата програма"
+"%1  - Minimum balance required for payout.","%1 - Минимално салдо, необходимо за изплащане."
+"Affiliate Group","Партньорска група"
+Description,Описание
+"Sign In","Впиши се"
+"New Affiliate Account","Нов партньорски акаунт"
+"Account Information","Информация за профила"
+"%name,","% име,"
+"Your affiliate account at %store_name has been approved.","Вашият партньорски акаунт на% store_name е одобрен."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Щракнете <a href=""%login_url"">тук, за</a> да влезете във вашия акаунт."
+"Your account balance has been updated at %store_name.","Салдото в сметката ви е актуализирано на% store_name."
+Balance:,Баланс:
+"Welcome to %store_name affiliate program!","Добре дошли в% store_name партньорска програма!"
+Email:,"Електронна поща:"
+"Referring Website:","Препращащ уебсайт:"
+"A customer referred by you has just placed an order at %store_name.","Клиент, посочен от вас, току-що е направил поръчка на% store_name."
+"Thus, it was credited to your affiliate account.","По този начин той е бил кредитиран във вашия филиал."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Когато поръчката приключи, ние ще преведем комисионната към баланса на сметката ви в нашата система и след това можете да изтеглите парите, когато пожелаете."
+"Transaction Amount:","Сума на транзакцията:"
+"Current Balance:","Текущ баланс:"
+"New Withdrawal Request","Нова заявка за теглене"
+Information,Информация
+"Please log in to the admin panel to manage this request.","Моля, влезте в администраторския панел, за да управлявате тази заявка."
+"Affiliate: Sign In Button","Партньор: Бутон за вход"
+"Affiliate: List of programs","Партньор: Списък на програмите"
+"Account Dashboard","Табло за управление на акаунта"
+Transactions,Транзакции
+Settings,Настройки
+"Affiliate Program","Партньорска програма"

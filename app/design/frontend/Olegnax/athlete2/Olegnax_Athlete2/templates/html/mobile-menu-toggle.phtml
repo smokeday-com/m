@@ -1,0 +1,19 @@
+<?php
+$text = $block->getConfig('athlete2_settings/mobile_header/mobile_header_menu_text');
+$text_fallback = __('Menu');
+$icon_option   =  'athlete2_design/appearance_icons_header/header_icon_';
+$icon_value = $block->getConfig($icon_option . 'menu');
+$icon = ($icon_value && $icon_value !== 'custom') ? $this->helper(Olegnax\Athlete2\Helper\Icons::class)->getIconHTML('menu', $icon_option) : ''; // $name, $icon_option = '', $classes = ''
+?>
+<div data-action="toggle-mobile-nav" class="action slide-out-menu--mobile">
+    <?php if($icon || $icon_value === 'custom'): ?>
+        <div class="icon d-inline-flex" aria-label="<?= $block->escapeHtmlAttr($text) ?: $block->escapeHtmlAttr($text_fallback) ?>">
+            <?php echo $icon ?>
+        </div>
+    <?php else: ?>
+        <div class="icon hamburger-menu-icon-small" aria-label="<?= $block->escapeHtmlAttr($text) ?: $block->escapeHtmlAttr($text_fallback) ?>">
+            <span></span><span></span><span></span>
+        </div>
+    <?php endif; ?>
+    <span><?= $block->escapeHtml($text) ?></span>
+</div>

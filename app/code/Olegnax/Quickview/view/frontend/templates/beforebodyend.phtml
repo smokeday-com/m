@@ -1,0 +1,49 @@
+<div id="ox_quickview_wrapper" style="display:none"><div class="ox_quickview-preloader" data-role="loader"></div><div class="ox-overlay-close-btn"><span></span></div></div>
+<?php $scriptString = <<<script
+require( [ "jquery", 'underscore', 'Magento_Ui/js/modal/modal' ], function ( $, _, modal ){
+    "use strict";
+
+    $( function () {
+        var documentPadding = 0;
+        var parentBody = window.parent.document.body;
+        $( '.ox_quickview-preloader', parentBody ).hide();
+        $( '#ox_quickview_wrapper iframe', parentBody ).animate( { 'opacity': 1 }, 100 );
+        $( '.reviews-actions a' ).attr( 'target', '_parent' );
+        $( '.product-social-links a' ).attr( 'target', '_parent' );
+        $( 'body' ).css( 'overflow', 'hidden' );
+    } );
+
+    $( 'a[href]:not([href="#"])' ).on( 'click', function ( e ) {
+        var _this = $( this ),
+            href = _this.attr( 'href' ),
+            _href = href.replace( /\#.*$/, '' );
+        if ( 0 >= _href.length || _this.data( 'disable-parent' ) || '_blank' === _this.attr( 'target' ) ) {
+            return;
+        }
+        e.preventDefault();
+        top.window.location.href = href;
+    } );
+
+    $( 'body' ).on( 'submit', 'form', function ( event ) {
+        event.stopPropagation();
+        event.preventDefault();
+        var parentBody = window.parent.document.body;
+        var _uenc = $( this ).find( 'input[name=uenc]' );
+        if ( _uenc.length ) {
+            _uenc.attr( 'value', ( function b64EncodeUnicode( str ) {
+                return btoa( encodeURIComponent( str ).replace( /%([0-9A-F]{2})/g,
+                    function toSolidBytes( match, p1 ) {
+                        return String.fromCharCode( '0x' + p1 );
+                    } ) ).replace( /\=$/, '' );
+            } )( window.parent.location.href ) );
+        }
+        $( this ).appendTo( parentBody ).trigger( 'submit' );
+    } )
+} );
+script;
+
+if (isset($secureRenderer)){
+    echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+} else{
+    echo /* @noEscape */ '<script>' .  $scriptString . '</script>';
+}

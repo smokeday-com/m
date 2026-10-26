@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Kami akan meninjau pendaftaran Anda dan memberi tahu Anda."
+"Your request to sign up to the affiliate program has been rejected.","Permintaan Anda untuk mendaftar ke program afiliasi telah ditolak."
+"Sign In to Affiliates","Masuk ke Afiliasi"
+"You have successfully signed up for an affiliate account.","Anda telah berhasil mendaftar untuk akun afiliasi."
+"Affiliate Dashboard","Dasbor Afiliasi"
+"Affiliate Account Settings","Pengaturan Akun Afiliasi"
+"Account information successfully updated.","Informasi akun berhasil diperbarui."
+"Transactions History","Sejarah Transaksi"
+"Promotion Materials","Materi Promosi"
+Statistics,Statistik
+"Affiliate Program Overview","Ikhtisar Program Afiliasi"
+Withdrawals,Penarikan
+"Withdrawal request has been submitted.","Permintaan penarikan telah diajukan."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Satu atau lebih <a href=""%1"">akun afiliasi</a> saat ini dalam status menunggu keputusan."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Satu atau lebih <a href=""%1"">permintaan penarikan</a> saat ini dalam status menunggu keputusan."
+"Pending Approval","Menunggu persetujuan"
+Approved,Disetujui
+"Not Approved","Tidak disetujui"
+Image,Gambar
+Text,Teks
+"Assign to first referred affiliate","Tetapkan ke afiliasi yang dirujuk pertama"
+"Assign to last referred affiliate","Tetapkan ke afiliasi yang dirujuk terakhir"
+Available,Tersedia
+Inactive,"Tidak aktif"
+Removed,Dihapus
+"- Disable these emails -","- Nonaktifkan email ini -"
+Click,Klik
+Impression,Kesan
+Lead,Memimpin
+Sale,Penjualan
+". ' (default)'",". &#39;(default)&#39;"
+"Percent of order amount","Persen dari jumlah pesanan"
+"Percent of cart amount","Persen dari jumlah keranjang"
+"Fixed amount","Jumlah tetap"
+"Pay per Sale","Bayar per Penjualan"
+"Pay per Lead","Bayar per Timbal"
+"Pay per Click","Bayar per Klik"
+"Pay per Impression","Bayar per Tayangan"
+Complete,Lengkap
+"In Hold","Dalam Tahan"
+Commission,Komisi
+Withdraw,Menarik
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Kredit Toko"
+Other,Lain
+Pending,"Menunggu keputusan"
+Accepted,Diterima
+Completed,Lengkap
+Denied,Ditolak
+"Number of Orders from reffered customers","Jumlah Pesanan dari pelanggan yang direferensikan"
+"Sales Amount from reffered customers","Jumlah Penjualan dari pelanggan yang direferensikan"
+is,"aku s"
+"is not",tidak
+"greater than","lebih besar dari"
+"less than","kurang dari"
+"equals or greater than","sama atau lebih besar dari"
+"equals or less than","sama atau kurang dari"
+"Conditions Combination","Kombinasi Kondisi"
+"Affiliate conditions","Ketentuan afiliasi"
+General,Umum
+"Customer Group","Grup Pelanggan"
+Store,Toko
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Jenis file tidak diperbolehkan (hanya file JPG, JPEG, PNG &amp; GIF yang diperbolehkan)"
+"Commission for order #%1 (%2)","Komisi untuk pesanan #%1 (%2)"
+"Refund for order #%1","Pengembalian dana untuk pesanan #%1"
+Withdrawal,Penarikan
+"Withdraw cannot exceed current balance.","Penarikan tidak dapat melebihi saldo saat ini."
+"Minimum withdrawal amount is %1.","Jumlah penarikan minimum adalah %1."
+"You already have a pending withdrawal request.","Anda sudah memiliki permintaan penarikan yang tertunda."
+"Affiliate Withdrawal","Penarikan Afiliasi"
+Back,Kembali
+Delete,Menghapus
+"Are you sure you want to proceed?","Anda yakin ingin melanjutkan?"
+"Save and Continue Edit","Simpan dan Lanjutkan Edit"
+Save,Menyimpan
+"Click on row to edit the coupon","Klik baris untuk mengedit kupon"
+"Referred Customers","Pelanggan yang Direkomendasikan"
+Actions,Tindakan
+"Add Customers","Tambahkan Pelanggan"
+Customers,Pelanggan
+Cancel,Membatalkan
+"Add Selected Customers","Tambahkan Pelanggan Terpilih"
+Remove,Menghapus
+ID,Indo
+Name,Nama
+Email,Surel
+View,Melihat
+Edit,Sunting
+"Delete item?","Hapus item?"
+Conditions,Kondisi
+"Affiliate conditions (affects only automatically updated group)","Ketentuan afiliasi (hanya memengaruhi grup yang diperbarui secara otomatis)"
+"Assigned Affiliates","Afiliasi yang Ditugaskan"
+"Add Affiliate","Tambahkan Afiliasi"
+Affiliates,Afiliasi
+"Add Selected","Tambahkan yang Dipilih"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Terapkan komisi hanya untuk item keranjang yang sesuai dengan kondisi berikut (biarkan kosong untuk semua item)."
+Accept,Menerima
+Reject,Menolak
+"Referring Website","Situs Perujuk"
+"Subscribe to email notifications","Berlangganan pemberitahuan email"
+"I accept the terms and conditions","Saya menerima syarat dan ketentuan yang berlaku"
+"Sign Up",Daftar
+"Referral Website","Situs Referensi"
+"Payment Method","Cara Pembayaran"
+"Payment Information","Informasi Pembayaran"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Harap tentukan info pembayaran pribadi: email PayPal atau detail pembayaran e-wallet apa pun."
+From,Dari
+To,Untuk
+Apply,Menerapkan
+Clicks,Klik
+Leads,Memimpin
+Orders,Pesanan
+Views,Tampilan
+Earned,Mendapat
+"My Account","Akun saya"
+"Commissions according to your affiliate group","Komisi sesuai dengan grup afiliasi Anda"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> dari jumlah pesanan dari pesanan pertama"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> dari jumlah pesanan dari pesanan kedua dan lebih"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> dari jumlah keranjang dari pesanan pertama"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> dari jumlah keranjang dari pesanan kedua dan lebih banyak"
+"<b>%1</b> per sale from first order","<b>%1</b> per penjualan dari pesanan pertama"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> per penjualan dari pesanan kedua atau lebih"
+"<b>%1</b> per unique click","<b>%1</b> per klik unik"
+"<b>%1</b> per lead","<b>%1</b> per lead"
+"<b>%1</b> per 1000 views","<b>%1</b> per 1000 tampilan"
+Banners,Spanduk
+Type,Tipe
+Size,Ukuran
+Link,Tautan
+"Get Code","Ambil kode"
+"Copy and paste this code into your website: ","Salin dan tempel kode ini ke situs web Anda:"
+"Referral Coupons","Kupon Referensi"
+Program,Program
+Coupon,Kupon
+Discount,Diskon
+"Personal Referral Link","Tautan Referensi Pribadi"
+"Enter any URL from this store in the form below to generate a new referral link:","Masukkan URL apa pun dari toko ini ke dalam formulir di bawah ini untuk menghasilkan tautan rujukan baru:"
+"Your unique referral link is:","Tautan rujukan unik Anda adalah:"
+"Referral Widget","Widget Referensi"
+"Widget Title:","Judul Widget:"
+"Related Products","Produk-produk terkait"
+Width:,Lebar:
+Height:,Tinggi:
+"Number of products:","Jumlah produk:"
+"Show Bestsellers","Tampilkan Buku Terlaris"
+"Show New Products","Tampilkan Produk Baru"
+Search,Cari
+"Search term","Istilah pencarian"
+"Show Product's names","Tunjukkan nama Produk"
+"Show Prices","Tampilkan Harga"
+"Place this code wherever you want the widget to appear on your page.","Letakkan kode ini di mana pun Anda ingin widget muncul di halaman Anda."
+"Current balance: <b>%1</b>","Saldo saat ini: <b>%1</b>"
+"On hold: %1","Ditahan: %1"
+"Lifetime: %1","Seumur hidup: %1"
+"Paid: %1","Dibayar: %1"
+Date,Tanggal
+Balance,Keseimbangan
+Amount,Jumlah
+Details,Detail
+"On hold to %1","Ditahan untuk %1"
+"There have been no transactions yet.","Belum ada transaksi."
+"Request withdrawal","Minta penarikan"
+"Minimum balance to request withdrawal is %1","Saldo minimum untuk meminta penarikan adalah %1"
+Fee,Biaya
+Status,Status
+"Pending approval","Menunggu persetujuan"
+"There have been no withdrawals yet.","Belum ada penarikan."
+"Your account is assigned to the <span>%1</span> affiliate group","Akun Anda ditugaskan ke grup afiliasi <span>%1</span>"
+Commissions,Komisi
+"Our Programs","Program Kami"
+"Our Program","Program Kami"
+"%1  - Minimum balance required for payout.","%1 - Saldo minimum yang dibutuhkan untuk pembayaran."
+"Affiliate Group","Grup Afiliasi"
+Description,Deskripsi
+"Sign In",Masuk
+"New Affiliate Account","Akun Afiliasi Baru"
+"Account Information","Informasi Akun"
+"%name,","%nama,"
+"Your affiliate account at %store_name has been approved.","Akun afiliasi Anda di% store_name telah disetujui."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Klik di <a href=""%login_url"">sini</a> untuk masuk ke akun Anda."
+"Your account balance has been updated at %store_name.","Saldo akun Anda telah diperbarui di% store_name."
+Balance:,Keseimbangan:
+"Welcome to %store_name affiliate program!","Selamat datang di program afiliasi% store_name!"
+Email:,Surel:
+"Referring Website:","Situs Perujuk:"
+"A customer referred by you has just placed an order at %store_name.","Pelanggan yang Anda referensikan baru saja melakukan pemesanan di% store_name."
+"Thus, it was credited to your affiliate account.","Jadi, itu dikreditkan ke akun afiliasi Anda."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Ketika pesanan selesai, kami akan mentransfer komisi ke saldo akun Anda di sistem kami dan kemudian Anda dapat menarik uang kapan pun Anda mau."
+"Transaction Amount:","Jumlah transaksi:"
+"Current Balance:","Saldo saat ini:"
+"New Withdrawal Request","Permintaan Penarikan Baru"
+Information,Informasi
+"Please log in to the admin panel to manage this request.","Harap masuk ke panel admin untuk mengelola permintaan ini."
+"Affiliate: Sign In Button","Afiliasi: Tombol Masuk"
+"Affiliate: List of programs","Afiliasi: Daftar program"
+"Account Dashboard","Dasbor Akun"
+Transactions,Transaksi
+Settings,Pengaturan
+"Affiliate Program","Program Afiliasi"

@@ -1,0 +1,9 @@
+<?php
+/** \Magento\Checkout\Block\Cart\Sidebar $bloock */
+
+$scriptString =  'window.checkout = ' . $block->getSerializedConfig() . ';';
+if (isset($secureRenderer)){
+    echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+} else{
+    echo /* @noEscape */ '<script>' .  $scriptString . '</script>';
+}

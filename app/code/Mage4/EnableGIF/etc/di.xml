@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Catalog\Model\View\Asset\Image" type="Mage4\EnableGIF\Model\View\Asset\Image"/>
+    <preference for="Magento\ProductVideo\Model\Product\Attribute\Media\ExternalVideoEntryConverter"
+                type="Mage4\EnableGIF\Model\Product\Attribute\Media\FixExternalVideoEntryConverter"/>
+</config>

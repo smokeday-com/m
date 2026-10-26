@@ -1,0 +1,24 @@
+<?php
+$helper = $this->helper(Olegnax\Athlete2\Helper\Icons::class);
+if('main' != $helper->getConfig('athlete2_settings/header/wishlist_position')){
+	return;
+}
+$hideText   =  $helper->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_hide_text' );
+$text = $helper->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_text_wishlist' ) ?: __('Wishlist');
+$icon_option   =  'athlete2_settings/mobile_bottom_nav/bottom_nav_icon_';
+$icon = $helper->getIconHTML('wishlist', $icon_option); // $name, $icon_option = '', $classes = ''
+?>
+<div class="ox-bnav__item ox-bnav__wishlist">
+	<a class="js-item-wishlist-action action" data-bind="scope: 'wishlist'" aria-label="Wishlist">
+		<span class="icon">
+			<?= $icon; ?>
+			<!-- ko if: wishlist().counter -->
+			<span class="header__item-badge" data-bind="text: wishlist().counter.replace(/[^0-9]*/igm, '')"></span>
+			<!-- /ko -->		
+		</span>
+		<span class="label <?php if($hideText){ echo "visually-hidden"; } ?>">
+			<?= $block->escapeHtml($text) ?>
+		</span>
+
+    </a>
+</div>

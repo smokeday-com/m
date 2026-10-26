@@ -1,0 +1,64 @@
+<?php
+$subcategories = $block->getSubcategories();
+if(is_object($subcategories) && count($subcategories)):
+    $widget_id    = $block->getWidgetId();
+    $showCount = $block->getShowProductCount();
+    $showName = $block->getShowCategoryName();
+    $nameTag = $block->getCategoryNameTag() ?: 'h3';
+    $showImage = $block->getShowCategoryImage();
+    $classesWrapper = '';
+    $classes = 'ox-cats owl-carousel widget-product-grid';
+    $classes_item = '';
+    if(!$block->getColumnWidth()){
+        $classes .= ' ox-cats-grid';
+    }
+    /* Items Styles */
+    if($block->getStyle() == '3' || $block->getStyle() == '4'){
+        $classes_item .= ' ox-cat--rounded';
+    }
+    if($block->getStyle() == '5'){
+        $classes_item .= ' ox-cat--h ox-cat--h-left';
+    }
+    if($block->getStyle() == '6'){
+        $classes_item .= 'ox-cat--h ox-cat--h-right';
+    }
+    /* Slider Navigation */
+    // $classes .=	$block->getDots() ? ' owl-dots--show' : '';
+    $classesWrapper .=	' owl-dots--align-' . $block->getDotsAlign();
+    if($block->getNavAlways()){
+        $classes .= ' ox-nav__always';
+    }
+?>
+<div id="<?php echo $escaper->escapeHtmlAttr($widget_id) ?>" 
+class="block widget ox-cats-widget <?php echo $escaper->escapeHtmlAttr($widget_id) ?> <?php echo $escaper->escapeHtmlAttr($classesWrapper); ?>">
+    <div class="<?php echo $escaper->escapeHtmlAttr($classes); ?>" data-mage-init='{"OXowlCarousel":<?= $block->getCarouselOptions() ?>}'>
+        <?php foreach ($subcategories as $subcategory) : ?>
+            <?php $name = $subcategory->getName(); ?>
+            <div class="ox-cat">
+                <div class="ox-cat__inner">
+                    <?php if($showImage &&  $imageUrl = $block->getImage($subcategory)): ?>
+                    <div class="ox-cat__img-holder">
+                        <img src="<?php echo $block->escapeUrl($imageUrl) ?>" alt="<?php echo $block->escapeHtmlAttr($name) ?>" <?php echo $block->getImageSize(); ?> class="ox-cat__img"/>
+                    </div>
+                    <?php endif; ?>
+                    <?php if($showName || $showCount): ?>
+                    <div class="ox-cat__name-wrap">
+                        <?php if($showName): ?>
+                        <<?php echo $nameTag ?> class="ox-cat__name"><?php echo $block->escapeHtml($name) ?></<?php echo $nameTag ?>>
+                        <?php endif; ?>
+                        <?php if($showCount): ?>
+                        <span class="ox-cat__count"><?php echo (int)$subcategory->getProductCount(); ?></span>
+                        <?php endif; ?>
+                    </div>
+                    <?php endif; ?>
+                    <a href="<?php echo $block->escapeUrl($subcategory->getUrl()) ?>" class="ox-cat__link overlay-link" title="<?php echo $block->escapeHtmlAttr($name) ?>"></a>
+                </div>
+            </div>
+        <?php endforeach;  ?>
+    </div>
+</div>
+<?php 
+$styles = '#' . $widget_id . ' .owl-item .ox-cat{max-width:100%!important;flex:0 0 100%!important;}';
+echo $block->renderStyles('#' . $widget_id, $styles);
+?>
+<?php endif; ?>

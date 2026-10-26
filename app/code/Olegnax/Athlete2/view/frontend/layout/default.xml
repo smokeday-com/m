@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="Magento\Framework\View\Element\Template" name="ox_athlete2_ajax_add_to_cart"
+                   template="Olegnax_Athlete2::ajax-add-to-cart.phtml"/>
+        </referenceBlock>
+        <referenceContainer name="before.body.end">
+            <block ifconfig="athlete2_settings/general/lazyload_video" class="Olegnax\Core\Block\SimpleTemplate" name="ox_video_lazy" template="Olegnax_Athlete2::lazy_video_min.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

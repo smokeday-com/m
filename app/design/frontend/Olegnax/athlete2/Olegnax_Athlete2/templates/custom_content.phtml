@@ -1,0 +1,24 @@
+<?php 
+$name = $block->getData("oxname");
+
+if(!$name){
+    return;
+}
+
+$block_id = $block->getData("oxblock_id");
+$path = $block->getData("oxpath");
+
+if($path || $block_id):
+    $at_settings = $block->getConfig( $path );
+
+    $content_type = false;
+    if(is_array($at_settings) && array_key_exists('content_' . $name . '_type', $at_settings)){
+        $content_type = $at_settings['content_' . $name . '_type'];
+    }
+
+    if($block_id || $content_type && $content_type == 'custom_block') {
+        echo $this->getLayout()->createBlock( 'Magento\Cms\Block\Block' )->setBlockId( $block_id ?: $at_settings[ 'content_' . $name . '_static' ] )->toHtml();
+    } elseif( $content_type && $content_type == 'textfield' ){
+        echo $block->getBlockTemplateProcessor( $at_settings[ 'content_' . $name . '_custom' ] );
+    }
+endif;

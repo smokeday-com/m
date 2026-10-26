@@ -1,0 +1,20 @@
+
+._block-content-loading .fotorama-item {
+    position: absolute !important;
+    z-index: -1;
+    top: 0;
+    width: 100%;
+}
+.ox_quickview-catalog_product-view{
+    ._block-content-loading .fotorama-item {
+        position: static !important;
+        z-index: unset;
+        width: auto;
+    }
+}
+.gallery-placeholder:not(._block-content-loading) {
+    // Hide placeholder when gallery is loaded
+    .gallery-placeholder__image {
+        display: none;
+    }
+}

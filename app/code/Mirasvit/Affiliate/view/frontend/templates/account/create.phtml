@@ -1,0 +1,88 @@
+<?php
+declare(strict_types=1);
+
+use Mirasvit\Affiliate\Block\Account\Create;
+
+/**
+ * @var Create $block
+ */
+
+$formData = $block->getFormData();
+$customer = $block->getCustomer();
+
+if (!$customer && $block->getNameInLayout() == 'account.create.customer') {
+    return;
+}
+?>
+<?php if ($customer): ?>
+<form action="<?= $block->escapeUrl($block->getUrl('*/*/createPost')) ?>" method="post" autocomplete="off"
+      id="form-affiliate-create">
+    <?= $block->getBlockHtml('formkey') ?>
+    <?php endif ?>
+
+    <div class="affiliate__account-create">
+        <fieldset class="fieldset information">
+            <input type="hidden" name="affiliate" value="1"/>
+
+            <?php if ($customer): ?>
+                <div class="field">
+                    <label class="label" for="name"><span><?= $block->escapeHtml(__('Name')) ?></span></label>
+                    <div class="control">
+                        <?= $block->escapeHtml($customer->getName()) ?>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+                    <div class="control">
+                        <?= $block->escapeHtml($customer->getEmail()) ?>
+                    </div>
+                </div>
+            <?php endif ?>
+
+            <?php echo $block->getChildHtml($block->getNameInLayout() . '.additional_data'); ?>
+
+            <div class="field">
+                <input type="checkbox" name="is_subscribed"
+                       title="<?= $block->escapeHtmlAttr(__('Subscribe to email notifications')) ?>"
+                       value="1"
+                       id="is_subscribed" class="checkbox" checked="checked">
+                <label for="is_subscribed"
+                       class="label"><span><?= $block->escapeHtmlAttr(__('Subscribe to email notifications')) ?></span></label>
+            </div>
+
+        </fieldset>
+
+        <fieldset class="fieldset agreement">
+            <?php if ($block->getAgreementText()): ?>
+                <div class="agreement-text"><?= /* @noEscape */
+                    $block->getAgreementText() ?></div>
+
+                <div class="field">
+                    <input type="checkbox" name="accept"
+                           title="<?= $block->escapeHtmlAttr(__('I accept the terms and conditions')) ?>"
+                           value="1"
+                           id="accept" class="checkbox" data-validate="{required:true}">
+                    <label for="accept"
+                           class="label"><span><?= $block->escapeHtml(__('I accept the terms and conditions')) ?></span></label>
+                </div>
+            <?php endif ?>
+        </fieldset>
+
+        <div class="clearfix"></div>
+        <?php if ($customer): ?>
+    </div>
+    <div class="buttons-set">
+        <button type="submit" class="action primary"><?= $block->escapeHtml(__('Sign Up')) ?></button>
+    </div>
+</form>
+    <script>
+        require([
+            "jquery",
+            "mage/mage"
+        ], function ($) {
+            var dataForm = $('#form-affiliate-create');
+            dataForm.mage('validation', {});
+        });
+    </script>
+<?php endif ?>

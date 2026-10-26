@@ -1,0 +1,61 @@
+@mst-affiliate__withdraw-request-form__color: #c2c2c2;
+
+.affiliate__withdraw-request {
+    .lib-clearfix();
+
+    .box.balance {
+        float: left;
+        margin-top: -1rem;
+        width: 30%;
+    }
+
+    .box.request {
+        float: left;
+        text-align: right;
+        width: 70%;
+
+        .affiliate__withdraw-request-form {
+            margin-top: -3px;
+        }
+    }
+}
+
+.affiliate__withdraw-request-form {
+    display: inline-table;
+    max-width: 40rem;
+    width: 100%;
+
+    .field {
+        margin: 0;
+
+        .control {
+            display: block;
+            text-decoration: none;
+
+            &:before {
+                color: @mst-affiliate__withdraw-request-form__color;
+                content: '\f09d';
+                font: normal normal normal 16px/32px FontAwesome;
+                margin: 0 0 0 8px;
+                position: absolute;
+            }
+
+            .input-text {
+                padding-left: 4rem;
+            }
+        }
+    }
+
+    .actions {
+        display: table-cell;
+        vertical-align: top;
+        width: 1%;
+
+        button.action {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            margin-left: -3px;
+            white-space: nowrap;
+        }
+    }
+}

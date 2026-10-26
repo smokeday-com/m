@@ -1,0 +1,38 @@
+<?php
+/** @var $block \Route\Route\Block\Adminhtml\Notification */
+?>
+<script type="text/javascript">// <![CDATA[
+    require([
+            'jquery',
+            'Magento_Ui/js/modal/alert',
+            'mage/cookies'
+        ],
+
+        function($, alert) {
+
+            if (!$.mage.cookies.get('route_installed')) {
+
+                let intervalId = setInterval(function () {
+                    let seconds = $("#route_counter").text();
+                    if(seconds > 0) {
+                        $("#route_counter").text(seconds - 1);
+                    }else{
+                        let expireTime =  new Date(new Date().getTime() + 365 * 1000);
+                        $.mage.cookies.set('route_installed', 1, {expires: expireTime});
+                        clearInterval(intervalId);
+                        window.location = '<?= $block->getRoutePortalUrl() ?>';
+                    }
+                },1000);
+
+                alert({
+                    title:"Route Account Activation",
+                    content: "<p style=\"height: 100px\"><?= $block->getMessage() ?><span id=\"route_counter\">5</span></p>",
+                    buttons: []
+                })
+
+            }
+
+        }
+    );
+    // ]]></script>
+</div>

@@ -1,0 +1,17 @@
+<?php
+$text = $block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_text_home' ) ?: __('Home');
+$icon_option   =  'athlete2_settings/mobile_bottom_nav/bottom_nav_icon_';
+$icon = $this->helper(Olegnax\Athlete2\Helper\Icons::class)->getIconHTML('home', $icon_option); // $name, $icon_option = '', $classes = ''
+$hideText   =  $block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_hide_text' );
+$isHome = $this->helper(Olegnax\Athlete2\Helper\Helper::class)->isHomePage();
+?>
+<div class="ox-bnav__item ox-bnav__home">
+	<a href="<?php echo $block->getBaseUrl() ?>" class="action <?php if($isHome){ echo 'nolink'; } ?>">
+		<span class="icon">
+			<?= $icon; ?>
+		</span>
+		<span class="label <?php if($hideText){ echo "visually-hidden"; } ?>">
+			<?= $block->escapeHtml($text) ?>
+		</span>
+	</a>
+</div>

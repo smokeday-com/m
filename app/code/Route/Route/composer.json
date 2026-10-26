@@ -1,0 +1,35 @@
+{
+    "name": "route/route-m2",
+    "description": "Route allows shoppers to insure their orders with one-click during checkout, adding a layer of 3rd party trust while improving the customer shopping experience",
+    "require": {
+        "php": "~8.0|~8.1|~7.4.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
+    },
+    "type": "magento2-module",
+    "version": "1.3.1",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "authors": [
+        {
+            "name": "Tech Route",
+            "email": "tech@route.com",
+            "homepage": "https://route.com/",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Route\\Route\\": ""
+        }
+    }
+}

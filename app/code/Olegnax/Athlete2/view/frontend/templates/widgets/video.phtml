@@ -1,0 +1,102 @@
+<?php 
+$class = 'ox-video';
+$stretch = $block->getStretch();
+$blockId = $block->getBlockId();
+if($stretch){
+        $class .= ' ox-video-stretch';
+}
+$preload = $block->getAutoplayVideo() ? 'auto' : 'none';
+$video =  $block->getVideo($block->getFiles(), [
+        'video_attrs' => [
+                'width' => $block->getWidth() ?: '100%',
+                'height' => $block->getHeight() ?: '100%',
+                'controls' => (bool)$block->getShowControls(),
+                'poster' => $block->escapeUrl($block->getPosterUrl()),
+                'loop' => true,
+                'autoplay' => (bool)$block->getAutoplayVideo(),
+                'muted' => (bool)$block->getAutoplayVideo() || !(bool)$block->getShowControls(),
+                'preload' => $preload,
+                'class' => $class,
+                'lazy' => (bool)$block->getLazyVideo(),
+        ],
+]); ?>
+
+<?php
+        $styles = '';
+        $wrapper_styles = 'max-width:' . ($block->getWidth() ? (int)$block->getWidth() . 'px' : '100%') . ';';
+        if($stretch){
+                $wrapper_styles .= 'display:flex; width:100%; height:100%;';
+                $aspect_ratio = '1';
+                if($block->getWidth() && $block->getHeight()){
+                        $aspect_ratio = $block->getWidth() / $block->getHeight();
+                }
+                $styles .= '#' . $blockId . '.ox-video-wrapper video{
+                        object-fit: cover;
+                        height: 100%;
+                        min-width: 100%;
+                        aspect-ratio: ' . $aspect_ratio . ';
+                }';
+        }
+
+        if($block->getHeight()){
+                $wrapper_styles = 'max-height:' . (int)$block->getHeight() . 'px;';
+        }
+        if($wrapper_styles){
+                $styles .= '#' . $blockId . '.ox-video-wrapper{' . $wrapper_styles . '}';
+        }
+?>
+<?php if($block->getShowPlayButton()): ?>
+        <div id="<?php echo $block->escapeHtmlAttr($blockId) ?>" class="ox-video-wrapper">
+                <?php echo $video ?>
+                <?php 
+                $btnStyles =  $btnClasses = ''; 
+                if(!empty($block->getButtonColor())){
+                $btnStyles .= '--a2-btn-color: ' . $block->getButtonColor() . ';';
+                }
+                if(!empty($block->getButtonBg())){
+                        $btnStyles .= '--a2-btn-bg: ' . $block->getButtonBg() . ';';
+                }
+                if(!empty($block->getButtonColorHover())){
+                        $btnStyles .= '--a2-btn-color-hover: ' . $block->getButtonColorHover() . ';';
+                }
+                if(!empty($block->getButtonBgHover())){
+                        $btnStyles .= '--a2-btn-bg-hover: ' . $block->getButtonBgHover() . ';';
+                }
+
+                if($block->getData('button_position_vertical') == 'top'){
+                        $btnStyles .= ' position:absolute; right:0; top:0;';
+                }elseif($block->getData('button_position_vertical') == 'bottom'){
+                        $btnStyles .= ' position:absolute; right:0; bottom:0;';
+                }
+                if($btnStyles){ 
+                        $styles .= '#' . $blockId . '.ox-video-wrapper .ox-video-btn{' . $btnStyles . '}';
+                }
+                ?>
+                <button class="ox-video-btn js-video-pause-btn <?php echo $btnClasses ?>">
+                        <div class="play">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="11px" viewBox="0 0 10 11" xml:space="preserve">
+                                        <polygon points="2,0 1,0 1,11 2,11 9,6 9,5"></polygon>
+                                </svg>
+                        </div>
+                        <div class="pause">
+                                <svg viewBox="0 0 10 11" height="11px" width="10px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                        <rect x="0" y="0" width="3" height="11"></rect>
+                                        <rect x="7" y="0" width="3" height="11"></rect>
+                                </svg>
+                        </div>
+                </button>
+        </div>
+        <script type="text/x-magento-init">
+        {
+                ".js-video-pause-btn": {
+                        "js/ox-toggle-video-play": {}
+                }
+        }
+        </script>
+<?php else: ?>
+        <?php echo $video ?>
+<?php endif; ?>
+
+<?php if($styles){
+        echo $block->renderStyles($styles);
+}

@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Zkontrolujeme vaši registraci a upozorníme vás."
+"Your request to sign up to the affiliate program has been rejected.","Vaše žádost o registraci do přidruženého programu byla zamítnuta."
+"Sign In to Affiliates","Přihlaste se k přidruženým společnostem"
+"You have successfully signed up for an affiliate account.","Úspěšně jste se zaregistrovali k přidruženému účtu."
+"Affiliate Dashboard","Dashboard affiliate partnerů"
+"Affiliate Account Settings","Nastavení přidruženého účtu"
+"Account information successfully updated.","Informace o účtu byly úspěšně aktualizovány."
+"Transactions History","Historie transakcí"
+"Promotion Materials","Propagační materiály"
+Statistics,Statistika
+"Affiliate Program Overview","Přehled přidruženého programu"
+Withdrawals,Výběry
+"Withdrawal request has been submitted.","Žádost o výběr byla odeslána."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Jeden nebo více <a href=""%1"">přidružených účtů</a> je aktuálně ve stavu nevyřízeno."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Jedna nebo více <a href=""%1"">žádostí o výběr</a> je aktuálně ve stavu nevyřízeno."
+"Pending Approval","Čeká na schválení"
+Approved,Schválený
+"Not Approved",Neschváleno
+Image,Obraz
+Text,Text
+"Assign to first referred affiliate","Přiřadit prvnímu přidruženému podniku"
+"Assign to last referred affiliate","Přiřadit poslední přidružené společnosti"
+Available,"K dispozici"
+Inactive,Neaktivní
+Removed,Odstraněno
+"- Disable these emails -","- Zakázat tyto e-maily -"
+Click,Klikněte
+Impression,Dojem
+Lead,Vést
+Sale,Prodej
+". ' (default)'",". &#39;(výchozí)&#39;"
+"Percent of order amount","Procento částky objednávky"
+"Percent of cart amount","Procento z částky košíku"
+"Fixed amount","Pevná částka"
+"Pay per Sale","Platba za prodej"
+"Pay per Lead","Platba za zájemce"
+"Pay per Click","Platba za kliknutí"
+"Pay per Impression","Platba za zobrazení"
+Complete,Kompletní
+"In Hold",Pozastaveno
+Commission,Komise
+Withdraw,Ustoupit
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Kredit do obchodu"
+Other,Jiný
+Pending,Čekající
+Accepted,Přijato
+Completed,Dokončeno
+Denied,Odepřeno
+"Number of Orders from reffered customers","Počet objednávek od doporučených zákazníků"
+"Sales Amount from reffered customers","Částka prodeje od doporučených zákazníků"
+is,je
+"is not",není
+"greater than","větší než"
+"less than","méně než"
+"equals or greater than","rovná nebo větší než"
+"equals or less than","se rovná nebo je menší než"
+"Conditions Combination","Podmínky Kombinace"
+"Affiliate conditions","Podmínky přidružení"
+General,Všeobecné
+"Customer Group","Skupina zákazníků"
+Store,Obchod
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Typ souboru není povolen (povoleny jsou pouze soubory JPG, JPEG, PNG a GIF)"
+"Commission for order #%1 (%2)","Provize za objednávku #%1 (%2)"
+"Refund for order #%1","Vrácení peněz za objednávku #%1"
+Withdrawal,Vybrání
+"Withdraw cannot exceed current balance.","Výběr nesmí překročit aktuální zůstatek."
+"Minimum withdrawal amount is %1.","Minimální částka pro výběr je %1."
+"You already have a pending withdrawal request.","Již máte nevyřízenou žádost o výběr."
+"Affiliate Withdrawal","Výběr affiliate partnerů"
+Back,Zadní
+Delete,Vymazat
+"Are you sure you want to proceed?","Opravdu chcete pokračovat?"
+"Save and Continue Edit","Uložit a pokračovat v úpravách"
+Save,Uložit
+"Click on row to edit the coupon","Kliknutím na řádek kupón upravíte"
+"Referred Customers","Doporučení zákazníci"
+Actions,Akce
+"Add Customers","Přidat zákazníky"
+Customers,Zákazníci
+Cancel,Zrušení
+"Add Selected Customers","Přidat vybrané zákazníky"
+Remove,Odstranit
+ID,ID
+Name,Název
+Email,E-mailem
+View,Pohled
+Edit,Upravit
+"Delete item?","Smazat položku?"
+Conditions,Podmínky
+"Affiliate conditions (affects only automatically updated group)","Podmínky affiliate partnera (týká se pouze automaticky aktualizované skupiny)"
+"Assigned Affiliates","Přiřazené přidružené společnosti"
+"Add Affiliate","Přidat affiliate partnera"
+Affiliates,"Přidružené společnosti"
+"Add Selected","Přidat vybrané"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Uplatněte provizi pouze za položky v košíku, které splňují následující podmínky (u všech položek nechte prázdné)."
+Accept,Akceptovat
+Reject,Odmítnout
+"Referring Website","Odkazující web"
+"Subscribe to email notifications","Přihlaste se k odběru e-mailových oznámení"
+"I accept the terms and conditions","Souhlasím s pravidly a podmínkami"
+"Sign Up","Přihlásit se"
+"Referral Website","Doporučující web"
+"Payment Method","Způsob platby"
+"Payment Information","Informace o platbě"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Uveďte prosím osobní platební údaje: e-mail PayPal nebo jakékoli platební údaje prostřednictvím elektronické peněženky."
+From,Z
+To,Na
+Apply,Aplikovat
+Clicks,Kliknutí
+Leads,Vede
+Orders,Objednávky
+Views,Pohledy
+Earned,Vydělané
+"My Account","Můj účet"
+"Commissions according to your affiliate group","Provize podle vaší přidružené skupiny"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> z částky objednávky z první objednávky"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> z částky objednávky z druhé a více objednávek"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> z částky košíku z první objednávky"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> z částky košíku u druhé a více objednávek"
+"<b>%1</b> per sale from first order","<b>%1</b> za prodej od první objednávky"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> za prodej od druhé a více objednávek"
+"<b>%1</b> per unique click","<b>%1</b> za jedinečné kliknutí"
+"<b>%1</b> per lead","<b>%1</b> na jednoho zájemce"
+"<b>%1</b> per 1000 views","<b>%1</b> na 1 000 zhlédnutí"
+Banners,Bannery
+Type,Typ
+Size,Velikost
+Link,Odkaz
+"Get Code","Získat kód"
+"Copy and paste this code into your website: ","Zkopírujte a vložte tento kód na svůj web:"
+"Referral Coupons","Kupóny za doporučení"
+Program,Program
+Coupon,Kupón
+Discount,Sleva
+"Personal Referral Link","Odkaz pro osobní doporučení"
+"Enter any URL from this store in the form below to generate a new referral link:","Zadejte libovolnou adresu URL z tohoto obchodu do níže uvedeného formuláře a vygenerujte nový odkaz na doporučení:"
+"Your unique referral link is:","Váš jedinečný odkaz je:"
+"Referral Widget","Widget doporučení"
+"Widget Title:","Název widgetu:"
+"Related Products","Související produkty"
+Width:,Šířka:
+Height:,Výška:
+"Number of products:","Počet produktů:"
+"Show Bestsellers","Zobrazit nejprodávanější produkty"
+"Show New Products","Zobrazit nové produkty"
+Search,Vyhledávání
+"Search term","Hledaný výraz"
+"Show Product's names","Zobrazit názvy produktů"
+"Show Prices","Zobrazit ceny"
+"Place this code wherever you want the widget to appear on your page.","Umístěte tento kód kamkoli chcete, aby se widget na vaší stránce objevil."
+"Current balance: <b>%1</b>","Aktuální zůstatek: <b>%1</b>"
+"On hold: %1","Pozastaveno: %1"
+"Lifetime: %1","Životnost: %1"
+"Paid: %1","Zaplaceno: %1"
+Date,Datum
+Balance,Zůstatek
+Amount,Množství
+Details,Detaily
+"On hold to %1","Pozastaveno na %1"
+"There have been no transactions yet.","Zatím nebyly provedeny žádné transakce."
+"Request withdrawal","Požádat o výběr"
+"Minimum balance to request withdrawal is %1","Minimální zůstatek pro vyžádání výběru je %1"
+Fee,Poplatek
+Status,Postavení
+"Pending approval","Čeká na schválení"
+"There have been no withdrawals yet.","Zatím nebyly provedeny žádné výběry."
+"Your account is assigned to the <span>%1</span> affiliate group","Váš účet je přiřazen k přidružené skupině <span>%1</span>"
+Commissions,Provize
+"Our Programs","Naše programy"
+"Our Program","Náš program"
+"%1  - Minimum balance required for payout.","%1 - Minimální zůstatek požadovaný pro výplatu."
+"Affiliate Group","Affiliate Group"
+Description,Popis
+"Sign In","Přihlásit se"
+"New Affiliate Account","Nový přidružený účet"
+"Account Information","Informace o účtu"
+"%name,","%název,"
+"Your affiliate account at %store_name has been approved.","Váš přidružený účet na adrese% store_name byl schválen."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Kliknutím <a href=""%login_url"">sem</a> se přihlásíte ke svému účtu."
+"Your account balance has been updated at %store_name.","Zůstatek na vašem účtu byl aktualizován na% store_name."
+Balance:,Zůstatek:
+"Welcome to %store_name affiliate program!","Vítejte v přidruženém programu% store_name!"
+Email:,E-mailem:
+"Referring Website:","Odkazující web:"
+"A customer referred by you has just placed an order at %store_name.","Zákazník, kterého jste uvedli, právě zadal objednávku na% store_name."
+"Thus, it was credited to your affiliate account.","Byla tedy připsána na váš přidružený účet."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Po dokončení objednávky převedeme provizi na zůstatek vašeho účtu v našem systému a poté můžete peníze kdykoli vybrat."
+"Transaction Amount:","Částka transakce:"
+"Current Balance:","Aktuální zůstatek:"
+"New Withdrawal Request","Nová žádost o výběr"
+Information,Informace
+"Please log in to the admin panel to manage this request.","Chcete-li tento požadavek spravovat, přihlaste se do panelu správce."
+"Affiliate: Sign In Button","Přidružený: Tlačítko přihlášení"
+"Affiliate: List of programs","Affiliate: Seznam programů"
+"Account Dashboard","Panel účtu"
+Transactions,Transakce
+Settings,Nastavení
+"Affiliate Program","Partnerský program"

@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Vă vom examina înregistrarea și vă vom notifica."
+"Your request to sign up to the affiliate program has been rejected.","Solicitarea dvs. de a vă înscrie la programul de afiliere a fost respinsă."
+"Sign In to Affiliates","Conectați-vă la afiliați"
+"You have successfully signed up for an affiliate account.","V-ați înscris cu succes pentru un cont afiliat."
+"Affiliate Dashboard","Tabloul de bord afiliat"
+"Affiliate Account Settings","Setări cont afiliat"
+"Account information successfully updated.","Informațiile despre cont au fost actualizate cu succes."
+"Transactions History","Istoricul tranzacțiilor"
+"Promotion Materials","Materiale de promovare"
+Statistics,Statistici
+"Affiliate Program Overview","Prezentare generală a programului de afiliere"
+Withdrawals,Retrageri
+"Withdrawal request has been submitted.","Cererea de retragere a fost trimisă."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Unul sau mai multe <a href=""%1"">conturi afiliate</a> sunt în prezent în stare de așteptare."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Una sau mai multe <a href=""%1"">solicitări de retragere</a> sunt în prezent în stare de așteptare."
+"Pending Approval","Aprobare in asteptare"
+Approved,Aprobat
+"Not Approved",Neaprobat
+Image,Imagine
+Text,Text
+"Assign to first referred affiliate","Alocați primului afiliat menționat"
+"Assign to last referred affiliate","Alocați ultimului afiliat menționat"
+Available,Disponibil
+Inactive,Inactiv
+Removed,Îndepărtat
+"- Disable these emails -","- Dezactivați aceste e-mailuri -"
+Click,Clic
+Impression,Impresie
+Lead,Conduce
+Sale,Vânzare
+". ' (default)'",". &#39; (Mod implicit)&#39;"
+"Percent of order amount","Procentul din suma comenzii"
+"Percent of cart amount","Procentul din suma coșului"
+"Fixed amount","Cantitate fixă"
+"Pay per Sale","Plata pe vânzare"
+"Pay per Lead","Plătiți pe plumb"
+"Pay per Click","Plata pe click"
+"Pay per Impression","Plătiți pe afișare"
+Complete,Complet
+"In Hold","In asteptare"
+Commission,Comision
+Withdraw,Retrage
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Credit de magazin"
+Other,Alte
+Pending,"In asteptarea"
+Accepted,Admis
+Completed,Efectuat
+Denied,Negat
+"Number of Orders from reffered customers","Numărul de comenzi de la clienți referiți"
+"Sales Amount from reffered customers","Suma de vânzări de la clienții referiți"
+is,este
+"is not","nu este"
+"greater than","mai mare ca"
+"less than","mai puțin decât"
+"equals or greater than","egal sau mai mare de"
+"equals or less than","egal sau mai mic de"
+"Conditions Combination","Combinație de condiții"
+"Affiliate conditions","Condiții de afiliere"
+General,General
+"Customer Group","Grupul de clienți"
+Store,Magazin
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Tipul de fișier nu este permis (sunt permise doar fișierele JPG, JPEG, PNG și GIF)"
+"Commission for order #%1 (%2)","Comision pentru comanda #%1 (%2)"
+"Refund for order #%1","Rambursare pentru comanda #%1"
+Withdrawal,Retragere
+"Withdraw cannot exceed current balance.","Retragerea nu poate depăși soldul curent."
+"Minimum withdrawal amount is %1.","Suma minimă de retragere este de %1."
+"You already have a pending withdrawal request.","Aveți deja o solicitare de retragere în așteptare."
+"Affiliate Withdrawal","Retragerea afiliatului"
+Back,Înapoi
+Delete,Șterge
+"Are you sure you want to proceed?","Sigur doriți să continuați?"
+"Save and Continue Edit","Salvați și continuați editarea"
+Save,Salvați
+"Click on row to edit the coupon","Faceți clic pe rând pentru a edita cuponul"
+"Referred Customers","Clienți recomandați"
+Actions,Acțiuni
+"Add Customers","Adăugați clienți"
+Customers,Clienți
+Cancel,Anulare
+"Add Selected Customers","Adăugați clienți selectați"
+Remove,Elimina
+ID,ID
+Name,Nume
+Email,E-mail
+View,Vedere
+Edit,"Editați | ×"
+"Delete item?","Sterge articolul?"
+Conditions,Condiții
+"Affiliate conditions (affects only automatically updated group)","Condiții de afiliere (afectează numai grupul actualizat automat)"
+"Assigned Affiliates","Afiliați desemnați"
+"Add Affiliate","Adăugați un afiliat"
+Affiliates,Afiliați
+"Add Selected","Adăugați selectați"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Aplicați comisionul numai pentru articolele din coș care îndeplinesc următoarele condiții (lăsați necompletat pentru toate articolele)."
+Accept,Accept
+Reject,Respinge
+"Referring Website","Site de referință"
+"Subscribe to email notifications","Abonați-vă la notificările prin e-mail"
+"I accept the terms and conditions","Accept termenii si conditiile"
+"Sign Up",Inscrie-te
+"Referral Website","Website de recomandare"
+"Payment Method","Modalitate de plată"
+"Payment Information","Informatii de plata"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Vă rugăm să specificați informații personale de plată: e-mail PayPal sau orice detalii de plată pentru portofel electronic."
+From,Din
+To,La
+Apply,Aplica
+Clicks,Clicuri
+Leads,Oportunitati
+Orders,Comenzi
+Views,Vizualizări
+Earned,Câștigat
+"My Account","Contul meu"
+"Commissions according to your affiliate group","Comisioane în funcție de grupul dvs. afiliat"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> din suma comenzii de la prima comandă"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> din suma comenzii din comenzi secundare și mai multe"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> din suma coșului de la prima comandă"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> din valoarea coșului de comenzi de la a doua și mai multe"
+"<b>%1</b> per sale from first order","<b>%1</b> pe vânzare de la prima comandă"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> pe vânzare din comenzi secundare și mai multe"
+"<b>%1</b> per unique click","<b>%1</b> per clic unic"
+"<b>%1</b> per lead","<b>%1</b> pe plumb"
+"<b>%1</b> per 1000 views","<b>%1</b> la 1000 de vizualizări"
+Banners,Bannere
+Type,Tip
+Size,Mărimea
+Link,Legătură
+"Get Code","Obțineți codul"
+"Copy and paste this code into your website: ","Copiați și lipiți acest cod pe site-ul dvs. web:"
+"Referral Coupons","Cupoane de recomandare"
+Program,Program
+Coupon,Cupon
+Discount,Reducere
+"Personal Referral Link","Link de recomandare personală"
+"Enter any URL from this store in the form below to generate a new referral link:","Introduceți orice adresă URL din acest magazin în formularul de mai jos pentru a genera un nou link de recomandare:"
+"Your unique referral link is:","Linkul dvs. unic de recomandare este:"
+"Referral Widget","Widget de recomandare"
+"Widget Title:","Titlu widget:"
+"Related Products","Produse asemanatoare"
+Width:,Lăţime:
+Height:,Înălţime:
+"Number of products:","Număr de produse:"
+"Show Bestsellers","Afișați cele mai bine vândute"
+"Show New Products","Afișați produse noi"
+Search,Căutare
+"Search term","Termen de căutare"
+"Show Product's names","Afișați numele produsului"
+"Show Prices","Afișați prețurile"
+"Place this code wherever you want the widget to appear on your page.","Plasați acest cod oriunde doriți să apară widgetul pe pagina dvs."
+"Current balance: <b>%1</b>","Sold curent: <b>%1</b>"
+"On hold: %1","În așteptare: %1"
+"Lifetime: %1","Durata de viață: %1"
+"Paid: %1","Plătit: %1"
+Date,Data
+Balance,Echilibru
+Amount,Cantitate
+Details,Detalii
+"On hold to %1","În așteptare până la %1"
+"There have been no transactions yet.","Nu au fost încă tranzacții."
+"Request withdrawal","Solicitați retragerea"
+"Minimum balance to request withdrawal is %1","Soldul minim pentru a solicita retragerea este de %1"
+Fee,Taxă
+Status,Stare
+"Pending approval","Aprobare in asteptare"
+"There have been no withdrawals yet.","Nu au fost încă retrageri."
+"Your account is assigned to the <span>%1</span> affiliate group","Contul dvs. este alocat grupului de afiliați <span>%1</span>"
+Commissions,Comisioane
+"Our Programs","Programele noastre"
+"Our Program","Programul nostru"
+"%1  - Minimum balance required for payout.","%1 - Sold minim necesar pentru plata."
+"Affiliate Group","Grup de afiliați"
+Description,Descriere
+"Sign In",Conectare
+"New Affiliate Account","Cont nou afiliat"
+"Account Information","Informatii despre cont"
+"%name,","%Nume,"
+"Your affiliate account at %store_name has been approved.","Contul dvs. afiliat de la% store_name a fost aprobat."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Faceți clic <a href=""%login_url"">aici</a> pentru a vă conecta la contul dvs."
+"Your account balance has been updated at %store_name.","Soldul contului dvs. a fost actualizat la% store_name."
+Balance:,Echilibru:
+"Welcome to %store_name affiliate program!","Bine ați venit la programul afiliat% store_name!"
+Email:,E-mail:
+"Referring Website:","Site-ul web de referință:"
+"A customer referred by you has just placed an order at %store_name.","Un client trimis de dvs. tocmai a făcut o comandă la% store_name."
+"Thus, it was credited to your affiliate account.","Astfel, a fost creditat în contul dvs. de afiliat."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Când comanda este finalizată, vom transfera comisionul în soldul contului dvs. din sistemul nostru și apoi puteți retrage banii oricând doriți."
+"Transaction Amount:","Suma tranzacției:"
+"Current Balance:","Sold curent:"
+"New Withdrawal Request","Nouă cerere de retragere"
+Information,Informație
+"Please log in to the admin panel to manage this request.","Conectați-vă la panoul de administrare pentru a gestiona această solicitare."
+"Affiliate: Sign In Button","Afiliat: Buton de conectare"
+"Affiliate: List of programs","Afiliat: Lista programelor"
+"Account Dashboard","Tabloul de bord al contului"
+Transactions,Tranzacții
+Settings,Setări
+"Affiliate Program","Program de afiliere"

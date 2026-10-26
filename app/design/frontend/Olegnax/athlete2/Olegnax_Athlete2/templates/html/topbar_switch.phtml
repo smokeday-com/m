@@ -1,0 +1,52 @@
+<?php
+if($block->getConfig( 'athlete2_settings/header/language_in_header' )){
+	return;
+}
+
+$theme_helper = $this->helper(Olegnax\Athlete2\Helper\Icons::class);
+
+$showStores = $block->getConfig('athlete2_settings/header/language_drop_show_stores' );
+$showLanguages = $block->getConfig('athlete2_settings/header/language_drop_show_languages' );
+$showCurrency = $block->getConfig('athlete2_settings/header/language_drop_show_currency' );
+$showCurrencyLabel = $block->getConfig('athlete2_settings/header/language_label_currency' );
+$dropPosition = $block->getConfig('athlete2_settings/header/language_drop_position' );
+
+// language iconswitchers__item
+$icon = '';
+if($block->getConfig('athlete2_settings/header/language_drop_trigger_icon' ) === 'icon'){
+	$icon_option   = 'athlete2_design/appearance_icons_header/header_icon_';
+	$icon = $theme_helper ->getIconHTML('language', $icon_option); // $name, $icon_option = '', $classes = ''
+}
+
+$labelText = $block->getConfig('athlete2_settings/header/language_label' );
+// custom text
+$text = $block->getConfig( 'athlete2_settings/header/language_text' );
+
+$langVars = [
+	'a2_show_text' => $labelText,
+	'a2_text' => $text,
+	'a2_icon' => $icon,
+	'a2_hide_flag' => (bool)$icon,
+	'a2_show_wrapper' => (bool)($labelText)
+];
+$modalVars = [
+	'show_stores' => $showStores,
+	'show_lang' => $showLanguages,
+	'show_currency' => $showCurrency,
+	'drop_position' => $dropPosition ?: 'left'
+];
+?>
+<div class="switchers__item hide-on-tablet hide-on-mobile js-item-language-action">
+
+	<?php if ($showLanguages  && $currentLanguage = $block->getChildBlock('header_switch_language_current')): ?>
+		<?= $currentLanguage->addData($langVars)->toHtml() ?>
+	<?php endif; ?>
+	<?php if ($showCurrency && $showCurrencyLabel && $labelText && $labelText !== 'custom' && $currentCurrency = $block->getChildBlock('header_switch_currency_current')): ?>
+		<?= $currentCurrency->setData('a2_show_wrapper' , true)->toHtml() ?>
+	<?php endif; ?>
+
+	<?php if ($modal = $block->getChildBlock('header_switch_modal')): ?>
+		<?= $modal->addData($modalVars)->toHtml() ?>
+	<?php endif; ?>
+
+</div>

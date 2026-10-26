@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+
+    <group id="default">
+        <job name="affiliate_complete_transactions" instance="Mirasvit\Affiliate\Cron\CompleteTransactionsCron"
+             method="execute">
+            <schedule>*/10 * * * *</schedule>
+        </job>
+
+        <job name="affiliate_handle_events" instance="Mirasvit\Affiliate\Cron\HandleEventsCron"
+             method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+
+        <job name="affiliate_groups_refresh" instance="Mirasvit\Affiliate\Cron\RefreshGroupsCron"
+             method="execute">
+            <schedule>10 0 * * *</schedule>
+        </job>
+
+        <job name="affiliate_remove_relation" instance="Mirasvit\Affiliate\Cron\RemoveRelationCron"
+             method="execute">
+            <schedule>15 0 * * *</schedule>
+        </job>
+
+        <job name="affiliate_autowithdraw_request" instance="Mirasvit\Affiliate\Cron\AutoWithdrawRequestCron"
+             method="execute">
+            <schedule>20 0 * * *</schedule>
+        </job>
+
+        <job name="affiliate_refresh_sum_commission" instance="Mirasvit\Affiliate\Cron\RefreshSumCommissionCron"
+             method="execute">
+            <schedule>25 0 * * *</schedule>
+        </job>
+    </group>
+</config>

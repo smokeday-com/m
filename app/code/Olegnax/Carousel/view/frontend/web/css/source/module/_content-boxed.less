@@ -1,0 +1,14 @@
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__sm) {
+    .ox-carousel {
+        &.ox-slider-height__settings{
+            .slide-content-2-col:is(.-boxed-left, .-boxed-right){
+                .ox-carousel__col{
+                    height:50%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

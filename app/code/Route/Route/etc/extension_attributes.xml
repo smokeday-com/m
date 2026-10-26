@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Checkout\Api\Data\ShippingInformationInterface">
+        <attribute code="route_fee" type="string"/>
+        <attribute code="route_tax_fee" type="string"/>
+        <attribute code="route_is_insured" type="string"/>
+    </extension_attributes>
+    <extension_attributes for="Magento\Sales\Api\Data\OrderInterface">
+        <attribute code="route_fee" type="string" />
+        <attribute code="route_is_insured" type="string" />
+        <attribute code="route_tax_fee" type="string" />
+        <attribute code="route_order_id" type="string" />
+    </extension_attributes>
+</config>

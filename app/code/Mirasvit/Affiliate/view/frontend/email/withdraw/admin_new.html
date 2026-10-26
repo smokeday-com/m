@@ -1,0 +1,34 @@
+<!--@subject {{var store.getFrontendName()}}: New Withdrawal Request @-->
+<!--@vars {
+"var store.getFrontendName()": "Store Name",
+"var account.id": "Affiliate ID",
+"var account.name": "Affiliate Name",
+"var account.email": "Affiliate Email",
+"var withdraw.id": "Withdraw ID",
+"var withdraw.amount": "Withdraw Amount",
+"var withdraw.status": "Withdraw Status"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<h1>{{trans "New Withdrawal Request"}}</h1>
+
+<strong>{{trans "Information"}}</strong>
+
+<ul>
+    <li>
+        <b>{{trans "Name"}}:</b> {{var account.name}}
+    </li>
+    <li>
+        <b>{{trans "Email"}}:</b> {{var account.email}}
+    </li>
+    <li>
+        <b>{{trans "Amount"}}:</b> {{var withdraw.amount}}
+    </li>
+</ul>
+
+<p>
+    {{trans "Please log in to the admin panel to manage this request."}}
+</p>
+
+{{template config_path="design/email/footer_template"}}

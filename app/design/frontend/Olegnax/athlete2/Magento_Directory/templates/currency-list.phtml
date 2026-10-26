@@ -1,0 +1,44 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+/**
+ * Currency switcher
+ *
+ * @var Currency $block
+ */
+
+use Magento\Directory\Block\Currency;
+
+?>
+<?php if ($block->getCurrencyCount() > 1): ?>
+<?php $currencies = $block->getCurrencies(); ?>
+<?php $currentCurrencyCode = $block->getCurrentCurrencyCode(); ?>
+<?php $id = $block->getIdModifier() ? '-' . $block->getIdModifier() : '' ?>
+<?php 
+$hideHeadings =  $block->getData('a2_hide_headings');
+$moveMobile = $block->getData('a2_move_mobile') ? ' ox-move-item ox-move-item-store.settings' : ''; ?>
+<div class="switcher currency switcher-currency <?php echo $moveMobile ?>" id="switcher-currency<?= $block->escapeHtmlAttr($id) ?>">
+    <h3 class="label switcher-label <?php if($hideHeadings){ echo "visually-hidden"; } ?>"><span><?= $block->escapeHtml(__('Currency')) ?></span></h3>
+    <div class="actions options switcher-options">
+        <ul class="switcher-list">
+            <?php foreach ($currencies as $_code => $_name): ?>
+                <?php if ($_code != $currentCurrencyCode): ?>
+                    <li class="currency-<?= $block->escapeHtmlAttr($_code) ?> switcher-option">
+                        <a href="#" data-post='<?= /* @noEscape */ $block->getSwitchCurrencyPostData($_code) ?>'><?= $block->escapeHtml($_code) ?> - <?= $block->escapeHtml($_name) ?></a>
+                    </li>
+                <?php else: ?>
+                    <li class="current currency-<?= $block->escapeHtmlAttr($_code) ?> switcher-option">
+                        <strong>
+                                <span><?= $block->escapeHtml($currentCurrencyCode) ?> - <?= $currencies[$currentCurrencyCode] ? $block->escapeHtml($currencies[$currentCurrencyCode]) : '' ?></span>
+                        </strong>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
+<?php endif; ?>

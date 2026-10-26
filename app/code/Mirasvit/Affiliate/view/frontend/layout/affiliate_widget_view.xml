@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="empty" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="copyright" remove="true"/>
+        <referenceBlock name="base-header-container" remove="true"/>
+        <referenceBlock name="base-footer-container" remove="true"/>
+        <referenceBlock name="alothemes_header" remove="true"/>
+        <referenceBlock name="wapone_cookienotification" remove="true"/>
+        <referenceContainer name="before.body.end" remove="true"/>
+        <referenceContainer name="after.body.start" remove="true"/>
+
+        <referenceContainer name="content">
+            <block class="Magento\RequireJs\Block\Html\Head\Config" name="requirejs-config"/>
+            <block class="Mirasvit\Affiliate\Block\Widget" name="affiliate_widget" template="widget.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

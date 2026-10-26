@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Athlete2 Theme
+ *
+ * @author      Olegnax
+ * @package     Olegnax_Athlete2
+ * @copyright   Copyright (c) 2023 Olegnax (https://olegnax.com). All rights reserved.
+ * @license     https://www.olegnax.com/license
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="before.body.end">
+                <block class="Magento\Framework\View\Element\Template" name="ox_catalog_js" template="Magento_Catalog::product/js.phtml"/>
+                <block class="Magento\Framework\View\Element\Template" name="sticky-sidebar.js" as="sticky-sidebar.js" template="Magento_Catalog::product/sticky-sidebar.phtml"/>
+        </referenceContainer>
+        <referenceBlock name="category.products.list">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="helper" helper="Olegnax\Athlete2\Helper\UpdaterTemplate::setProductsLayout"/>
+            </action>
+            <block class="Olegnax\Athlete2\Block\Template" name="catalog.thumb_carousel_arrows" as="thumb_carousel_arrows" template="Magento_Catalog::product/list/thumb-arrows.phtml"/>
+            <block class="Magento\Framework\View\Element\Template" name="a2.catalog.banners" as="a2_grid_banner" template="Magento_Catalog::product/list/grid_banner.phtml"/>
+        </referenceBlock>
+        <referenceContainer name="category.product.list.additional">
+            <block class="Olegnax\Athlete2\Block\Template" name="a2_below_toolbar" template="Magento_Catalog::product/list/below_toolbar_block.phtml" after="-">
+                <arguments>
+                    <argument name="CategoryConfigViewModel" xsi:type="object">Olegnax\Athlete2\ViewModel\CategoryConfigViewModel</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

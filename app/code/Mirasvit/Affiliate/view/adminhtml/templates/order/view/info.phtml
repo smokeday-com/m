@@ -1,0 +1,24 @@
+<?php
+declare(strict_types=1);
+/**
+ * @var \Mirasvit\Affiliate\Block\Adminhtml\Order\View\Info $block
+ */
+$account = $block->getAccount();
+if (!$account) {
+    return;
+}
+
+$accountUrl = $block->getUrl('affiliate/account/edit', ['account_id' => $account->getId()]);
+?>
+
+<section class="admin__page-section">
+    <div class="admin__page-section-title">
+        <span class="title"><?= $block->escapeHtml(__('Affiliate Information')) ?></span>
+    </div>
+    <div class="admin__page-section-content">
+        <a href="<?= $block->escapeUrl($accountUrl) ?>">
+            <b><?= $block->escapeHtml($account->getName()) ?></b>
+        </a>
+        (<?= $block->escapeHtml($account->getEmail()) ?>)
+    </div>
+</section>

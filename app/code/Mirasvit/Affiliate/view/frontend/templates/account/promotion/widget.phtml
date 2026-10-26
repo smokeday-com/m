@@ -1,0 +1,118 @@
+<?php
+declare(strict_types=1);
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Affiliate\Block\Account\Promotion\Widget $block */
+
+$baseUrl = $block->getBaseUrl();
+$account = $block->getAccount();
+?>
+
+<?php if ($account): ?>
+<div class="block affiliate-account__promotion-widget"
+     data-mage-init='{"Mirasvit_Affiliate/js/account/widget":{"url":"<?= $this->getUrl('affiliate/widget/view') ?>"}}'>
+
+    <div class="block-title"><strong><?= __('Referral Widget') ?></strong></div>
+    <div class="block-content">
+        <input type="hidden" value="<?=$account->getIdentifier() ?>" data-option="identifier" />
+
+        <fieldset class="fieldset general">
+
+            <div class="field">
+                <label class="label" for="title">
+                    <span><?= __('Widget Title:') ?></span>
+                </label>
+
+                <div class="control">
+                    <input type="text" id="title" data-option="title"
+                           value="<?= __('Related Products') ?>"/>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label" for="width">
+                    <span><?= __('Width:') ?></span>
+                </label>
+
+                <div class="control">
+                    <input type="text" id="width" data-option="width"
+                           value="250"/>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" for="width">
+                    <span><?= __('Height:') ?></span>
+                </label>
+
+                <div class="control">
+                    <input type="text" id="height" data-option="height"
+                           value="365"/>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="fieldset information">
+
+            <div class="field">
+                <label class="label" for="number">
+                    <span><?= __('Number of products:') ?></span>
+                </label>
+
+                <div class="control">
+                    <input type="text" id="number" data-option="number" value="9"/>
+                </div>
+            </div>
+
+            <div class="field radios">
+                <input type="radio" data-option="bestseller" value="1" checked="checked"
+                       id="r-bestseller" name="products" class="radio">
+                <label for="r-bestseller" class="label">
+                    <span><?= __('Show Bestsellers') ?></span>
+                </label>
+
+                <input type="radio" data-option="new" value="1" id="r-new" name="products" class="radio">
+                <label for="r-new" class="label">
+                    <span><?= __('Show New Products') ?></span>
+                </label>
+
+                <input type="radio" data-option="search" value="1" id="r-search" name="products" class="radio">
+                <label for="r-search" class="label">
+                    <span><?= __('Search') ?></span>
+                </label>
+
+                <input type="text" data-option="search" data-rel="search" value=""
+                       placeholder="<?= __('Search term') ?>" style="display: none">
+            </div>
+
+            <div class="field checkboxes">
+                <input type="checkbox" data-option="show_name" value="1"
+                       id="name" class="checkbox">
+                <label for="name" class="label">
+                    <span><?= __('Show Product\'s names') ?></span>
+                </label>
+
+                <input type="checkbox" data-option="show_price" value="1" checked="checked"
+                       id="price" class="checkbox">
+                <label for="price" class="label">
+                    <span><?= __('Show Prices') ?></span>
+                </label>
+            </div>
+
+        </fieldset>
+
+        <div class="clearfix"></div>
+
+        <div class="iframe-container">
+            <iframe style="border:none;overflow:hidden" scrolling="auto" frameborder="0"
+                    allowTransparency="true"></iframe>
+        </div>
+
+        <button class="action primary" data-action="code"><?= __('Get Code') ?></button>
+
+        <div id="iframe_modal" style="display:none;">
+            <p><?=__('Place this code wherever you want the widget to appear on your page.') ?></p>
+            <textarea readonly="1" rows="4"></textarea>
+        </div>
+
+    </div>
+</div>
+<?php endif; ?>

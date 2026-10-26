@@ -1,0 +1,44 @@
+<?php
+declare(strict_types=1);
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Affiliate\Block\Adminhtml\Dashboard\Pending $block */
+
+$accountList = $block->getList();
+if (!count($accountList)) {
+    return;
+}
+?>
+<div class="affiliate__dashboard-pending">
+    <h3><?= __('Pending Approval') ?></h3>
+
+    <div class="admin__data-grid-wrap-static">
+        <table class="data-grid">
+            <thead>
+            <tr>
+                <th class="data-grid-th"><?= __('Affiliate') ?></th>
+                <th class="data-grid-th"><?= __('Email') ?></th>
+                <th class="data-grid-th"><?= __('Website') ?></th>
+                <th class="data-grid-th"></th>
+            </tr>
+            </thead>
+            <?php foreach ($accountList as $account): ?>
+                <tr>
+                    <td class="data-grid-td">
+                        <?= $block->escapeHtml($account->getName()) ?>
+                    </td>
+                    <td class="data-grid-td">
+                        <?= $block->escapeHtml($account->getEmail()) ?>
+                    </td>
+                    <td class="data-grid-td">
+                        <?= $block->escapeUrl($account->getWebsite()) ?>
+                    </td>
+                    <td class="data-grid-td">
+                        <a href="<?= $this->getUrl('affiliate/account/edit', ['account_id' => $account->getId()]) ?>">
+                            <?= __('Review') ?>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+        </table>
+    </div>
+</div>

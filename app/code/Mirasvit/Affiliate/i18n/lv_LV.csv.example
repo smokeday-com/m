@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","Mēs pārskatīsim jūsu reģistrāciju un informēsim jūs."
+"Your request to sign up to the affiliate program has been rejected.","Jūsu pieprasījums reģistrēties saistītajai programmai ir noraidīts."
+"Sign In to Affiliates","Pierakstieties filiālēs"
+"You have successfully signed up for an affiliate account.","Jūs esat veiksmīgi reģistrējies saistītajam kontam."
+"Affiliate Dashboard","Filiāles informācijas panelis"
+"Affiliate Account Settings","Saistītā konta iestatījumi"
+"Account information successfully updated.","Konta informācija veiksmīgi atjaunināta."
+"Transactions History","Darījumu vēsture"
+"Promotion Materials","Veicināšanas materiāli"
+Statistics,Statistika
+"Affiliate Program Overview","Saistīto programmu pārskats"
+Withdrawals,Izstāšanās
+"Withdrawal request has been submitted.","Ir iesniegts atteikuma pieprasījums."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Viens vai vairāki <a href=""%1"">saistītie konti</a> pašlaik ir gaidīšanas statusā."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Viens vai vairāki <a href=""%1"">izņemšanas pieprasījumi</a> pašlaik ir gaidīšanas statusā."
+"Pending Approval","Gaida apstiprinājumu"
+Approved,Apstiprināts
+"Not Approved","Nav apstiprināts"
+Image,Attēls
+Text,Teksts
+"Assign to first referred affiliate","Piešķirt pirmajam saistītajam uzņēmumam"
+"Assign to last referred affiliate","Piešķirt pēdējam saistītajam uzņēmumam"
+Available,Pieejams
+Inactive,Neaktīvs
+Removed,Noņemts
+"- Disable these emails -","- Atspējot šos e-pastus -"
+Click,Klikšķis
+Impression,Iespaids
+Lead,Svins
+Sale,Izpārdošana
+". ' (default)'",". &quot;(noklusējums)&quot;"
+"Percent of order amount","Pasūtījuma summas procentuālā daļa"
+"Percent of cart amount","Procentuālais groza daudzums"
+"Fixed amount","Fiksēta summa"
+"Pay per Sale","Maksājiet par izpārdošanu"
+"Pay per Lead","Maksājiet par svinu"
+"Pay per Click","Maksājiet par klikšķi"
+"Pay per Impression","Maksājiet par seansu"
+Complete,Pabeigts
+"In Hold",Turiet
+Commission,Komisija
+Withdraw,Izņemt
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Veikala kredīts"
+Other,Cits
+Pending,Gaida
+Accepted,Pieņemts
+Completed,Pabeigts
+Denied,Noraidīts
+"Number of Orders from reffered customers","Pasūtījumu skaits no klientiem, kuriem tiek piedāvāts piedāvājums"
+"Sales Amount from reffered customers","Pārdošanas summa no klientiem, kuriem tiek piedāvāts"
+is,ir
+"is not",nav
+"greater than","lielāks nekā"
+"less than","mazāk nekā"
+"equals or greater than","ir vienāds vai lielāks par"
+"equals or less than","ir vienāds vai mazāks par"
+"Conditions Combination","Apstākļu kombinācija"
+"Affiliate conditions","Saistītie nosacījumi"
+General,Vispārīgi
+"Customer Group","Klientu grupa"
+Store,Veikals
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Faila tips nav atļauts (atļauts izmantot tikai JPG, JPEG, PNG un GIF failus)"
+"Commission for order #%1 (%2)","Komisija pasūtījumam Nr. 1__ (%2)"
+"Refund for order #%1","Atmaksa par pasūtījumu Nr. 1__"
+Withdrawal,Izstāšanās
+"Withdraw cannot exceed current balance.","Izņemšana nevar pārsniegt pašreizējo atlikumu."
+"Minimum withdrawal amount is %1.","Minimālā izņemšanas summa ir %1."
+"You already have a pending withdrawal request.","Jums jau ir neapstiprināts izņemšanas pieprasījums."
+"Affiliate Withdrawal","Filiāles izstāšanās"
+Back,Atpakaļ
+Delete,Dzēst
+"Are you sure you want to proceed?","Vai tiešām vēlaties turpināt?"
+"Save and Continue Edit","Saglabāt un turpināt rediģēt"
+Save,Saglabāt
+"Click on row to edit the coupon","Noklikšķiniet uz rindas, lai rediģētu kuponu"
+"Referred Customers","Novirzītie klienti"
+Actions,Darbības
+"Add Customers","Pievienojiet klientus"
+Customers,Klienti
+Cancel,Atcelt
+"Add Selected Customers","Pievienojiet atlasītos klientus"
+Remove,Noņemt
+ID,ID
+Name,Nosaukums
+Email,E-pasts
+View,Skats
+Edit,Rediģēt
+"Delete item?","Vai izdzēst vienumu?"
+Conditions,Nosacījumi
+"Affiliate conditions (affects only automatically updated group)","Saistītie nosacījumi (ietekmē tikai automātiski atjauninātu grupu)"
+"Assigned Affiliates","Piešķirtie filiāles"
+"Add Affiliate","Pievienojiet filiāli"
+Affiliates,Filiāles
+"Add Selected","Pievienot atlasīto"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Piemēro komisiju tikai groza precēm, kas atbilst šādiem nosacījumiem (atstājiet tukšu visām precēm)."
+Accept,Pieņemt
+Reject,Noraidīt
+"Referring Website","Atsauces vietne"
+"Subscribe to email notifications","Abonējiet e-pasta paziņojumus"
+"I accept the terms and conditions","Es piekrītu noteikumiem un nosacījumiem"
+"Sign Up",Pierakstīties
+"Referral Website","Novirzīšanas vietne"
+"Payment Method","Apmaksas veids"
+"Payment Information","Informācija par maksājumu"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Lūdzu, norādiet personisko maksājumu informāciju: PayPal e-pasts vai jebkura e-maka informācija."
+From,No
+To,Uz
+Apply,Piesakies
+Clicks,Klikšķi
+Leads,Ved
+Orders,Pasūtījumi
+Views,Skati
+Earned,Nopelnīts
+"My Account","Mans Konts"
+"Commissions according to your affiliate group","Komisijas saskaņā ar jūsu saistīto grupu"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> no pasūtījuma summas no pirmā pasūtījuma"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> no pasūtījuma summas no otrajiem un vairāk pasūtījumiem"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> no groza summas no pirmā pasūtījuma"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> no groza summas no otrajiem un vairāk pasūtījumiem"
+"<b>%1</b> per sale from first order","<b>%1</b> par izpārdošanu no pirmā pasūtījuma"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> par izpārdošanu no otrajiem un vairāk pasūtījumiem"
+"<b>%1</b> per unique click","<b>%1</b> par unikālu klikšķi"
+"<b>%1</b> per lead","<b>%1</b> par svinu"
+"<b>%1</b> per 1000 views","<b>%1</b> uz 1000 skatījumiem"
+Banners,Reklāmkarogi
+Type,Tips
+Size,Izmērs
+Link,Saite
+"Get Code","Iegūt kodu"
+"Copy and paste this code into your website: ","Nokopējiet un ielīmējiet šo kodu savā vietnē:"
+"Referral Coupons","Novirzīšanas kuponi"
+Program,Programma
+Coupon,Kupons
+Discount,Atlaide
+"Personal Referral Link","Personiskā novirzīšanas saite"
+"Enter any URL from this store in the form below to generate a new referral link:","Lai izveidotu jaunu novirzīšanas saiti, zemāk esošajā formā ievadiet jebkuru šī veikala vietrādi URL:"
+"Your unique referral link is:","Jūsu unikālā novirzīšanas saite ir:"
+"Referral Widget","Novirzīšanas logrīks"
+"Widget Title:","Logrīka nosaukums:"
+"Related Products","Saistītie produkti"
+Width:,Platums:
+Height:,Augstums:
+"Number of products:","Produktu skaits:"
+"Show Bestsellers","Rādīt labākos pārdevējus"
+"Show New Products","Rādīt jaunus produktus"
+Search,Meklēt
+"Search term","Meklēšanas vienums"
+"Show Product's names","Rādīt produkta nosaukumus"
+"Show Prices","Rādīt cenas"
+"Place this code wherever you want the widget to appear on your page.","Ievietojiet šo kodu visur, kur vēlaties, lai logrīks tiktu parādīts jūsu lapā."
+"Current balance: <b>%1</b>","Pašreizējais atlikums: <b>%1</b>"
+"On hold: %1","Aizturēts: %1"
+"Lifetime: %1","Mūža ilgums: %1"
+"Paid: %1","Apmaksāts: %1"
+Date,Datums
+Balance,Līdzsvars
+Amount,Summa
+Details,"Sīkāka informācija"
+"On hold to %1","Aizturēts uz %1"
+"There have been no transactions yet.","Darījumi vēl nav bijuši."
+"Request withdrawal","Pieprasīt atsaukšanu"
+"Minimum balance to request withdrawal is %1","Minimālais atlikums, lai pieprasītu izņemšanu, ir %1"
+Fee,Maksa
+Status,Statuss
+"Pending approval","Gaida apstiprinājumu"
+"There have been no withdrawals yet.","Pagaidām nav bijis izņemšanas gadījumu."
+"Your account is assigned to the <span>%1</span> affiliate group","Jūsu konts ir piešķirts <span>dalībnieku</span> grupai %1"
+Commissions,Komisijas
+"Our Programs","Mūsu programmas"
+"Our Program","Mūsu programma"
+"%1  - Minimum balance required for payout.","%1 - minimālais atlikums, kas nepieciešams izmaksai."
+"Affiliate Group","Filiāļu grupa"
+Description,Apraksts
+"Sign In",Ielogoties
+"New Affiliate Account","Jauns filiāles konts"
+"Account Information","Konta informācija"
+"%name,","% name,"
+"Your affiliate account at %store_name has been approved.","Jūsu filiāles konts vietnē% store_name ir apstiprināts."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Noklikšķiniet <a href=""%login_url"">šeit,</a> lai pierakstītos savā kontā."
+"Your account balance has been updated at %store_name.","Jūsu konta atlikums ir atjaunināts vietnē% store_name."
+Balance:,Atlikums:
+"Welcome to %store_name affiliate program!","Laipni lūdzam% store_name saistītajā programmā!"
+Email:,E-pasts:
+"Referring Website:","Iesniedzošā vietne:"
+"A customer referred by you has just placed an order at %store_name.","Jūsu norādītais klients tikko ir veicis pasūtījumu vietnē% store_name."
+"Thus, it was credited to your affiliate account.","Tādējādi tas tika ieskaitīts jūsu saistītajā kontā."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Kad pasūtījums būs pabeigts, mēs pārskaitīsim komisiju uz jūsu konta atlikumu mūsu sistēmā, un tad jūs varat izņemt naudu, kad vēlaties."
+"Transaction Amount:","Darījuma summa:"
+"Current Balance:","Pašreizējā bilance:"
+"New Withdrawal Request","Jauns izņemšanas pieprasījums"
+Information,Informācija
+"Please log in to the admin panel to manage this request.","Lūdzu, piesakieties administratora panelī, lai pārvaldītu šo pieprasījumu."
+"Affiliate: Sign In Button","Filiāls: poga Pierakstīties"
+"Affiliate: List of programs","Filiāle: programmu saraksts"
+"Account Dashboard","Konta informācijas panelis"
+Transactions,Darījumi
+Settings,Iestatījumi
+"Affiliate Program","Saistītā programma"

@@ -1,0 +1,83 @@
+<?php
+$theme_helper = $this->helper('Olegnax\Athlete2\Helper\Helper');
+$at_settings = $block->getConfig('athlete2_settings');
+$header_classes = 'header--layout-4';
+$menu_position	 = $at_settings['header']['menu_position'];
+
+$sticky_attr = '';
+$sticky_allowed = $block->getData("sticky_allowed");
+$sticky_header	 = $at_settings['header']['sticky_header'];
+if($sticky_allowed!= 'no' && $sticky_header){
+	$_sticky_prefix = '-simple';
+	$_sticky_role = 'OXstickySimple';
+	if($at_settings['header']['sticky_header_minimized']){$_sticky_prefix = '-resize';$_sticky_role = 'OXstickyResize';}
+	if($at_settings['header']['sticky_header_smart']){$_sticky_prefix = '';$_sticky_role = 'OXsticky';}
+	$sticky_attr =  ' data-role="' . $_sticky_role . '" data-mage-init=\'{"js/sticky' . $_sticky_prefix . '":{}}\'';
+}
+
+$header_classes .= ' header__menu--position-' . $menu_position;
+$disable_topline = $at_settings['header']['disable_topline'];
+$show_toplinks = $at_settings['header']['show_top_links'];
+$topline_block_left = $theme_helper->getBlockTemplateProcessor( $at_settings['header']['top_left_static'] );
+$topline_block_right = $theme_helper->getBlockTemplateProcessor( $at_settings['header']['top_right_static'] );
+if( $at_settings['header']['header_fullwidth'] ) {
+	$header_classes .= ' header--full-width';
+}
+$search_below_mobile = !$at_settings['mobile_header']['search_mobile_hide'] ? $at_settings['mobile_header']['search_mobile_below'] : 0;
+if($search_below_mobile){
+	$header_classes .= ' mobile-search--below';
+}
+?>
+<div class="page-header <?php echo $block->escapeHtmlAttr($header_classes) ?>" <?php echo $sticky_attr; ?>>
+	<div class="sticky-wrapper">
+	<?php echo $this->getChildHtml( 'header_top_container' ); ?>
+		<div class="container">
+			<div class="row">
+				<div class="col header__content-wrapper">
+					<?php if( ! $disable_topline ){ ?>
+						<?php echo $this->getChildHtml( 'athlete2_topline' ); ?>
+					<?php } ?>
+					<div class="header__content">
+						<div class="logo__container">
+								<?php echo $this->getChildHtml( "logo" ); ?>
+						</div>
+						<div class="flex-left flex-row modal__left" data-move-mobile="header.main.left" data-move-sticky="header.main.left">
+							<?php echo $this->getChildHtml( 'mobile_menu_toggle' ); ?>	
+							<?php if ( $menu_position == 1 ) echo $this->getChildHtml( 'top.menu' ); ?>
+							<?php if ( $menu_position == 2 ) : ?>
+								<div class="header__additional-content">
+									<?php echo $block->getLayout()->createBlock( 'Magento\Cms\Block\Block' )->setBlockId( 'athlete2-header-text' )->toHtml(); ?>
+								</div>
+							<?php endif ?>
+						</div>
+						<div class="flex-right flex-row modal__right"  data-move-mobile="header.main.right">
+							<?php echo $this->getChildHtml( 'topSearch' ) ?>
+							<?php
+								echo $this->getChildHtml("header_right_container");
+								if($at_settings['header']['account_position'] == 'main') {
+									echo $this->getChildHtml("header_account");
+								}
+								if($at_settings['header']['compare_position'] == 'main') {
+									echo $this->getChildHtml("header_compare");
+								}
+								if($at_settings['header']['wishlist_position'] == 'main') {
+									echo $this->getChildHtml("header_wishlist");
+								}
+								if($theme_helper->isActivePlugin( 'Amasty_RequestQuote' )){
+									echo $this->getChildHtml( 'quotecart' );
+								}
+								echo $this->getChildHtml( 'minicart' );
+							?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php if ( $menu_position == 2 ) : ?>
+			<div class="header-nav-wide"><?php echo $this->getChildHtml( 'top.menu' );  ?></div>
+		<?php endif ?>
+		<?php if ( $search_below_mobile ) : ?>
+			<div class="header__search-below block-search hide-on-desktop"><?php echo $this->getChildHtml( 'top.search.panel.mobile' );  ?></div>
+		<?php endif ?>
+	</div>
+</div>

@@ -1,0 +1,203 @@
+%1%,%1٪
+%1,%1
+"We'll review your registration and notify you.","ما ثبت نام شما را بررسی می کنیم و به شما اطلاع می دهیم."
+"Your request to sign up to the affiliate program has been rejected.","درخواست شما برای ثبت نام در برنامه وابسته رد شده است."
+"Sign In to Affiliates","وارد شرکتهای وابسته شوید"
+"You have successfully signed up for an affiliate account.","شما با موفقیت برای یک حساب وابسته ثبت نام کردید."
+"Affiliate Dashboard","داشبورد وابسته"
+"Affiliate Account Settings","تنظیمات حساب وابسته"
+"Account information successfully updated.","اطلاعات حساب با موفقیت به روز شد."
+"Transactions History","تاریخچه معاملات"
+"Promotion Materials","مواد تبلیغاتی"
+Statistics,آمار
+"Affiliate Program Overview","بررسی اجمالی برنامه وابسته"
+Withdrawals,"برداشت ها"
+"Withdrawal request has been submitted.","درخواست برداشت ارسال شده است."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","یک یا چند <a href=""%1"">حساب وابسته</a> در حال حاضر در حالت تعلیق هستند."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","یک یا چند <a href=""%1"">درخواست برداشت</a> در حال حاضر در حالت تعلیق است."
+"Pending Approval","در انتظار تأیید"
+Approved,"تایید شده"
+"Not Approved","مورد تایید نیست"
+Image,تصویر
+Text,پیامک
+"Assign to first referred affiliate","اختصاص به اولین شرکت وابسته ارجاع شده"
+"Assign to last referred affiliate","اختصاص به آخرین وابسته ارجاع شده"
+Available,"در دسترس"
+Inactive,"غیر فعال"
+Removed,"حذف شده"
+"- Disable these emails -","- این ایمیل ها را غیرفعال کنید -"
+Click,کلیک
+Impression,"احساس؛ عقیده؛ گمان"
+Lead,رهبری
+Sale,فروش
+". ' (default)'",". &quot;(پیش فرض)&quot;"
+"Percent of order amount","درصد مبلغ سفارش"
+"Percent of cart amount","درصد مقدار سبد خرید"
+"Fixed amount","مقدار ثابت"
+"Pay per Sale","پرداخت به ازای هر فروش"
+"Pay per Lead","پرداخت سرب"
+"Pay per Click","پرداخت برای هر کلیک"
+"Pay per Impression","پرداخت به ازای هر نمایش"
+Complete,کامل
+"In Hold","در انتظار"
+Commission,کمیسیون
+Withdraw,"کنار کشیدن"
+PayPal,"پی پال"
+Skrill,اسکریل
+"Store Credit","اعتبار فروشگاه"
+Other,دیگر
+Pending,"در انتظار"
+Accepted,"پذیرفته شده"
+Completed,"تکمیل شده"
+Denied,"تکذیب کرد"
+"Number of Orders from reffered customers","تعداد سفارشات از مشتریان ارجاع شده"
+"Sales Amount from reffered customers","مبلغ فروش از مشتریان ارجاع شده"
+is,است
+"is not",نیست
+"greater than","بزرگتر از"
+"less than","کمتر از"
+"equals or greater than","برابر یا بیشتر از"
+"equals or less than","برابر یا کمتر از"
+"Conditions Combination","ترکیب شرایط"
+"Affiliate conditions","شرایط وابسته"
+General,عمومی
+"Customer Group","گروه مشتریان"
+Store,فروشگاه
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","نوع پرونده مجاز نیست (فقط پرونده های JPG ، JPEG ، PNG و GIF مجاز هستند)"
+"Commission for order #%1 (%2)","کمیسیون سفارش #%1 (%2)"
+"Refund for order #%1","بازپرداخت برای سفارش #%1"
+Withdrawal,"برداشت از حساب"
+"Withdraw cannot exceed current balance.","برداشت نمی تواند بیش از مانده موجود باشد."
+"Minimum withdrawal amount is %1.","حداقل مقدار برداشت %1 است."
+"You already have a pending withdrawal request.","شما قبلاً یک درخواست برداشت در انتظار دارید."
+"Affiliate Withdrawal","انصراف از شرکت وابسته"
+Back,بازگشت
+Delete,حذف
+"Are you sure you want to proceed?","آیا مطمئن هستید که می خواهید ادامه دهید؟"
+"Save and Continue Edit","ذخیره و ادامه ویرایش"
+Save,"صرفه جویی"
+"Click on row to edit the coupon","برای ویرایش کوپن روی ردیف کلیک کنید"
+"Referred Customers","مشتریان ارجاع شده"
+Actions,اقدامات
+"Add Customers","مشتری اضافه کنید"
+Customers,"مشتری ها"
+Cancel,لغو
+"Add Selected Customers","مشتریان منتخب را اضافه کنید"
+Remove,برداشتن
+ID,شناسه
+Name,نام
+Email,"پست الکترونیک"
+View,"چشم انداز"
+Edit,"ویرایش کنید"
+"Delete item?","حذف آیتم؟"
+Conditions,شرایط
+"Affiliate conditions (affects only automatically updated group)","شرایط وابسته (فقط بر روی گروه به روزرسانی خودکار تأثیر می گذارد)"
+"Assigned Affiliates","شرکت های وابسته واگذار شده"
+"Add Affiliate","شرکت وابسته را اضافه کنید"
+Affiliates,"شرکت های وابسته"
+"Add Selected","افزودن موارد برگزیده"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","کمیسیون را فقط برای کالاهای سبد خرید با شرایط زیر اعمال کنید (برای همه موارد خالی بگذارید)."
+Accept,"تایید کنید"
+Reject,"رد کردن"
+"Referring Website","مراجعه به وب سایت"
+"Subscribe to email notifications","مشترک شدن در اعلان های ایمیل"
+"I accept the terms and conditions","من ضوابط و شرایط را می پذیرم"
+"Sign Up","ثبت نام"
+"Referral Website","وب سایت ارجاع"
+"Payment Method","روش پرداخت"
+"Payment Information","اطلاعات پرداخت"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","لطفاً اطلاعات پرداخت شخصی را مشخص کنید: ایمیل PayPal یا هرگونه جزئیات پرداخت کیف پول الکترونیکی."
+From,"از جانب"
+To,به
+Apply,"درخواست دادن"
+Clicks,"کلیک می کند"
+Leads,"منجر می شود"
+Orders,سفارشات
+Views,بازدیدها
+Earned,"به دست آورده"
+"My Account","حساب من"
+"Commissions according to your affiliate group","کمیسیون ها با توجه به گروه وابسته شما"
+"<b>%1%</b> of order amount from first order","<b>%1٪</b> مبلغ سفارش از سفارش اول"
+"<b>%1%</b> of order amount from second and more orders","<b>%1٪</b> مبلغ سفارش از سفارشات دوم و بیشتر"
+"<b>%1%</b> of cart amount from first order","<b>%1٪</b> مبلغ سبد خرید از سفارش اول"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1٪</b> مبلغ سبد خرید از سفارشات دوم و بیشتر"
+"<b>%1</b> per sale from first order","<b>%1</b> در هر فروش از سفارش اول"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> در هر فروش از سفارشات دوم و بیشتر"
+"<b>%1</b> per unique click","<b>%1</b> برای هر کلیک منحصر به فرد"
+"<b>%1</b> per lead","<b>%1 به</b> ازای هر سرب"
+"<b>%1</b> per 1000 views","<b>%1</b> در 1000 بازدید"
+Banners,بنرها
+Type,نوع
+Size,اندازه
+Link,"ارتباط دادن"
+"Get Code","دریافت کد"
+"Copy and paste this code into your website: ","این کد را در وب سایت خود کپی و جای گذاری کنید:"
+"Referral Coupons","کوپن های مراجعه"
+Program,برنامه
+Coupon,کوپن
+Discount,تخفیف
+"Personal Referral Link","لینک ارجاع شخصی"
+"Enter any URL from this store in the form below to generate a new referral link:","برای ایجاد پیوند ارجاع جدید ، هر URL را از این فروشگاه در فرم زیر وارد کنید:"
+"Your unique referral link is:","لینک ارجاع منحصر به فرد شما:"
+"Referral Widget","ارجاع ویجت"
+"Widget Title:","عنوان ویجت:"
+"Related Products","محصولات مرتبط"
+Width:,عرض:
+Height:,قد:
+"Number of products:","تعداد محصولات:"
+"Show Bestsellers","نمایش پرفروش ترین ها"
+"Show New Products","نمایش محصولات جدید"
+Search,"جستجو کردن"
+"Search term","اصطلاح جستجو"
+"Show Product's names","نام محصولات را نشان دهید"
+"Show Prices","نمایش قیمت ها"
+"Place this code wherever you want the widget to appear on your page.","این کد را هر کجا که می خواهید ویجت در صفحه شما ظاهر شود قرار دهید."
+"Current balance: <b>%1</b>","مانده فعلی: <b>%1</b>"
+"On hold: %1","در انتظار: %1"
+"Lifetime: %1","مادام العمر: %1"
+"Paid: %1","پرداخت شده: %1"
+Date,تاریخ
+Balance,تعادل
+Amount,میزان
+Details,جزئیات
+"On hold to %1","در انتظار %1"
+"There have been no transactions yet.","هنوز هیچ معامله ای انجام نشده است."
+"Request withdrawal","درخواست برداشت"
+"Minimum balance to request withdrawal is %1","حداقل موجودی برای درخواست برداشت %1 است"
+Fee,هزینه
+Status,وضعیت
+"Pending approval","در انتظار تأیید"
+"There have been no withdrawals yet.","هنوز برداشتی صورت نگرفته است."
+"Your account is assigned to the <span>%1</span> affiliate group","حساب شما به گروه وابسته <span>%1</span> اختصاص داده شده است"
+Commissions,"کمیسیون ها"
+"Our Programs","برنامه های ما"
+"Our Program","برنامه ما"
+"%1  - Minimum balance required for payout.","%1 - حداقل موجودی مورد نیاز برای پرداخت."
+"Affiliate Group","گروه وابسته"
+Description,شرح
+"Sign In",ورود
+"New Affiliate Account","حساب جدید سهامداران"
+"Account Information","اطلاعات حساب"
+"%name,",٪نام،
+"Your affiliate account at %store_name has been approved.","حساب وابسته شما در٪ store_name تأیید شده است."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","برای ورود به سیستم حساب خود <a href=""%login_url"">اینجا را</a> کلیک کنید."
+"Your account balance has been updated at %store_name.","موجودی حساب شما در٪ store_name به روز شده است."
+Balance:,تعادل:
+"Welcome to %store_name affiliate program!","به برنامه٪ affil_ store_name خوش آمدید!"
+Email:,"پست الکترونیک:"
+"Referring Website:","مراجعه به وب سایت:"
+"A customer referred by you has just placed an order at %store_name.","مشتری ارجاع شده توسط شما به تازگی در٪ store_name سفارش داده است."
+"Thus, it was credited to your affiliate account.","بنابراین ، به حساب شرکت وابسته شما واریز شد."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","وقتی سفارش کامل شد ، ما کارمزد را به موجودی حساب شما در سیستم خود منتقل می کنیم و سپس هر زمان که بخواهید می توانید پول را برداشت کنید."
+"Transaction Amount:","مقدار تراکنش:"
+"Current Balance:","موجودی فعلی:"
+"New Withdrawal Request","درخواست جدید برداشت"
+Information,اطلاعات
+"Please log in to the admin panel to manage this request.","لطفاً برای مدیریت این درخواست به پنل مدیر وارد شوید."
+"Affiliate: Sign In Button","شرکت وابسته: دکمه ورود به سیستم"
+"Affiliate: List of programs","Affiliate: لیست برنامه ها"
+"Account Dashboard","داشبورد حساب"
+Transactions,معاملات
+Settings,تنظیمات
+"Affiliate Program","برنامه های وابسته"

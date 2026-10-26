@@ -1,0 +1,40 @@
+<?php
+declare(strict_types=1);
+//@codingStandardsIgnoreFile
+/** @var \Mirasvit\Affiliate\Block\Adminhtml\Dashboard\Top $block */
+
+/** @var \Magento\Framework\Pricing\Helper\Data $pricingHelper */
+$pricingHelper = $this->helper('Magento\Framework\Pricing\Helper\Data');
+
+$accountList = $block->getList();
+?>
+<div class="affiliate__dashboard-top">
+    <h3><?= __('Most Valuable Affiliates') ?></h3>
+
+    <div class="admin__data-grid-wrap-static">
+        <table class="data-grid">
+            <thead>
+            <tr>
+                <th class="data-grid-th"><?= __('Affiliate') ?></th>
+                <th class="data-grid-th"><?= __('Total Earning') ?></th>
+                <th class="data-grid-th"><?= __('On hold') ?></th>
+                <th class="data-grid-th"><?= __('Clicks') ?></th>
+            </tr>
+            </thead>
+            <?php foreach ($accountList as $account): ?>
+                <tr>
+                    <td class="data-grid-td">
+                        <?= $block->escapeHtml($account->getName()) ?>
+                    </td>
+                    <td>
+                        <?= $pricingHelper->currency($account->getTotalCommissions()) ?>
+                    </td>
+                    <td>
+                        <?= $pricingHelper->currency($account->getTotalHoldedCommissions()) ?>
+                    </td>
+                    <td><?= $block->getClicks($account) ?></td>
+                </tr>
+            <?php endforeach ?>
+        </table>
+    </div>
+</div>

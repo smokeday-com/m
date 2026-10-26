@@ -1,0 +1,280 @@
+<root>
+	<carousels>
+		<item>
+			<title>Header Text</title>
+			<identifier>header-text</identifier>
+			<slides>
+				<item>
+					<carousel>header-text</carousel>
+					<is_active>1</is_active>
+					<content_only>1</content_only>
+					<sort_order>10</sort_order>
+					<layout>center</layout>
+					<mobile_align>center</mobile_align>
+					<margins>normal</margins>
+					<content_wrappers>raw</content_wrappers>
+					<slide_bg></slide_bg>
+					<subtitle_color></subtitle_color>
+					<title_color></title_color>
+					<title_bg></title_bg>
+					<button_color></button_color>
+					<button_bg></button_bg>
+					<button_color_hover></button_color_hover>
+					<button_bg_hover></button_bg_hover>
+					<text_color></text_color>
+					<image></image>
+					<subtitle></subtitle>
+					<title></title>
+					<title_size></title_size>
+					<button_style></button_style>
+					<content_width></content_width>
+					<custom_class></custom_class>
+					<link></link>
+					<button_css></button_css>
+					<button></button>
+					<nav_title></nav_title>
+					<content><![CDATA[<div class="d-block">Free Shipping &amp; 60-Day Free Returns<br>
+<a href="#" style="border-bottom:1px solid">Join Now</a>			
+</div>]]></content>
+					<content2></content2>
+				</item>
+				<item>
+					<carousel>header-text</carousel>
+					<is_active>1</is_active>
+					<content_only>1</content_only>
+					<sort_order>20</sort_order>
+					<layout>center</layout>
+					<mobile_align>center</mobile_align>
+					<margins>normal</margins>
+					<content_wrappers>raw</content_wrappers>
+					<slide_bg></slide_bg>
+					<subtitle_color></subtitle_color>
+					<title_color></title_color>
+					<title_bg></title_bg>
+					<button_color></button_color>
+					<button_bg></button_bg>
+					<button_color_hover></button_color_hover>
+					<button_bg_hover></button_bg_hover>
+					<text_color></text_color>
+					<image></image>
+					<subtitle></subtitle>
+					<title></title>
+					<title_size></title_size>
+					<button_style></button_style>
+					<content_width></content_width>
+					<custom_class></custom_class>
+					<link></link>
+					<button_css></button_css>
+					<button></button>
+					<nav_title></nav_title>
+					<content><![CDATA[<div class="d-block">Up to 40% Off<br>
+<a href="#" style="border-bottom:1px solid">Shop Sale</a>			
+</div>
+]]></content>
+					<content2></content2>
+				</item>
+				<item>
+					<carousel>header-text</carousel>
+					<is_active>1</is_active>
+					<content_only>1</content_only>
+					<sort_order>10</sort_order>
+					<layout>center</layout>
+					<mobile_align>center</mobile_align>
+					<margins>normal</margins>
+					<content_wrappers>raw</content_wrappers>
+					<slide_bg></slide_bg>
+					<subtitle_color></subtitle_color>
+					<title_color></title_color>
+					<title_bg></title_bg>
+					<button_color></button_color>
+					<button_bg></button_bg>
+					<button_color_hover></button_color_hover>
+					<button_bg_hover></button_bg_hover>
+					<text_color></text_color>
+					<image></image>
+					<subtitle></subtitle>
+					<title></title>
+					<title_size></title_size>
+					<button_style></button_style>
+					<content_width></content_width>
+					<custom_class></custom_class>
+					<link></link>
+					<button_css></button_css>
+					<button></button>
+					<nav_title></nav_title>
+					<content><![CDATA[<div class="d-block">Get The Latest Deals And More<br>
+<a href="#" style="border-bottom:1px solid">Sign up</a>
+</div>]]></content>
+					<content2></content2>
+				</item>
+			</slides>
+		</item>
+		<item>
+			<title>Home Big Fi</title>
+			<identifier>home-fi</identifier>
+			<slides>
+				<item>
+					<carousel>home-fi</carousel>
+					<is_active>1</is_active>
+					<content_only>0</content_only>
+					<sort_order>10</sort_order>
+					<layout>2-col -boxed-left</layout>
+					<mobile_align>center</mobile_align>
+					<margins>normal</margins>
+					<content_wrappers>no-container</content_wrappers>
+					<slide_bg>rgb(109, 109, 109)</slide_bg>
+					<subtitle_color></subtitle_color>
+					<title_color>rgb(255, 255, 255)</title_color>
+					<title_bg></title_bg>
+					<button_color>rgb(0, 0, 0)</button_color>
+					<button_bg>rgb(255, 255, 255)</button_bg>
+					<button_color_hover>rgb(0, 0, 0)</button_color_hover>
+					<button_bg_hover>rgb(132, 246, 193)</button_bg_hover>
+					<text_color>rgb(255, 255, 255)</text_color>
+					<image>/media/athlete2/Demos/fi/slide-01.jpg</image>
+					<subtitle></subtitle>
+					<title></title>
+					<title_size></title_size>
+					<button_style></button_style>
+					<content_width>760</content_width>
+					<custom_class></custom_class>
+					<link></link>
+					<button_css></button_css>
+					<button></button>
+					<nav_title>Weekly Deals</nav_title>
+					<content><![CDATA[<div class="ox-max-width-500">
+						<p style="color: rgb(255 255 255 / 37%);letter-spacing: 5px;">Updates in</p>
+						<div class="title-font">{{widget type="Olegnax\Athlete2\Block\Countdown" loop="1" end_days="5" end_hours="12" day_to_hours="0" hide_text="0" text_color="white" bg_color="transparent" num_font_size="22px" num_font_weight="600" text_font_size="12px" text_font_weight="500" show_separator="1"}}</div>
+						<div class="spacer-xs" style="height:25px;">-</div>
+						<h1 class="title">Weekly Deals</h1>
+						<div class="spacer-xxs">-</div>
+						<p class="no-margin big-text reset-text-m" style="font-weight:500">Get massive savings of up to 59% on select tech. Plus, enjoy <a href="#" style="color:#82f4c5; border-bottom:2px solid;">FREE shipping</a> and extra 20% off select accessories with any PC purchase.</p>
+						<div class="spacer-small">-</div>
+						<a href="#" class="button ox-slide__button big-wide"><span>shop now</span></a>
+						</div>]]></content>
+					<content2><![CDATA[<div class="rubber-tag-m abs-negative abs-v-center a-left gradient-bg title-font" style="font-weight: 600;color: #000000;">
+						<div>up to</div>
+						<div class="-value" style="letter-spacing:-2px">- 40</div>
+						<div class="-desc" style="letter-spacing:0.01em" >off on selected products</div>
+						</div>
+						
+						{{widget type="Olegnax\HotSpotQuickview\Block\Widget\HotSpot" id_path="product/2278" position_left="62" position_top="38" height="40" width="40" color="" shadow="0" color_background="#82f4c5" pulse_animation="1" pulse_animation_color="#82f4c5" border_color="" icon="plus-small" border_radius="20" hide_mobile="0" mobile_minimized="1" position_left_m="" position_top_m="" tooltip_content="1" tooltip_text="" tooltip_static="ox-hotspot-ca-shoes-01" tooltip_width="200" tooltip_color="" tooltip_color_background=""}}]]></content2>
+					<slide_link></slide_link>
+					<mobile_image></mobile_image>
+					<mobile_content_order_swap>0</mobile_content_order_swap>
+					<mobile_align_vertical></mobile_align_vertical>
+					<content_bg>rgb(38, 38, 38)</content_bg>
+					<nav_color></nav_color>
+					<progress_active></progress_active>
+					<progress_bg></progress_bg>
+					<progress_hover></progress_hover>
+					<content3></content3>
+				</item>
+				<item>
+					<carousel>home-fi</carousel>
+					<is_active>1</is_active>
+					<content_only>0</content_only>
+					<sort_order>10</sort_order>
+					<layout>2-col</layout>
+					<mobile_align>center</mobile_align>
+					<margins>normal</margins>
+					<content_wrappers>no-container</content_wrappers>
+					<slide_bg>rgb(2, 135, 148)</slide_bg>
+					<subtitle_color></subtitle_color>
+					<title_color>rgb(255, 255, 255)</title_color>
+					<title_bg></title_bg>
+					<button_color>rgb(255, 255, 255)</button_color>
+					<button_bg>rgb(33, 31, 32)</button_bg>
+					<button_color_hover>rgb(33, 31, 32)</button_color_hover>
+					<button_bg_hover>rgb(255, 255, 255)</button_bg_hover>
+					<text_color>rgb(255, 255, 255)</text_color>
+					<image>/media/athlete2/Demos/fi/slide-02-bg.jpg</image>
+					<subtitle></subtitle>
+					<title></title>
+					<title_size></title_size>
+					<button_style></button_style>
+					<content_width>620</content_width>
+					<custom_class></custom_class>
+					<link></link>
+					<button_css></button_css>
+					<button></button>
+					<nav_title>Bespoke Refrigerator</nav_title>
+					<content><![CDATA[<div class="title-font"><div class="d-inline-block" style="background: rgb(47 215 178 / 20%);padding:6px 8px;"> {{widget type="Olegnax\Athlete2\Block\Countdown" loop="1" end_days="5" end_hours="12" day_to_hours="0" hide_text="0" text_color="white" bg_color="transparent" num_font_size="22px" num_font_weight="600" text_font_size="12px" text_font_weight="500" show_separator="1" padding="6px 8px"}}</div></div>
+<div class="spacer-xs">-</div>
+<h1 class="title">Get up to $1,200 off Select Refrigerators</h1>
+<p class="big-text" style="font-weight:500">Plus, get free installation and haul away with select purchase and 2 years of Super Care+ for $1 $169.99 *</p>
+<div class="spacer-xxs">-</div>
+<p><a href="#" class="button ox-slide__button big-wide"><span>shop now</span></a></p>
+<div class="spacer-xxs">-</div>
+<p style="font-size:11px;opacity:0.7">* From 1/11/24 to 3/31/24. 18+ &amp; Continental US/DC only,<br> excluding Florida (PR/USVI not eligible).</p>
+]]></content>
+					<content2><![CDATA[<div style="padding:15px;"><img src="{{media url=&quot;athlete2/Demos/fi/fridge-slide-02.png&quot;}}" width="800" height="620" alt="fridges"  /></div>]]></content2>
+					<slide_link></slide_link>
+					<mobile_image>/media/athlete2/Demos/fi/slide-02-bg-mobile.jpg</mobile_image>
+					<mobile_content_order_swap>0</mobile_content_order_swap>
+					<mobile_align_vertical></mobile_align_vertical>
+					<content_bg></content_bg>
+					<nav_color></nav_color>
+					<progress_active></progress_active>
+					<progress_bg></progress_bg>
+					<progress_hover></progress_hover>
+					<content3>{{widget type="Olegnax\Athlete2\Block\ISlide" custom_content="Flash Sale" slide_time="2000" items_width="auto" clone="1" pause_on_hover="0" bg_color="#4ae4bd" text_color="black" text_font_size="16" text_font_weight="700" padding="4px" absolute="1" left="0" top="0" gap="35"}}
+</content3>
+				</item>
+				<item>
+					<carousel>home-fi</carousel>
+					<is_active>1</is_active>
+					<content_only>0</content_only>
+					<sort_order>10</sort_order>
+					<layout>2-col</layout>
+					<mobile_align>center</mobile_align>
+					<margins>normal</margins>
+					<content_wrappers>no-container</content_wrappers>
+					<slide_bg></slide_bg>
+					<subtitle_color></subtitle_color>
+					<title_color></title_color>
+					<title_bg></title_bg>
+					<button_color>rgb(255, 255, 255)</button_color>
+					<button_bg>rgb(33, 31, 32)</button_bg>
+					<button_color_hover>rgb(33, 31, 32)</button_color_hover>
+					<button_bg_hover>rgb(255, 255, 255)</button_bg_hover>
+					<text_color>rgb(33, 31, 32)</text_color>
+					<image>/media/athlete2/Demos/fi/slide-03-bg.jpg</image>
+					<subtitle></subtitle>
+					<title></title>
+					<title_size>big</title_size>
+					<button_style></button_style>
+					<content_width>620</content_width>
+					<custom_class></custom_class>
+					<link></link>
+					<button_css></button_css>
+					<button></button>
+					<nav_title>Discover OLED</nav_title>
+					<content><![CDATA[<span class="subtitle at-highlight-2">Buster Deals</span>
+<div class="spacer-xxs">-</div>
+<h1 class="big no-margin" style="font-weight:bold">Discover<br>the best TV</h1>
+<div class="spacer-xs">-</div>
+<p class="big-text" style="font-weight:500">Get up to $1,900 off select OLED TVs and watch your favorite rivalry in dramatic detail.</p>
+<div class="spacer-xxs">-</div>
+<a href="#" class="button ox-slide__button big-wide"><span>shop now</span></a>]]></content>
+					<content2><![CDATA[<div class="shift-left-mobile" style=" margin-bottom:30px">
+<div style="box-shadow: 0 0 120px rgb(92 219 222 / 55%);">
+<img src="{{media url=&quot;athlete2/Demos/fi/slide-03-tv.jpg&quot;}}" alt="tv" width="726" height="418"  />
+</div>
+</div>]]></content2>
+					<slide_link></slide_link>
+					<mobile_image>/media/athlete2/Demos/fi/slide-03-bg-mobile.jpg</mobile_image>
+					<mobile_content_order_swap>1</mobile_content_order_swap>
+					<mobile_align_vertical></mobile_align_vertical>
+					<content_bg></content_bg>
+					<nav_color>rgb(33, 31, 32)</nav_color>
+					<progress_active>rgb(33, 31, 32)</progress_active>
+					<progress_bg>rgba(33, 31, 32, 0.4)</progress_bg>
+					<progress_hover>rgb(33, 31, 32)</progress_hover>
+					<content3>{{widget type="Olegnax\Athlete2\Block\ISlide" custom_content="Flash Sale" slide_time="900" items_width="auto" clone="1" pause_on_hover="0" rotation="23" bg_color="#211f20" text_color="white" text_font_size="16" text_font_weight="700" padding="4px" absolute="1" left="43%" top="28%" left_mobile="12%" top_mobile="0" gap="35"}}
+{{widget type="Olegnax\Athlete2\Block\ISlide" custom_content="Flash Sale" slide_time="1200" items_width="auto" clone="1" pause_on_hover="0" rotation="15" bg_color="#4ae4bd" text_color="black" text_font_size="16" text_font_weight="700" padding="4px" absolute="1" left="43%" top="24%" left_mobile="-5%" top_mobile="0" gap="35"}}</content3>
+				</item>
+			</slides>
+		</item>
+	</carousels>
+</root>

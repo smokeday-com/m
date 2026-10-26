@@ -1,0 +1,63 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+use Magento\Catalog\Block\Product\ProductList\Toolbar;
+use Magento\Framework\Json\Helper\Data;
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block Toolbar
+ */
+?>
+<?php if ($block->getCollection()->getSize()): ?>
+    <?php $widget = $this->helper( Data::class)->jsonDecode($block->getWidgetOptionsJson());
+        $widgetOptions = $this->helper( Data::class)->jsonEncode($widget['productListToolbarForm']);
+    ?>
+    <div class="toolbar toolbar-products flex-row" data-mage-init='{"productListToolbarForm":<?= /* @noEscape */ $widgetOptions ?>}'>
+        <?php if ($block->getIsBottom()): ?>
+            <?= $block->getPagerHtml() ?>
+            <?= $block->fetchView($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')) ?>
+        <?php else: ?>
+		<?php if ($block->isExpanded()): ?>
+			<?= $block->fetchView($block->getTemplateFile('Magento_Catalog::product/list/toolbar/filters-action.phtml')) ?>
+			<div class="flex-left d-flex align-items-center">
+				<?= $block->fetchView($block->getTemplateFile('Magento_Catalog::product/list/toolbar/filters-toggle.phtml')) ?>
+				<?= $block->fetchView($block->getTemplateFile('Magento_Catalog::product/list/toolbar/sorter.phtml')) ?>
+				<?= $block->fetchView ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/viewmode.phtml')) ?>
+			</div>
+		<?php endif; ?>
+		<div class="flex-right d-flex align-items-center">
+			<?= $block->fetchView($block->getTemplateFile('Magento_Catalog::product/list/toolbar/amount.phtml')) ?>
+			<?= $block->fetchView($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')) ?>
+		</div>
+        <?php endif ?>
+    </div>
+	<?php if (!$block->getIsBottom() && $this->helper('Olegnax\Athlete2\Helper\Helper')->getConfig('athlete2_settings/products_listing/filters_counter')): ?>
+		<?php 
+		    $scriptString = <<<script
+			require(["jquery"], function ($){
+				function updateCount(){
+					var count = $('.filter-current .items > .item').length,
+					counterSelector = $('.filter-current-count');
+					if(counterSelector.length){
+						counterSelector.html(count ? count : '');
+					}
+				}
+				updateCount();
+				$('body').on('contentUpdated', function(){
+					updateCount();
+				});
+			});
+script;
+
+	if (isset($secureRenderer)){
+		echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+	} else{
+		echo /* @noEscape */ '<script>' .  $scriptString . '</script>';
+	} ?>
+	<?php endif ?>
+<?php endif ?>

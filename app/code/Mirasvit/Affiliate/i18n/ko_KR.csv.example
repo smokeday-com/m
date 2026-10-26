@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","등록을 검토하고 알려 드리겠습니다."
+"Your request to sign up to the affiliate program has been rejected.","제휴 프로그램 가입 요청이 거부되었습니다."
+"Sign In to Affiliates","제휴사에 로그인"
+"You have successfully signed up for an affiliate account.","제휴 계정에 성공적으로 등록했습니다."
+"Affiliate Dashboard","제휴 대시 보드"
+"Affiliate Account Settings","제휴 계정 설정"
+"Account information successfully updated.","계정 정보가 성공적으로 업데이트되었습니다."
+"Transactions History","거래 내역"
+"Promotion Materials","홍보 자료"
+Statistics,통계
+"Affiliate Program Overview","제휴 프로그램 개요"
+Withdrawals,인출
+"Withdrawal request has been submitted.","출금 요청이 제출되었습니다."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","하나 이상의 <a href=""%1"">제휴 계정</a> 이 현재 보류 상태입니다."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","하나 이상의 <a href=""%1"">인출 요청</a> 이 현재 보류 상태입니다."
+"Pending Approval","승인 대기 중"
+Approved,"승인 됨"
+"Not Approved","승인이 거절 됨"
+Image,영상
+Text,본문
+"Assign to first referred affiliate","첫 번째 추천 제휴사에 할당"
+"Assign to last referred affiliate","마지막으로 추천 된 제휴사에 할당"
+Available,유효한
+Inactive,비활성
+Removed,제거됨
+"- Disable these emails -","-이 이메일 비활성화-"
+Click,"딸깍 하는 소리"
+Impression,인상
+Lead,리드
+Sale,판매
+". ' (default)'",". &#39; (기본)&#39;"
+"Percent of order amount","주문 금액의 비율"
+"Percent of cart amount","장바구니 금액의 비율"
+"Fixed amount",정액
+"Pay per Sale","판매 당 지불"
+"Pay per Lead","리드 당 지불"
+"Pay per Click","클릭당 지불"
+"Pay per Impression","노출 당 지불"
+Complete,완전한
+"In Hold","보류 중"
+Commission,위원회
+Withdraw,빼다
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","스토어 크레딧"
+Other,다른
+Pending,"보류 중"
+Accepted,"수락 됨"
+Completed,완료
+Denied,"거부 됨"
+"Number of Orders from reffered customers","리퍼 드 고객의 주문 수"
+"Sales Amount from reffered customers","리퍼 드 고객의 판매액"
+is,이다
+"is not",아니다
+"greater than","~보다 큰"
+"less than",이하
+"equals or greater than","같거나 큼"
+"equals or less than","같거나 작음"
+"Conditions Combination","조건 조합"
+"Affiliate conditions","제휴 조건"
+General,일반
+"Customer Group","고객 그룹"
+Store,저장
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","허용되지 않는 파일 형식 (JPG, JPEG, PNG 및 GIF 파일 만 허용됨)"
+"Commission for order #%1 (%2)","주문 #%1 (%2)에 대한 수수료"
+"Refund for order #%1","주문 #%1에 대한 환불"
+Withdrawal,철수
+"Withdraw cannot exceed current balance.","인출은 현재 잔액을 초과 할 수 없습니다."
+"Minimum withdrawal amount is %1.","최소 인출 금액은 %1입니다."
+"You already have a pending withdrawal request.","이미 보류중인 인출 요청이 있습니다."
+"Affiliate Withdrawal","제휴 탈퇴"
+Back,뒤
+Delete,지우다
+"Are you sure you want to proceed?","계속 하시겠습니까?"
+"Save and Continue Edit","저장하고 계속 편집"
+Save,저장
+"Click on row to edit the coupon","쿠폰을 수정하려면 행을 클릭하세요."
+"Referred Customers","추천 된 고객"
+Actions,행위
+"Add Customers","고객 추가"
+Customers,고객
+Cancel,취소
+"Add Selected Customers","선택한 고객 추가"
+Remove,없애다
+ID,신분증
+Name,이름
+Email,이메일
+View,전망
+Edit,편집하다
+"Delete item?","항목을 삭제 하시겠습니까?"
+Conditions,정황
+"Affiliate conditions (affects only automatically updated group)","제휴 조건 (자동으로 업데이트 된 그룹에만 영향)"
+"Assigned Affiliates","할당 된 계열사"
+"Add Affiliate","제휴사 추가"
+Affiliates,계열사
+"Add Selected","선택 항목 추가"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","다음 조건과 일치하는 카트 품목에만 수수료를 적용하십시오 (모든 품목은 공백으로 두십시오)."
+Accept,동의하기
+Reject,"받지 않다"
+"Referring Website","추천 웹 사이트"
+"Subscribe to email notifications","이메일 알림 구독"
+"I accept the terms and conditions","나는 이용 약관에 동의합니다"
+"Sign Up",가입하기
+"Referral Website","추천 웹 사이트"
+"Payment Method","결제 방법"
+"Payment Information","결제 정보"
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","개인 결제 정보를 지정하십시오 : PayPal 이메일 또는 전자 지갑 결제 세부 정보."
+From,에서
+To,에
+Apply,대다
+Clicks,"클릭 수"
+Leads,리드
+Orders,명령
+Views,견해
+Earned,획득
+"My Account","내 계정"
+"Commissions according to your affiliate group","제휴 그룹에 따른 수수료"
+"<b>%1%</b> of order amount from first order","첫 주문 주문 금액의 <b>%1 %</b>"
+"<b>%1%</b> of order amount from second and more orders","두 번째 이상 주문에서 주문 금액의 <b>%1 %</b>"
+"<b>%1%</b> of cart amount from first order","첫 주문에서 장바구니 금액의 <b>%1 %</b>"
+"<b>%1%</b> of cart amount from second and more orders","두 번째 이상 주문의 장바구니 금액의 <b>%1 %</b>"
+"<b>%1</b> per sale from first order","첫 주문부터 판매 당 <b>%1</b>"
+"<b>%1</b> per sale from second and more orders","두 번째 이상 주문에서 판매 당 <b>%1</b>"
+"<b>%1</b> per unique click","고유 클릭당 <b>%1</b>"
+"<b>%1</b> per lead","리드 당 <b>%1</b>"
+"<b>%1</b> per 1000 views","조회수 1,000 <b>회당 %1</b>"
+Banners,배너
+Type,유형
+Size,크기
+Link,링크
+"Get Code","코드 받기"
+"Copy and paste this code into your website: ","이 코드를 복사하여 웹 사이트에 붙여 넣으십시오."
+"Referral Coupons","추천 쿠폰"
+Program,프로그램
+Coupon,쿠폰
+Discount,할인
+"Personal Referral Link","개인 추천 링크"
+"Enter any URL from this store in the form below to generate a new referral link:","새 추천 링크를 생성하려면 아래 양식에이 상점의 URL을 입력하십시오."
+"Your unique referral link is:","귀하의 고유 한 추천 링크는 다음과 같습니다."
+"Referral Widget","추천 위젯"
+"Widget Title:","위젯 제목 :"
+"Related Products","관련 상품"
+Width:,폭:
+Height:,신장:
+"Number of products:","제품 수 :"
+"Show Bestsellers",베스트셀러보기
+"Show New Products",신제품보기
+Search,검색
+"Search term",검색어
+"Show Product's names","제품 이름 표시"
+"Show Prices","가격 표시"
+"Place this code wherever you want the widget to appear on your page.","페이지에서 위젯을 표시하려는 위치에이 코드를 배치하십시오."
+"Current balance: <b>%1</b>","현재 잔액 : <b>%1</b>"
+"On hold: %1","보류 중 : %1"
+"Lifetime: %1","평생 : %1"
+"Paid: %1","유료 : %1"
+Date,데이트
+Balance,밸런스
+Amount,양
+Details,세부
+"On hold to %1","%1에 보류"
+"There have been no transactions yet.","아직 거래가 없습니다."
+"Request withdrawal","인출 요청"
+"Minimum balance to request withdrawal is %1","인출 요청을위한 최소 잔액은 %1입니다."
+Fee,회비
+Status,상태
+"Pending approval","승인 대기 중"
+"There have been no withdrawals yet.","아직 인출이 없습니다."
+"Your account is assigned to the <span>%1</span> affiliate group","귀하의 계정은 <span>%1</span> 제휴 그룹에 할당되었습니다."
+Commissions,커미션
+"Our Programs","우리 프로그램"
+"Our Program","우리의 프로그램"
+"%1  - Minimum balance required for payout.","%1-지급에 필요한 최소 잔액."
+"Affiliate Group","제휴 그룹"
+Description,기술
+"Sign In",로그인
+"New Affiliate Account","새로운 제휴 계정"
+"Account Information","계정 정보"
+"%name,","%이름,"
+"Your affiliate account at %store_name has been approved.","% store_name의 제휴 계정이 승인되었습니다."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","<a href=""%login_url"">여기</a> 를 클릭하여 계정에 로그인하십시오."
+"Your account balance has been updated at %store_name.","% store_name에서 계정 잔액이 업데이트되었습니다."
+Balance:,밸런스:
+"Welcome to %store_name affiliate program!","% store_name 제휴 프로그램에 오신 것을 환영합니다!"
+Email:,이메일:
+"Referring Website:","추천 웹 사이트 :"
+"A customer referred by you has just placed an order at %store_name.","귀하가 추천 한 고객이 % store_name에서 방금 주문했습니다."
+"Thus, it was credited to your affiliate account.","따라서 귀하의 제휴 계정에 적립되었습니다."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","주문이 완료되면 수수료를 시스템의 계정 잔액으로 이체 한 다음 원할 때 언제든지 돈을 인출 할 수 있습니다."
+"Transaction Amount:","거래 금액 :"
+"Current Balance:","현재의 균형:"
+"New Withdrawal Request","새로운 출금 요청"
+Information,정보
+"Please log in to the admin panel to manage this request.","이 요청을 관리하려면 관리자 패널에 로그인하십시오."
+"Affiliate: Sign In Button","제휴 : 로그인 버튼"
+"Affiliate: List of programs","제휴 : 프로그램 목록"
+"Account Dashboard","계정 대시 보드"
+Transactions,업무
+Settings,설정
+"Affiliate Program","제휴 프로그램"

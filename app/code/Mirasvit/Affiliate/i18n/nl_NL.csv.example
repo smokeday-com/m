@@ -1,0 +1,203 @@
+%1%,%1%
+%1,%1
+"We'll review your registration and notify you.","We zullen uw registratie beoordelen en u hiervan op de hoogte stellen."
+"Your request to sign up to the affiliate program has been rejected.","Uw verzoek om u aan te melden voor het partnerprogramma is afgewezen."
+"Sign In to Affiliates","Meld u aan bij aangesloten bedrijven"
+"You have successfully signed up for an affiliate account.","U heeft zich met succes aangemeld voor een aangesloten account."
+"Affiliate Dashboard",Affiliate-dashboard
+"Affiliate Account Settings","Instellingen voor aangesloten account"
+"Account information successfully updated.","Accountgegevens succesvol bijgewerkt."
+"Transactions History",Transactiegeschiedenis
+"Promotion Materials",Promotiemateriaal
+Statistics,Statistieken
+"Affiliate Program Overview","Overzicht van aangesloten programma"
+Withdrawals,Opnames
+"Withdrawal request has been submitted.","Intrekkingsverzoek is ingediend."
+"One or more <a href=""%1"">affiliate accounts</a> are currently in pending status.","Een of meer <a href=""%1"">aangesloten accounts</a> hebben momenteel de status in behandeling."
+"One or more <a href=""%1"">withdrawal requests</a> are currently in pending status.","Een of meer <a href=""%1"">opnameverzoeken</a> zijn momenteel in behandeling."
+"Pending Approval","In afwachting van goedkeuring"
+Approved,Goedgekeurd
+"Not Approved","Niet goedgekeurd"
+Image,Beeld
+Text,Tekst
+"Assign to first referred affiliate","Wijs toe aan de eerste doorverwezen partner"
+"Assign to last referred affiliate","Wijs toe aan de laatst verwezen partner"
+Available,Beschikbaar
+Inactive,Inactief
+Removed,Verwijderd
+"- Disable these emails -","- Schakel deze e-mails uit -"
+Click,Klik
+Impression,Indruk
+Lead,Lood
+Sale,Uitverkoop
+". ' (default)'",". &#39; (standaard)&#39;"
+"Percent of order amount","Percentage van orderbedrag"
+"Percent of cart amount","Percentage van winkelwagenbedrag"
+"Fixed amount","Vaste hoeveelheid"
+"Pay per Sale","Betaal per verkoop"
+"Pay per Lead","Betaal per lead"
+"Pay per Click","Betaal per klik"
+"Pay per Impression","Betaal per impressie"
+Complete,Compleet
+"In Hold","In de wacht"
+Commission,Commissie
+Withdraw,Terugtrekken
+PayPal,PayPal
+Skrill,Skrill
+"Store Credit","Winkel tegoed"
+Other,Andere
+Pending,"In afwachting"
+Accepted,Geaccepteerd
+Completed,Voltooid
+Denied,Geweigerd
+"Number of Orders from reffered customers","Aantal bestellingen van doorverwezen klanten"
+"Sales Amount from reffered customers","Verkoopbedrag van gerefereerde klanten"
+is,is
+"is not","is niet"
+"greater than","groter dan"
+"less than","minder dan"
+"equals or greater than","gelijk aan of groter dan"
+"equals or less than","gelijk aan of kleiner dan"
+"Conditions Combination","Voorwaarden Combinatie"
+"Affiliate conditions","Aangesloten voorwaarden"
+General,Algemeen
+"Customer Group",Klantengroep
+Store,Winkel
+"File type not allowed (only JPG, JPEG, PNG & GIF files are allowed)","Bestandstype niet toegestaan (alleen JPG-, JPEG-, PNG- en GIF-bestanden zijn toegestaan)"
+"Commission for order #%1 (%2)","Commissie voor bestelling #%1 (%2)"
+"Refund for order #%1","Restitutie voor bestelling #%1"
+Withdrawal,Intrekking
+"Withdraw cannot exceed current balance.","Opnemen kan niet hoger zijn dan het huidige saldo."
+"Minimum withdrawal amount is %1.","Minimum opnamebedrag is %1."
+"You already have a pending withdrawal request.","U heeft al een uitbetalingsverzoek in behandeling."
+"Affiliate Withdrawal","Opzegging van een partner"
+Back,Terug
+Delete,Verwijderen
+"Are you sure you want to proceed?","Weet je zeker dat je verder wilt gaan?"
+"Save and Continue Edit","Opslaan en doorgaan met bewerken"
+Save,Sparen
+"Click on row to edit the coupon","Klik op de rij om de kortingsbon te bewerken"
+"Referred Customers","Doorverwezen klanten"
+Actions,Acties
+"Add Customers","Voeg klanten toe"
+Customers,Klanten
+Cancel,Annuleren
+"Add Selected Customers","Voeg geselecteerde klanten toe"
+Remove,Verwijderen
+ID,"ID kaart"
+Name,Naam
+Email,E-mail
+View,Visie
+Edit,Bewerk
+"Delete item?","Verwijder item?"
+Conditions,Voorwaarden
+"Affiliate conditions (affects only automatically updated group)","Aangesloten voorwaarden (alleen van invloed op automatisch bijgewerkte groep)"
+"Assigned Affiliates","Toegewezen filialen"
+"Add Affiliate","Affiliate toevoegen"
+Affiliates,Geassocieerden
+"Add Selected","Voeg geselecteerde toe"
+"Apply the commission only to cart items matching the following conditions (leave blank for all items).","Pas de commissie alleen toe op winkelwagenartikelen die aan de volgende voorwaarden voldoen (leeg laten voor alle artikelen)."
+Accept,Aanvaarden
+Reject,Weigeren
+"Referring Website","Verwijzende website"
+"Subscribe to email notifications","Abonneer u op e-mailmeldingen"
+"I accept the terms and conditions","Ik accepteer de algemene voorwaarden"
+"Sign Up",Aanmelden
+"Referral Website",Verwijzingswebsite
+"Payment Method",Betalingswijze
+"Payment Information",Betalingsinformatie
+"Please specify personal payment info: PayPal email or any e-wallet payment details.","Geef persoonlijke betalingsgegevens op: PayPal-e-mail of betalingsgegevens voor e-wallet."
+From,Van
+To,Naar
+Apply,"Van toepassing zijn"
+Clicks,Klikken
+Leads,Leidt
+Orders,Bestellingen
+Views,"Keer bekeken"
+Earned,Verdiend
+"My Account","Mijn rekening"
+"Commissions according to your affiliate group","Commissies volgens uw aangesloten groep"
+"<b>%1%</b> of order amount from first order","<b>%1%</b> van het orderbedrag vanaf de eerste bestelling"
+"<b>%1%</b> of order amount from second and more orders","<b>%1%</b> van het orderbedrag van tweede en meer bestellingen"
+"<b>%1%</b> of cart amount from first order","<b>%1%</b> van het winkelwagentje vanaf de eerste bestelling"
+"<b>%1%</b> of cart amount from second and more orders","<b>%1%</b> van het winkelwagentje van tweede en meer bestellingen"
+"<b>%1</b> per sale from first order","<b>%1</b> per verkoop vanaf de eerste bestelling"
+"<b>%1</b> per sale from second and more orders","<b>%1</b> per verkoop vanaf tweede en meer bestellingen"
+"<b>%1</b> per unique click","<b>%1</b> per unieke klik"
+"<b>%1</b> per lead","<b>%1</b> per lead"
+"<b>%1</b> per 1000 views","<b>%1</b> per 1000 weergaven"
+Banners,Banners
+Type,Type
+Size,Grootte
+Link,Koppeling
+"Get Code","Code ophalen"
+"Copy and paste this code into your website: ","Kopieer en plak deze code in uw website:"
+"Referral Coupons",Verwijzingsbonnen
+Program,Programma
+Coupon,Coupon
+Discount,Korting
+"Personal Referral Link","Persoonlijke verwijzingslink"
+"Enter any URL from this store in the form below to generate a new referral link:","Voer een URL van deze winkel in het onderstaande formulier in om een nieuwe verwijzingslink te genereren:"
+"Your unique referral link is:","Uw unieke verwijzingslink is:"
+"Referral Widget",Verwijzingswidget
+"Widget Title:",Widgettitel:
+"Related Products","Gerelateerde producten"
+Width:,Breedte:
+Height:,Hoogte:
+"Number of products:","Aantal producten:"
+"Show Bestsellers","Toon bestsellers"
+"Show New Products","Toon nieuwe producten"
+Search,Zoeken
+"Search term",Zoekterm
+"Show Product's names","Toon productnamen"
+"Show Prices","Prijzen weergeven"
+"Place this code wherever you want the widget to appear on your page.","Plaats deze code waar u de widget op uw pagina wilt laten verschijnen."
+"Current balance: <b>%1</b>","Huidig saldo: <b>%1</b>"
+"On hold: %1","In de wacht: %1"
+"Lifetime: %1","Levensduur: %1"
+"Paid: %1","Betaald: %1"
+Date,Datum
+Balance,Balans
+Amount,Bedrag
+Details,Details
+"On hold to %1","In de wacht tot %1"
+"There have been no transactions yet.","Er zijn nog geen transacties geweest."
+"Request withdrawal","Verzoek om opname"
+"Minimum balance to request withdrawal is %1","Minimum saldo om opname aan te vragen is %1"
+Fee,Vergoeding
+Status,Toestand
+"Pending approval","In afwachting van goedkeuring"
+"There have been no withdrawals yet.","Er zijn nog geen opnames."
+"Your account is assigned to the <span>%1</span> affiliate group","Uw account is toegewezen aan de <span>%1</span> aangesloten groep"
+Commissions,Commissies
+"Our Programs","Onze programma&#39;s"
+"Our Program","Ons programma"
+"%1  - Minimum balance required for payout.","%1 - Minimaal saldo vereist voor uitbetaling."
+"Affiliate Group","Aangesloten groep"
+Description,Omschrijving
+"Sign In","Log in"
+"New Affiliate Account","Nieuw aangesloten account"
+"Account Information","Account Informatie"
+"%name,","%naam,"
+"Your affiliate account at %store_name has been approved.","Uw aangesloten account op% store_name is goedgekeurd."
+"Click <a href=""%login_url"">here</a> to sign in to your account.","Klik <a href=""%login_url"">hier</a> om in te loggen op uw account."
+"Your account balance has been updated at %store_name.","Uw accountsaldo is bijgewerkt op% store_name."
+Balance:,Balans:
+"Welcome to %store_name affiliate program!","Welkom bij het% store_name partnerprogramma!"
+Email:,E-mailadres:
+"Referring Website:","Verwijzende website:"
+"A customer referred by you has just placed an order at %store_name.","Een door u doorverwezen klant heeft zojuist een bestelling geplaatst bij% store_name."
+"Thus, it was credited to your affiliate account.","Het werd dus bijgeschreven op uw aangesloten account."
+"When the order is complete, we'll transfer the commission to your account balance in our system and then
+    you can withdraw the money whenever you want.","Wanneer de bestelling is voltooid, maken we de commissie over naar uw rekeningsaldo in ons systeem en kunt u het geld opnemen wanneer u maar wilt."
+"Transaction Amount:",Transactiebedrag:
+"Current Balance:","Huidig saldo:"
+"New Withdrawal Request","Nieuw uitbetalingsverzoek"
+Information,Informatie
+"Please log in to the admin panel to manage this request.","Log in op het admin-paneel om dit verzoek te beheren."
+"Affiliate: Sign In Button","Partner: inlogknop"
+"Affiliate: List of programs","Affiliate: lijst met programma&#39;s"
+"Account Dashboard","Account Dashboard"
+Transactions,Transacties
+Settings,Instellingen
+"Affiliate Program",Affiliate-programma

@@ -1,0 +1,49 @@
+<?php
+$text = $block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_text_account' ) ?: __('My Account');
+$icon_option   =  'athlete2_settings/mobile_bottom_nav/bottom_nav_icon_';
+$helper = $this->helper(Olegnax\Athlete2\Helper\Icons::class);
+$icon = $helper->getIconHTML('account', $icon_option); // $name, $icon_option = '', $classes = ''
+$hideText   = $block->getConfig( 'athlete2_settings/mobile_bottom_nav/bottom_nav_hide_text' );
+$isMyAccount = $this->getRequest()->getFullActionName() == 'customer_account_login';
+?>
+
+<div id="ox-bnav__account" class="ox-bnav__item ox-bnav__account">
+	<?php /* desktop: js-item-myaccount-action */ ?>
+	<a class="action  <?php if($isMyAccount){ echo 'nolink'; } ?>" href="<?= $block->escapeUrl($block->getUrl('customer/account')); ?>">
+		<span class="icon">
+			<?= $icon; ?>
+		</span>
+		<span class="label <?php if($hideText){ echo "visually-hidden"; } ?>">
+			<?= $block->escapeHtml($text) ?>
+		</span>
+	</a>
+</div>
+<?php /* if account drop down is moved to mobile menu tab */ ?>
+<?php if(!$isMyAccount): ?>
+<?php $scriptString = <<<script
+require([
+    'jquery'
+], function ($) {
+	let flag;
+	const init = () => {
+		if(flag) {return}
+		const accountItem = $('.ox-section-items a[href="#store.links"]').parent();
+		if(accountItem.length){
+			$("#ox-bnav__account").on('click', function(e) {
+				e.preventDefault();
+				$('.slide-out-menu--mobile').click();
+				accountItem.click()
+			});
+			flag = true;
+		}
+	}
+	init();
+	$('body').on('contentUpdated', init);
+});
+script;
+if (isset($secureRenderer)){
+	echo /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false);
+} else{
+	echo /* @noEscape */ '<script>' .  $scriptString . '</script>';
+}
+endif;
