@@ -20,9 +20,12 @@ use Magento\Store\Model\StoreManagerInterface;
 # https://github.com/smokeday-com/m/issues/19
 class Warmer
 {
-    public const DEFAULT_LIMIT = 60;
-    public const DEFAULT_CONCURRENCY = 3;
-    public const DEFAULT_MAX_LOAD_AVG = 60.0;
+    # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Throttle magento_pagecache_warm background cron concurrency to 1, limit to 20 URLs per run, and lower max load average threshold to 4.0":
+    # https://github.com/smokeday-com/m/issues/24
+    public const DEFAULT_LIMIT = 20;
+    public const DEFAULT_CONCURRENCY = 1;
+    public const DEFAULT_MAX_LOAD_AVG = 4.0;
 
     private const STORE_ID = 1;
     private const QUEUE_REL_PATH = '/var/page_cache_warm_queue.json';
