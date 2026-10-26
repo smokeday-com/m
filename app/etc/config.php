@@ -195,7 +195,10 @@ return [
         'Magento_LoginAsCustomerFrontendUi' => 1,
         'Magento_LoginAsCustomerGraphQl' => 1,
         'Magento_LoginAsCustomerLog' => 1,
-        'Magento_LoginAsCustomerPageCache' => 1,
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Disable Magento_LoginAsCustomerPageCache to prevent unconditional customer session initialization on every Full Page Cache check":
+        # https://github.com/smokeday-com/m/issues/4
+        'Magento_LoginAsCustomerPageCache' => 0,
         'Magento_LoginAsCustomerQuote' => 1,
         'Magento_LoginAsCustomerSales' => 1,
         'Magento_Marketplace' => 1,
