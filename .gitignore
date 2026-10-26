@@ -78,3 +78,7 @@
 # "Eliminate the code generator's defect under ionCube":
 # https://github.com/smokeday-com/m/issues/2
 !/vendor/magento/framework/Code/Generator/EntityAbstract.php
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Prevent eager PHP session startup in Magento\Framework\Data\Form\FormKey during Built-in FPC HIT requests":
+# https://github.com/smokeday-com/m/issues/5
+!/app/etc/di.xml
