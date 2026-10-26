@@ -86,3 +86,21 @@
 # "Reschedule amasty_mostviewed_build_together_index cron job from hourly (5 * * * *) to daily off-peak (5 9 * * *)":
 # https://github.com/smokeday-com/m/issues/8
 !/vendor/amasty/mostviewed/etc/crontab.xml
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Fix PHP 8.2 Deprecated Functionality exception in Klaviyo\Reclaim\Block\Catalog\Product\ViewedProduct::getFinalPrice() when final_price is null":
+# https://github.com/smokeday-com/m/issues/9
+!/vendor/klaviyo/magento2-extension/Block/Catalog/Product/ViewedProduct.php
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Raise PhpCookieManager::MAX_NUM_COOKIES from 50 to 150 to prevent system.log warning spam caused by 39 third-party marketing cookies":
+# https://github.com/smokeday-com/m/issues/10
+!/vendor/magento/framework/Stdlib/Cookie/PhpCookieManager.php
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Allow Magento\Cms\Controller\Noroute\Index (404 Not Found) responses to be cached in Built-in FPC and strip Set-Cookie: PHPSESSID":
+# https://github.com/smokeday-com/m/issues/11
+!/vendor/magento/module-cms/Controller/Noroute/Index.php
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Emit Cache-Tag HTTP header from Magento\Framework\App\PageCache\Kernel and automatically purge Cloudflare Edge Cache on cache invalidation events":
+# https://github.com/smokeday-com/m/issues/12
+!/vendor/magento/framework/App/Cache/Manager.php
+!/vendor/magento/framework/App/PageCache/Kernel.php
+!/vendor/magento/module-page-cache/Model/Cache/Type.php
