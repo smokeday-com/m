@@ -117,3 +117,9 @@
 # "Eliminate 5.18s admin notification overhead in Mirasvit_Core, Route_Route, and Klevu_Search MessageList checks and remove render-blocking Google Fonts on Dashboard":
 # https://github.com/smokeday-com/m/issues/16
 !/vendor/klevu/module-productsearch/etc/adminhtml/di.xml
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Eliminate redundant COUNT(DISTINCT) full-table scans on Dashboard grids and enable BLOCK_HTML caching on Customers Most grid":
+# https://github.com/smokeday-com/m/issues/17
+!/vendor/magento/module-backend/Block/Dashboard/Grid.php
+!/vendor/magento/module-backend/Block/Dashboard/Tab/Customers/Most.php
+!/vendor/magento/module-backend/view/adminhtml/templates/dashboard/grid.phtml
