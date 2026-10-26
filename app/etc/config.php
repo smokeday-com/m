@@ -436,6 +436,10 @@ return [
         'Route_Route' => 1,
         'Sezzle_Sezzlepay' => 1,
         'Mage4_SignifydFix' => 1,
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Install and register the custom SmokeDay_Core (smokeday/core) module via Composer without overwriting customized root files":
+        # https://github.com/smokeday-com/m/issues/21
+        'SmokeDay_Core' => 1,
         'Tawk_Widget' => 1,
         'Yireo_CspUtilities' => 1,
         'Yireo_GoogleTagManager2' => 1

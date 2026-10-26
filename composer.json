@@ -39,6 +39,7 @@
         "paradoxlabs/authnetcim": "^5.1",
         "sezzle/sezzlepay": "^7.0",
         "signifyd/module-connect": "^5.8",
+        "smokeday/core": "*",
         "yireo/magento2-googletagmanager2": "^3.10"
     },
     "autoload": {
@@ -109,6 +110,9 @@
         }
     },
     "extra": {
+        "magento-deploystrategy-overwrite": {
+            "magento/magento2-base": "none"
+        },
         "magento-force": "override",
         "patches": {
             "magento/module-csp": {
