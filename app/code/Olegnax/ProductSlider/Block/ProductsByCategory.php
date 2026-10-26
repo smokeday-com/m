@@ -82,11 +82,16 @@ class ProductsByCategory extends AbstractShortcode
     {
         $categoryIds = $this->getCategoryIds();
         $collection = parent::initProductCollection();
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+        # https://github.com/smokeday-com/m/issues/20
         if (1 == count($categoryIds)) {
-            $categoryId = array_shift($categoryIds);
-            $category = $this->_loadObject(CategoryFactory::class)->create()->load($categoryId);
+            $categoryId = (int)array_shift($categoryIds);
+            $category = $this->_loadObject(CategoryFactory::class)->create();
+            $category->setId($categoryId);
+            $category->setData('is_anchor', 1);
             $collection->addCategoryFilter($category);
-        } else {
+        } elseif (!empty($categoryIds)) {
             $collection->addCategoriesFilter(['eq' => $categoryIds]);
         }
         $productsCount = $this->getProductsCount();

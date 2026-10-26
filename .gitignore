@@ -38,6 +38,7 @@
 /vendor/mage2pro
 /vendor/magento/framework/Test
 /vendor/magento/magento2-base
+/vendor/smokeday
 /vendor/tubalmartin
 # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
 # 1) "Adapt the website to Windows-based servers": https://github.com/smokeday-com/m/issues/1
@@ -131,3 +132,8 @@
 !/vendor/magento/module-page-cache/Model/Cron/WarmCache.php
 !/vendor/magento/module-page-cache/etc/crontab.xml
 !/vendor/magento/module-page-cache/etc/di.xml
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+# https://github.com/smokeday-com/m/issues/20
+!/vendor/magefan/module-blog/Block/Catalog/Product/RelatedPosts.php
+!/vendor/magefan/module-blog/Block/Post/PostList/AbstractList.php

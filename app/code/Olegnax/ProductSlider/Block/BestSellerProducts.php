@@ -42,6 +42,13 @@ class BestSellerProducts extends ProductsByIds
      * @var ProductFactory
      */
     protected $product;
+    # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+    # https://github.com/smokeday-com/m/issues/20
+    /**
+     * @var array|null
+     */
+    protected $_loadedProductIds = null;
 
     /**
      * BestSellerProducts constructor.
@@ -77,6 +84,34 @@ class BestSellerProducts extends ProductsByIds
      */
     public function getLoadedProductIds()
     {
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+        # https://github.com/smokeday-com/m/issues/20
+        if ($this->_loadedProductIds !== null) {
+            return $this->_loadedProductIds;
+        }
+        $categoryIds = $this->getCategoryIds();
+        $checkStock = (bool)(
+            $this->_scopeConfig->getValue(
+                Configuration::XML_PATH_SHOW_OUT_OF_STOCK,
+                ScopeInterface::SCOPE_STORE
+            ) && $this->getShowInStock()
+        );
+        $productsCount = (int)$this->getProductsCount();
+        $cacheKey = 'OLEGNAX_BESTSELLER_IDS_'
+            . $this->getStoreId() . '_'
+            . implode('-', $categoryIds) . '_'
+            . (int)$checkStock . '_'
+            . $productsCount;
+        $cached = $this->_cache->load($cacheKey);
+        if (!empty($cached)) {
+            $decoded = json_decode($cached, true);
+            if (is_array($decoded)) {
+                $this->_loadedProductIds = $decoded;
+                return $this->_loadedProductIds;
+            }
+        }
+
         $productIds = [];
         /** @var Collection $collection */
         $collection = $this->_loadObject(CollectionFactory::class)->create();
@@ -92,16 +127,58 @@ class BestSellerProducts extends ProductsByIds
             ->addFieldToFilter('product_price', array(['gt' => 9.99]))
             ->setPageSize(20);
 
-        $productsCount = $this->getProductsCount();
+        $candidateIds = [];
         foreach ($bestsellers as $_product) {
-            $id = $_product->getProductId();
-            if (!in_array($id, $productIds) && $this->categoryStatus($id) && $this->stockStatus($id)) {
-                $productIds[] = $id;
-            }
-            if ($productsCount && count($productIds) >= $productsCount) {
-                break;
+            $id = (int)$_product->getProductId();
+            if ($id > 0 && !in_array($id, $candidateIds, true)) {
+                $candidateIds[] = $id;
             }
         }
+
+        if (!empty($candidateIds)) {
+            $connection = $collection->getConnection();
+            $validCatMap = null;
+            if (!empty($categoryIds)) {
+                $validCatProductIds = $connection->fetchCol(
+                    $connection->select()
+                        ->distinct()
+                        ->from($collection->getTable('catalog_category_product'), ['product_id'])
+                        ->where('product_id IN (?)', $candidateIds)
+                        ->where('category_id IN (?)', $categoryIds)
+                );
+                $validCatMap = array_flip(array_map('intval', $validCatProductIds));
+            }
+            $inStockMap = null;
+            if ($checkStock) {
+                $inStockProductIds = $connection->fetchCol(
+                    $connection->select()
+                        ->from($collection->getTable('cataloginventory_stock_status'), ['product_id'])
+                        ->where('product_id IN (?)', $candidateIds)
+                        ->where('stock_status = ?', 1)
+                );
+                $inStockMap = array_flip(array_map('intval', $inStockProductIds));
+            }
+            foreach ($candidateIds as $id) {
+                if ($validCatMap !== null && !isset($validCatMap[$id])) {
+                    continue;
+                }
+                if ($inStockMap !== null && !isset($inStockMap[$id])) {
+                    continue;
+                }
+                $productIds[] = $id;
+                if ($productsCount && count($productIds) >= $productsCount) {
+                    break;
+                }
+            }
+        }
+
+        $this->_cache->save(
+            json_encode($productIds),
+            $cacheKey,
+            [\Magento\Catalog\Model\Product::CACHE_TAG],
+            3600
+        );
+        $this->_loadedProductIds = $productIds;
 
         return $productIds;
     }

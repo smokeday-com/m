@@ -59,6 +59,11 @@ class Megamenu extends Topmenu
     private $menuIcons;
     private $iconHelper;
     private $escapeCss;
+    # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+    # https://github.com/smokeday-com/m/issues/20
+    private $categoriesData = null;
+    private $customLinks = null;
 
     /**
      * Get relevant path to template
@@ -135,8 +140,42 @@ class Megamenu extends Topmenu
     public function getCacheKeyInfo()
     {
         $keyInfo = parent::getCacheKeyInfo();
-        $keyInfo[] = $this->getUrl('*/*/*', ['_current' => true, '_query' => '']);
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+        # https://github.com/smokeday-com/m/issues/20
+        $matchedCustomLink = $this->getMatchedCustomLinkKey();
+        if ($matchedCustomLink !== '') {
+            $keyInfo[] = $matchedCustomLink;
+        }
         return $keyInfo;
+    }
+
+    # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+    # https://github.com/smokeday-com/m/issues/20
+    public function getHtml($outermostClass = '', $childrenWrapClass = '', $limit = 0)
+    {
+        if (!$this->isEnabled()) {
+            return parent::getHtml($outermostClass, $childrenWrapClass, $limit);
+        }
+        $cacheId = $this->_Cache()->getId(
+            'getFullMegamenuHtml',
+            [
+                (string)$outermostClass,
+                (string)$childrenWrapClass,
+                (int)$limit,
+                $this->getMatchedCustomLinkKey()
+            ]
+        );
+        $cachedHtml = $this->_Cache()->load($cacheId);
+        if (!empty($cachedHtml)) {
+            return $cachedHtml;
+        }
+        $html = parent::getHtml($outermostClass, $childrenWrapClass, $limit);
+        if (!empty($html)) {
+            $this->_Cache()->save($html, $cacheId);
+        }
+        return $html;
     }
 
     /**
@@ -450,23 +489,124 @@ class Megamenu extends Topmenu
         if( !$itemId){
             return $data;
         }
-        $cache_id = $this->_Cache()->getId('getCategory', [$itemId]);
-
-        $cache = $this->_Cache()->loadObject($cache_id);
-
-        if (false !== $cache) {
-            return $cache;
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+        # https://github.com/smokeday-com/m/issues/20
+        $catId = abs((int)str_replace('category-node-', '', (string)$itemId));
+        if ($catId === 0) {
+            return $data;
         }
-        $cat = $this->_getCategory(str_replace('category-node-', '', $itemId ));
-       
-        if ($cat) {
-            $data = $cat->getData();
-            if (!empty($data)) {
-                $this->_Cache()->save($data, $cache_id);
+        $allCategories = $this->getAllCategoriesData();
+        return $allCategories[$catId] ?? [];
+    }
+
+    # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+    # https://github.com/smokeday-com/m/issues/20
+    protected function getAllCategoriesData(): array
+    {
+        if ($this->categoriesData !== null) {
+            return $this->categoriesData;
+        }
+        $cacheId = $this->_Cache()->getId('getAllCategoriesData');
+        $cached = $this->_Cache()->loadObject($cacheId);
+        if (is_array($cached)) {
+            $this->categoriesData = $cached;
+            return $this->categoriesData;
+        }
+        $data = [];
+        try {
+            $storeId = $this->_storeManager->getStore()->getId();
+            $rootId = $this->_storeManager->getStore()->getRootCategoryId();
+            /** @var \Magento\Catalog\Model\ResourceModel\Category\Collection $collection */
+            $collection = $this->_loadObject(\Magento\Catalog\Model\ResourceModel\Category\CollectionFactory::class)->create();
+            $collection->setStoreId($storeId);
+            $collection->addFieldToFilter('path', ['like' => '1/' . $rootId . '/%']);
+            $collection->addAttributeToFilter('include_in_menu', 1);
+            $collection->addIsActiveFilter();
+            $collection->addAttributeToSelect([
+                'name',
+                'ox_mm_exclude_item_from_all_categories',
+                'ox_mm_show_parent_title',
+                'ox_title_bg_color',
+                'ox_title_text_color',
+                'ox_nav_custom_class',
+                'ox_nav_custom_link_content',
+                'ox_nav_link_icon',
+                'ox_nav_custom_link',
+                'ox_nav_custom_link_target',
+                'ox_category_label',
+                'ox_label_color',
+                'ox_label_text_color',
+                'ox_columns',
+                'ox_nav_column_width',
+                'ox_bg_image',
+                'ox_data_tm_align_horizontal',
+                'ox_nav_type',
+                'ox_mm_lvl2_align_vertical',
+                'ox_nav_subcategories',
+                'ox_menu_width',
+                'ox_cat_image',
+                'ox_cat_image_pos',
+                'ox_layout',
+                'ox_nav_btm',
+                'ox_nav_top',
+                'ox_nav_left',
+                'ox_nav_left_width',
+                'ox_nav_right',
+                'ox_nav_right_width',
+            ]);
+            $customLinks = [];
+            foreach ($collection as $cat) {
+                $catData = $cat->getData();
+                $data[(int)$cat->getId()] = $catData;
+                $customLink = trim((string)($catData['ox_nav_custom_link'] ?? ''));
+                if ($customLink !== '') {
+                    $customLinks[] = $customLink;
+                }
+            }
+            $this->_Cache()->save($data, $cacheId);
+            $this->customLinks = $customLinks;
+            $this->_Cache()->save($customLinks, $this->_Cache()->getId('getCustomLinks'));
+        } catch (\Exception $e) {
+            $data = [];
+        }
+        $this->categoriesData = $data;
+        return $this->categoriesData;
+    }
+
+    protected function getCustomLinks(): array
+    {
+        if ($this->customLinks !== null) {
+            return $this->customLinks;
+        }
+        $cacheId = $this->_Cache()->getId('getCustomLinks');
+        $cached = $this->_Cache()->loadObject($cacheId);
+        if (is_array($cached)) {
+            $this->customLinks = $cached;
+            return $this->customLinks;
+        }
+        $this->getAllCategoriesData();
+        if ($this->customLinks === null) {
+            $this->customLinks = [];
+        }
+        return $this->customLinks;
+    }
+
+    protected function getMatchedCustomLinkKey(): string
+    {
+        $customLinks = $this->getCustomLinks();
+        if (empty($customLinks)) {
+            return '';
+        }
+        $currentUrl = (string)$this->getCurrentPageUrl();
+        foreach ($customLinks as $customLink) {
+            $itemUrl = preg_replace('/\.html$/', '', (string)$customLink);
+            if ($itemUrl !== '' && strpos($currentUrl, $itemUrl) === 0) {
+                return (string)$customLink;
             }
         }
-
-        return $data;
+        return '';
     }
 
     /**

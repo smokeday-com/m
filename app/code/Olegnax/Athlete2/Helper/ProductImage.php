@@ -87,6 +87,11 @@ class ProductImage extends AbstractHelper
     protected $minItems;
     protected $optionsSet;
     protected $gridImageSizes;
+    # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+    # https://github.com/smokeday-com/m/issues/20
+    private $imageParamsCache = [];
+    private $resizedImageInfoCache = [];
     /**
      * ProductImage constructor.
      *
@@ -241,6 +246,12 @@ class ProductImage extends AbstractHelper
      */
     public function getImageParams($imageId)
     {
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+        # https://github.com/smokeday-com/m/issues/20
+        if (isset($this->imageParamsCache[$imageId])) {
+            return $this->imageParamsCache[$imageId];
+        }
         $viewImageConfig = $this->getConfigView()->getMediaAttributes(
             'Magento_Catalog',
             Image::MEDIA_TYPE_CONFIG_NODE,
@@ -253,6 +264,7 @@ class ProductImage extends AbstractHelper
             $this->_logger->critical(sprintf('No options found for "%s" images!', $imageId));
         }
 
+        $this->imageParamsCache[$imageId] = $imageMiscParams;
         return $imageMiscParams;
     }
 
@@ -670,17 +682,32 @@ class ProductImage extends AbstractHelper
         }
 
         $image = $this->resizeImage($product, $imageId, $size, $properties);
-        try {
+        $placeholder = $image->getDefaultPlaceholderUrl();
+        $imageUrl = $image->getUrl();
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+        # https://github.com/smokeday-com/m/issues/20
+        if (isset($this->resizedImageInfoCache[$imageUrl])) {
             [
                 $imageMiscParams['image_width'],
                 $imageMiscParams['image_height']
-            ] = $image->getResizedImageInfo();
-        } catch (Exception $e) {
-            $this->_logger->error("OX Product Image: " . $e->getMessage());
-            $imageMiscParams['image_width'] = $imageMiscParams['image_height'] = 1;
+            ] = $this->resizedImageInfoCache[$imageUrl];
+        } else {
+            try {
+                [
+                    $imageMiscParams['image_width'],
+                    $imageMiscParams['image_height']
+                ] = $image->getResizedImageInfo();
+            } catch (Exception $e) {
+                $this->_logger->error("OX Product Image: " . $e->getMessage());
+                $imageMiscParams['image_width'] = $imageMiscParams['image_height'] = 1;
+            }
+            $this->resizedImageInfoCache[$imageUrl] = [
+                $imageMiscParams['image_width'],
+                $imageMiscParams['image_height']
+            ];
         }
-        $placeholder = $image->getDefaultPlaceholderUrl();
-        $image = $image->getUrl();
+        $image = $imageUrl;
         $image_hover = $this->resizeImage($product, $imageId_hover, $size, $properties)->getUrl();
         $image_hoverMiscParams = $this->getImageParams($imageId_hover);
         if ($image_hover == $placeholder) {
@@ -747,17 +774,32 @@ class ProductImage extends AbstractHelper
         }
         $image = $this->resizeImage($product, $imageId, $size, $properties);
         $imageMiscParams = $this->getImageParams($imageId);
-        try {
+        $placeholder = $image->getDefaultPlaceholderUrl();
+        $imageUrl = $image->getUrl();
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+        # https://github.com/smokeday-com/m/issues/20
+        if (isset($this->resizedImageInfoCache[$imageUrl])) {
             [
                 $imageMiscParams['image_width'],
                 $imageMiscParams['image_height']
-            ] = $image->getResizedImageInfo();
-        } catch (Exception $e) {
-            $this->_logger->error("OX Product Image: " . $e->getMessage());
-            $imageMiscParams['image_width'] = $imageMiscParams['image_height'] = 1;
+            ] = $this->resizedImageInfoCache[$imageUrl];
+        } else {
+            try {
+                [
+                    $imageMiscParams['image_width'],
+                    $imageMiscParams['image_height']
+                ] = $image->getResizedImageInfo();
+            } catch (Exception $e) {
+                $this->_logger->error("OX Product Image: " . $e->getMessage());
+                $imageMiscParams['image_width'] = $imageMiscParams['image_height'] = 1;
+            }
+            $this->resizedImageInfoCache[$imageUrl] = [
+                $imageMiscParams['image_width'],
+                $imageMiscParams['image_height']
+            ];
         }
-        $placeholder = $image->getDefaultPlaceholderUrl();
-        $image = $image->getUrl();
+        $image = $imageUrl;
         if ($image == $placeholder) {
             return $this->getImage($product, $imageId, $template, $attributes, $properties);
         }

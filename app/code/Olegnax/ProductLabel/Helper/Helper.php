@@ -215,10 +215,23 @@ class Helper extends CoreHelperHelper
      */
     protected function getBestsellerIds()
     {
-        if (empty($this->_bestsellerIds)) {
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+        # https://github.com/smokeday-com/m/issues/20
+        if (null === $this->_bestsellerIds) {
+            /** @var Cache $cache */
+            $cache = $this->_loadObject(Cache::class);
+            $period = (string)$this->getModuleConfig('label/bestseller_period');
+            $count = max((int)($this->getModuleConfig('label/bestseller_count') ?: 200), 10);
+            $cacheId = $cache->getId('getBestsellerIds', [$this->getStoreId(), $period, $count]);
+            $cached = $cache->loadObject($cacheId);
+            if (is_array($cached)) {
+                $this->_bestsellerIds = $cached;
+                return $this->_bestsellerIds;
+            }
+
             $this->_bestsellerIds = [];
             $collection = $this->getReportBestsellers()->create();
-            $period = $this->getModuleConfig('label/bestseller_period');
             if ($period) {
                 $collection
                     ->addFieldToFilter(
@@ -238,15 +251,11 @@ class Helper extends CoreHelperHelper
 
             $bestsellers = $collection
                 ->setOrder('MIN(rating_pos)', Collection::SORT_ORDER_ASC)
-                ->setPageSize(
-                    max(
-                        (int)($this->getModuleConfig('label/bestseller_count') ?: 200),
-                        10
-                    )
-                );
+                ->setPageSize($count);
             foreach ($bestsellers as $item) {
                 $this->_bestsellerIds[] = $item->getProductId();
             }
+            $cache->save($this->_bestsellerIds, $cacheId, 3600);
         }
 
         return $this->_bestsellerIds;

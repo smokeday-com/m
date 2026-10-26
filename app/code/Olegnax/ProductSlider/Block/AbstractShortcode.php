@@ -147,6 +147,13 @@ abstract class AbstractShortcode extends AbstractProduct implements BlockInterfa
      * @var Json
      */
     private $json;
+    # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+    # https://github.com/smokeday-com/m/issues/20
+    /**
+     * @var Collection|null
+     */
+    protected $_productCollection = null;
 
     /**
      * AbstractShortcode constructor.
@@ -184,6 +191,22 @@ abstract class AbstractShortcode extends AbstractProduct implements BlockInterfa
      */
     public function getCacheKeyInfo($newval = [])
     {
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+        # https://github.com/smokeday-com/m/issues/20
+        $params = $this->getRequest()->getParams();
+        if (is_array($params) && !empty($params)) {
+            foreach (array_keys($params) as $paramKey) {
+                $lowerKey = strtolower((string)$paramKey);
+                if (in_array($lowerKey, [
+                    'gclid', 'fbclid', 'msclkid', 'srsltid', 'gbraid', 'wbraid',
+                    'dclid', 'twclid', 'ttclid', 'yclid', 'mc_cid', 'mc_eid',
+                    '_ga', '_gl', '_ke', 'kx', 'dm_i', 'ef_id', 's_kwcid'
+                ], true) || preg_match('/^(utm_|_bta_|trk_|gdf|_ga_)/i', $lowerKey)) {
+                    unset($params[$paramKey]);
+                }
+            }
+        }
         return array_merge([
             'OLEGNAX_PRODUCTSLIDER_PRODUCTS_LIST_WIDGET',
             $this->getPriceCurrency()->getCurrency()->getCode(),
@@ -193,7 +216,7 @@ abstract class AbstractShortcode extends AbstractProduct implements BlockInterfa
             (int)$this->getRequest()->getParam($this->getData('page_var_name'), 1),
             $this->getProductsPerPage(),
             $this->getProductsCount(),
-            $this->json->serialize($this->getRequest()->getParams()),
+            $this->json->serialize($params),
             $this->json->serialize($this->getData()),
         ], $newval);
     }
@@ -324,16 +347,32 @@ abstract class AbstractShortcode extends AbstractProduct implements BlockInterfa
      */
     public function getIdentities()
     {
-        $identities = [];
-        if ($this->getProductCollection()) {
-            foreach ($this->getProductCollection() as $product) {
-                if ($product instanceof IdentityInterface) {
-                    $identities = array_merge($identities, $product->getIdentities());
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+        # https://github.com/smokeday-com/m/issues/20
+        $identities = [Product::CACHE_TAG];
+        $rawCatIds = $this->getData('category_ids');
+        if ($rawCatIds) {
+            $catIds = is_array($rawCatIds) ? $rawCatIds : explode(',', (string)$rawCatIds);
+            foreach ($catIds as $catId) {
+                $catId = (int)$catId;
+                if ($catId > 0) {
+                    $identities[] = \Magento\Catalog\Model\Category::CACHE_TAG . '_' . $catId;
+                    $identities[] = Product::CACHE_TAG . '_cat_' . $catId;
                 }
             }
         }
+        if ($this->_productCollection === null) {
+            return array_unique($identities);
+        }
+        foreach ($this->_productCollection as $product) {
+            $productId = (int)$product->getId();
+            if ($productId > 0) {
+                $identities[] = Product::CACHE_TAG . '_' . $productId;
+            }
+        }
 
-        return $identities ?: [Product::CACHE_TAG];
+        return array_unique($identities);
     }
 
     /**
@@ -341,19 +380,25 @@ abstract class AbstractShortcode extends AbstractProduct implements BlockInterfa
      */
     public function getProductCollection()
     {
-        $page = (int)$this->getRequest()->getParam($this->getData('page_var_name'), 1);
-        $collection = $this->initProductCollection()
-            ->setCurPage($page);
-        $productsSize = $this->getPageSize();
-        $productsCount = $productsSize * $page;
-        if ($productsCount > $this->getProductsCount()) {
-            $productsSize += $this->getProductsCount() - $productsCount;
-        }
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+        # https://github.com/smokeday-com/m/issues/20
+        if ($this->_productCollection === null) {
+            $page = (int)$this->getRequest()->getParam($this->getData('page_var_name'), 1);
+            $collection = $this->initProductCollection()
+                ->setCurPage($page);
+            $productsSize = $this->getPageSize();
+            $productsCount = $productsSize * $page;
+            if ($productsCount > $this->getProductsCount()) {
+                $productsSize += $this->getProductsCount() - $productsCount;
+            }
 
-        if ($productsSize) {
-            $collection->setPageSize($productsSize);
+            if ($productsSize) {
+                $collection->setPageSize($productsSize);
+            }
+            $this->_productCollection = $collection;
         }
-        return $collection;
+        return $this->_productCollection;
     }
 
     /**
@@ -364,10 +409,35 @@ abstract class AbstractShortcode extends AbstractProduct implements BlockInterfa
         /** @var $collection Collection */
         $visibleProducts = $this->catalogProductVisibility->getVisibleInCatalogIds();
         $collection = $this->productCollectionFactory->create()->setVisibility($visibleProducts);
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
+        # https://github.com/smokeday-com/m/issues/20
+        $attributes = array_unique(array_merge(
+            $this->_catalogConfig->getProductAttributes(),
+            [
+                'ox_custom',
+                'ox_featured',
+                'thm_featured',
+                'news_from_date',
+                'news_to_date',
+                'special_price',
+                'special_from_date',
+                'special_to_date',
+                'msrp',
+                'image',
+                'small_image',
+                'thumbnail',
+                'swatch_image',
+                'image_label',
+                'small_image_label',
+                'thumbnail_label',
+            ]
+        ));
         $collection->addMinimalPrice()
             ->addFinalPrice()
             ->addTaxPercents()
-            ->addAttributeToSelect('*');
+            ->addAttributeToSelect($attributes)
+            ->addUrlRewrite();
         if ($this->_scopeConfig->getValue(
                 Configuration::XML_PATH_SHOW_OUT_OF_STOCK,
                 ScopeInterface::SCOPE_STORE
@@ -596,7 +666,7 @@ abstract class AbstractShortcode extends AbstractProduct implements BlockInterfa
      */
     public function getPagerHtml()
     {
-        if ($this->showPager() && $this->initProductCollection()->getSize() > $this->getProductsPerPage()) {
+        if ($this->showPager() && $this->getProductCollection()->getSize() > $this->getProductsPerPage()) {
             if (!$this->pager) {
                 $this->pager = $this->getLayout()->createBlock(
                     Pager::class,
