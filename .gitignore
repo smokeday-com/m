@@ -137,3 +137,14 @@
 # https://github.com/smokeday-com/m/issues/20
 !/vendor/magefan/module-blog/Block/Catalog/Product/RelatedPosts.php
 !/vendor/magefan/module-blog/Block/Post/PostList/AbstractList.php
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Optimize Auctane_Api (ShipStation) carrier rate collection with Redis caching and empty address guard, and skip setCollectShippingRates(true) inside POST /checkout/cart/add":
+# https://github.com/smokeday-com/m/issues/22
+!/vendor/auctane/api/Model/Carrier/Shipping.php
+!/vendor/magento/module-checkout/Controller/Cart/Add.php
+!/vendor/magento/module-checkout/Model/Cart.php
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Skip checkout-only Signifyd and Vault config providers on /checkout/cart/ in CompositeConfigProvider and skip Magento_Csp header rendering on AJAX/POST requests":
+# https://github.com/smokeday-com/m/issues/25
+!/vendor/magento/module-checkout/Model/CompositeConfigProvider.php
+!/vendor/magento/module-csp/Observer/Render.php
