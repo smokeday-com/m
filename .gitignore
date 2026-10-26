@@ -104,3 +104,12 @@
 !/vendor/magento/framework/App/Cache/Manager.php
 !/vendor/magento/framework/App/PageCache/Kernel.php
 !/vendor/magento/module-page-cache/Model/Cache/Type.php
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Normalize marketing tracking query parameters in Magento\Framework\App\PageCache\Identifier::getValue() for Built-in FPC":
+# https://github.com/smokeday-com/m/issues/13
+!/vendor/magento/framework/App/PageCache/Identifier.php
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Invalidate Built-in FPC and Cloudflare Edge Cache on mass product attribute/status updates and catalogrule_after_apply":
+# https://github.com/smokeday-com/m/issues/14
+!/vendor/magento/module-page-cache/etc/events.xml
+!/vendor/magento/module-page-cache/Observer/FlushCacheByTags.php
