@@ -82,3 +82,7 @@
 # "Prevent eager PHP session startup in Magento\Framework\Data\Form\FormKey during Built-in FPC HIT requests":
 # https://github.com/smokeday-com/m/issues/5
 !/app/etc/di.xml
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Reschedule amasty_mostviewed_build_together_index cron job from hourly (5 * * * *) to daily off-peak (5 9 * * *)":
+# https://github.com/smokeday-com/m/issues/8
+!/vendor/amasty/mostviewed/etc/crontab.xml
