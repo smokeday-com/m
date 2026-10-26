@@ -22,6 +22,15 @@
         </arguments>
     </type>
 
+    <!-- 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    "Inject Magento\Customer\Model\Session\Proxy into Mirasvit\Affiliate\Service\AccountService to prevent session startup during Response\Http::sendResponse() on FPC HIT":
+    https://github.com/smokeday-com/m/issues/6 -->
+    <type name="Mirasvit\Affiliate\Service\AccountService">
+        <arguments>
+            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+
     <type name="Mirasvit\GdprCookie\Model\Config\RequiredCookieList">
         <arguments>
             <argument name="cookies" xsi:type="array">
