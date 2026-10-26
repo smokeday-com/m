@@ -60,6 +60,10 @@ class Type extends \Magento\Framework\Cache\Frontend\Decorator\TagScope
         # "Emit Cache-Tag HTTP header from Magento\Framework\App\PageCache\Kernel and automatically purge Cloudflare Edge Cache on cache invalidation events":
         # https://github.com/smokeday-com/m/issues/12
         $this->purgeCloudflare((string)$mode, $tags);
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Implement event-driven and prioritized cron Full Page Cache & Cloudflare Edge Cache warmer (page-cache:warm / magento_pagecache_warm)":
+        # https://github.com/smokeday-com/m/issues/19
+        Warmer::enqueueTags((string)$mode, $tags);
         return $result;
     }
 

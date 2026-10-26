@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Implement event-driven and prioritized cron Full Page Cache & Cloudflare Edge Cache warmer (page-cache:warm / magento_pagecache_warm)":
+# https://github.com/smokeday-com/m/issues/19
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="magento_pagecache_warm" instance="Magento\PageCache\Model\Cron\WarmCache" method="execute">
+            <schedule>*/5 * * * *</schedule>
+        </job>
+    </group>
+</config>

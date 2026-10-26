@@ -123,3 +123,11 @@
 !/vendor/magento/module-backend/Block/Dashboard/Grid.php
 !/vendor/magento/module-backend/Block/Dashboard/Tab/Customers/Most.php
 !/vendor/magento/module-backend/view/adminhtml/templates/dashboard/grid.phtml
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Implement event-driven and prioritized cron Full Page Cache & Cloudflare Edge Cache warmer (page-cache:warm / magento_pagecache_warm)":
+# https://github.com/smokeday-com/m/issues/19
+!/vendor/magento/module-page-cache/Console/Command/WarmCacheCommand.php
+!/vendor/magento/module-page-cache/Model/Cache/Warmer.php
+!/vendor/magento/module-page-cache/Model/Cron/WarmCache.php
+!/vendor/magento/module-page-cache/etc/crontab.xml
+!/vendor/magento/module-page-cache/etc/di.xml
