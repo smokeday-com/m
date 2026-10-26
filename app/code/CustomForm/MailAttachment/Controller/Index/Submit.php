@@ -94,6 +94,10 @@ class Submit extends \Magento\Framework\App\Action\Action
             $filesData = $this->getRequest()->getFiles('document');
             if ($filesData['name']) {
                 $uploader = $this->fileUploaderFactory->create(['fileId' => 'document']);
+                # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+                # "Restrict allowed file extensions in CustomForm\MailAttachment\Controller\Index\Submit to prevent unrestricted file uploads to pub/media/CustomImage":
+                # https://github.com/smokeday-com/m/issues/7
+                $uploader->setAllowedExtensions(['jpg', 'jpeg', 'gif', 'png', 'pdf', 'doc', 'docx']);
                 $uploader->setAllowRenameFiles(true);
                 $uploader->setFilesDispersion(true);
                 $uploader->setAllowCreateFolders(true);
