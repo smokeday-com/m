@@ -51,7 +51,16 @@ class Reset extends Action
      */
     public function execute()
     {
-        $relationTimestamp  = $this->getRelationTimestamp();
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Prevent Mirasvit_Affiliate click-abstract.js from sending unconditional POST /affiliate/cookie/reset/ on every page load when no affiliate cookie exists":
+        # https://github.com/smokeday-com/m/issues/28
+        $request = $this->getRequest();
+        $hasAffiliateCookie = method_exists($request, 'getCookie') && (
+            (string)$request->getCookie('affiliate', '') !== ''
+            || (string)$request->getCookie('affiliate_identifier', '') !== ''
+            || (string)$request->getCookie('affiliate_referrer', '') !== ''
+        );
+        $relationTimestamp  = $hasAffiliateCookie ? $this->getRelationTimestamp() : 0;
         $cookieEndTimestamp = $relationTimestamp ? $relationTimestamp + $this->configProvider->getCookieLifetimeSeconds() : 0;
 
         $response = $this->getResponse();

@@ -47,9 +47,18 @@ define([
                         + "&banner=" + banner
                         + "&referer=" + referrer;
                     $.ajax(url);
-                } else {
+                } else if (
+                    this.getCookie(sessionCookieName)
+                    || this.getCookie(identifierCookieName)
+                    || this.getCookie(referrerCookieName)
+                ) {
+                    /*
+                     * 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+                     * "Prevent Mirasvit_Affiliate click-abstract.js from sending unconditional POST /affiliate/cookie/reset/ on every page load when no affiliate cookie exists":
+                     * https://github.com/smokeday-com/m/issues/28
+                     */
                     $.ajax({
-                        type:    'POST',
+                        type:    'GET',
                         url:     this.options.urlCookieReset,
                         data:    {},
                         success: function (response) {
