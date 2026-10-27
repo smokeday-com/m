@@ -21,11 +21,12 @@ use Magento\Store\Model\StoreManagerInterface;
 class Warmer
 {
     # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
-    # "Throttle magento_pagecache_warm background cron concurrency to 1, limit to 20 URLs per run, and lower max load average threshold to 4.0":
-    # https://github.com/smokeday-com/m/issues/24
-    public const DEFAULT_LIMIT = 20;
+    # "Calibrate FPC Warmer load threshold (15.0 / 25.0 for priority queue), run every minute, prioritize Category Page 1 URLs, and guard Type::purgeCloudflare() / Warmer::enqueueTags() against empty tag arrays":
+    # https://github.com/smokeday-com/m/issues/26
+    public const DEFAULT_LIMIT = 15;
     public const DEFAULT_CONCURRENCY = 1;
-    public const DEFAULT_MAX_LOAD_AVG = 4.0;
+    public const DEFAULT_MAX_LOAD_AVG = 15.0;
+    public const PRIORITY_QUEUE_MAX_LOAD_AVG = 25.0;
 
     private const STORE_ID = 1;
     private const QUEUE_REL_PATH = '/var/page_cache_warm_queue.json';
@@ -111,9 +112,15 @@ class Warmer
         if (self::$enqueuedAll || !defined('BP')) {
             return;
         }
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Calibrate FPC Warmer load threshold (15.0 / 25.0 for priority queue), run every minute, prioritize Category Page 1 URLs, and guard Type::purgeCloudflare() / Warmer::enqueueTags() against empty tag arrays":
+        # https://github.com/smokeday-com/m/issues/26
+        if ($mode !== \Zend_Cache::CLEANING_MODE_ALL && empty($tags)) {
+            return;
+        }
         try {
             $newTags = [];
-            $isFlushAll = ($mode === \Zend_Cache::CLEANING_MODE_ALL || empty($tags));
+            $isFlushAll = ($mode === \Zend_Cache::CLEANING_MODE_ALL);
             if ($isFlushAll) {
                 self::$enqueuedAll = true;
             } else {
@@ -198,11 +205,18 @@ class Warmer
         $limit = max(1, $limit);
         $concurrency = max(1, min(8, $concurrency));
         $currentLoad = $this->getCurrentLoadAvg();
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Calibrate FPC Warmer load threshold (15.0 / 25.0 for priority queue), run every minute, prioritize Category Page 1 URLs, and guard Type::purgeCloudflare() / Warmer::enqueueTags() against empty tag arrays":
+        # https://github.com/smokeday-com/m/issues/26
+        $hasPendingQueue = $this->hasQueuedTags();
+        $effectiveMaxLoadAvg = ($hasPendingQueue && $maxLoadAvg <= self::DEFAULT_MAX_LOAD_AVG)
+            ? self::PRIORITY_QUEUE_MAX_LOAD_AVG
+            : $maxLoadAvg;
 
         $summary = [
             'status' => 'ok',
             'load_avg_1m' => $currentLoad,
-            'max_load_avg' => $maxLoadAvg,
+            'max_load_avg' => $effectiveMaxLoadAvg,
             'queued_tags_count' => 0,
             'queued_urls_count' => 0,
             'catalog_urls_total' => 0,
@@ -221,7 +235,7 @@ class Warmer
             return $summary;
         }
 
-        if ($currentLoad !== null && $currentLoad >= $maxLoadAvg) {
+        if ($currentLoad !== null && $currentLoad >= $effectiveMaxLoadAvg) {
             $summary['status'] = 'skipped_high_load';
             $summary['elapsed_sec'] = round(microtime(true) - $startTime, 3);
             return $summary;
@@ -259,6 +273,7 @@ class Warmer
 
             $toWarm = [];
             $seen = [];
+            $hasRemainingQueuedUrls = false;
 
             // 1. Event-driven invalidated URLs first (M-WARMER-2)
             foreach ($queuedUrls as $url) {
@@ -271,10 +286,11 @@ class Warmer
                     $summary['skipped_already_cached']++;
                     continue;
                 }
-                $toWarm[] = $url;
                 if (count($toWarm) >= $limit) {
+                    $hasRemainingQueuedUrls = true;
                     break;
                 }
+                $toWarm[] = $url;
             }
 
             // 2. Prioritized canonical catalog & pagination URLs (M-WARMER-1)
@@ -301,9 +317,12 @@ class Warmer
             if (!empty($toWarm) && function_exists('curl_multi_init')) {
                 foreach (array_chunk($toWarm, $concurrency) as $batch) {
                     $loadNow = $this->getCurrentLoadAvg();
-                    if ($loadNow !== null && $loadNow >= $maxLoadAvg) {
+                    if ($loadNow !== null && $loadNow >= $effectiveMaxLoadAvg) {
                         $summary['status'] = 'paused_high_load';
                         $summary['load_avg_1m'] = $loadNow;
+                        if (!empty($queuedTags)) {
+                            $hasRemainingQueuedUrls = true;
+                        }
                         break;
                     }
                     $batchResults = $this->executeBatchRequests($batch);
@@ -324,6 +343,10 @@ class Warmer
                         ];
                     }
                 }
+            }
+
+            if ($hasRemainingQueuedUrls && !empty($queuedTags)) {
+                $this->requeueTags($queuedTags);
             }
         } finally {
             @flock($lockFp, LOCK_UN);
@@ -354,6 +377,60 @@ class Warmer
     public function isUrlCached(string $url): bool
     {
         return (bool)$this->fullPageCache->test($this->getCacheIdForUrl($url));
+    }
+
+    /**
+     * Check whether the priority tag queue file currently has pending invalidated tags.
+     *
+     * @return bool
+     */
+    private function hasQueuedTags(): bool
+    {
+        $queueFile = self::getQueueFilePath();
+        if (!is_file($queueFile)) {
+            return false;
+        }
+        $raw = @file_get_contents($queueFile);
+        $data = is_string($raw) && $raw !== '' ? json_decode($raw, true) : null;
+        return is_array($data) && (!empty($data['tags']) || !empty($data['flush_all']));
+    }
+
+    /**
+     * Re-enqueue tags into the priority queue file when a warming run hits $limit or pauses.
+     *
+     * @param string[] $tags
+     * @return void
+     */
+    private function requeueTags(array $tags): void
+    {
+        if (empty($tags)) {
+            return;
+        }
+        $queueFile = self::getQueueFilePath();
+        $fp = @fopen($queueFile, 'c+');
+        if ($fp === false) {
+            return;
+        }
+        if (@flock($fp, LOCK_EX)) {
+            $raw = stream_get_contents($fp);
+            $data = is_string($raw) && $raw !== '' ? json_decode($raw, true) : null;
+            if (!is_array($data)) {
+                $data = ['flush_all' => false, 'tags' => [], 'updated_at' => time()];
+            }
+            $existingTags = isset($data['tags']) && is_array($data['tags']) ? $data['tags'] : [];
+            $merged = array_values(array_unique(array_merge($tags, $existingTags)));
+            if (count($merged) > self::MAX_QUEUE_TAGS) {
+                $merged = array_slice($merged, 0, self::MAX_QUEUE_TAGS);
+            }
+            $data['tags'] = $merged;
+            $data['updated_at'] = time();
+            ftruncate($fp, 0);
+            rewind($fp);
+            fwrite($fp, (string)json_encode($data, JSON_UNESCAPED_SLASHES));
+            fflush($fp);
+            @flock($fp, LOCK_UN);
+        }
+        fclose($fp);
     }
 
     /**
@@ -438,18 +515,50 @@ class Warmer
             }
         }
 
-        if (!empty($productIds)) {
-            $prodSelect = $conn->select()
-                ->from(['u' => $urlRewriteTable], ['request_path'])
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Calibrate FPC Warmer load threshold (15.0 / 25.0 for priority queue), run every minute, prioritize Category Page 1 URLs, and guard Type::purgeCloudflare() / Warmer::enqueueTags() against empty tag arrays":
+        # https://github.com/smokeday-com/m/issues/26
+        // Prioritize Category Page 1 URLs (sorted by product count DESC) immediately after $baseUrl
+        $paginatedUrls = [];
+        if (!empty($categoryIds)) {
+            $categoryIds = array_values(array_unique($categoryIds));
+            $catSelect = $conn->select()
+                ->from(['u' => $urlRewriteTable], ['entity_id', 'request_path'])
                 ->where('u.store_id = ?', self::STORE_ID)
                 ->where('u.redirect_type = 0')
-                ->where('u.entity_type = ?', 'product')
-                ->where('u.metadata IS NULL')
-                ->where('u.entity_id IN (?)', $productIds);
-            foreach ($conn->fetchCol($prodSelect) as $path) {
+                ->where('u.entity_type = ?', 'category')
+                ->where('u.entity_id IN (?)', $categoryIds);
+            $catPaths = $conn->fetchPairs($catSelect);
+
+            $catCounts = $this->getCategoryProductCounts($categoryIds);
+            $catsSorted = [];
+            foreach ($catPaths as $cid => $path) {
                 $cleanPath = ltrim((string)$path, '/');
-                if ($cleanPath !== '') {
-                    $urls[] = $baseUrl . $cleanPath;
+                if ($cleanPath === '') {
+                    continue;
+                }
+                $catsSorted[] = [
+                    'id' => (int)$cid,
+                    'url' => $baseUrl . $cleanPath,
+                    'cnt' => $catCounts[(int)$cid] ?? 0,
+                ];
+            }
+            usort($catsSorted, static fn(array $a, array $b): int => $b['cnt'] <=> $a['cnt']);
+
+            $maxPages = 1;
+            foreach ($catsSorted as $cat) {
+                $urls[] = $cat['url'];
+                $pages = (int)ceil($cat['cnt'] / $gridPerPage);
+                if ($pages > $maxPages) {
+                    $maxPages = $pages;
+                }
+            }
+            for ($p = 2; $p <= $maxPages; $p++) {
+                foreach ($catsSorted as $cat) {
+                    $pages = (int)ceil($cat['cnt'] / $gridPerPage);
+                    if ($p <= $pages) {
+                        $paginatedUrls[] = $cat['url'] . '?p=' . $p;
+                    }
                 }
             }
         }
@@ -470,34 +579,24 @@ class Warmer
             }
         }
 
-        if (!empty($categoryIds)) {
-            $categoryIds = array_values(array_unique($categoryIds));
-            $catSelect = $conn->select()
-                ->from(['u' => $urlRewriteTable], ['entity_id', 'request_path'])
+        if (!empty($productIds)) {
+            $prodSelect = $conn->select()
+                ->from(['u' => $urlRewriteTable], ['request_path'])
                 ->where('u.store_id = ?', self::STORE_ID)
                 ->where('u.redirect_type = 0')
-                ->where('u.entity_type = ?', 'category')
-                ->where('u.entity_id IN (?)', $categoryIds);
-            $catPaths = $conn->fetchPairs($catSelect);
-
-            $catCounts = $this->getCategoryProductCounts($categoryIds);
-            $paginatedUrls = [];
-            foreach ($catPaths as $cid => $path) {
+                ->where('u.entity_type = ?', 'product')
+                ->where('u.metadata IS NULL')
+                ->where('u.entity_id IN (?)', $productIds);
+            foreach ($conn->fetchCol($prodSelect) as $path) {
                 $cleanPath = ltrim((string)$path, '/');
-                if ($cleanPath === '') {
-                    continue;
-                }
-                $catUrl = $baseUrl . $cleanPath;
-                $urls[] = $catUrl;
-                $cnt = $catCounts[(int)$cid] ?? 0;
-                $pages = (int)ceil($cnt / $gridPerPage);
-                for ($p = 2; $p <= $pages; $p++) {
-                    $paginatedUrls[] = $catUrl . '?p=' . $p;
+                if ($cleanPath !== '') {
+                    $urls[] = $baseUrl . $cleanPath;
                 }
             }
-            foreach ($paginatedUrls as $paginatedUrl) {
-                $urls[] = $paginatedUrl;
-            }
+        }
+
+        foreach ($paginatedUrls as $paginatedUrl) {
+            $urls[] = $paginatedUrl;
         }
 
         return array_values(array_unique($urls));

@@ -54,6 +54,12 @@ class Type extends \Magento\Framework\Cache\Frontend\Decorator\TagScope
      */
     public function clean($mode = \Zend_Cache::CLEANING_MODE_ALL, array $tags = [])
     {
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Calibrate FPC Warmer load threshold (15.0 / 25.0 for priority queue), run every minute, prioritize Category Page 1 URLs, and guard Type::purgeCloudflare() / Warmer::enqueueTags() against empty tag arrays":
+        # https://github.com/smokeday-com/m/issues/26
+        if ($mode !== \Zend_Cache::CLEANING_MODE_ALL && empty($tags)) {
+            return true;
+        }
         $this->eventManager->dispatch('adminhtml_cache_refresh_type');
         $result = parent::clean($mode, $tags);
         # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
@@ -75,6 +81,12 @@ class Type extends \Magento\Framework\Cache\Frontend\Decorator\TagScope
         if ($this->purgedCloudflareAll || !function_exists('curl_init')) {
             return;
         }
+        # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Calibrate FPC Warmer load threshold (15.0 / 25.0 for priority queue), run every minute, prioritize Category Page 1 URLs, and guard Type::purgeCloudflare() / Warmer::enqueueTags() against empty tag arrays":
+        # https://github.com/smokeday-com/m/issues/26
+        if ($mode !== \Zend_Cache::CLEANING_MODE_ALL && empty($tags)) {
+            return;
+        }
         try {
             $om = \Magento\Framework\App\ObjectManager::getInstance();
             /** @var \Magento\Framework\App\DeploymentConfig $deploymentConfig */
@@ -87,7 +99,7 @@ class Type extends \Magento\Framework\Cache\Frontend\Decorator\TagScope
             $apiToken = (string)$cfConfig['api_token'];
 
             $tagsToPurge = [];
-            if ($mode === \Zend_Cache::CLEANING_MODE_ALL || empty($tags)) {
+            if ($mode === \Zend_Cache::CLEANING_MODE_ALL) {
                 $tagsToPurge = [self::CACHE_TAG];
                 $this->purgedCloudflareAll = true;
             } else {

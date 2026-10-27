@@ -7,7 +7,12 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
     <group id="default">
         <job name="magento_pagecache_warm" instance="Magento\PageCache\Model\Cron\WarmCache" method="execute">
-            <schedule>*/5 * * * *</schedule>
+            <!--
+            # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+            # "Calibrate FPC Warmer load threshold (15.0 / 25.0 for priority queue), run every minute, prioritize Category Page 1 URLs, and guard Type::purgeCloudflare() / Warmer::enqueueTags() against empty tag arrays":
+            # https://github.com/smokeday-com/m/issues/26
+            -->
+            <schedule>* * * * *</schedule>
         </job>
     </group>
 </config>
