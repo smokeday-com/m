@@ -148,3 +148,16 @@
 # https://github.com/smokeday-com/m/issues/25
 !/vendor/magento/module-checkout/Model/CompositeConfigProvider.php
 !/vendor/magento/module-csp/Observer/Render.php
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Compute exact category membership/position diff in Product Category Indexer Rows::execute(), preserve non-zero category positions in SaveHandler::mergeCategoryLinks(), and restrict Stock CacheCleaner::clean() full-category flush to restocked products":
+# https://github.com/smokeday-com/m/issues/27
+!/vendor/magento/module-catalog/Model/Indexer/Product/Category/Action/Rows.php
+!/vendor/magento/module-catalog/Model/Category/Link/SaveHandler.php
+!/vendor/magento/module-catalog-inventory/Model/Indexer/Stock/CacheCleaner.php
+# 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Decouple cross-site product sliders (Olegnax_ProductSlider and Amasty_Mostviewed) from polluting host page X-Magento-Tags with individual product and category tags":
+# https://github.com/smokeday-com/m/issues/29
+!/vendor/amasty/mostviewed/Block/Widget/Related.php
+!/vendor/magento/module-catalog-widget/Block/Product/ProductsList.php
+!/vendor/magento/module-catalog/Block/Product/ProductList/Related.php
+!/vendor/magento/module-catalog/Block/Product/ProductList/Upsell.php

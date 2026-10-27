@@ -348,31 +348,9 @@ abstract class AbstractShortcode extends AbstractProduct implements BlockInterfa
     public function getIdentities()
     {
         # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
-        # "Optimize Magefan_Blog and Olegnax_Athlete2 (Olegnax_ProductSlider, Olegnax_MegaMenu, InlineCss, Olegnax_ProductLabel, ProductImage) storefront performance":
-        # https://github.com/smokeday-com/m/issues/20
-        $identities = [Product::CACHE_TAG];
-        $rawCatIds = $this->getData('category_ids');
-        if ($rawCatIds) {
-            $catIds = is_array($rawCatIds) ? $rawCatIds : explode(',', (string)$rawCatIds);
-            foreach ($catIds as $catId) {
-                $catId = (int)$catId;
-                if ($catId > 0) {
-                    $identities[] = \Magento\Catalog\Model\Category::CACHE_TAG . '_' . $catId;
-                    $identities[] = Product::CACHE_TAG . '_cat_' . $catId;
-                }
-            }
-        }
-        if ($this->_productCollection === null) {
-            return array_unique($identities);
-        }
-        foreach ($this->_productCollection as $product) {
-            $productId = (int)$product->getId();
-            if ($productId > 0) {
-                $identities[] = Product::CACHE_TAG . '_' . $productId;
-            }
-        }
-
-        return array_unique($identities);
+        # "Decouple cross-site product sliders (Olegnax_ProductSlider and Amasty_Mostviewed) from polluting host page X-Magento-Tags with individual product and category tags":
+        # https://github.com/smokeday-com/m/issues/29
+        return ['olegnax_productslider'];
     }
 
     /**
