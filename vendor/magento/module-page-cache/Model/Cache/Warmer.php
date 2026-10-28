@@ -23,10 +23,14 @@ class Warmer
     # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
     # "Calibrate FPC Warmer load threshold (15.0 / 25.0 for priority queue), run every minute, prioritize Category Page 1 URLs, and guard Type::purgeCloudflare() / Warmer::enqueueTags() against empty tag arrays":
     # https://github.com/smokeday-com/m/issues/26
-    public const DEFAULT_LIMIT = 15;
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Ensure Warmer::warm() flushes Cloudflare purge queue first, always warms priority invalidated URLs on Cloudflare Edge, and enforces a 35s time budget to prevent cron lock collisions":
+    # https://github.com/smokeday-com/m/issues/34
+    public const DEFAULT_LIMIT = 12;
     public const DEFAULT_CONCURRENCY = 1;
     public const DEFAULT_MAX_LOAD_AVG = 15.0;
     public const PRIORITY_QUEUE_MAX_LOAD_AVG = 25.0;
+    public const MAX_RUN_SECONDS = 35.0;
 
     private const STORE_ID = 1;
     private const QUEUE_REL_PATH = '/var/page_cache_warm_queue.json';
@@ -209,6 +213,10 @@ class Warmer
         $startTime = microtime(true);
         $limit = max(1, $limit);
         $concurrency = max(1, min(8, $concurrency));
+        # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Ensure Warmer::warm() flushes Cloudflare purge queue first, always warms priority invalidated URLs on Cloudflare Edge, and enforces a 35s time budget to prevent cron lock collisions":
+        # https://github.com/smokeday-com/m/issues/34
+        $cfPurgeSummary = Type::flushCloudflareQueue();
         $currentLoad = $this->getCurrentLoadAvg();
         # 2026-10-26 Dmitrii Fediuk https://github.com/dmitrii-fediuk
         # "Calibrate FPC Warmer load threshold (15.0 / 25.0 for priority queue), run every minute, prioritize Category Page 1 URLs, and guard Type::purgeCloudflare() / Warmer::enqueueTags() against empty tag arrays":
@@ -222,6 +230,7 @@ class Warmer
             'status' => 'ok',
             'load_avg_1m' => $currentLoad,
             'max_load_avg' => $effectiveMaxLoadAvg,
+            'cloudflare_purge' => $cfPurgeSummary,
             'queued_tags_count' => 0,
             'queued_urls_count' => 0,
             'catalog_urls_total' => 0,
@@ -267,32 +276,25 @@ class Warmer
             $queuedTags = $queuePayload['tags'];
             $summary['queued_tags_count'] = count($queuedTags);
 
-            $queuedUrls = [];
-            if (!empty($queuedTags)) {
-                $queuedUrls = $this->resolveUrlsForTags($queuedTags, $baseUrl);
-                $summary['queued_urls_count'] = count($queuedUrls);
-            }
+            $resolvedFromTags = !empty($queuedTags) ? $this->resolveUrlsForTags($queuedTags, $baseUrl) : [];
+            $queuedUrls = array_values(array_unique(array_merge($queuePayload['urls'], $resolvedFromTags)));
+            $summary['queued_urls_count'] = count($queuedUrls);
 
             $catalogUrls = $this->collectPrioritizedCanonicalUrls($baseUrl);
             $summary['catalog_urls_total'] = count($catalogUrls);
 
             $toWarm = [];
             $seen = [];
-            $hasRemainingQueuedUrls = false;
+            $warmedPriorityUrls = [];
 
-            // 1. Event-driven invalidated URLs first (M-WARMER-2)
+            // 1. Event-driven invalidated URLs first (M-WARMER-2):
+            // Always warm through external HTTPS (Cloudflare Edge) even if already present in local Redis DB 1.
             foreach ($queuedUrls as $url) {
                 if (isset($seen[$url])) {
                     continue;
                 }
                 $seen[$url] = true;
-                $summary['checked_in_fpc']++;
-                if (!$force && $this->isUrlCached($url)) {
-                    $summary['skipped_already_cached']++;
-                    continue;
-                }
                 if (count($toWarm) >= $limit) {
-                    $hasRemainingQueuedUrls = true;
                     break;
                 }
                 $toWarm[] = $url;
@@ -321,17 +323,19 @@ class Warmer
 
             if (!empty($toWarm) && function_exists('curl_multi_init')) {
                 foreach (array_chunk($toWarm, $concurrency) as $batch) {
+                    if ((microtime(true) - $startTime) >= self::MAX_RUN_SECONDS) {
+                        $summary['status'] = 'paused_time_budget';
+                        break;
+                    }
                     $loadNow = $this->getCurrentLoadAvg();
                     if ($loadNow !== null && $loadNow >= $effectiveMaxLoadAvg) {
                         $summary['status'] = 'paused_high_load';
                         $summary['load_avg_1m'] = $loadNow;
-                        if (!empty($queuedTags)) {
-                            $hasRemainingQueuedUrls = true;
-                        }
                         break;
                     }
                     $batchResults = $this->executeBatchRequests($batch);
                     foreach ($batchResults as $url => $info) {
+                        $warmedPriorityUrls[$url] = true;
                         $inFpc = $this->isUrlCached($url);
                         if ($info['http_code'] === 200) {
                             $summary['warmed_count']++;
@@ -350,8 +354,16 @@ class Warmer
                 }
             }
 
-            if ($hasRemainingQueuedUrls && !empty($queuedTags)) {
-                $this->requeueTags($queuedTags);
+            if (!empty($queuedUrls)) {
+                $remainingPriorityUrls = [];
+                foreach ($queuedUrls as $qUrl) {
+                    if (!isset($warmedPriorityUrls[$qUrl])) {
+                        $remainingPriorityUrls[] = $qUrl;
+                    }
+                }
+                if (!empty($remainingPriorityUrls)) {
+                    $this->requeueUrls($remainingPriorityUrls);
+                }
             }
         } finally {
             @flock($lockFp, LOCK_UN);
@@ -385,7 +397,7 @@ class Warmer
     }
 
     /**
-     * Check whether the priority tag queue file currently has pending invalidated tags.
+     * Check whether the priority tag queue file currently has pending invalidated tags or URLs.
      *
      * @return bool
      */
@@ -397,18 +409,18 @@ class Warmer
         }
         $raw = @file_get_contents($queueFile);
         $data = is_string($raw) && $raw !== '' ? json_decode($raw, true) : null;
-        return is_array($data) && (!empty($data['tags']) || !empty($data['flush_all']));
+        return is_array($data) && (!empty($data['tags']) || !empty($data['urls']) || !empty($data['flush_all']));
     }
 
     /**
-     * Re-enqueue tags into the priority queue file when a warming run hits $limit or pauses.
+     * Re-enqueue remaining unwarmed priority URLs into the queue file when a warming run hits $limit or time budget.
      *
-     * @param string[] $tags
+     * @param string[] $urls
      * @return void
      */
-    private function requeueTags(array $tags): void
+    private function requeueUrls(array $urls): void
     {
-        if (empty($tags)) {
+        if (empty($urls)) {
             return;
         }
         $queueFile = self::getQueueFilePath();
@@ -420,14 +432,14 @@ class Warmer
             $raw = stream_get_contents($fp);
             $data = is_string($raw) && $raw !== '' ? json_decode($raw, true) : null;
             if (!is_array($data)) {
-                $data = ['flush_all' => false, 'tags' => [], 'updated_at' => time()];
+                $data = ['flush_all' => false, 'tags' => [], 'urls' => [], 'updated_at' => time()];
             }
-            $existingTags = isset($data['tags']) && is_array($data['tags']) ? $data['tags'] : [];
-            $merged = array_values(array_unique(array_merge($tags, $existingTags)));
-            if (count($merged) > self::MAX_QUEUE_TAGS) {
-                $merged = array_slice($merged, 0, self::MAX_QUEUE_TAGS);
+            $existingUrls = isset($data['urls']) && is_array($data['urls']) ? $data['urls'] : [];
+            $mergedUrls = array_values(array_unique(array_merge($urls, $existingUrls)));
+            if (count($mergedUrls) > self::MAX_QUEUE_TAGS) {
+                $mergedUrls = array_slice($mergedUrls, 0, self::MAX_QUEUE_TAGS);
             }
-            $data['tags'] = $merged;
+            $data['urls'] = $mergedUrls;
             $data['updated_at'] = time();
             ftruncate($fp, 0);
             rewind($fp);
@@ -439,13 +451,13 @@ class Warmer
     }
 
     /**
-     * Atomically consume and clear the event-driven tag queue file.
+     * Atomically consume and clear the event-driven tag and priority URL queue file.
      *
-     * @return array{flush_all: bool, tags: string[]}
+     * @return array{flush_all: bool, tags: string[], urls: string[]}
      */
     private function consumeQueue(): array
     {
-        $result = ['flush_all' => false, 'tags' => []];
+        $result = ['flush_all' => false, 'tags' => [], 'urls' => []];
         $queueFile = self::getQueueFilePath();
         if (!is_file($queueFile)) {
             return $result;
@@ -462,10 +474,13 @@ class Warmer
                 if (!empty($data['tags']) && is_array($data['tags'])) {
                     $result['tags'] = array_values(array_unique(array_map('strval', $data['tags'])));
                 }
+                if (!empty($data['urls']) && is_array($data['urls'])) {
+                    $result['urls'] = array_values(array_unique(array_map('strval', $data['urls'])));
+                }
             }
             ftruncate($fp, 0);
             rewind($fp);
-            fwrite($fp, '{"flush_all":false,"tags":[],"updated_at":' . time() . '}');
+            fwrite($fp, '{"flush_all":false,"tags":[],"urls":[],"updated_at":' . time() . '}');
             fflush($fp);
             @flock($fp, LOCK_UN);
         }
@@ -897,8 +912,8 @@ class Warmer
                 CURLOPT_FOLLOWLOCATION => false,
                 CURLOPT_SSL_VERIFYPEER => false,
                 CURLOPT_SSL_VERIFYHOST => false,
-                CURLOPT_CONNECTTIMEOUT => 5,
-                CURLOPT_TIMEOUT => 30,
+                CURLOPT_CONNECTTIMEOUT => 3,
+                CURLOPT_TIMEOUT => 12,
                 CURLOPT_ENCODING => '',
                 CURLOPT_HTTPHEADER => [
                     'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
