@@ -26,8 +26,13 @@ class Warmer
     # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
     # "Ensure Warmer::warm() flushes Cloudflare purge queue first, always warms priority invalidated URLs on Cloudflare Edge, and enforces a 35s time budget to prevent cron lock collisions":
     # https://github.com/smokeday-com/m/issues/34
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Add --all (-a) and --max-time (-t) manual full-site warming mode with rolling-window curl_multi pipelining to page-cache:warm (WarmCacheCommand and Warmer::warm)":
+    # https://github.com/smokeday-com/m/issues/37
     public const DEFAULT_LIMIT = 12;
     public const DEFAULT_CONCURRENCY = 1;
+    public const DEFAULT_ALL_CONCURRENCY = 8;
+    public const MAX_CONCURRENCY = 16;
     public const DEFAULT_MAX_LOAD_AVG = 15.0;
     public const PRIORITY_QUEUE_MAX_LOAD_AVG = 25.0;
     public const MAX_RUN_SECONDS = 35.0;
@@ -202,17 +207,22 @@ class Warmer
      * @param int $concurrency
      * @param float $maxLoadAvg
      * @param bool $force
+     * @param float $maxRunSeconds
      * @return array<string, mixed>
      */
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Add --all (-a) and --max-time (-t) manual full-site warming mode with rolling-window curl_multi pipelining to page-cache:warm (WarmCacheCommand and Warmer::warm)":
+    # https://github.com/smokeday-com/m/issues/37
     public function warm(
         int $limit = self::DEFAULT_LIMIT,
         int $concurrency = self::DEFAULT_CONCURRENCY,
         float $maxLoadAvg = self::DEFAULT_MAX_LOAD_AVG,
-        bool $force = false
+        bool $force = false,
+        float $maxRunSeconds = self::MAX_RUN_SECONDS
     ): array {
         $startTime = microtime(true);
-        $limit = max(1, $limit);
-        $concurrency = max(1, min(8, $concurrency));
+        $limit = $limit <= 0 ? PHP_INT_MAX : $limit;
+        $concurrency = max(1, min(self::MAX_CONCURRENCY, $concurrency));
         # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
         # "Ensure Warmer::warm() flushes Cloudflare purge queue first, always warms priority invalidated URLs on Cloudflare Edge, and enforces a 35s time budget to prevent cron lock collisions":
         # https://github.com/smokeday-com/m/issues/34
@@ -222,14 +232,18 @@ class Warmer
         # "Calibrate FPC Warmer load threshold (15.0 / 25.0 for priority queue), run every minute, prioritize Category Page 1 URLs, and guard Type::purgeCloudflare() / Warmer::enqueueTags() against empty tag arrays":
         # https://github.com/smokeday-com/m/issues/26
         $hasPendingQueue = $this->hasQueuedTags();
-        $effectiveMaxLoadAvg = ($hasPendingQueue && $maxLoadAvg <= self::DEFAULT_MAX_LOAD_AVG)
-            ? self::PRIORITY_QUEUE_MAX_LOAD_AVG
-            : $maxLoadAvg;
+        $effectiveMaxLoadAvg = $maxLoadAvg <= 0.0
+            ? 0.0
+            : (($hasPendingQueue && $maxLoadAvg <= self::DEFAULT_MAX_LOAD_AVG)
+                ? self::PRIORITY_QUEUE_MAX_LOAD_AVG
+                : $maxLoadAvg);
 
         $summary = [
             'status' => 'ok',
             'load_avg_1m' => $currentLoad,
             'max_load_avg' => $effectiveMaxLoadAvg,
+            'max_run_sec' => $maxRunSeconds,
+            'concurrency' => $concurrency,
             'cloudflare_purge' => $cfPurgeSummary,
             'queued_tags_count' => 0,
             'queued_urls_count' => 0,
@@ -249,7 +263,7 @@ class Warmer
             return $summary;
         }
 
-        if ($currentLoad !== null && $currentLoad >= $effectiveMaxLoadAvg) {
+        if ($effectiveMaxLoadAvg > 0.0 && $currentLoad !== null && $currentLoad >= $effectiveMaxLoadAvg) {
             $summary['status'] = 'skipped_high_load';
             $summary['elapsed_sec'] = round(microtime(true) - $startTime, 3);
             return $summary;
@@ -257,7 +271,8 @@ class Warmer
 
         $lockFile = str_replace('\\', '/', BP) . self::LOCK_REL_PATH;
         $lockFp = @fopen($lockFile, 'c+');
-        if ($lockFp === false || !@flock($lockFp, LOCK_EX | LOCK_NB)) {
+        $lockFlags = $maxRunSeconds <= 0.0 ? LOCK_EX : (LOCK_EX | LOCK_NB);
+        if ($lockFp === false || !@flock($lockFp, $lockFlags)) {
             if (is_resource($lockFp)) {
                 fclose($lockFp);
             }
@@ -322,36 +337,15 @@ class Warmer
             $summary['selected_to_warm'] = count($toWarm);
 
             if (!empty($toWarm) && function_exists('curl_multi_init')) {
-                foreach (array_chunk($toWarm, $concurrency) as $batch) {
-                    if ((microtime(true) - $startTime) >= self::MAX_RUN_SECONDS) {
-                        $summary['status'] = 'paused_time_budget';
-                        break;
-                    }
-                    $loadNow = $this->getCurrentLoadAvg();
-                    if ($loadNow !== null && $loadNow >= $effectiveMaxLoadAvg) {
-                        $summary['status'] = 'paused_high_load';
-                        $summary['load_avg_1m'] = $loadNow;
-                        break;
-                    }
-                    $batchResults = $this->executeBatchRequests($batch);
-                    foreach ($batchResults as $url => $info) {
-                        $warmedPriorityUrls[$url] = true;
-                        $inFpc = $this->isUrlCached($url);
-                        if ($info['http_code'] === 200) {
-                            $summary['warmed_count']++;
-                        }
-                        if ($inFpc) {
-                            $summary['verified_in_fpc']++;
-                        }
-                        $summary['warmed_urls'][] = [
-                            'url' => $url,
-                            'http_code' => $info['http_code'],
-                            'cf_cache_status' => $info['cf_cache_status'],
-                            'time_sec' => $info['time_sec'],
-                            'in_fpc' => $inFpc,
-                        ];
-                    }
-                }
+                $this->executeRollingWarm(
+                    $toWarm,
+                    $concurrency,
+                    $startTime,
+                    $maxRunSeconds,
+                    $effectiveMaxLoadAvg,
+                    $summary,
+                    $warmedPriorityUrls
+                );
             }
 
             if (!empty($queuedUrls)) {
@@ -889,71 +883,143 @@ class Warmer
     }
 
     /**
-     * Execute concurrent guest GET requests for a small batch of URLs using curl_multi_init().
+     * Execute concurrent guest GET requests using a persistent rolling-window curl_multi handle.
+     *
+     * Immediately refills freed concurrency slots as each URL completes and reuses TLS/HTTP2 connections.
      *
      * @param string[] $urls
-     * @return array<string, array{http_code: int, cf_cache_status: string, time_sec: float}>
+     * @param int $concurrency
+     * @param float $startTime
+     * @param float $maxRunSeconds
+     * @param float $effectiveMaxLoadAvg
+     * @param array<string, mixed> $summary
+     * @param array<string, bool> $warmedPriorityUrls
+     * @return void
      */
-    private function executeBatchRequests(array $urls): array
-    {
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Add --all (-a) and --max-time (-t) manual full-site warming mode with rolling-window curl_multi pipelining to page-cache:warm (WarmCacheCommand and Warmer::warm)":
+    # https://github.com/smokeday-com/m/issues/37
+    private function executeRollingWarm(
+        array $urls,
+        int $concurrency,
+        float $startTime,
+        float $maxRunSeconds,
+        float $effectiveMaxLoadAvg,
+        array &$summary,
+        array &$warmedPriorityUrls
+    ): void {
         $mh = curl_multi_init();
-        $handles = [];
+        if (defined('CURLMOPT_PIPELINING') && defined('CURLPIPE_MULTIPLEX')) {
+            @curl_multi_setopt($mh, CURLMOPT_PIPELINING, CURLPIPE_MULTIPLEX);
+        }
+
+        $total = count($urls);
+        $nextIndex = 0;
+        $inFlight = [];
         $headersMap = [];
+        $stopEnqueueReason = null;
 
-        foreach ($urls as $url) {
-            $ch = curl_init($url);
-            if ($ch === false) {
-                continue;
-            }
-            $headersMap[$url] = ['cf_cache_status' => 'NONE'];
-            curl_setopt_array($ch, [
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_HEADER => false,
-                CURLOPT_FOLLOWLOCATION => false,
-                CURLOPT_SSL_VERIFYPEER => false,
-                CURLOPT_SSL_VERIFYHOST => false,
-                CURLOPT_CONNECTTIMEOUT => 3,
-                CURLOPT_TIMEOUT => 12,
-                CURLOPT_ENCODING => '',
-                CURLOPT_HTTPHEADER => [
-                    'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                    'Accept-Language: en-US,en;q=0.9',
-                    'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 SmokedayCacheWarmer/1.0',
-                ],
-                CURLOPT_HEADERFUNCTION => static function ($curl, string $headerLine) use ($url, &$headersMap): int {
-                    if (stripos($headerLine, 'cf-cache-status:') === 0) {
-                        $headersMap[$url]['cf_cache_status'] = trim(substr($headerLine, 16));
+        while ($nextIndex < $total || !empty($inFlight)) {
+            while ($stopEnqueueReason === null && $nextIndex < $total && count($inFlight) < $concurrency) {
+                if ($maxRunSeconds > 0.0 && (microtime(true) - $startTime) >= $maxRunSeconds) {
+                    $stopEnqueueReason = 'paused_time_budget';
+                    break;
+                }
+                if ($effectiveMaxLoadAvg > 0.0) {
+                    $loadNow = $this->getCurrentLoadAvg();
+                    if ($loadNow !== null && $loadNow >= $effectiveMaxLoadAvg) {
+                        $stopEnqueueReason = 'paused_high_load';
+                        $summary['load_avg_1m'] = $loadNow;
+                        break;
                     }
-                    return strlen($headerLine);
-                },
-            ]);
-            curl_multi_add_handle($mh, $ch);
-            $handles[$url] = $ch;
-        }
+                }
 
-        $active = null;
-        do {
-            $status = curl_multi_exec($mh, $active);
-            if ($active) {
-                curl_multi_select($mh, 1.0);
+                $url = $urls[$nextIndex++];
+                $ch = curl_init($url);
+                if ($ch === false) {
+                    continue;
+                }
+                $headersMap[$url] = ['cf_cache_status' => 'NONE'];
+                curl_setopt_array($ch, [
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_HEADER => false,
+                    CURLOPT_FOLLOWLOCATION => false,
+                    CURLOPT_SSL_VERIFYPEER => false,
+                    CURLOPT_SSL_VERIFYHOST => false,
+                    CURLOPT_CONNECTTIMEOUT => 3,
+                    CURLOPT_TIMEOUT => 12,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_HTTPHEADER => [
+                        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                        'Accept-Language: en-US,en;q=0.9',
+                        'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 SmokedayCacheWarmer/1.0',
+                    ],
+                    CURLOPT_HEADERFUNCTION => static function ($curl, string $headerLine) use ($url, &$headersMap): int {
+                        if (stripos($headerLine, 'cf-cache-status:') === 0) {
+                            $headersMap[$url]['cf_cache_status'] = trim(substr($headerLine, 16));
+                        }
+                        return strlen($headerLine);
+                    },
+                ]);
+                curl_multi_add_handle($mh, $ch);
+                $handleKey = is_object($ch) ? spl_object_id($ch) : (int)$ch;
+                $inFlight[$handleKey] = ['handle' => $ch, 'url' => $url];
             }
-        } while ($active && $status === CURLM_OK);
 
-        $results = [];
-        foreach ($handles as $url => $ch) {
-            $httpCode = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            $totalTime = round((float)curl_getinfo($ch, CURLINFO_TOTAL_TIME), 3);
-            $results[$url] = [
-                'http_code' => $httpCode,
-                'cf_cache_status' => $headersMap[$url]['cf_cache_status'] ?? 'NONE',
-                'time_sec' => $totalTime,
-            ];
-            curl_multi_remove_handle($mh, $ch);
-            curl_close($ch);
+            if (empty($inFlight)) {
+                break;
+            }
+
+            $active = null;
+            do {
+                $status = curl_multi_exec($mh, $active);
+            } while ($status === CURLM_CALL_MULTI_PERFORM);
+
+            while ($info = curl_multi_info_read($mh)) {
+                if (($info['msg'] ?? null) !== CURLMSG_DONE || !isset($info['handle'])) {
+                    continue;
+                }
+                $ch = $info['handle'];
+                $handleKey = is_object($ch) ? spl_object_id($ch) : (int)$ch;
+                $url = $inFlight[$handleKey]['url'] ?? '';
+                $httpCode = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                $totalTime = round((float)curl_getinfo($ch, CURLINFO_TOTAL_TIME), 3);
+                $cfStatus = $headersMap[$url]['cf_cache_status'] ?? 'NONE';
+
+                curl_multi_remove_handle($mh, $ch);
+                curl_close($ch);
+                unset($inFlight[$handleKey], $headersMap[$url]);
+
+                if ($url !== '') {
+                    $warmedPriorityUrls[$url] = true;
+                    $inFpc = $this->isUrlCached($url);
+                    if ($httpCode === 200) {
+                        $summary['warmed_count']++;
+                    }
+                    if ($inFpc) {
+                        $summary['verified_in_fpc']++;
+                    }
+                    $summary['warmed_urls'][] = [
+                        'url' => $url,
+                        'http_code' => $httpCode,
+                        'cf_cache_status' => $cfStatus,
+                        'time_sec' => $totalTime,
+                        'in_fpc' => $inFpc,
+                    ];
+                }
+            }
+
+            if (!empty($inFlight) && $active && $status === CURLM_OK) {
+                if (curl_multi_select($mh, 0.2) === -1) {
+                    usleep(10000);
+                }
+            }
         }
-        curl_multi_close($mh);
 
-        return $results;
+        curl_multi_close($mh);
+        if ($stopEnqueueReason !== null) {
+            $summary['status'] = $stopEnqueueReason;
+        }
     }
 
     /**
