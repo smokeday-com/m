@@ -33,7 +33,10 @@ class Warmer
     private const CATALOG_CACHE_REL_PATH = '/var/page_cache_warm_catalog.json';
     private const CATALOG_CACHE_TTL = 3600;
     private const LOCK_REL_PATH = '/var/page_cache_warmer.lock';
-    private const MAX_QUEUE_TAGS = 500;
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Remove >90 tags-to-FPC escalation in Magento\PageCache\Model\Cache\Type::purgeCloudflare() and add stack-trace audit logging to var/log/cloudflare_purge.log":
+    # https://github.com/smokeday-com/m/issues/31
+    private const MAX_QUEUE_TAGS = 5000;
 
     /**
      * @var array<string, bool>
@@ -167,9 +170,11 @@ class Warmer
                 }
                 $existingTags = isset($data['tags']) && is_array($data['tags']) ? $data['tags'] : [];
                 $merged = array_values(array_unique(array_merge($existingTags, $newTags)));
+                # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+                # "Remove >90 tags-to-FPC escalation in Magento\PageCache\Model\Cache\Type::purgeCloudflare() and add stack-trace audit logging to var/log/cloudflare_purge.log":
+                # https://github.com/smokeday-com/m/issues/31
                 if (count($merged) > self::MAX_QUEUE_TAGS) {
                     $merged = array_slice($merged, 0, self::MAX_QUEUE_TAGS);
-                    $data['flush_all'] = true;
                 }
                 $data['tags'] = $merged;
                 $data['updated_at'] = time();

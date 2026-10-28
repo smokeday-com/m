@@ -119,15 +119,16 @@ class Type extends \Magento\Framework\Cache\Frontend\Decorator\TagScope
                         $tagsToPurge[] = $tagStr;
                     }
                 }
-                if (count($tagsToPurge) > 90) {
-                    $tagsToPurge = [self::CACHE_TAG];
-                    $this->purgedCloudflareAll = true;
-                }
+                # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+                # "Remove >90 tags-to-FPC escalation in Magento\PageCache\Model\Cache\Type::purgeCloudflare() and add stack-trace audit logging to var/log/cloudflare_purge.log":
+                # https://github.com/smokeday-com/m/issues/31
             }
 
             if (empty($tagsToPurge)) {
                 return;
             }
+
+            self::logCloudflarePurge('purge_requested', $mode, $tagsToPurge);
 
             $endpoint = sprintf('https://api.cloudflare.com/client/v4/zones/%s/purge_cache', $zoneId);
             foreach (array_chunk($tagsToPurge, 30) as $chunk) {
@@ -151,6 +152,55 @@ class Type extends \Magento\Framework\Cache\Frontend\Decorator\TagScope
             }
         } catch (\Throwable $e) {
             // Do not interrupt application flow if Cloudflare API is temporarily unreachable
+        }
+    }
+
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Remove >90 tags-to-FPC escalation in Magento\PageCache\Model\Cache\Type::purgeCloudflare() and add stack-trace audit logging to var/log/cloudflare_purge.log":
+    # https://github.com/smokeday-com/m/issues/31
+    public static function logCloudflarePurge(string $event, string $mode, array $tags, array $extra = []): void
+    {
+        if (!defined('BP')) {
+            return;
+        }
+        try {
+            $basePath = str_replace('\\', '/', BP);
+            $logDir = $basePath . '/var/log';
+            if (!is_dir($logDir)) {
+                @mkdir($logDir, 0775, true);
+            }
+            $frames = [];
+            foreach (debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 15) as $idx => $frame) {
+                if ($idx === 0) {
+                    continue;
+                }
+                $cls = isset($frame['class']) ? ($frame['class'] . ($frame['type'] ?? '::')) : '';
+                $fn = $cls . ($frame['function'] ?? '');
+                $file = isset($frame['file'])
+                    ? ltrim(str_replace($basePath, '', str_replace('\\', '/', (string)$frame['file'])), '/')
+                    : '';
+                $line = $frame['line'] ?? 0;
+                $frames[] = $file !== '' ? sprintf('%s (%s:%d)', $fn, $file, $line) : $fn;
+            }
+            $entry = array_merge([
+                'timestamp_utc' => gmdate('Y-m-d\TH:i:s\Z'),
+                'event' => $event,
+                'mode' => $mode,
+                'tags_count' => count($tags),
+                'tags_sample' => array_slice(array_values($tags), 0, 50),
+                'sapi' => PHP_SAPI,
+                'uri' => $_SERVER['REQUEST_URI'] ?? (isset($_SERVER['argv']) ? implode(' ', (array)$_SERVER['argv']) : 'CLI'),
+                'pid' => (int)getmypid(),
+            ], $extra, [
+                'stack' => $frames,
+            ]);
+            @file_put_contents(
+                $logDir . '/cloudflare_purge.log',
+                json_encode($entry, JSON_UNESCAPED_SLASHES) . "\n",
+                FILE_APPEND | LOCK_EX
+            );
+        } catch (\Throwable $e) {
+            // Never interrupt application flow on logging error
         }
     }
 }
