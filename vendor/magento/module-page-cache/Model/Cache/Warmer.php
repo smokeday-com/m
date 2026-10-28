@@ -1213,7 +1213,7 @@ class Warmer
                     # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
                     # "Prevent App\Cache::clean() from wiping Redis DB 1 (page_cache) during setup:di:compile and add Origin-direct fallback to Warmer when Cloudflare Edge returns HIT with in_fpc=false":
                     # https://github.com/smokeday-com/m/issues/42
-                    if ($inFpc && $isCacheableStatus && ($cfEdgeWarmed || $cfStatus === 'NONE')) {
+                    if ($inFpc && $isCacheableStatus && ($cfEdgeWarmed || $cfStatus === 'DYNAMIC' || $cfStatus === 'NONE')) {
                         $edgeWarmedMap[$cacheId] = $newMtime;
                         $edgeMapDirtyCount++;
                     } elseif (!$inFpc && $httpCode === 200 && in_array($cfStatus, ['HIT', 'STALE', 'REVALIDATED'], true)) {
