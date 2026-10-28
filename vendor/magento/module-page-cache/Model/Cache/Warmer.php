@@ -46,6 +46,11 @@ class Warmer
     # "Remove >90 tags-to-FPC escalation in Magento\PageCache\Model\Cache\Type::purgeCloudflare() and add stack-trace audit logging to var/log/cloudflare_purge.log":
     # https://github.com/smokeday-com/m/issues/31
     private const MAX_QUEUE_TAGS = 5000;
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Prevent Nexcess ModSecurity HTTP 429 greylisting in Warmer::executeRollingWarm() via synthetic X-Forwarded-For IP rotation + 429 retry/backoff, and restore CF-Connecting-IP as REMOTE_ADDR in app/bootstrap.php":
+    # https://github.com/smokeday-com/m/issues/38
+    private const MAX_429_RETRIES = 3;
+    private const SYNTHETIC_IP_POOL_SIZE = 10762;
 
     /**
      * @var array<string, bool>
@@ -899,6 +904,9 @@ class Warmer
     # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
     # "Add --all (-a) and --max-time (-t) manual full-site warming mode with rolling-window curl_multi pipelining to page-cache:warm (WarmCacheCommand and Warmer::warm)":
     # https://github.com/smokeday-com/m/issues/37
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Prevent Nexcess ModSecurity HTTP 429 greylisting in Warmer::executeRollingWarm() via synthetic X-Forwarded-For IP rotation + 429 retry/backoff, and restore CF-Connecting-IP as REMOTE_ADDR in app/bootstrap.php":
+    # https://github.com/smokeday-com/m/issues/38
     private function executeRollingWarm(
         array $urls,
         int $concurrency,
@@ -915,12 +923,23 @@ class Warmer
 
         $total = count($urls);
         $nextIndex = 0;
+        $retryQueue = [];
+        $retryCounts = [];
         $inFlight = [];
         $headersMap = [];
         $stopEnqueueReason = null;
+        try {
+            $requestSequence = random_int(0, self::SYNTHETIC_IP_POOL_SIZE - 1);
+        } catch (\Throwable $e) {
+            $requestSequence = (int)(microtime(true) * 1000) % self::SYNTHETIC_IP_POOL_SIZE;
+        }
 
-        while ($nextIndex < $total || !empty($inFlight)) {
-            while ($stopEnqueueReason === null && $nextIndex < $total && count($inFlight) < $concurrency) {
+        while ($nextIndex < $total || !empty($retryQueue) || !empty($inFlight)) {
+            while (
+                $stopEnqueueReason === null
+                && (!empty($retryQueue) || $nextIndex < $total)
+                && count($inFlight) < $concurrency
+            ) {
                 if ($maxRunSeconds > 0.0 && (microtime(true) - $startTime) >= $maxRunSeconds) {
                     $stopEnqueueReason = 'paused_time_budget';
                     break;
@@ -934,12 +953,14 @@ class Warmer
                     }
                 }
 
-                $url = $urls[$nextIndex++];
+                $url = !empty($retryQueue) ? array_shift($retryQueue) : $urls[$nextIndex++];
                 $ch = curl_init($url);
                 if ($ch === false) {
                     continue;
                 }
-                $headersMap[$url] = ['cf_cache_status' => 'NONE'];
+                $handleKey = is_object($ch) ? spl_object_id($ch) : (int)$ch;
+                $headersMap[$handleKey] = ['cf_cache_status' => 'NONE'];
+                $syntheticIp = $this->getSyntheticForwardedIp($requestSequence++);
                 curl_setopt_array($ch, [
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_HEADER => false,
@@ -952,17 +973,17 @@ class Warmer
                     CURLOPT_HTTPHEADER => [
                         'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
                         'Accept-Language: en-US,en;q=0.9',
+                        'X-Forwarded-For: ' . $syntheticIp,
                         'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 SmokedayCacheWarmer/1.0',
                     ],
-                    CURLOPT_HEADERFUNCTION => static function ($curl, string $headerLine) use ($url, &$headersMap): int {
+                    CURLOPT_HEADERFUNCTION => static function ($curl, string $headerLine) use ($handleKey, &$headersMap): int {
                         if (stripos($headerLine, 'cf-cache-status:') === 0) {
-                            $headersMap[$url]['cf_cache_status'] = trim(substr($headerLine, 16));
+                            $headersMap[$handleKey]['cf_cache_status'] = trim(substr($headerLine, 16));
                         }
                         return strlen($headerLine);
                     },
                 ]);
                 curl_multi_add_handle($mh, $ch);
-                $handleKey = is_object($ch) ? spl_object_id($ch) : (int)$ch;
                 $inFlight[$handleKey] = ['handle' => $ch, 'url' => $url];
             }
 
@@ -984,13 +1005,20 @@ class Warmer
                 $url = $inFlight[$handleKey]['url'] ?? '';
                 $httpCode = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
                 $totalTime = round((float)curl_getinfo($ch, CURLINFO_TOTAL_TIME), 3);
-                $cfStatus = $headersMap[$url]['cf_cache_status'] ?? 'NONE';
+                $cfStatus = $headersMap[$handleKey]['cf_cache_status'] ?? 'NONE';
 
                 curl_multi_remove_handle($mh, $ch);
                 curl_close($ch);
-                unset($inFlight[$handleKey], $headersMap[$url]);
+                unset($inFlight[$handleKey], $headersMap[$handleKey]);
 
                 if ($url !== '') {
+                    if ($httpCode === 429 && ($retryCounts[$url] ?? 0) < self::MAX_429_RETRIES) {
+                        $retryCounts[$url] = ($retryCounts[$url] ?? 0) + 1;
+                        $requestSequence += 97;
+                        $retryQueue[] = $url;
+                        usleep(150000);
+                        continue;
+                    }
                     $warmedPriorityUrls[$url] = true;
                     $inFpc = $this->isUrlCached($url);
                     if ($httpCode === 200) {
@@ -1020,6 +1048,30 @@ class Warmer
         if ($stopEnqueueReason !== null) {
             $summary['status'] = $stopEnqueueReason;
         }
+    }
+
+    /**
+     * Generate a deterministic synthetic non-routable IPv4 address from RFC 2544 / RFC 5737 pools (10,762 IPs)
+     * so Nexcess Apache mod_remoteip / ModSecurity greylisting (rule 4012024) never throttles warmer bursts.
+     *
+     * @param int $sequence
+     * @return string
+     */
+    private function getSyntheticForwardedIp(int $sequence): string
+    {
+        $idx = (($sequence % self::SYNTHETIC_IP_POOL_SIZE) + self::SYNTHETIC_IP_POOL_SIZE) % self::SYNTHETIC_IP_POOL_SIZE;
+        if ($idx < 10000) {
+            $o3 = 100 + intdiv($idx, 100);
+            $o4 = 100 + ($idx % 100);
+            return '198.18.' . $o3 . '.' . $o4;
+        }
+        if ($idx < 10254) {
+            return '192.0.2.' . (1 + ($idx - 10000));
+        }
+        if ($idx < 10508) {
+            return '198.51.100.' . (1 + ($idx - 10254));
+        }
+        return '203.0.113.' . (1 + ($idx - 10508));
     }
 
     /**

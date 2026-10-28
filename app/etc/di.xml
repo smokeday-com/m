@@ -2018,4 +2018,16 @@
     <preference for="Magento\Framework\Filter\Input\PurifierInterface" type="Magento\Framework\Filter\Input\Purifier"/>
     <preference for="Magento\Framework\App\PageCache\IdentifierInterface" type="Magento\Framework\App\PageCache\Identifier"/>
     <preference for="Magento\Framework\App\State\ReloadProcessorInterface" type="Magento\Framework\App\State\ReloadProcessorComposite" />
+    <!--
+    2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    "Prevent Nexcess ModSecurity HTTP 429 greylisting in Warmer::executeRollingWarm() via synthetic X-Forwarded-For IP rotation + 429 retry/backoff, and restore CF-Connecting-IP as REMOTE_ADDR in app/bootstrap.php":
+    https://github.com/smokeday-com/m/issues/38
+    -->
+    <type name="Magento\Framework\HTTP\PhpEnvironment\RemoteAddress">
+        <arguments>
+            <argument name="alternativeHeaders" xsi:type="array">
+                <item name="http_cf_connecting_ip" xsi:type="string">HTTP_CF_CONNECTING_IP</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

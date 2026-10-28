@@ -171,3 +171,7 @@
 # "Make Amasty\Mostviewed\Model\Indexer\ProductIndexer::doReindex() cache invalidation differential so unchanged product-rule associations do not flush cat_p_<id>":
 # https://github.com/smokeday-com/m/issues/36
 !/vendor/amasty/mostviewed/Model/Indexer/ProductIndexer.php
+# 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Prevent Nexcess ModSecurity HTTP 429 greylisting in Warmer::executeRollingWarm() via synthetic X-Forwarded-For IP rotation + 429 retry/backoff, and restore CF-Connecting-IP as REMOTE_ADDR in app/bootstrap.php":
+# https://github.com/smokeday-com/m/issues/38
+!/app/bootstrap.php
