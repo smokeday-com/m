@@ -482,12 +482,11 @@ class Helper extends AbstractHelper
     public function clearCache($types = ['config'])
     {
         $cacheTypeList = $this->_loadObject(TypeListInterface::class);
-        $CacheFrontendPool = $this->_loadObject(Pool::class);
+        # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Prevent Olegnax\Athlete2\Helper\Helper::clearCache() from wiping all cache backends (including Built-in FPC in Redis DB 1) during periodic theme license checks":
+        # https://github.com/smokeday-com/m/issues/35
         foreach ($types as $type) {
             $cacheTypeList->cleanType($type);
-        }
-        foreach ($CacheFrontendPool as $cacheFrontend) {
-            $cacheFrontend->getBackend()->clean();
         }
     }
 
