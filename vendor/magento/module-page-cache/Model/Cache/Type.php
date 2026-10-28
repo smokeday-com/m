@@ -99,6 +99,10 @@ class Type extends \Magento\Framework\Cache\Frontend\Decorator\TagScope
             if ($mode === \Zend_Cache::CLEANING_MODE_ALL) {
                 $tagsToPurge = [self::CACHE_TAG];
                 $this->purgedCloudflareAll = true;
+                # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+                # "Track Cloudflare Edge warm state (var/page_cache_edge_warmed.json) by FPC mtime and decouple --all from --force so subsequent page-cache:warm --all runs skip already Edge-warmed URLs in <0.3s":
+                # https://github.com/smokeday-com/m/issues/40
+                Warmer::clearEdgeWarmedMap();
             } else {
                 foreach ($tags as $tag) {
                     $tagStr = trim((string)$tag);
@@ -109,6 +113,10 @@ class Type extends \Magento\Framework\Cache\Frontend\Decorator\TagScope
                     if ($lower === 'fpc' || $lower === 'mage') {
                         $tagsToPurge = [self::CACHE_TAG];
                         $this->purgedCloudflareAll = true;
+                        # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+                        # "Track Cloudflare Edge warm state (var/page_cache_edge_warmed.json) by FPC mtime and decouple --all from --force so subsequent page-cache:warm --all runs skip already Edge-warmed URLs in <0.3s":
+                        # https://github.com/smokeday-com/m/issues/40
+                        Warmer::clearEdgeWarmedMap();
                         break;
                     }
                     if (!isset($this->purgedCloudflareTags[$lower])) {

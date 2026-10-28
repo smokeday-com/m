@@ -8,6 +8,9 @@
 # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
 # "Fix synchronous Klevu customerData XHR freeze (682ms) and upgrade page-cache:warm --all to warm Cloudflare Edge across all catalog URLs using persistent curl handles":
 # https://github.com/smokeday-com/m/issues/39
+# 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Track Cloudflare Edge warm state (var/page_cache_edge_warmed.json) by FPC mtime and decouple --all from --force so subsequent page-cache:warm --all runs skip already Edge-warmed URLs in <0.3s":
+# https://github.com/smokeday-com/m/issues/40
 declare(strict_types=1);
 
 namespace Magento\PageCache\Console\Command;
@@ -76,7 +79,7 @@ class WarmCacheCommand extends Command
                     self::OPT_FORCE,
                     'f',
                     InputOption::VALUE_NONE,
-                    'Warm URLs even if already present in local Built-in FPC (e.g. to warm Cloudflare Edge)'
+                    'Force re-warming all URLs even if already present in both Built-in FPC and Cloudflare Edge'
                 ),
             ]);
         parent::configure();
@@ -89,7 +92,10 @@ class WarmCacheCommand extends Command
         $rawConcurrency = $input->getOption(self::OPT_CONCURRENCY);
         $rawMaxLoad = $input->getOption(self::OPT_MAX_LOAD);
         $rawMaxTime = $input->getOption(self::OPT_MAX_TIME);
-        $force = (bool)$input->getOption(self::OPT_FORCE) || $all;
+        # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+        # "Track Cloudflare Edge warm state (var/page_cache_edge_warmed.json) by FPC mtime and decouple --all from --force so subsequent page-cache:warm --all runs skip already Edge-warmed URLs in <0.3s":
+        # https://github.com/smokeday-com/m/issues/40
+        $force = (bool)$input->getOption(self::OPT_FORCE);
 
         $limit = $rawLimit !== null
             ? (int)$rawLimit

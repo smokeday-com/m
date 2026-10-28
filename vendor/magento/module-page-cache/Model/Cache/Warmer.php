@@ -43,6 +43,12 @@ class Warmer
     private const CATALOG_CACHE_TTL = 3600;
     private const LOCK_REL_PATH = '/var/page_cache_warmer.lock';
     # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Track Cloudflare Edge warm state (var/page_cache_edge_warmed.json) by FPC mtime and decouple --all from --force so subsequent page-cache:warm --all runs skip already Edge-warmed URLs in <0.3s":
+    # https://github.com/smokeday-com/m/issues/40
+    private const EDGE_WARMED_REL_PATH = '/var/page_cache_edge_warmed.json';
+    private const EDGE_WARMED_FLUSH_INTERVAL = 100;
+    private const EDGE_WARMED_MAX_ENTRIES = 10000;
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
     # "Remove >90 tags-to-FPC escalation in Magento\PageCache\Model\Cache\Type::purgeCloudflare() and add stack-trace audit logging to var/log/cloudflare_purge.log":
     # https://github.com/smokeday-com/m/issues/31
     private const MAX_QUEUE_TAGS = 5000;
@@ -324,6 +330,10 @@ class Warmer
             # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
             # "Fix synchronous Klevu customerData XHR freeze (682ms) and upgrade page-cache:warm --all to warm Cloudflare Edge across all catalog URLs using persistent curl handles":
             # https://github.com/smokeday-com/m/issues/39
+            # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+            # "Track Cloudflare Edge warm state (var/page_cache_edge_warmed.json) by FPC mtime and decouple --all from --force so subsequent page-cache:warm --all runs skip already Edge-warmed URLs in <0.3s":
+            # https://github.com/smokeday-com/m/issues/40
+            $edgeWarmedMap = $this->loadEdgeWarmedMap();
             if (count($toWarm) < $limit) {
                 $cachedInFpcUrls = [];
                 foreach ($catalogUrls as $url) {
@@ -332,8 +342,11 @@ class Warmer
                     }
                     $seen[$url] = true;
                     $summary['checked_in_fpc']++;
-                    if ($this->isUrlCached($url)) {
-                        if ($force) {
+                    $cacheId = $this->getCacheIdForUrl($url);
+                    $fpcMtime = $this->getCacheMtimeById($cacheId);
+                    if ($fpcMtime !== false) {
+                        $isEdgeWarmed = isset($edgeWarmedMap[$cacheId]) && (int)$edgeWarmedMap[$cacheId] === $fpcMtime;
+                        if ($force || !$isEdgeWarmed) {
                             $cachedInFpcUrls[] = $url;
                         } else {
                             $summary['skipped_already_cached']++;
@@ -345,7 +358,7 @@ class Warmer
                         break;
                     }
                 }
-                if ($force && count($toWarm) < $limit && !empty($cachedInFpcUrls)) {
+                if (count($toWarm) < $limit && !empty($cachedInFpcUrls)) {
                     foreach ($cachedInFpcUrls as $url) {
                         $toWarm[] = $url;
                         if (count($toWarm) >= $limit) {
@@ -365,7 +378,8 @@ class Warmer
                     $maxRunSeconds,
                     $effectiveMaxLoadAvg,
                     $summary,
-                    $warmedPriorityUrls
+                    $warmedPriorityUrls,
+                    $edgeWarmedMap
                 );
             }
 
@@ -408,7 +422,130 @@ class Warmer
      */
     public function isUrlCached(string $url): bool
     {
-        return (bool)$this->fullPageCache->test($this->getCacheIdForUrl($url));
+        return $this->getCacheMtimeById($this->getCacheIdForUrl($url)) !== false;
+    }
+
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Track Cloudflare Edge warm state (var/page_cache_edge_warmed.json) by FPC mtime and decouple --all from --force so subsequent page-cache:warm --all runs skip already Edge-warmed URLs in <0.3s":
+    # https://github.com/smokeday-com/m/issues/40
+    /**
+     * Return O(1) last-modified Unix timestamp of an FPC record by its SHA-1 cache ID, or false if absent.
+     *
+     * @param string $cacheId
+     * @return int|false
+     */
+    public function getCacheMtimeById(string $cacheId)
+    {
+        $mtime = $this->fullPageCache->test($cacheId);
+        return ($mtime !== false && (int)$mtime > 0) ? (int)$mtime : false;
+    }
+
+    /**
+     * Clear the persisted Cloudflare Edge warm-state map when the full page cache / FPC tag is purged.
+     *
+     * @return void
+     */
+    public static function clearEdgeWarmedMap(): void
+    {
+        if (!defined('BP')) {
+            return;
+        }
+        try {
+            $file = self::getEdgeWarmedFilePath();
+            if (!is_file($file)) {
+                return;
+            }
+            $fp = @fopen($file, 'c+');
+            if ($fp === false) {
+                return;
+            }
+            if (@flock($fp, LOCK_EX)) {
+                ftruncate($fp, 0);
+                rewind($fp);
+                fwrite($fp, '{}');
+                fflush($fp);
+                @flock($fp, LOCK_UN);
+            }
+            fclose($fp);
+        } catch (\Throwable $e) {
+            // Never interrupt cache cleaning flow
+        }
+    }
+
+    /**
+     * Load the persisted Cloudflare Edge warm-state map ($cacheId => $fpcMtime).
+     *
+     * @return array<string, int>
+     */
+    private function loadEdgeWarmedMap(): array
+    {
+        $file = self::getEdgeWarmedFilePath();
+        if (!is_file($file)) {
+            return [];
+        }
+        $fp = @fopen($file, 'r');
+        if ($fp === false) {
+            return [];
+        }
+        $map = [];
+        if (@flock($fp, LOCK_SH)) {
+            $raw = stream_get_contents($fp);
+            @flock($fp, LOCK_UN);
+            $decoded = is_string($raw) && $raw !== '' ? json_decode($raw, true) : null;
+            if (is_array($decoded)) {
+                foreach ($decoded as $k => $v) {
+                    if (is_string($k) && $k !== '' && (int)$v > 0) {
+                        $map[$k] = (int)$v;
+                    }
+                }
+            }
+        }
+        fclose($fp);
+        return $map;
+    }
+
+    /**
+     * Atomically persist the Cloudflare Edge warm-state map ($cacheId => $fpcMtime).
+     *
+     * @param array<string, int> $map
+     * @return void
+     */
+    private function saveEdgeWarmedMap(array $map): void
+    {
+        try {
+            if (count($map) > self::EDGE_WARMED_MAX_ENTRIES) {
+                $map = array_slice($map, -self::EDGE_WARMED_MAX_ENTRIES, null, true);
+            }
+            $file = self::getEdgeWarmedFilePath();
+            $dir = dirname($file);
+            if (!is_dir($dir)) {
+                @mkdir($dir, 0775, true);
+            }
+            $fp = @fopen($file, 'c+');
+            if ($fp === false) {
+                return;
+            }
+            if (@flock($fp, LOCK_EX)) {
+                ftruncate($fp, 0);
+                rewind($fp);
+                fwrite($fp, (string)json_encode($map, JSON_UNESCAPED_SLASHES));
+                fflush($fp);
+                @flock($fp, LOCK_UN);
+            }
+            fclose($fp);
+        } catch (\Throwable $e) {
+            // Never interrupt warmer execution on file write error
+        }
+    }
+
+    /**
+     * Return cross-platform normalized path to the Cloudflare Edge warm-state file.
+     *
+     * @return string
+     */
+    private static function getEdgeWarmedFilePath(): string
+    {
+        return str_replace('\\', '/', BP) . self::EDGE_WARMED_REL_PATH;
     }
 
     /**
@@ -926,6 +1063,9 @@ class Warmer
     # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
     # "Fix synchronous Klevu customerData XHR freeze (682ms) and upgrade page-cache:warm --all to warm Cloudflare Edge across all catalog URLs using persistent curl handles":
     # https://github.com/smokeday-com/m/issues/39
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Track Cloudflare Edge warm state (var/page_cache_edge_warmed.json) by FPC mtime and decouple --all from --force so subsequent page-cache:warm --all runs skip already Edge-warmed URLs in <0.3s":
+    # https://github.com/smokeday-com/m/issues/40
     private function executeRollingWarm(
         array $urls,
         int $concurrency,
@@ -933,7 +1073,8 @@ class Warmer
         float $maxRunSeconds,
         float $effectiveMaxLoadAvg,
         array &$summary,
-        array &$warmedPriorityUrls
+        array &$warmedPriorityUrls,
+        array &$edgeWarmedMap
     ): void {
         $mh = curl_multi_init();
         if (defined('CURLMOPT_PIPELINING') && defined('CURLPIPE_MULTIPLEX')) {
@@ -950,6 +1091,7 @@ class Warmer
         $inFlight = [];
         $handlePool = [];
         $headersMap = [];
+        $edgeMapDirtyCount = 0;
         $stopEnqueueReason = null;
         try {
             $requestSequence = random_int(0, self::SYNTHETIC_IP_POOL_SIZE - 1);
@@ -1045,8 +1187,19 @@ class Warmer
                         continue;
                     }
                     $warmedPriorityUrls[$url] = true;
-                    $inFpc = $this->isUrlCached($url);
-                    $cfEdgeWarmed = ($httpCode === 200 && in_array($cfStatus, ['HIT', 'MISS', 'EXPIRED', 'STALE', 'REVALIDATED'], true));
+                    $cacheId = $this->getCacheIdForUrl($url);
+                    $newMtime = $this->getCacheMtimeById($cacheId);
+                    $inFpc = ($newMtime !== false);
+                    $isCacheableStatus = ($httpCode === 200 || $httpCode === 404);
+                    $cfEdgeWarmed = ($isCacheableStatus && in_array($cfStatus, ['HIT', 'MISS', 'EXPIRED', 'STALE', 'REVALIDATED'], true));
+                    if ($inFpc && $isCacheableStatus && ($cfEdgeWarmed || $cfStatus === 'NONE')) {
+                        $edgeWarmedMap[$cacheId] = $newMtime;
+                        $edgeMapDirtyCount++;
+                        if ($edgeMapDirtyCount >= self::EDGE_WARMED_FLUSH_INTERVAL) {
+                            $this->saveEdgeWarmedMap($edgeWarmedMap);
+                            $edgeMapDirtyCount = 0;
+                        }
+                    }
                     if ($httpCode === 200) {
                         $summary['warmed_count']++;
                     }
@@ -1071,6 +1224,9 @@ class Warmer
             }
         }
 
+        if ($edgeMapDirtyCount > 0) {
+            $this->saveEdgeWarmedMap($edgeWarmedMap);
+        }
         foreach ($handlePool as $ch) {
             curl_close($ch);
         }
