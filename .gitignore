@@ -161,3 +161,9 @@
 !/vendor/magento/module-catalog-widget/Block/Product/ProductsList.php
 !/vendor/magento/module-catalog/Block/Product/ProductList/Related.php
 !/vendor/magento/module-catalog/Block/Product/ProductList/Upsell.php
+# 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Replace unconditional global cat_c/cat_p cache flush in Amasty_VisualMerch ApplySorting::afterReindexAll() and CatalogCategoryProductReindex::execute() with differential per-category cat_c_<id> invalidation":
+# https://github.com/smokeday-com/m/issues/32
+!/vendor/amasty/module-visual-merchandiser/Cron/CatalogCategoryProductReindex.php
+!/vendor/amasty/module-visual-merchandiser/Plugin/Sorting/Model/Indexer/Summary/ApplySorting.php
+!/vendor/amasty/module-visual-merchandiser/etc/di.xml

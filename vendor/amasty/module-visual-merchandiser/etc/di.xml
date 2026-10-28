@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) Amasty (https://www.amasty.com)
+ * @package Visual Merchandiser for Magento 2
+ */-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Catalog\Model\Indexer\Category\Product\Action\Full"
+                type="Amasty\VisualMerch\Model\Indexer\Category\Product\Action\Full"/>
+    <preference for="Magento\Catalog\Model\Indexer\Category\Product\Action\Rows"
+                type="Amasty\VisualMerch\Model\Indexer\Category\Product\Action\Rows"/>
+
+    <virtualType name="Amasty\VisualMerch\Model\Rule\Condition\CombineFactory"
+                 type="Magento\CatalogRule\Model\Rule\Condition\CombineFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Amasty\VisualMerch\Model\Rule\Condition\Combine</argument>
+        </arguments>
+    </virtualType>
+    <type name="Amasty\VisualMerch\Model\Rule">
+        <arguments>
+            <argument name="combineFactory" xsi:type="object">Amasty\VisualMerch\Model\Rule\Condition\CombineFactory</argument>
+            <argument name="data" xsi:type="array">
+                <item name="amastySerializer" xsi:type="object">Amasty\Base\Model\Serializer</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Model\ResourceModel\Category" >
+        <plugin name="Amasty_VisualMerch::addConditionsToCategory" type="Amasty\VisualMerch\Plugin\Catalog\Model\ResourceModel\Category" />
+    </type>
+
+    <!--Compatibility with Amasty Xlanding-->
+    <type name="Amasty\Xlanding\Model\Indexer\Catalog\Category\Product">
+        <plugin name="Amasty_VisualMerch::fixXlandingCompatibility"
+                type="Amasty\VisualMerch\Plugin\Xlanding\Model\Indexer\Catalog\Category\Product"/>
+    </type>
+    <!-- Compatibility with Amasty Xlanding end -->
+
+    <virtualType name="Amasty\VisualMerch\Model\Indexer\DynamicCategory\Action\ExecutePartialCategories"
+                 type="Amasty\VisualMerch\Model\Indexer\DynamicCategory\Action\ExecutePartial">
+        <arguments>
+            <argument name="indexerType"
+                      xsi:type="const">Amasty\VisualMerch\Model\Indexer\DynamicCategory\Indexer::CATEGORY_INDEXER_TYPE</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Amasty\VisualMerch\Model\Indexer\DynamicCategory\Action\ExecutePartialProducts"
+                 type="Amasty\VisualMerch\Model\Indexer\DynamicCategory\Action\ExecutePartial">
+        <arguments>
+            <argument name="indexerType"
+                      xsi:type="const">Amasty\VisualMerch\Model\Indexer\DynamicCategory\Indexer::PRODUCT_INDEXER_TYPE</argument>
+        </arguments>
+    </virtualType>
+    <type name="Amasty\VisualMerch\Model\Indexer\DynamicCategory\Action\Msi\ExecutePartialSourceItems">
+        <arguments>
+            <argument name="indexerType"
+                      xsi:type="const">Amasty\VisualMerch\Model\Indexer\DynamicCategory\Indexer::PRODUCT_INDEXER_TYPE</argument>
+        </arguments>
+    </type>
+    <virtualType name="Amasty\VisualMerch\Model\Indexer\DynamicCategory\CategoryIndexer"
+                 type="Amasty\VisualMerch\Model\Indexer\DynamicCategory\Indexer">
+        <arguments>
+            <argument name="executePartial"
+                      xsi:type="object">Amasty\VisualMerch\Model\Indexer\DynamicCategory\Action\ExecutePartialCategories</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Amasty\VisualMerch\Model\Indexer\DynamicCategory\ProductIndexer"
+                 type="Amasty\VisualMerch\Model\Indexer\DynamicCategory\Indexer">
+        <arguments>
+            <argument name="executePartial"
+                      xsi:type="object">Amasty\VisualMerch\Model\Indexer\DynamicCategory\Action\ExecutePartialProducts</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Amasty\VisualMerch\Model\Indexer\DynamicCategory\MsiProductIndexer"
+                 type="Amasty\VisualMerch\Model\Indexer\DynamicCategory\Indexer">
+        <arguments>
+            <argument name="executePartial"
+                      xsi:type="object">Amasty\VisualMerch\Model\Indexer\DynamicCategory\Action\Msi\ExecutePartialSourceItems</argument>
+        </arguments>
+    </virtualType>
+    <type name="Amasty\VisualMerch\Model\Rule\Condition\Created">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="localeDate" xsi:type="object">Magento\Framework\Stdlib\DateTime\TimezoneInterface</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\VisualMerch\Plugin\Framework\Indexer\Config\Reader\AddInventoryIndexerDependency">
+        <arguments>
+            <argument name="indexersDependsOfInventory" xsi:type="array">
+                <item name="amasty_merch_product_dynamic_category_msi"
+                      xsi:type="const">Amasty\VisualMerch\Model\Indexer\DynamicCategory\SourceItemProcessor::INDEXER_ID</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Indexer\Config\Reader">
+        <plugin name="Amasty_VisualMerch::AddInventoryIndexerDependency"
+                type="Amasty\VisualMerch\Plugin\Framework\Indexer\Config\Reader\AddInventoryIndexerDependency" />
+    </type>
+
+    <type name="Magento\InventoryIndexer\Indexer\SourceItem\Strategy\Sync">
+        <plugin name="Amasty_VisualMerch::ReindexProduct"
+                type="Amasty\VisualMerch\Plugin\InventoryIndexer\Indexer\SourceItem\Strategy\Sync\ReindexProduct" />
+    </type>
+
+    <virtualType name="Amasty\VisualMerch\Model\Rule\Condition\Optimization\Optimizers\ConditionsCombine"
+                 type="Amasty\VisualMerch\Model\Rule\Condition\Optimization\Optimizers\Combine">
+        <arguments>
+            <argument name="optimizers" xsi:type="array">
+                <item name="fold_same_conditions" xsi:type="object">
+                    Amasty\VisualMerch\Model\Rule\Condition\Optimization\Optimizers\FoldSameOrConditions
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\VisualMerch\Model\DynamicCategory\GetMatchedProductIds">
+        <arguments>
+            <argument name="conditionsOptimizer"
+                      xsi:type="object">Amasty\VisualMerch\Model\Rule\Condition\Optimization\Optimizers\ConditionsCombine</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Sales\Model\Service\OrderService">
+        <plugin name="Amasty_VisualMerch::SetPlaceOrderProcessingFlag"
+                type="Amasty\VisualMerch\Plugin\Sales\Model\Service\OrderService\SetPlaceOrderProcessingFlag" sortOrder="-1" />
+    </type>
+    <type name="Magento\Sales\Model\Order\Shipment">
+        <plugin name="Amasty_VisualMerch::SetShipmentProcessingFlag"
+                type="Amasty\VisualMerch\Plugin\Sales\Model\Order\Shipment\SetShipmentProcessingFlag"/>
+    </type>
+
+    <type name="Magento\Framework\Indexer\Config\Reader">
+        <plugin name="Amasty_VisualMerch::AddSortingIndexerDependency"
+                type="Amasty\VisualMerch\Plugin\Framework\Indexer\Config\Reader\AddSortingIndexerDependency" />
+    </type>
+    <type name="Amasty\VisualMerch\Plugin\Framework\Indexer\Config\Reader\AddSortingIndexerDependency">
+        <arguments>
+            <argument name="sortingIndexers" xsi:type="array">
+                <item name="amasty_sorting_bestseller" xsi:type="string">amasty_sorting_bestseller</item>
+                <item name="amasty_sorting_most_viewed" xsi:type="string">amasty_sorting_most_viewed</item>
+                <item name="amasty_sorting_wished" xsi:type="string">amasty_sorting_wished</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Sorting\Model\Indexer\Summary">
+        <plugin name="Amasty_VisualMerch::ApplySorting"
+                type="Amasty\VisualMerch\Plugin\Sorting\Model\Indexer\Summary\ApplySorting" />
+    </type>
+
+    <type name="Magento\Catalog\Model\Category">
+        <plugin name="Amasty_VisualMerch::ReindexCategory"
+                type="Amasty\VisualMerch\Plugin\Catalog\Model\Category\ReindexCategory" />
+    </type>
+
+    <type name="Magento\Framework\Mview\Config\Reader">
+        <plugin name="Amasty_VisualMerch::UpdateSubscriptions"
+                type="Amasty\VisualMerch\Plugin\Framework\Mview\Config\Reader\UpdateSubscriptions" />
+    </type>
+    <!-- 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    "Replace unconditional global cat_c/cat_p cache flush in Amasty_VisualMerch ApplySorting::afterReindexAll() and CatalogCategoryProductReindex::execute() with differential per-category cat_c_<id> invalidation":
+    https://github.com/smokeday-com/m/issues/32 -->
+</config>
