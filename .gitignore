@@ -181,3 +181,10 @@
 !/vendor/klevu/module-frontend-js/Constants.php
 !/vendor/klevu/module-frontend-js/Model/CustomerData.php
 !/vendor/klevu/module-frontend-js/view/frontend/templates/html/head/init_session_data.phtml
+# 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Eliminate all-category FPC eviction fan-out in Magento_Elasticsearch IndexerHandler::updateCacheContext() and Category\Product\Action\Rows":
+# https://github.com/smokeday-com/m/issues/41
+!/vendor/magento/module-catalog/Model/Indexer/Category/Product.php
+!/vendor/magento/module-catalog/Model/Indexer/Category/Product/Action/Rows.php
+!/vendor/magento/module-elasticsearch/Model/Indexer/Fulltext/Plugin/Category/Product/Action/Rows.php
+!/vendor/magento/module-elasticsearch/Model/Indexer/IndexerHandler.php
