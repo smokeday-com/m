@@ -49,6 +49,10 @@ class Warmer
     private const EDGE_WARMED_FLUSH_INTERVAL = 100;
     private const EDGE_WARMED_MAX_ENTRIES = 10000;
     # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Prevent App\Cache::clean() from wiping Redis DB 1 (page_cache) during setup:di:compile and add Origin-direct fallback to Warmer when Cloudflare Edge returns HIT with in_fpc=false":
+    # https://github.com/smokeday-com/m/issues/42
+    private const EDGE_NEGATIVE_TTL_SECONDS = 3600;
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
     # "Remove >90 tags-to-FPC escalation in Magento\PageCache\Model\Cache\Type::purgeCloudflare() and add stack-trace audit logging to var/log/cloudflare_purge.log":
     # https://github.com/smokeday-com/m/issues/31
     private const MAX_QUEUE_TAGS = 5000;
@@ -353,6 +357,18 @@ class Warmer
                         }
                         continue;
                     }
+                    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+                    # "Prevent App\Cache::clean() from wiping Redis DB 1 (page_cache) during setup:di:compile and add Origin-direct fallback to Warmer when Cloudflare Edge returns HIT with in_fpc=false":
+                    # https://github.com/smokeday-com/m/issues/42
+                    if (
+                        !$force
+                        && isset($edgeWarmedMap[$cacheId])
+                        && (int)$edgeWarmedMap[$cacheId] < 0
+                        && (time() - abs((int)$edgeWarmedMap[$cacheId])) < self::EDGE_NEGATIVE_TTL_SECONDS
+                    ) {
+                        $summary['skipped_already_cached']++;
+                        continue;
+                    }
                     $toWarm[] = $url;
                     if (count($toWarm) >= $limit) {
                         break;
@@ -494,7 +510,7 @@ class Warmer
             $decoded = is_string($raw) && $raw !== '' ? json_decode($raw, true) : null;
             if (is_array($decoded)) {
                 foreach ($decoded as $k => $v) {
-                    if (is_string($k) && $k !== '' && (int)$v > 0) {
+                    if (is_string($k) && $k !== '' && (int)$v !== 0) {
                         $map[$k] = (int)$v;
                     }
                 }
@@ -1091,6 +1107,7 @@ class Warmer
         $inFlight = [];
         $handlePool = [];
         $headersMap = [];
+        $originFallbackMap = [];
         $edgeMapDirtyCount = 0;
         $stopEnqueueReason = null;
         try {
@@ -1192,13 +1209,22 @@ class Warmer
                     $inFpc = ($newMtime !== false);
                     $isCacheableStatus = ($httpCode === 200 || $httpCode === 404);
                     $cfEdgeWarmed = ($isCacheableStatus && in_array($cfStatus, ['HIT', 'MISS', 'EXPIRED', 'STALE', 'REVALIDATED'], true));
+                    $warmedEntryIndex = count($summary['warmed_urls']);
+                    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+                    # "Prevent App\Cache::clean() from wiping Redis DB 1 (page_cache) during setup:di:compile and add Origin-direct fallback to Warmer when Cloudflare Edge returns HIT with in_fpc=false":
+                    # https://github.com/smokeday-com/m/issues/42
                     if ($inFpc && $isCacheableStatus && ($cfEdgeWarmed || $cfStatus === 'NONE')) {
                         $edgeWarmedMap[$cacheId] = $newMtime;
                         $edgeMapDirtyCount++;
-                        if ($edgeMapDirtyCount >= self::EDGE_WARMED_FLUSH_INTERVAL) {
-                            $this->saveEdgeWarmedMap($edgeWarmedMap);
-                            $edgeMapDirtyCount = 0;
-                        }
+                    } elseif (!$inFpc && $httpCode === 200 && in_array($cfStatus, ['HIT', 'STALE', 'REVALIDATED'], true)) {
+                        $originFallbackMap[$url] = $warmedEntryIndex;
+                    } elseif (!$inFpc && $isCacheableStatus) {
+                        $edgeWarmedMap[$cacheId] = -time();
+                        $edgeMapDirtyCount++;
+                    }
+                    if ($edgeMapDirtyCount >= self::EDGE_WARMED_FLUSH_INTERVAL) {
+                        $this->saveEdgeWarmedMap($edgeWarmedMap);
+                        $edgeMapDirtyCount = 0;
                     }
                     if ($httpCode === 200) {
                         $summary['warmed_count']++;
@@ -1231,9 +1257,214 @@ class Warmer
             curl_close($ch);
         }
         curl_multi_close($mh);
+        if (!empty($originFallbackMap) && $stopEnqueueReason === null) {
+            $this->warmOriginDirect(
+                $originFallbackMap,
+                $concurrency,
+                $startTime,
+                $maxRunSeconds,
+                $effectiveMaxLoadAvg,
+                $summary,
+                $edgeWarmedMap,
+                $stopEnqueueReason
+            );
+        }
         if ($stopEnqueueReason !== null) {
             $summary['status'] = $stopEnqueueReason;
         }
+    }
+
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Prevent App\Cache::clean() from wiping Redis DB 1 (page_cache) during setup:di:compile and add Origin-direct fallback to Warmer when Cloudflare Edge returns HIT with in_fpc=false":
+    # https://github.com/smokeday-com/m/issues/42
+    /**
+     * Warm local Origin (127.0.0.1) directly via CURLOPT_RESOLVE for URLs where Cloudflare Edge served a cached HIT
+     * without forwarding the request to Origin while the local Built-in FPC (Redis DB 1) record was absent.
+     *
+     * @param array<string, int> $originFallbackMap Map of URL => index in $summary['warmed_urls']
+     * @param int $concurrency
+     * @param float $startTime
+     * @param float $maxRunSeconds
+     * @param float $effectiveMaxLoadAvg
+     * @param array<string, mixed> $summary
+     * @param array<string, int> $edgeWarmedMap
+     * @param string|null $stopEnqueueReason
+     * @return void
+     */
+    private function warmOriginDirect(
+        array $originFallbackMap,
+        int $concurrency,
+        float $startTime,
+        float $maxRunSeconds,
+        float $effectiveMaxLoadAvg,
+        array &$summary,
+        array &$edgeWarmedMap,
+        ?string &$stopEnqueueReason
+    ): void {
+        $urls = array_keys($originFallbackMap);
+        $firstUrl = $urls[0] ?? '';
+        $host = (string)parse_url($firstUrl, PHP_URL_HOST);
+        $scheme = strtolower((string)parse_url($firstUrl, PHP_URL_SCHEME));
+        $port = (int)(parse_url($firstUrl, PHP_URL_PORT) ?: ($scheme === 'http' ? 80 : 443));
+        if (!$this->canWarmOriginDirect($host, $port)) {
+            return;
+        }
+
+        $resolveEntry = $host . ':' . $port . ':127.0.0.1';
+        $mh = curl_multi_init();
+        if (defined('CURLMOPT_MAXCONNECTS')) {
+            @curl_multi_setopt($mh, CURLMOPT_MAXCONNECTS, max(32, $concurrency * 2));
+        }
+
+        $total = count($urls);
+        $nextIndex = 0;
+        $retryQueue = [];
+        $retryCounts = [];
+        $inFlight = [];
+        $handlePool = [];
+        $edgeMapDirtyCount = 0;
+        try {
+            $requestSequence = random_int(0, self::SYNTHETIC_IP_POOL_SIZE - 1);
+        } catch (\Throwable $e) {
+            $requestSequence = (int)(microtime(true) * 1000) % self::SYNTHETIC_IP_POOL_SIZE;
+        }
+
+        while ($nextIndex < $total || !empty($retryQueue) || !empty($inFlight)) {
+            while (
+                $stopEnqueueReason === null
+                && (!empty($retryQueue) || $nextIndex < $total)
+                && count($inFlight) < $concurrency
+            ) {
+                if ($maxRunSeconds > 0.0 && (microtime(true) - $startTime) >= $maxRunSeconds) {
+                    $stopEnqueueReason = 'paused_time_budget';
+                    break;
+                }
+                if ($effectiveMaxLoadAvg > 0.0) {
+                    $loadNow = $this->getCurrentLoadAvg();
+                    if ($loadNow !== null && $loadNow >= $effectiveMaxLoadAvg) {
+                        $stopEnqueueReason = 'paused_high_load';
+                        $summary['load_avg_1m'] = $loadNow;
+                        break;
+                    }
+                }
+
+                $url = !empty($retryQueue) ? array_shift($retryQueue) : $urls[$nextIndex++];
+                $ch = !empty($handlePool) ? array_pop($handlePool) : curl_init();
+                if ($ch === false) {
+                    continue;
+                }
+                $handleKey = is_object($ch) ? spl_object_id($ch) : (int)$ch;
+                $syntheticIp = $this->getSyntheticForwardedIp($requestSequence++);
+                curl_setopt_array($ch, [
+                    CURLOPT_URL => $url,
+                    CURLOPT_RESOLVE => [$resolveEntry],
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_HEADER => false,
+                    CURLOPT_FOLLOWLOCATION => false,
+                    CURLOPT_SSL_VERIFYPEER => false,
+                    CURLOPT_SSL_VERIFYHOST => false,
+                    CURLOPT_CONNECTTIMEOUT => 3,
+                    CURLOPT_TIMEOUT => 12,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_HTTPHEADER => [
+                        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                        'Accept-Language: en-US,en;q=0.9',
+                        'X-Forwarded-For: ' . $syntheticIp,
+                        'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 SmokedayCacheWarmer/1.0',
+                    ],
+                ]);
+                curl_multi_add_handle($mh, $ch);
+                $inFlight[$handleKey] = ['handle' => $ch, 'url' => $url];
+            }
+
+            if (empty($inFlight)) {
+                break;
+            }
+
+            $active = null;
+            do {
+                $status = curl_multi_exec($mh, $active);
+            } while ($status === CURLM_CALL_MULTI_PERFORM);
+
+            while ($info = curl_multi_info_read($mh)) {
+                if (($info['msg'] ?? null) !== CURLMSG_DONE || !isset($info['handle'])) {
+                    continue;
+                }
+                $ch = $info['handle'];
+                $handleKey = is_object($ch) ? spl_object_id($ch) : (int)$ch;
+                $url = $inFlight[$handleKey]['url'] ?? '';
+                $httpCode = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+                curl_multi_remove_handle($mh, $ch);
+                $handlePool[] = $ch;
+                unset($inFlight[$handleKey]);
+
+                if ($url !== '') {
+                    if ($httpCode === 429 && ($retryCounts[$url] ?? 0) < self::MAX_429_RETRIES) {
+                        $retryCounts[$url] = ($retryCounts[$url] ?? 0) + 1;
+                        $requestSequence += 97;
+                        $retryQueue[] = $url;
+                        usleep(150000);
+                        continue;
+                    }
+                    $cacheId = $this->getCacheIdForUrl($url);
+                    $newMtime = $this->getCacheMtimeById($cacheId);
+                    $inFpc = ($newMtime !== false);
+                    $entryIdx = $originFallbackMap[$url] ?? null;
+                    if ($inFpc) {
+                        $summary['verified_in_fpc']++;
+                        if ($entryIdx !== null && isset($summary['warmed_urls'][$entryIdx])) {
+                            $summary['warmed_urls'][$entryIdx]['in_fpc'] = true;
+                        }
+                        $edgeWarmedMap[$cacheId] = $newMtime;
+                        $edgeMapDirtyCount++;
+                    } elseif ($httpCode === 200 || $httpCode === 404) {
+                        $edgeWarmedMap[$cacheId] = -time();
+                        $edgeMapDirtyCount++;
+                    }
+                    if ($edgeMapDirtyCount >= self::EDGE_WARMED_FLUSH_INTERVAL) {
+                        $this->saveEdgeWarmedMap($edgeWarmedMap);
+                        $edgeMapDirtyCount = 0;
+                    }
+                }
+            }
+
+            if (!empty($inFlight) && $active && $status === CURLM_OK) {
+                if (curl_multi_select($mh, 0.2) === -1) {
+                    usleep(10000);
+                }
+            }
+        }
+
+        if ($edgeMapDirtyCount > 0) {
+            $this->saveEdgeWarmedMap($edgeWarmedMap);
+        }
+        foreach ($handlePool as $ch) {
+            curl_close($ch);
+        }
+        curl_multi_close($mh);
+    }
+
+    /**
+     * Check whether local Origin loopback (127.0.0.1:$port) accepts TCP connections.
+     *
+     * @param string $host
+     * @param int $port
+     * @return bool
+     */
+    private function canWarmOriginDirect(string $host, int $port = 443): bool
+    {
+        if ($host === '' || $port <= 0) {
+            return false;
+        }
+        $errno = 0;
+        $errstr = '';
+        $fp = @fsockopen('127.0.0.1', $port, $errno, $errstr, 1.0);
+        if (!is_resource($fp)) {
+            return false;
+        }
+        fclose($fp);
+        return true;
     }
 
     /**

@@ -188,3 +188,7 @@
 !/vendor/magento/module-catalog/Model/Indexer/Category/Product/Action/Rows.php
 !/vendor/magento/module-elasticsearch/Model/Indexer/Fulltext/Plugin/Category/Product/Action/Rows.php
 !/vendor/magento/module-elasticsearch/Model/Indexer/IndexerHandler.php
+# 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Prevent App\Cache::clean() from wiping Redis DB 1 (page_cache) during setup:di:compile and add Origin-direct fallback to Warmer when Cloudflare Edge returns HIT with in_fpc=false":
+# https://github.com/smokeday-com/m/issues/42
+!/vendor/magento/framework/App/Cache.php
