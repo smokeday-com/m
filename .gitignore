@@ -167,3 +167,7 @@
 !/vendor/amasty/module-visual-merchandiser/Cron/CatalogCategoryProductReindex.php
 !/vendor/amasty/module-visual-merchandiser/Plugin/Sorting/Model/Indexer/Summary/ApplySorting.php
 !/vendor/amasty/module-visual-merchandiser/etc/di.xml
+# 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Make Amasty\Mostviewed\Model\Indexer\ProductIndexer::doReindex() cache invalidation differential so unchanged product-rule associations do not flush cat_p_<id>":
+# https://github.com/smokeday-com/m/issues/36
+!/vendor/amasty/mostviewed/Model/Indexer/ProductIndexer.php
