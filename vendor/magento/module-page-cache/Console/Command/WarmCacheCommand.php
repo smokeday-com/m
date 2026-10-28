@@ -5,6 +5,9 @@
 # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
 # "Add --all (-a) and --max-time (-t) manual full-site warming mode with rolling-window curl_multi pipelining to page-cache:warm (WarmCacheCommand and Warmer::warm)":
 # https://github.com/smokeday-com/m/issues/37
+# 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Fix synchronous Klevu customerData XHR freeze (682ms) and upgrade page-cache:warm --all to warm Cloudflare Edge across all catalog URLs using persistent curl handles":
+# https://github.com/smokeday-com/m/issues/39
 declare(strict_types=1);
 
 namespace Magento\PageCache\Console\Command;
@@ -86,7 +89,7 @@ class WarmCacheCommand extends Command
         $rawConcurrency = $input->getOption(self::OPT_CONCURRENCY);
         $rawMaxLoad = $input->getOption(self::OPT_MAX_LOAD);
         $rawMaxTime = $input->getOption(self::OPT_MAX_TIME);
-        $force = (bool)$input->getOption(self::OPT_FORCE);
+        $force = (bool)$input->getOption(self::OPT_FORCE) || $all;
 
         $limit = $rawLimit !== null
             ? (int)$rawLimit

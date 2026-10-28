@@ -321,20 +321,36 @@ class Warmer
             }
 
             // 2. Prioritized canonical catalog & pagination URLs (M-WARMER-1)
+            # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+            # "Fix synchronous Klevu customerData XHR freeze (682ms) and upgrade page-cache:warm --all to warm Cloudflare Edge across all catalog URLs using persistent curl handles":
+            # https://github.com/smokeday-com/m/issues/39
             if (count($toWarm) < $limit) {
+                $cachedInFpcUrls = [];
                 foreach ($catalogUrls as $url) {
                     if (isset($seen[$url])) {
                         continue;
                     }
                     $seen[$url] = true;
                     $summary['checked_in_fpc']++;
-                    if (!$force && $this->isUrlCached($url)) {
-                        $summary['skipped_already_cached']++;
+                    if ($this->isUrlCached($url)) {
+                        if ($force) {
+                            $cachedInFpcUrls[] = $url;
+                        } else {
+                            $summary['skipped_already_cached']++;
+                        }
                         continue;
                     }
                     $toWarm[] = $url;
                     if (count($toWarm) >= $limit) {
                         break;
+                    }
+                }
+                if ($force && count($toWarm) < $limit && !empty($cachedInFpcUrls)) {
+                    foreach ($cachedInFpcUrls as $url) {
+                        $toWarm[] = $url;
+                        if (count($toWarm) >= $limit) {
+                            break;
+                        }
                     }
                 }
             }
@@ -907,6 +923,9 @@ class Warmer
     # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
     # "Prevent Nexcess ModSecurity HTTP 429 greylisting in Warmer::executeRollingWarm() via synthetic X-Forwarded-For IP rotation + 429 retry/backoff, and restore CF-Connecting-IP as REMOTE_ADDR in app/bootstrap.php":
     # https://github.com/smokeday-com/m/issues/38
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Fix synchronous Klevu customerData XHR freeze (682ms) and upgrade page-cache:warm --all to warm Cloudflare Edge across all catalog URLs using persistent curl handles":
+    # https://github.com/smokeday-com/m/issues/39
     private function executeRollingWarm(
         array $urls,
         int $concurrency,
@@ -920,12 +939,16 @@ class Warmer
         if (defined('CURLMOPT_PIPELINING') && defined('CURLPIPE_MULTIPLEX')) {
             @curl_multi_setopt($mh, CURLMOPT_PIPELINING, CURLPIPE_MULTIPLEX);
         }
+        if (defined('CURLMOPT_MAXCONNECTS')) {
+            @curl_multi_setopt($mh, CURLMOPT_MAXCONNECTS, max(32, $concurrency * 2));
+        }
 
         $total = count($urls);
         $nextIndex = 0;
         $retryQueue = [];
         $retryCounts = [];
         $inFlight = [];
+        $handlePool = [];
         $headersMap = [];
         $stopEnqueueReason = null;
         try {
@@ -954,7 +977,7 @@ class Warmer
                 }
 
                 $url = !empty($retryQueue) ? array_shift($retryQueue) : $urls[$nextIndex++];
-                $ch = curl_init($url);
+                $ch = !empty($handlePool) ? array_pop($handlePool) : curl_init();
                 if ($ch === false) {
                     continue;
                 }
@@ -962,6 +985,7 @@ class Warmer
                 $headersMap[$handleKey] = ['cf_cache_status' => 'NONE'];
                 $syntheticIp = $this->getSyntheticForwardedIp($requestSequence++);
                 curl_setopt_array($ch, [
+                    CURLOPT_URL => $url,
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_HEADER => false,
                     CURLOPT_FOLLOWLOCATION => false,
@@ -969,6 +993,7 @@ class Warmer
                     CURLOPT_SSL_VERIFYHOST => false,
                     CURLOPT_CONNECTTIMEOUT => 3,
                     CURLOPT_TIMEOUT => 12,
+                    CURLOPT_DNS_CACHE_TIMEOUT => 3600,
                     CURLOPT_ENCODING => '',
                     CURLOPT_HTTPHEADER => [
                         'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -1008,7 +1033,7 @@ class Warmer
                 $cfStatus = $headersMap[$handleKey]['cf_cache_status'] ?? 'NONE';
 
                 curl_multi_remove_handle($mh, $ch);
-                curl_close($ch);
+                $handlePool[] = $ch;
                 unset($inFlight[$handleKey], $headersMap[$handleKey]);
 
                 if ($url !== '') {
@@ -1021,6 +1046,7 @@ class Warmer
                     }
                     $warmedPriorityUrls[$url] = true;
                     $inFpc = $this->isUrlCached($url);
+                    $cfEdgeWarmed = ($httpCode === 200 && in_array($cfStatus, ['HIT', 'MISS', 'EXPIRED', 'STALE', 'REVALIDATED'], true));
                     if ($httpCode === 200) {
                         $summary['warmed_count']++;
                     }
@@ -1031,6 +1057,7 @@ class Warmer
                         'url' => $url,
                         'http_code' => $httpCode,
                         'cf_cache_status' => $cfStatus,
+                        'cf_edge_warmed' => $cfEdgeWarmed,
                         'time_sec' => $totalTime,
                         'in_fpc' => $inFpc,
                     ];
@@ -1044,6 +1071,9 @@ class Warmer
             }
         }
 
+        foreach ($handlePool as $ch) {
+            curl_close($ch);
+        }
         curl_multi_close($mh);
         if ($stopEnqueueReason !== null) {
             $summary['status'] = $stopEnqueueReason;

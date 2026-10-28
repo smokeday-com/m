@@ -1,0 +1,99 @@
+<?php
+# 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Fix synchronous Klevu customerData XHR freeze (682ms) and upgrade page-cache:warm --all to warm Cloudflare Edge across all catalog URLs using persistent curl handles":
+# https://github.com/smokeday-com/m/issues/39
+/**
+ * @var Klevu\FrontendJs\Block\Html\Head\InitSessionData $block
+ * @var Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer
+ */ ?>
+
+<?php
+$scriptString = "
+    var nowUnixtime = parseInt(Date.now() / 1000);
+
+    function klevufejs_getCookie(name) {
+        if (typeof (name) === 'undefined') {
+            name = '{$block->getCookieKey()}';
+        }
+        var c = '',
+            ca = document.cookie.split(';');
+
+        for (var i = 0; i < ca.length; i++) {
+            c = ca[i];
+            if (typeof c !== 'string') {
+                continue;
+            }
+            var cookiePair = c.split('=');
+
+            if (name === cookiePair[0].trim()) {
+                try {
+                    return JSON.parse(decodeURIComponent(cookiePair[1]));
+                } catch (err) {
+                    // this is fine, data will be regenerated
+                }
+            }
+        }
+        return {
+            {$block->getExpireSectionsKey()}: {}
+        };
+    }
+
+    document.addEventListener('{$block->getCustomerDataLoadedEventName()}', function (e) {
+    var klevufejs_cookie = klevufejs_getCookie();
+    klevufejs_cookie.{$block->getExpireSectionsKey()}.{$block->getCustomerDataKey()} = nowUnixtime + {$block->getCustomerDataSectionTtl()};
+
+    document.cookie = '{$block->getCookieKey()}=' + JSON.stringify(klevufejs_cookie)
+        + '; expires=' + new Date((nowUnixtime + {$block->getCookieLifetime()}) * 1000).toUTCString()
+        + '; path={$block->getCookiePath()}'
+        + '; samesite=strict';
+    });
+
+    var klevufejs_cookie = klevufejs_getCookie();
+    var klevuData = {
+        ...{
+            {$block->getCustomerDataKey()}: {
+                revalidate_after: -1
+            }
+        },
+        ...JSON.parse(window.localStorage.getItem('{$block->getLocalStorageKey()}') || '{}')
+    };
+
+    const klevuCustomerDataLoadedEvent = document.createEvent('CustomEvent');
+    klevuCustomerDataLoadedEvent.initEvent('{$block->getCustomerDataLoadedEventName()}', false, true);
+    const klevuCustomerDataLoadErrorEvent = document.createEvent('CustomEvent');
+    klevuCustomerDataLoadErrorEvent.initEvent('{$block->getCustomerDataLoadErrorEventName()}', false, true);
+
+    if (typeof klevufejs_cookie.{$block->getExpireSectionsKey()} !== 'object'
+        || (klevufejs_cookie.{$block->getExpireSectionsKey()}.{$block->getCustomerDataKey()} || -1) < nowUnixtime
+        || klevuData.{$block->getCustomerDataKey()}.revalidate_after < nowUnixtime
+        ) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onerror = function (request) {
+                document.dispatchEvent(klevuCustomerDataLoadErrorEvent);
+            };
+            xhttp.ontimeout = function (request) {
+                this.onerror(request);
+            };
+            xhttp.onload = function (request) {
+                if (this.status >= 400 || this.timeout) {
+                    this.onerror(request);
+                    return;
+                }
+                var klevuData = JSON.parse(window.localStorage.getItem('{$block->getLocalStorageKey()}') || '{}');
+                klevuData.{$block->getCustomerDataKey()} = JSON.parse(this.response);
+                window.localStorage.setItem('{$block->getLocalStorageKey()}', JSON.stringify(klevuData));
+                document.dispatchEvent(klevuCustomerDataLoadedEvent);
+            };
+        xhttp.open('GET', '{$block->getCustomerDataApiEndpoint()}', true);
+        xhttp.send();
+    } else {
+        document.dispatchEvent(klevuCustomerDataLoadedEvent);
+    }
+";
+?>
+<?= /* @noEscape */ $secureRenderer->renderTag(
+    'script',
+    ['type' => 'text/javascript'],
+    $scriptString,
+    false
+) ?>

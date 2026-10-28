@@ -1,0 +1,24 @@
+<?php
+
+namespace Klevu\FrontendJs;
+
+class Constants
+{
+    const XML_PATH_FRONTENDJS_ENABLED = 'klevu_frontendjs/configuration/enabled';
+    const XML_PATH_DEFER_JS = 'klevu_frontendjs/configuration/defer_js';
+
+    const LOCAL_STORAGE_KEY = 'klv_mage';
+    const LOCAL_STORAGE_CUSTOMER_DATA_KEY = 'customerData';
+    # 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+    # "Fix synchronous Klevu customerData XHR freeze (682ms) and upgrade page-cache:warm --all to warm Cloudflare Edge across all catalog URLs using persistent curl handles":
+    # https://github.com/smokeday-com/m/issues/39
+    const LOCAL_STORAGE_TTL_CUSTOMER_DATA = 86400;
+
+    const COOKIE_KEY = 'klv_mage';
+    const COOKIE_EXPIRE_SECTIONS_KEY = 'expire_sections';
+    const DEFAULT_COOKIE_LIFETIME = 86400;
+    const DEFAULT_COOKIE_PATH = '/';
+
+    const JS_EVENTNAME_CUSTOMER_DATA_LOADED = 'klevu.customerData.loaded';
+    const JS_EVENTNAME_CUSTOMER_DATA_LOAD_ERROR = 'klevu.customerData.loadError';
+}

@@ -175,3 +175,9 @@
 # "Prevent Nexcess ModSecurity HTTP 429 greylisting in Warmer::executeRollingWarm() via synthetic X-Forwarded-For IP rotation + 429 retry/backoff, and restore CF-Connecting-IP as REMOTE_ADDR in app/bootstrap.php":
 # https://github.com/smokeday-com/m/issues/38
 !/app/bootstrap.php
+# 2026-10-28 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Fix synchronous Klevu customerData XHR freeze (682ms) and upgrade page-cache:warm --all to warm Cloudflare Edge across all catalog URLs using persistent curl handles":
+# https://github.com/smokeday-com/m/issues/39
+!/vendor/klevu/module-frontend-js/Constants.php
+!/vendor/klevu/module-frontend-js/Model/CustomerData.php
+!/vendor/klevu/module-frontend-js/view/frontend/templates/html/head/init_session_data.phtml
