@@ -196,3 +196,7 @@
 # "Restore pub/static/.htaccess and track !/pub/static/.htaccess in .gitignore for static file signing (dev/static/sign = 1)":
 # https://github.com/smokeday-com/m/issues/44
 !/pub/static/.htaccess
+# 2026-10-29 Dmitrii Fediuk https://github.com/dmitrii-fediuk
+# "Disable catalog/seo/product_use_categories (M-PRODUCT-URL-1) and normalize category-prefixed product URLs to canonical product URLs in Identifier::getValue() and IdentifierForSave::getValue() (M-PRODUCT-URL-2 / M-PRODUCT-URL-3)":
+# https://github.com/smokeday-com/m/issues/45
+!/vendor/magento/module-page-cache/Model/App/Request/Http/IdentifierForSave.php
